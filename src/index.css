@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+
+@import "tailwindcss";
+
+html, body{
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto Flex", monospace;
+    scroll-behavior: smooth;
+}
+
+#logo-name , #heading{
+    font-family: "Space Mono";
+}
+
+@layer utilities{
+    @keyframes blink {
+        0%, 100%{
+            opacity: 1;
+        }
+        50%{
+            opacity: 0;
+        }
+    }
+    .animate-blink{
+        animation: blink 0.8s step-end infinite;
+    }
+
+    @keyframes loading {
+        0%{
+            transform: translateX(-100%);
+        }
+        100%{
+            transform: translateX(250%);
+        }
+    }
+    .animate-loading-bar{
+        animation: loading 0.8s ease infinite;
+    }
+}
