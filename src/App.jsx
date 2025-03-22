@@ -4,6 +4,7 @@ import Navbar from './components/Navbar'
 import Mobile from './components/Mobile'
 import Hero from './components/sections/Hero'
 import AboutSection from './components/sections/AboutSection'
+import ContactSection from './components/sections/ContactSection'
 import { useState , useEffect } from 'react'
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
             <Mobile hamMenu={hamMenu} setHamMenu={setHamMenu} />
             <Hero />
             <AboutSection />
+            <ContactSection />
     
       </div>
     </>
