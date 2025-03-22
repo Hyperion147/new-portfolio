@@ -1,10 +1,19 @@
 import React from 'react'
 import { motion } from 'motion/react'
-import { div } from 'motion/react-client'
+import { cn } from '../utils'
 
 const Hero = () => {
   return (
-   
+    <div className="relative flex items-center justify-center bg-white min-h-screen">
+    <div
+      className={cn(
+        "absolute inset-0",
+        "bg-[length:20px_20px]",
+        "bg-[image:radial-gradient(#d4d4d4_1px,transparent_1px)]"
+      )}
+    />
+    <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
+
     <section id='home' className='min-h-screen flex items-center justify-center relative'>
         <div className='text-center z-10 px-4'>
             <h1 className='text-5xl md:text-7xl font-bold mb-6 pb-2 bg-gradient-to-r from-indigo-200 to-gray-500 leading-right rounded-2xl bg-clip-text text-transparent'>Hello, I'm Suryansu Singh</h1>
@@ -31,6 +40,7 @@ const Hero = () => {
         </div>
 
     </section>
+    </div>
   )
 }
 
