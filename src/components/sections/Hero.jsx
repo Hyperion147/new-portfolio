@@ -1,8 +1,10 @@
 import React from 'react'
 import { motion } from 'motion/react'
+import { div } from 'motion/react-client'
 
 const Hero = () => {
   return (
+   
     <section id='home' className='min-h-screen flex items-center justify-center relative'>
         <div className='text-center z-10 px-4'>
             <h1 className='text-5xl md:text-7xl font-bold mb-6 pb-2 bg-gradient-to-r from-indigo-200 to-gray-500 leading-right rounded-2xl bg-clip-text text-transparent'>Hello, I'm Suryansu Singh</h1>

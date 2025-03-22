@@ -12,9 +12,11 @@
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "@tailwindcss/vite": "^4.0.14",
+    "clsx": "^2.1.1",
     "motion": "^12.5.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "tailwind-merge": "^3.0.2",
     "tailwindcss": "^4.0.14"
   },
   "devDependencies": {
