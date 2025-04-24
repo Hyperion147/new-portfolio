@@ -22,7 +22,7 @@ const Navbar = ({hamMenu, setHamMenu}) => {
 
                 <div className='hidden md:flex items-center space-x-8'>
                     <a href="#about" className='hover:text-gray-600 font-bold transition-colors'>About</a>
-                    <a href="#porjects" className='hover:text-gray-600 font-bold transition-colors'>Projects</a>
+                    <a href="#projects" className='hover:text-gray-600 font-bold transition-colors'>Projects</a>
                     <a href="#contact" className='hover:text-gray-600 font-bold transition-colors'>Contact</a>
                 </div>
 

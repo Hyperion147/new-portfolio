@@ -1,7 +1,4 @@
 import github from "./github.png";
-import menu from "./menu.svg";
-import close from "./close.svg";
-
 import css from "./tech/css.png";
 import docker from "./tech/docker.png";
 import figma from "./tech/figma.png";
@@ -15,14 +12,11 @@ import redux from "./tech/redux.png";
 import tailwind from "./tech/tailwind.png";
 import typescript from "./tech/typescript.png";
 import threejs from "./tech/threejs.svg";
-
 import ajivak from "./ajivak.png";
 import portfolio from "./portfolio.png";
 
 export {
   github,
-  menu,
-  close,
   css,
   docker,
   figma,

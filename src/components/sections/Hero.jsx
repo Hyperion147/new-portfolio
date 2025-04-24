@@ -1,6 +1,7 @@
 import React from 'react'
 import { motion } from 'motion/react'
 import { cn } from '../Utils'
+import { Meteors } from '../ui/meteors'
 
 const Hero = () => {
   return (
@@ -40,6 +41,7 @@ const Hero = () => {
         </div>
 
     </section>
+    <Meteors number={20} />
     </div>
   )
 }

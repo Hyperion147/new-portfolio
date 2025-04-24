@@ -1,10 +1,9 @@
 import { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
-import { cn } from '../Utils';
+emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
 
 const ContactSection = () => {
     const formRef = useRef();
-
     const [form, setForm] = useState({
         name: '',
         email: '',
@@ -17,101 +16,130 @@ const ContactSection = () => {
         setForm({ ...form, [name]: value });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+
+        // Validation
+        if (!form.name.trim() || !form.email.trim() || !form.message.trim()) {
+            alert("Please fill in all fields");
+            return;
+        }
+
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
+            alert("Please enter a valid email address");
+            return;
+        }
+
         setLoading(true);
 
-        emailjs.send(
-            'service_y3ckbbj',
-            'template_kgb5fws',
-            {
-                from_name: form.name,
-                to_name: "Suryansu",
-                from_email: form.email,
-                to_email: "suryansu87@gmail.com",
-                message: form.message
-            },
-            'ocaE5N3GFCetKK-nI'
-        )
-            .then(() => {
-                setLoading(false);
-                alert("Thank you, I will respond as soon as possible!");
-                setForm({
-                    name: '',
-                    email: '',
-                    message: '',
-                });
-            }, (error) => {
-                setLoading(false);
-                console.log(error);
-                alert("Something went wrong!!!");
+        try {
+            await emailjs.send(
+                import.meta.env.VITE_EMAILJS_SERVICE_ID,
+                import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+                {
+                    from_name: form.name.trim(),
+                    to_name: "Suryansu",
+                    from_email: form.email.trim(),
+                    to_email: "suryansu87@gmail.com",
+                    message: form.message.trim(),
+                },
+            );
+
+            setLoading(false);
+            alert("Thank you! I'll respond as soon as possible.");
+            setForm({
+                name: '',
+                email: '',
+                message: '',
             });
+        } catch (error) {
+            setLoading(false);
+            console.error("Email sending error:", error);
+            alert("Oops! Something went wrong. Please try again later.");
+        }
     };
 
     return (
-        <div id="contact" className="relative xl:mt-8 xl:flex-row mx-4 sm:mx-8 md:mx-20 lg:mx-32 flex flex-col gap-5 justify-center overflow-hidden mb-15">
-       
-            <div
-                className={cn(
-                    "absolute inset-0",
-                    "bg-[length:20px_20px]",
-                    "bg-[image:radial-gradient(#d4d4d4_1px,transparent_1px)]"
-                )}
-            />
-            <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
-
+        <section 
+            id="contact" 
+            className="relative py-12 px-4 sm:px-8 md:px-20 lg:px-32 max-w-7xl mx-auto"
+        >
             <form
                 ref={formRef}
                 onSubmit={handleSubmit}
-                className="mt-4 flex flex-col gap-4 w-full max-w-2xl z-10"
+                className="mt-4 flex flex-col gap-6 w-full max-w-2xl mx-auto"
             >
-                <h3 className="bg-gradient-to-r from-indigo-200 to-gray-900 leading-right rounded-2xl bg-clip-text text-transparent text-3xl sm:text-4xl font-medium">
-                    Contact.
-                </h3>
+                <h2 className="bg-gradient-to-r from-indigo-200 to-gray-900 bg-clip-text text-transparent text-4xl font-medium sm:text-4xl text-center">
+                    Contact Me
+                </h2>
 
-                <label className="flex flex-col">
-                    <span className="font-medium mb-2">Your Name</span>
+                <div className="flex flex-col gap-1">
+                    <label htmlFor="name" className="font-medium text-gray-700">
+                        Your Name
+                    </label>
                     <input
                         type="text"
+                        id="name"
                         name="name"
                         value={form.name}
                         onChange={handleChange}
                         placeholder="What's your name?"
-                        className="py-3 px-4 w-full placeholder:text-slate-500 rounded-lg outline-none border font-medium"
+                        className="py-3 px-4 w-full placeholder:text-gray-400 rounded-lg border border-gray-600 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition-all"
+                        required
                     />
-                </label>
+                </div>
 
-                <label className="flex flex-col">
-                    <span className="font-medium mb-2">Your Email</span>
+                <div className="flex flex-col gap-1">
+                    <label htmlFor="email" className="font-medium text-gray-700">
+                        Your Email
+                    </label>
                     <input
                         type="email"
+                        id="email"
                         name="email"
                         value={form.email}
                         onChange={handleChange}
                         placeholder="What's your email?"
-                        className="py-3 px-4 w-full placeholder:text-slate-500 rounded-lg outline-none border font-medium"
+                        className="py-3 px-4 w-full placeholder:text-gray-400 rounded-lg border border-gray-600 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition-all"
+                        required
                     />
-                </label>
+                </div>
 
-                <label className="flex flex-col">
-                    <span className="font-medium mb-2">Your Message</span>
+                <div className="flex flex-col gap-1">
+                    <label htmlFor="message" className="font-medium text-gray-700">
+                        Your Message
+                    </label>
                     <textarea
-                        rows="6"
+                        id="message"
                         name="message"
+                        rows={6}
                         value={form.message}
                         onChange={handleChange}
                         placeholder="What do you want to say?"
-                        className="py-4 px-6 w-full placeholder:text-slate-500 rounded-lg outline-none border font-medium resize-y"
+                        className="py-3 px-4 w-full placeholder:text-gray-400 rounded-lg border border-gray-600 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition-all resize-none"
+                        required
                     />
-                </label>
+                </div>
+
                 <button
                     type="submit"
-                    className="bg-slate-300 py-3 px-8 outline-none w-fit font-bold hover:bg-slate-500 hover:text-white shadow-md shadow-primary rounded-3xl transition-all duration-300"
+                    disabled={loading}
+                    className="mt-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
                 >
-                    {loading ? 'Sending...' : 'Send'}
+                    {loading ? (
+                        <span className="flex items-center justify-center gap-2">
+                            <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                            Sending...
+                        </span>
+                    ) : (
+                        "Send Message"
+                    )}
                 </button>
             </form>
-        </div>
+        </section>
     );
 };
 
