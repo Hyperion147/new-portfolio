@@ -15,7 +15,7 @@ const Mobile = ({ hamMenu, setHamMenu }) => {
 
             <a href="#about" className={`text-2xl font-semibold my-4 transform transition-transform duration-300 ${hamMenu ? "opacity-100 translate-y-0" : "opactiy-0 translate-y-5"}`}
             onClick={() => setHamMenu(false)}>About</a>
-            <a href="#porjects" className={`text-2xl font-semibold my-4 transform transition-transform duration-300 ${hamMenu ? "opacity-100 translate-y-0" : "opactiy-0 translate-y-5"}`}
+            <a href="#projects" className={`text-2xl font-semibold my-4 transform transition-transform duration-300 ${hamMenu ? "opacity-100 translate-y-0" : "opactiy-0 translate-y-5"}`}
             onClick={() => setHamMenu(false)}>Projects</a>
             <a href="#contact" className={`text-2xl font-semibold my-4 transform transition-transform duration-300 ${hamMenu ? "opacity-100 translate-y-0" : "opactiy-0 translate-y-5"}`}
             onClick={() => setHamMenu(false)}>Contact</a>

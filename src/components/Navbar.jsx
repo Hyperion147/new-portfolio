@@ -38,7 +38,7 @@ const Navbar = ({hamMenu, setHamMenu}) => {
                     <ScrollLink 
                       to="projects" 
                       smooth={true} 
-                      duration={500} 
+                      duration={500} offset={-100}
                       className='hover:text-gray-600 font-bold transition-colors cursor-pointer'
                     >
                       Projects

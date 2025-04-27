@@ -124,7 +124,7 @@ const ContactSection = () => {
                 <button
                     type="submit"
                     disabled={loading}
-                    className="mt-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
+                    className="mt-2 bg-indigo-600 cursor-pointer hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
                 >
                     {loading ? (
                         <span className="flex items-center justify-center gap-2">

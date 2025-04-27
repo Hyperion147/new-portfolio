@@ -25,7 +25,7 @@ function App() {
             <Mobile hamMenu={hamMenu} setHamMenu={setHamMenu} />
             <Hero />
             <AboutSection />
-            {/* <ProjectSection /> */}
+            <ProjectSection />
             <ContactSection />
     
       </div>

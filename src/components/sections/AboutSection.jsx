@@ -11,10 +11,9 @@ const AboutSection = () => {
           <p id='heading' className='bg-gradient-to-r from-indigo-200 to-gray-900 leading-right rounded-2xl bg-clip-text text-transparent text-4xl font-medium text-center'>Introduction</p>
         </motion.div>
 
-        <motion.p className="mt-4 text-[17px] max-w-3xl mx-auto leading-[25px] text-center flex items-center justify-center">
+        <motion.p className="mt-10 text-[17px] max-w-3xl mx-auto leading-[25px] text-center flex items-center justify-center">
           I am a rookie Frontend Developer with experience in Javascript, Tailwind and currently learning React alongside some libraries such as Framer motion... I am a quick learner and hoping to get projects to enhance my skills in Frontend Development!
         </motion.p>
-        <p className='pt-10 flex text-3xl text-gray-500 '>Technologies that I know...</p>
         <Tech />
       </div>
     </div>
