@@ -2,10 +2,11 @@ import React from 'react'
 import { motion } from 'motion/react'
 import { cn } from '../Utils'
 import { Meteors } from '../ui/meteors'
+import { Link as ScrollLink } from 'react-scroll'
 
 const Hero = () => {
   return (
-    <div className="relative flex items-center justify-center bg-white min-h-screen">
+    <div className="relative flex items-center justify-center bg-white min-h-screen mb-20">
     <div
       className={cn(
         "absolute inset-0",
@@ -24,7 +25,7 @@ const Hero = () => {
         </div>
 
         <div className='absolute xs:bottom-10 bottom-20 w-full flex justify-center items-center'>
-            <a href="#about">
+            <ScrollLink to="about" smooth={true} duration={1000} offset={-120}>
                 <div className='w-[35px] h-[64px] rounded-3xl border-4 flex justify-center items-start p-2'>
                     <motion.div
                     animate={{
@@ -37,7 +38,7 @@ const Hero = () => {
                     }}  className='w-3 h-3 rounded-full bg-gray-400'
                     />
                 </div>
-            </a>
+            </ScrollLink>
         </div>
 
     </section>
