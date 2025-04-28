@@ -36,9 +36,9 @@ const ToggleDark = () => {
             relative 
             w-10 h-5       
             sm:w-12 sm:h-6 
-            md:w-14 md:h-7  
+            md:w-14 md:h-7
             lg:w-16 lg:h-8 
-            rounded-full 
+            rounded-full
             bg-gray-200 dark:bg-gray-700 
             transition-all duration-300 
             focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500

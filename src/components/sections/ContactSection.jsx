@@ -69,12 +69,12 @@ const ContactSection = () => {
                 onSubmit={handleSubmit}
                 className="mt-4 flex flex-col gap-6 w-full max-w-2xl mx-auto"
             >
-                <h2 className="bg-gradient-to-r from-indigo-200 to-gray-900 bg-clip-text text-transparent text-4xl font-medium sm:text-4xl text-center">
+                <h2 className="bg-gradient-to-r from-indigo-200 to-gray-900 bg-clip-text text-transparent text-4xl font-medium sm:text-4xl text-center dark:to-slate-500">
                     Contact Me
                 </h2>
 
                 <div className="flex flex-col gap-1">
-                    <label htmlFor="name" className="font-medium text-gray-700">
+                    <label htmlFor="name" className="font-medium text-gray-700 dark:text-gray-300">
                         Your Name
                     </label>
                     <input
@@ -84,13 +84,13 @@ const ContactSection = () => {
                         value={form.name}
                         onChange={handleChange}
                         placeholder="What's your name?"
-                        className="py-3 px-4 w-full placeholder:text-gray-400 rounded-lg border border-gray-600 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition-all"
+                        className="py-3 px-4 w-full placeholder:text-gray-400 rounded-lg border border-gray-600 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition-all dark:text-white"
                         required
                     />
                 </div>
 
                 <div className="flex flex-col gap-1">
-                    <label htmlFor="email" className="font-medium text-gray-700">
+                    <label htmlFor="email" className="font-medium text-gray-700 dark:text-gray-300">
                         Your Email
                     </label>
                     <input
@@ -100,13 +100,13 @@ const ContactSection = () => {
                         value={form.email}
                         onChange={handleChange}
                         placeholder="What's your email?"
-                        className="py-3 px-4 w-full placeholder:text-gray-400 rounded-lg border border-gray-600 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition-all"
+                        className="py-3 px-4 w-full placeholder:text-gray-400 rounded-lg border border-gray-600 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition-all dark:text-white"
                         required
                     />
                 </div>
 
-                <div className="flex flex-col gap-1">
-                    <label htmlFor="message" className="font-medium text-gray-700">
+                <div className="flex flex-col gap-1 ">
+                    <label htmlFor="message" className="font-medium text-gray-700 dark:text-gray-300">
                         Your Message
                     </label>
                     <textarea
@@ -116,7 +116,7 @@ const ContactSection = () => {
                         value={form.message}
                         onChange={handleChange}
                         placeholder="What do you want to say?"
-                        className="py-3 px-4 w-full placeholder:text-gray-400 rounded-lg border border-gray-600 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition-all resize-none"
+                        className="py-3 px-4 w-full placeholder:text-gray-400 rounded-lg border border-gray-600 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition-all resize-none dark:text-white"
                         required
                     />
                 </div>
