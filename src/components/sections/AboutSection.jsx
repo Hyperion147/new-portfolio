@@ -5,7 +5,7 @@ import { motion } from 'motion/react'
 
 const AboutSection = () => {
   return (
-    <div id='about'>
+    <div id='about' className='dark:bg-slate-800'>
       <div className='px-10 md:px-50 lg:px-60 mt-10 text-center'>
         <motion.div>
           <p id='heading' className='bg-gradient-to-r from-indigo-200 to-gray-900 leading-right rounded-2xl bg-clip-text text-transparent text-4xl font-medium text-center'>Introduction</p>

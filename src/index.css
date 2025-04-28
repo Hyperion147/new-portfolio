@@ -3,58 +3,68 @@
 
 
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
     --animate-meteor-effect: meteor 5s linear infinite;
-    
-    @keyframes meteor {
-      0% {
-        transform: rotate(215deg) translateX(0);
-        opacity: 1;
-      }
-      70% {
-        opacity: 1;
-      }
-      100% {
-        transform: rotate(215deg) translateX(-500px);
-        opacity: 0;
-      }
-    }
-  }
-  
 
-html, body{
+    @keyframes meteor {
+        0% {
+            transform: rotate(215deg) translateX(0);
+            opacity: 1;
+        }
+
+        70% {
+            opacity: 1;
+        }
+
+        100% {
+            transform: rotate(215deg) translateX(-500px);
+            opacity: 0;
+        }
+    }
+}
+
+html,
+body {
     margin: 0;
     padding: 0;
     font-family: "Roboto Flex", monospace;
 }
 
-#logo-name , #heading{
+#logo-name,
+#heading {
     font-family: "Space Mono";
 }
 
-@layer utilities{
+@layer utilities {
     @keyframes blink {
-        0%, 100%{
+
+        0%,
+        100% {
             opacity: 1;
         }
-        50%{
+
+        50% {
             opacity: 0;
         }
     }
-    .animate-blink{
+
+    .animate-blink {
         animation: blink 0.8s step-end infinite;
     }
 
     @keyframes loading {
-        0%{
+        0% {
             transform: translateX(-100%);
         }
-        100%{
+
+        100% {
             transform: translateX(250%);
         }
     }
-    .animate-loading-bar{
+
+    .animate-loading-bar {
         animation: loading 0.8s ease infinite;
     }
 }
