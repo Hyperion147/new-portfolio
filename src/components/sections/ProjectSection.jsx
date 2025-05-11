@@ -55,7 +55,7 @@ const ProjectSection = () => {
     })
 
   return (
-    <div id='projects' className="p-4 border border-slate-400 rounded-3xl mx-8 mb-10">
+    <div id='projects' className="p-4 border border-slate-400 rounded-3xl max-w-400 mx-auto mb-10">
       <h2 id='heading' className='bg-gradient-to-r from-indigo-200 to-gray-900 dark:to-slate-300 leading-right rounded-2xl bg-clip-text text-transparent text-4xl font-medium text-center mb-6'>
         Projects
       </h2>

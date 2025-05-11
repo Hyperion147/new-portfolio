@@ -61,7 +61,7 @@ const Hero = () => {
                     />
                 </div>
             </ScrollLink>
-            <div className='absolute descriptionText lateHero left-50 top-5 opacity-40 text-3xl'>Click On This</div>
+            <div className='absolute descriptionText lateHero top-5 opacity-40 text-3xl dark:text-white hidden md:block left-[30%] md:left-[40%] lg:left-[25%]'>Click On This</div>
         </div>
 
     </section>

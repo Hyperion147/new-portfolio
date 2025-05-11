@@ -100,8 +100,8 @@ const AboutSection = () => {
         </p>
         <div className='flex flex-row items-center justify-center my-20 w-full langScroll'>
         <AnimatedTooltip items={languages} />
+        <div className='absolute descriptionText lateAbout top-4 opacity-40 text-3xl lg:left-30 dark:text-white hidden md:block'>Hover Over These</div>
         </div>
-        <div className='absolute descriptionText lateAbout left-90 top-268 opacity-40 text-3xl'>Hover Over These</div>
       </div>
     </div>
   )
