@@ -46,10 +46,10 @@ const ProjectSection = () => {
   useGSAP(() => {
       gsap.from(("#projects"), {
         y: 300,
-        duration: 3,
         scrollTrigger: {
           trigger: "#about",
-          start: "top 50%"
+          start: "top 50%",
+          duration: 3
         }
       })
     })

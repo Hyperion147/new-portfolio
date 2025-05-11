@@ -71,7 +71,7 @@ const AboutSection = () => {
     })
     gsap.from((".langScroll"), {
       y: 200,
-      duration: 2,
+      duration: 1,
       scrollTrigger: {
         trigger: ".desc",
         start: "top 80%"
