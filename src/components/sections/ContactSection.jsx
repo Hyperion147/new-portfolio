@@ -57,6 +57,11 @@ const ContactSection = () => {
             console.error("Email sending error:", error);
             alert("Oops! Something went wrong. Please try again later.");
         }
+        console.log({
+            serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID,
+            templateId: import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+            publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+          });
     };
 
     return (
@@ -64,6 +69,7 @@ const ContactSection = () => {
             id="contact" 
             className="relative py-12 px-4 sm:px-8 md:px-20 lg:px-32 max-w-7xl mx-auto"
         >
+            
             <form
                 ref={formRef}
                 onSubmit={handleSubmit}
