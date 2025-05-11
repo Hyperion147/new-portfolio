@@ -33,6 +33,15 @@ body {
   scroll-behavior: smooth;
 }
 
+@layer base {
+  ::selection {
+    @apply bg-black text-[#ffffff];
+  }
+  .dark ::selection {
+    @apply bg-[#dcdcdc] text-black;
+  }
+}
+
 #logo-name,
 #heading {
   font-family: "Space Mono";
