@@ -1,70 +1,76 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sacramento&display=swap");
 
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
-    --animate-meteor-effect: meteor 5s linear infinite;
+  --animate-meteor-effect: meteor 5s linear infinite;
 
-    @keyframes meteor {
-        0% {
-            transform: rotate(215deg) translateX(0);
-            opacity: 1;
-        }
-
-        70% {
-            opacity: 1;
-        }
-
-        100% {
-            transform: rotate(215deg) translateX(-500px);
-            opacity: 0;
-        }
+  @keyframes meteor {
+    0% {
+      transform: rotate(215deg) translateX(0);
+      opacity: 1;
     }
+
+    70% {
+      opacity: 1;
+    }
+
+    100% {
+      transform: rotate(215deg) translateX(-500px);
+      opacity: 0;
+    }
+  }
 }
 
 html,
 body {
-    margin: 0;
-    padding: 0;
-    font-family: "Roboto Flex", monospace;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto Flex", monospace;
+  scroll-behavior: smooth;
 }
 
 #logo-name,
 #heading {
-    font-family: "Space Mono";
+  font-family: "Space Mono";
+}
+
+.descriptionText {
+  font-family: "Sacramento", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 
 @layer utilities {
-    @keyframes blink {
-
-        0%,
-        100% {
-            opacity: 1;
-        }
-
-        50% {
-            opacity: 0;
-        }
+  @keyframes blink {
+    0%,
+    100% {
+      opacity: 1;
     }
 
-    .animate-blink {
-        animation: blink 0.8s step-end infinite;
+    50% {
+      opacity: 0;
+    }
+  }
+
+  .animate-blink {
+    animation: blink 0.8s step-end infinite;
+  }
+
+  @keyframes loading {
+    0% {
+      transform: translateX(-100%);
     }
 
-    @keyframes loading {
-        0% {
-            transform: translateX(-100%);
-        }
-
-        100% {
-            transform: translateX(250%);
-        }
+    100% {
+      transform: translateX(250%);
     }
+  }
 
-    .animate-loading-bar {
-        animation: loading 0.8s ease infinite;
-    }
+  .animate-loading-bar {
+    animation: loading 0.8s ease infinite;
+  }
 }

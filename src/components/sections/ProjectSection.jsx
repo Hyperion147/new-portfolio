@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Compare } from '../ui/compare';
 import { FaGithub } from 'react-icons/fa';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const ProjectSection = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -37,6 +42,17 @@ const ProjectSection = () => {
       liveDemo: "https://www.fast2smm.com/"
     },
   ];
+
+  useGSAP(() => {
+      gsap.from(("#projects"), {
+        y: 300,
+        duration: 3,
+        scrollTrigger: {
+          trigger: "#about",
+          start: "top 50%"
+        }
+      })
+    })
 
   return (
     <div id='projects' className="p-4 border border-slate-400 rounded-3xl mx-8 mb-10">
