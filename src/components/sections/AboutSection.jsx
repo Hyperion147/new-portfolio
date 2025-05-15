@@ -80,7 +80,7 @@ const AboutSection = () => {
     gsap.from((".lateAbout"), {
       opacity: 0,
       duration: 2,
-      delay: 3,
+      delay: 1,
       scrollTrigger: {
         trigger: ".desc",
         start: "top 80%"

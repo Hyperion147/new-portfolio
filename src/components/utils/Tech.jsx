@@ -1,5 +1,5 @@
 import BallCanvas from "./canvas/BallCanvas"
-import { technologies } from "../constants/tech"
+import { technologies } from "../../constants/tech"
 
 const Tech = () => {
   return (

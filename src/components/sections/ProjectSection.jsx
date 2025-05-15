@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { Compare } from '../ui/compare';
-import { FaGithub } from 'react-icons/fa';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useGSAP } from '@gsap/react';
+import React, { useState, useEffect } from "react";
+import { Compare } from "../ui/compare";
+import { FaGithub } from "react-icons/fa";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -16,8 +16,8 @@ const ProjectSection = () => {
     };
 
     handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const projects = [
@@ -26,37 +26,44 @@ const ProjectSection = () => {
       name: "Project 1",
       image: "",
       code: "https://github.com/Hyperion147/nextAppMusic",
-      liveDemo: "https://music-app-three-phi.vercel.app/"
+      liveDemo: "https://music-app-three-phi.vercel.app/",
     },
     {
       id: 2,
       name: "Project 2",
       image: "",
       code: "https://github.com/Hyperion147/Eclatvents/tree/main/Eclatvents",
-      liveDemo: "https://eclatvents.vercel.app/"
+      liveDemo: "https://eclatvents.vercel.app/",
     },
     {
       id: 3,
       name: "Project 3",
       image: "",
-      liveDemo: "https://www.fast2smm.com/"
+      code: "https://github.com/Hyperion147/vite-portfolio",
+      liveDemo: "https://hyperion147.github.io/vite-portfolio/",
     },
   ];
 
   useGSAP(() => {
-      gsap.from(("#projects"), {
-        y: 300,
-        scrollTrigger: {
-          trigger: "#about",
-          start: "top 50%",
-          duration: 3
-        }
-      })
-    })
+    gsap.from("#projects", {
+      y: 300,
+      scrollTrigger: {
+        trigger: "#about",
+        start: "top 50%",
+        duration: 3,
+      },
+    });
+  });
 
   return (
-    <div id='projects' className="p-4 border border-slate-400 rounded-3xl max-w-400 mx-auto mb-10">
-      <h2 id='heading' className='bg-gradient-to-r from-indigo-200 to-gray-900 dark:to-slate-300 leading-right rounded-2xl bg-clip-text text-transparent text-4xl font-medium text-center mb-6'>
+    <div
+      id="projects"
+      className="p-4 border border-slate-400 rounded-3xl max-w-400 mx-auto mb-10"
+    >
+      <h2
+        id="heading"
+        className="bg-gradient-to-r from-indigo-200 to-gray-900 dark:to-slate-300 leading-right rounded-2xl bg-clip-text text-transparent text-4xl font-medium text-center mb-6"
+      >
         Projects
       </h2>
 
@@ -81,7 +88,6 @@ const ProjectSection = () => {
                 Live Demo
               </a>
 
-
               {project.code && (
                 <a
                   href={project.code}
@@ -95,9 +101,9 @@ const ProjectSection = () => {
           </div>
         ))}
       </div>
-      <div className='flex justify-center'>
+      <div className="flex justify-center">
         <a
-          href='https://github.com/Hyperion147'
+          href="https://github.com/Hyperion147"
           target="_blank"
           className="flex items-center mt-4 justify-center w-40 gap-2 px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-900 transition-colors"
         >

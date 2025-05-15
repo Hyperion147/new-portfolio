@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { SparklesCore } from "./sparkles";
 import { AnimatePresence, motion } from "motion/react";
-import { cn } from "../Utils";
+import { cn } from "../utils/Utils";
 import { IconDotsVertical } from "@tabler/icons-react";
 
 export const Compare = ({

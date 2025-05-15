@@ -75,7 +75,7 @@ const ContactSection = () => {
                 onSubmit={handleSubmit}
                 className="mt-4 flex flex-col gap-6 w-full max-w-2xl mx-auto"
             >
-                <h2 className="bg-gradient-to-r from-indigo-200 to-gray-900 bg-clip-text text-transparent text-4xl font-medium sm:text-4xl text-center dark:to-slate-500">
+                <h2 id="heading" className="bg-gradient-to-r from-indigo-200 to-gray-900 bg-clip-text text-transparent text-4xl font-medium sm:text-4xl text-center dark:to-slate-500">
                     Contact Me
                 </h2>
 
