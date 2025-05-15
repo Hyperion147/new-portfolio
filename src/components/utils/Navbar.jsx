@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Link as ScrollLink } from "react-scroll";
-import ToggleDark from "./ToggleDark";
 import { useGSAP } from "@gsap/react";
+import ToggleDark from "./ToggleDark";
 import gsap from "gsap";
 
 const Navbar = ({ hamMenu, setHamMenu }) => {
@@ -30,8 +30,8 @@ const Navbar = ({ hamMenu, setHamMenu }) => {
             duration={500}
             className="font-medium text-xl cursor-pointer"
           >
-            S<span className="text-gray-500">uryansu</span> S
-            <span className="text-gray-500">ingh</span>
+            S<span className="text-gray-500">uryansu</span> 
+            S<span className="text-gray-500">ingh</span>
           </ScrollLink>
 
           <div
@@ -67,7 +67,7 @@ const Navbar = ({ hamMenu, setHamMenu }) => {
               className="hover:text-gray-600 font-bold transition-colors cursor-pointer linkers"
             >
               Contact
-            </ScrollLink>
+            </ScrollLink> 
 
             <ToggleDark />
           </div>
