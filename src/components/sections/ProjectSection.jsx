@@ -83,7 +83,7 @@ const ProjectSection = () => {
               <a
                 href={project.liveDemo}
                 target="_blank"
-                className="px-4 py-2 bg-slate-300 text-black rounded-lg hover:bg-slate-700 hover:text-white transition-colors font-bold"
+                className="px-3 py-2 text-center w-26 shadow-slate-600 dark:shadow-slate-300 text-gray-700 dark:text-white shadow-2xs rounded-lg hover:bg-slate-700 hover:text-white transition-colors font-bold"
               >
                 Live Demo
               </a>
@@ -92,7 +92,7 @@ const ProjectSection = () => {
                 <a
                   href={project.code}
                   target="_blank"
-                  className="px-4 py-2 bg-black text-white rounded-lg hover:bg-slate-300 hover:text-black transition-colors"
+                  className="px-4 py-2 bg-black text-white rounded-lg hover:bg-slate-800 dark:hover:bg-slate-300 dark:hover:text-black transition-colors"
                 >
                   View Code
                 </a>
@@ -102,13 +102,16 @@ const ProjectSection = () => {
         ))}
       </div>
       <div className="flex justify-center">
-        <a
+
+        <a className="relative mt-5 inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 w-40"
           href="https://github.com/Hyperion147"
           target="_blank"
-          className="flex items-center mt-4 justify-center w-40 gap-2 px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-900 transition-colors"
         >
-          <FaGithub className="text-lg" />
-          <span>GitHub</span>
+          <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
+          <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-white dark:bg-slate-950 px-3 py-1 font-medium text-black dark:text-white backdrop-blur-3xl">
+            <FaGithub className="text-lg mr-3" />
+            Github
+          </span>
         </a>
       </div>
     </div>

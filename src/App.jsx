@@ -6,6 +6,7 @@ import Hero from './components/sections/Hero'
 import AboutSection from './components/sections/AboutSection'
 import ContactSection from './components/sections/ContactSection'
 import ProjectSection from './components/sections/ProjectSection'
+import FixedButtons from "./components/ui/FixedButtons"
 import { useState , useEffect } from 'react'
 
 function App() {
@@ -27,7 +28,7 @@ function App() {
             <AboutSection />
             <ProjectSection />
             <ContactSection />
-    
+            <FixedButtons />
       </div>
     </>
   )

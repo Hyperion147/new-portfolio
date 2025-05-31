@@ -18,10 +18,10 @@ const Hero = () => {
     });
     gsap.from(".ring", {
       y: 300,
-      duration: 4,
+      duration: 1,
       scale: 5,
     });
-    gsap.from(".tail", {
+    gsap.from(".words", {
       y: 300,
       duration: 4,
     });
@@ -33,7 +33,7 @@ const Hero = () => {
   });
 
   return (
-    <div className="relative flex items-center justify-center bg-white dark:bg-slate-800 min-h-screen mb-20">
+    <div className="relative flex justify-center bg-white dark:bg-slate-800 min-h-screen mb-20">
       <div
         className={cn(
           "absolute inset-0",
@@ -46,12 +46,12 @@ const Hero = () => {
         id="home"
         className="min-h-screen flex items-center justify-center relative"
       >
-        <div className="text-center z-10 px-2">
+        <div className="relative text-center z-10 px-2 bottom-15">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 pb-2 bg-gradient-to-r from-indigo-200 to-gray-500 dark:to-white leading-right rounded-2xl bg-clip-text text-transparent head">
             Hello, I'm Suryansu Singh
           </h1>
-          <div className="text-gray-500 text-lg mb-8 max-w-[700px] mx-auto dark:text-gray-200 tail absolute">
-            I am a Dev and I make<FlipWords words={words1} />Websites using<FlipWords words={words2} />and<FlipWords words={words3} />...
+          <div className="text-gray-500 text-lg mb-8 ml-1 max-w-[700px] mx-auto dark:text-gray-200 words absolute">
+            I am a Developer and I make<FlipWords words={words1} />Websites using<FlipWords words={words2} />and<FlipWords words={words3} />...
           </div>
         </div>
 
@@ -63,7 +63,7 @@ const Hero = () => {
                   y: [0, 26, 0],
                 }}
                 transition={{
-                  duration: 1.8,
+                  duration: 1.6,
                   repeat: Infinity,
                   repeatType: "loop",
                 }}

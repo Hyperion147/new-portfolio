@@ -7,7 +7,6 @@ import { useGSAP } from "@gsap/react";
 const ToggleDark = () => {
   const [isDark, setIsDark] = useState(false);
 
-  // Initialize theme from localStorage or system preference
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
     const systemPrefersDark = window.matchMedia(
@@ -19,13 +18,6 @@ const ToggleDark = () => {
       document.documentElement.classList.add("dark");
     }
   }, []);
-
-  useGSAP(() => {
-    gsap.from(".linker", {
-      x: 100,
-      duration: 4,
-    })
-  })
 
   const toggleTheme = () => {
     const newIsDark = !isDark;
