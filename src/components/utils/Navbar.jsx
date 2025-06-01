@@ -5,9 +5,6 @@ import ToggleDark from "./ToggleDark";
 import gsap from "gsap";
 
 const Navbar = ({ hamMenu, setHamMenu }) => {
-  useEffect(() => {
-    document.body.style.overflow = hamMenu ? "hidden" : "";
-  }, [hamMenu]);
 
   useGSAP(() => {
     gsap.set(".boxCont", {
@@ -91,7 +88,6 @@ const Navbar = ({ hamMenu, setHamMenu }) => {
             >
               Contact
             </ScrollLink>
-
             <ToggleDark />
           </div>
         </div>
