@@ -1,5 +1,6 @@
 import { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
+import { BackgroundLines } from "../ui/background-lines";
 emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
 
 const ContactSection = () => {
@@ -18,8 +19,6 @@ const ContactSection = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-        // Validation
         if (!form.name.trim() || !form.email.trim() || !form.message.trim()) {
             alert("Please fill in all fields");
             return;
@@ -69,11 +68,11 @@ const ContactSection = () => {
             id="contact" 
             className="relative py-12 px-4 sm:px-8 md:px-20 lg:px-32 max-w-7xl mx-auto"
         >
-            
+            <BackgroundLines className="flex items-center justify-center w-full flex-col px-4 -z-10">
             <form
                 ref={formRef}
                 onSubmit={handleSubmit}
-                className="mt-4 flex flex-col gap-6 w-full max-w-2xl mx-auto"
+                className="mt-4 flex flex-col gap-6 w-full max-w-2xl mx-auto z-20"
             >
                 <h2 id="heading" className="bg-gradient-to-r from-indigo-200 to-gray-900 bg-clip-text text-transparent text-4xl font-medium sm:text-4xl text-center dark:to-slate-500">
                     Contact Me
@@ -145,6 +144,7 @@ const ContactSection = () => {
                     )}
                 </button>
             </form>
+            </BackgroundLines>
         </section>
     );
 };

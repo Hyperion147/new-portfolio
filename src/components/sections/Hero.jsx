@@ -25,11 +25,6 @@ const Hero = () => {
       y: 300,
       duration: 4,
     });
-    gsap.from(".lateHero", {
-      opacity: 0,
-      duration: 2,
-      delay: 4,
-    });
   });
 
   return (
@@ -71,9 +66,6 @@ const Hero = () => {
               />
             </div>
           </ScrollLink>
-          <div className="absolute descriptionText lateHero top-5 opacity-40 text-3xl dark:text-white hidden md:block left-[30%] md:left-[40%] lg:left-[25%]">
-            Click On This
-          </div>
         </div>
       </section>
     </div>
