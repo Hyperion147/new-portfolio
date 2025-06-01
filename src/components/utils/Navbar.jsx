@@ -44,7 +44,7 @@ const Navbar = ({ hamMenu, setHamMenu }) => {
   });
 
   return (
-    <nav className="fixed left-1/2 -translate-x-1/2 md:top-5 w-full max-w-[92vw] md:max-w-5xl z-40 bg-white backdrop-blur-md border-white/10 shadow-lg dark:bg-slate-900/80 dark:text-white boxCont">
+    <nav className="fixed left-1/2 -translate-x-1/2 md:top-5 w-full max-w-[92vw] md:max-w-5xl z-40 backdrop-blur-sm dark:backdrop-blur-none shadow-sm drop-shadow-transparent shadow-gray-700 dark:bg-slate-900/80 dark:text-white boxCont">
       <div className="mx-auto px-4 ">
         <div className="flex justify-between items-center h-16">
           <ScrollLink
