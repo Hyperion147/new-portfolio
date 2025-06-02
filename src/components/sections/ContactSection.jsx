@@ -66,7 +66,7 @@ const ContactSection = () => {
     return (
         <section 
             id="contact" 
-            className="relative py-12 px-4 sm:px-8 md:px-20 lg:px-32 max-w-7xl mx-auto"
+            className="relative pt-10 pb-40 md:pb-0 px-4 sm:px-8 md:px-20 lg:px-32 max-w-7xl mx-auto"
         >
             <BackgroundLines className="flex items-center justify-center w-full flex-col px-4 -z-10">
             <form

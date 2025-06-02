@@ -58,7 +58,7 @@ const ProjectSection = () => {
   return (
     <div
       id="projects"
-      className="p-4 border border-slate-400 rounded-3xl max-w-400 mx-auto"
+      className="p-4 border border-slate-400 rounded-3xl max-w-400 mx-auto mb-30 md:mb-0"
     >
       <h2
         id="heading"
