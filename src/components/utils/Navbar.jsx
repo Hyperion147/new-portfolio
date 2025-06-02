@@ -47,7 +47,7 @@ const Navbar = ({ hamMenu, setHamMenu }) => {
           <ScrollLink
             to="home"
             smooth={true}
-            duration={500}
+            duration={100}
             className="font-medium text-xl cursor-pointer ml-3"
           >
             S<span className="text-gray-500">uryansu</span>
@@ -65,7 +65,7 @@ const Navbar = ({ hamMenu, setHamMenu }) => {
             <ScrollLink
               to="about"
               smooth={true}
-              duration={500}
+              duration={100}
               offset={-120}
               className="hover:text-gray-600 font-bold transition-colors cursor-pointer linkers"
             >
@@ -74,7 +74,7 @@ const Navbar = ({ hamMenu, setHamMenu }) => {
             <ScrollLink
               to="projects"
               smooth={true}
-              duration={500}
+              duration={100}
               offset={-100}
               className="hover:text-gray-600 font-bold transition-colors cursor-pointer linkers"
             >
@@ -83,7 +83,7 @@ const Navbar = ({ hamMenu, setHamMenu }) => {
             <ScrollLink
               to="contact"
               smooth={true}
-              duration={500}
+              duration={100}
               className="hover:text-gray-600 font-bold transition-colors cursor-pointer linkers"
             >
               Contact

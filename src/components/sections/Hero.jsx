@@ -18,7 +18,6 @@ const Hero = () => {
     });
     gsap.from(".ring", {
       y: 300,
-      duration: 1,
       scale: 5,
     });
     gsap.from(".words", {
@@ -51,7 +50,7 @@ const Hero = () => {
         </div>
 
         <div className="absolute xs:bottom-10 bottom-20 w-full flex justify-center items-center">
-          <ScrollLink to="about" smooth={true} duration={1000} offset={-120}>
+          <ScrollLink to="about" smooth={true} duration={100} offset={-120}>
             <div className="w-[35px] h-[64px] rounded-3xl border-4 flex justify-center items-start py-2 dark:border-white dark:bg-slate-700 ring cursor-pointer">
               <motion.div
                 animate={{
