@@ -53,6 +53,12 @@ const languages = [
     image:
       "/tech/figma.png",
   },
+  {
+    id: 9,
+    name: "Supabase",
+    image:
+      "/tech/supabase.png",
+  },
 ];
 
 gsap.registerPlugin(ScrollTrigger);
