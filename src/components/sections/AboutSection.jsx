@@ -83,33 +83,23 @@ const AboutSection = () => {
         start: "top 80%"
       }
     })
-    gsap.from((".lateAbout"), {
-      opacity: 0,
-      duration: 2,
-      delay: 1,
-      scrollTrigger: {
-        trigger: ".desc",
-        start: "top 80%"
-      }
-    })
   })
 
   return (
-    <div id='about' className='dark:bg-slate-800'>
-      <div className='px-10 md:px-50 lg:px-60 mt-10 text-center'>
+    <section id='about' className='dark:bg-slate-800'>
+      <div className='px-2 sm:px-6 md:px-16 lg:px-32 mt-10 text-center w-full'>
         <div>
-          <p id='heading' className='bg-gradient-to-r from-indigo-200 to-gray-900 dark:to-slate-200 leading-right rounded-2xl bg-clip-text text-transparent text-4xl font-medium text-center desc'>Introduction</p>
+          <h2 id='heading' className='bg-gradient-to-r from-indigo-200 to-gray-900 dark:to-slate-200 leading-right rounded-2xl bg-clip-text text-transparent text-4xl font-medium text-center desc'>Introduction</h2>
         </div>
 
-        <p className="mt-10 text-[17px] max-w-3xl dark:text-white mx-auto leading-[25px] text-center flex items-center justify-center desc">
+        <p className="mt-10 text-base sm:text-lg max-w-2xl dark:text-white mx-auto leading-[25px] text-center flex items-center justify-center desc">
           I am a rookie Frontend Developer with experience in Javascript, Tailwind and currently learning React alongside some libraries such as Framer motion... I am a quick learner and hoping to get projects to enhance my skills in Frontend Development!
         </p>
-        <div className='flex flex-row items-center justify-center my-20 w-full langScroll'>
+        <section className='flex flex-row flex-wrap items-center justify-center my-10 sm:my-20 w-full langScroll gap-2' aria-label="Technologies and skills">
         <AnimatedTooltip items={languages} />
-        <div className='absolute descriptionText lateAbout top-4 opacity-40 text-3xl lg:left-30 dark:text-white hidden md:block'>Hover Over These</div>
-        </div>
+        </section>
       </div>
-    </div>
+    </section>
   )
 }
 

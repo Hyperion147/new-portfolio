@@ -7,6 +7,7 @@ import AboutSection from './components/sections/AboutSection'
 import ContactSection from './components/sections/ContactSection'
 import ProjectSection from './components/sections/ProjectSection'
 import FixedButtons from "./components/ui/FixedButtons"
+import Cursor from "./components/ui/Cursor"
 import { useState, useEffect } from 'react'
 
 
@@ -22,14 +23,17 @@ function App() {
   return (
     <>
       {!isLoaded && <Loading onComplete={() => setIsLoaded(true)} />}
-      <div className={`min-h-screen transition-opacity duration-700 dark:bg-slate-800 ${isLoaded ? "opacity-100" : "opacity-0"}`}>
-        <Navbar hamMenu={hamMenu} setHamMenu={setHamMenu} />
-        <Mobile hamMenu={hamMenu} setHamMenu={setHamMenu} />
-        <Hero />
-        <AboutSection />
-        <ProjectSection />
-        <ContactSection />
-        <FixedButtons />
+      <div className={`min-h-screen transition-opacity duration-300 dark:bg-slate-800 ${isLoaded ? "opacity-100" : "opacity-0"}`}>
+        <div className="max-w-[100vw] overflow-x-hidden mt-5 sm:mt-0">
+          <Navbar hamMenu={hamMenu} setHamMenu={setHamMenu} />
+          <Mobile hamMenu={hamMenu} setHamMenu={setHamMenu} />
+          <Hero />
+          <AboutSection />
+          <ProjectSection />
+          <ContactSection />
+          <FixedButtons />
+          <Cursor />
+        </div>
       </div>
     </>
   )

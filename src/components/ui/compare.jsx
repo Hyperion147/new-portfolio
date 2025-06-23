@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { SparklesCore } from "./sparkles";
 import { AnimatePresence, motion } from "motion/react";

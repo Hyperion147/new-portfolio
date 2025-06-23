@@ -56,9 +56,9 @@ const ProjectSection = () => {
   });
 
   return (
-    <div
+    <section
       id="projects"
-      className="p-4 max-w-400 mx-auto mt-40 mb-30 md:mb-0"
+      className="px-2 sm:px-4 md:px-8 max-w-full md:max-w-5xl mx-auto mt-20 md:mt-40 mb-20 md:mb-0"
     >
       <h2
         id="heading"
@@ -66,25 +66,26 @@ const ProjectSection = () => {
       >
         Projects
       </h2>
-      <div className="">
+      <article className="">
         <HighlightedProject />
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-20 border-b-2 border-l-2 border-t-2 py-4 rounded-3xl border-slate-400 px-4 hover:shadow-[-8px_8px_2px_0px_rgba(203,213,225)] dark:hover:shadow-[-8px_8px_2px_0px_rgba(51,65,85)] transition-all duration-300">
+      </article>
+      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full border-b-2 border-l-2 border-t-2 py-4 rounded-3xl border-slate-400 px-2 sm:px-4 hover:shadow-[-8px_8px_2px_0px_rgba(203,213,225)] dark:hover:shadow-[-8px_8px_2px_0px_rgba(51,65,85)] transition-all duration-300" aria-label="Project gallery">
         {projects.map((project, index) => (
-          <div key={project.id} className="flex flex-col items-center">
+          <article key={project.id} className="flex flex-col items-center">
             <Compare
               firstImage={`/projects/img${index + 1}.png`}
               secondImage={`/projects/code${index + 1}.png`}
               firstImageClassName="object-cover object-left-top"
               secondImageClassname="object-cover object-left-top"
-              className="h-[200px] w-full md:h-[250px] lg:h-[350px] border border-slate-400 rounded-2xl"
+              className="h-[180px] xs:h-[200px] md:h-[250px] lg:h-[350px] w-full border border-slate-400 rounded-2xl"
               slideMode={isMobile ? "hover" : "drag"}
             />
 
-            <div className="flex gap-3 mt-4 w-full justify-center">
+            <nav className="flex gap-3 mt-4 w-full justify-center" aria-label={`Project ${project.name} links`}>
               <a
                 href={project.liveDemo}
                 target="_blank"
+                rel="noopener noreferrer"
                 className="text-center text-gray-700 dark:text-white shadow-2xs border-b border-slate-500 rounded-xl px-6 py-2 font-bold transform hover:-translate-y-1 transition duration-400"
               >
                 Live Demo
@@ -94,16 +95,17 @@ const ProjectSection = () => {
                 <a
                   href={project.code}
                   target="_blank"
+                  rel="noopener noreferrer"
                   className="px-6 py-2 bg-transparent dark:text-white border border-gray-500 text-black rounded-lg font-bold transform hover:-translate-y-1 transition duration-300"
                 >
                   View Code
                 </a>
               )}
-            </div>
-          </div>
+            </nav>
+          </article>
         ))}
-      </div>
-    </div>
+      </section>
+    </section>
   );
 };
 

@@ -66,15 +66,15 @@ const ContactSection = () => {
     return (
         <section 
             id="contact" 
-            className="relative pt-10 pb-40 md:pb-0 px-4 sm:px-8 md:px-20 lg:px-32 max-w-7xl mx-auto"
+            className="relative pt-10 pb-20 md:pb-0 px-2 sm:px-4 md:px-8 lg:px-16 max-w-full md:max-w-3xl mx-auto"
         >
-            <BackgroundLines className="flex items-center justify-center w-full flex-col px-4 -z-10">
+            <BackgroundLines className="flex items-center justify-center w-full flex-col px-2 sm:px-4 -z-10">
             <form
                 ref={formRef}
                 onSubmit={handleSubmit}
-                className="mt-4 flex flex-col gap-6 w-full max-w-2xl mx-auto z-20"
+                className="mt-4 flex flex-col gap-4 sm:gap-6 w-full max-w-lg mx-auto z-20"
             >
-                <h2 id="heading" className="bg-gradient-to-r from-indigo-200 to-gray-900 bg-clip-text text-transparent text-4xl font-medium sm:text-4xl text-center dark:to-slate-500">
+                <h2 id="heading" className="bg-gradient-to-r from-indigo-200 to-gray-900 bg-clip-text text-transparent text-3xl sm:text-4xl font-medium text-center dark:to-slate-500">
                     Contact Me
                 </h2>
 
@@ -89,7 +89,7 @@ const ContactSection = () => {
                         value={form.name}
                         onChange={handleChange}
                         placeholder="What's your name?"
-                        className="py-3 px-4 w-full placeholder:text-gray-400 rounded-lg border border-gray-600 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition-all dark:text-white"
+                        className="py-2 sm:py-3 px-3 sm:px-4 w-full placeholder:text-gray-400 rounded-lg border border-gray-600 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition-all dark:text-white"
                         required
                     />
                 </div>
@@ -105,7 +105,7 @@ const ContactSection = () => {
                         value={form.email}
                         onChange={handleChange}
                         placeholder="What's your email?"
-                        className="py-3 px-4 w-full placeholder:text-gray-400 rounded-lg border border-gray-600 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition-all dark:text-white"
+                        className="py-2 sm:py-3 px-3 sm:px-4 w-full placeholder:text-gray-400 rounded-lg border border-gray-600 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition-all dark:text-white"
                         required
                     />
                 </div>
@@ -117,11 +117,11 @@ const ContactSection = () => {
                     <textarea
                         id="message"
                         name="message"
-                        rows={6}
+                        rows={4}
                         value={form.message}
                         onChange={handleChange}
                         placeholder="What do you want to say?"
-                        className="py-3 px-4 w-full placeholder:text-gray-400 rounded-lg border border-gray-600 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition-all resize-none dark:text-white"
+                        className="py-2 sm:py-3 px-3 sm:px-4 w-full placeholder:text-gray-400 rounded-lg border border-gray-600 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition-all resize-none dark:text-white"
                         required
                     />
                 </div>
@@ -129,7 +129,7 @@ const ContactSection = () => {
                 <button
                     type="submit"
                     disabled={loading}
-                    className="mt-2 bg-indigo-600 cursor-pointer hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
+                    className="mt-2 bg-indigo-600 cursor-pointer hover:bg-blue-700 text-white font-bold py-2 sm:py-3 px-6 sm:px-8 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
                 >
                     {loading ? (
                         <span className="flex items-center justify-center gap-2">

@@ -1,11 +1,19 @@
 import { useEffect, useState } from "react";
 import sunIcon from "/Sun.svg";
 import moonIcon from "/Moon.svg";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
 
 const ToggleDark = () => {
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(() => {
+    // Check if we're in the browser
+    if (typeof window !== 'undefined') {
+      const savedTheme = localStorage.getItem("theme");
+      const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      
+      // Return true if explicitly dark or if no preference and system prefers dark
+      return savedTheme === "dark" || (!savedTheme && systemPrefersDark);
+    }
+    return false;
+  });
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
@@ -13,9 +21,16 @@ const ToggleDark = () => {
       "(prefers-color-scheme: dark)"
     ).matches;
 
-    if (savedTheme === "dark" || (!savedTheme && systemPrefersDark)) {
+    const shouldBeDark = savedTheme === "dark" || (!savedTheme && systemPrefersDark);
+    
+    setIsDark(shouldBeDark);
+    
+    if (shouldBeDark) {
       setIsDark(true);
       document.documentElement.classList.add("dark");
+    } else {
+      setIsDark(false);
+      document.documentElement.classList.remove("dark");
     }
   }, []);
 

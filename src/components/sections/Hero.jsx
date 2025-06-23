@@ -1,8 +1,8 @@
-import { motion } from "motion/react";
 import { cn } from "../utils/Utils";
 import { Link as ScrollLink } from "react-scroll";
 import { FlipWords } from "../ui/flip-words";
 import { useGSAP } from "@gsap/react";
+import { motion } from "motion/react";
 import gsap from "gsap";
 
 const Hero = () => {
@@ -27,7 +27,7 @@ const Hero = () => {
   });
 
   return (
-    <div className="relative flex justify-center bg-white dark:bg-slate-800 min-h-screen mb-20">
+    <main className="relative flex justify-center bg-white dark:bg-slate-800 min-h-screen mb-20">
       <div
         className={cn(
           "absolute inset-0",
@@ -38,20 +38,20 @@ const Hero = () => {
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-white dark:bg-slate-800 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
       <section
         id="home"
-        className="min-h-screen flex items-center justify-center relative"
+        className="min-h-screen flex flex-col items-center justify-center relative w-full px-2"
       >
-        <div className="relative text-center z-10 px-2 bottom-15">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 pb-2 bg-gradient-to-r from-indigo-200 to-gray-500 dark:to-white leading-right rounded-2xl bg-clip-text text-transparent head">
+        <div className="relative text-center z-10 px-2 bottom-15 w-full">
+          <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-7xl font-bold mb-6 pb-2 bg-gradient-to-r from-indigo-200 to-gray-500 dark:to-white leading-right rounded-2xl bg-clip-text text-transparent head text-center" role="heading" aria-level="1">
             Hello, I'm Suryansu Singh
           </h1>
-          <div className="text-gray-500 text-lg mb-8 ml-1 max-w-[700px] mx-auto dark:text-gray-200 words absolute">
+          <div className="text-gray-500 text-xl max-w-[100vw] mx-auto sm:max-w-[700px] dark:text-gray-200 words">
             I am a Developer and I make<FlipWords words={words1} />Websites using<FlipWords words={words2} />and<FlipWords words={words3} />...
           </div>
         </div>
 
         <div className="absolute xs:bottom-10 bottom-20 w-full flex justify-center items-center">
           <ScrollLink to="about" smooth={true} duration={100} offset={-120}>
-            <div className="w-[35px] h-[64px] rounded-3xl border-4 flex justify-center items-start py-2 dark:border-white dark:bg-slate-700 ring cursor-pointer">
+            <button className="w-[35px] h-[64px] rounded-3xl border-4 flex justify-center items-start py-2 dark:border-white dark:bg-slate-700 ring cursor-pointer" aria-label="Scroll to about section">
               <motion.div
                 animate={{
                   y: [0, 26, 0],
@@ -63,11 +63,11 @@ const Hero = () => {
                 }}
                 className="w-3 h-3 rounded-full bg-gray-400 dark:bg-gray-200"
               />
-            </div>
+            </button>
           </ScrollLink>
         </div>
       </section>
-    </div>
+    </main>
   );
 };
 

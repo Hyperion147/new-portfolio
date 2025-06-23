@@ -6,6 +6,7 @@ import { SiTodoist } from "react-icons/si";
 
 const HighlightedProject = ({ isMobile }) => {
   const [hovered, setHovered] = useState(false);
+  const [showMore, setShowMore] = useState(false);
 
   const techStack = [
     {
@@ -38,45 +39,59 @@ const HighlightedProject = ({ isMobile }) => {
       level: "Pro",
       color: "#FF5733",
     },
+    {
+      id: "6",
+      name: "ShadCN",
+      level: "Rookie",
+      color: "#000000",
+    },
   ];
 
+  const description = `A feature-rich Todo application designed for seamless task management. Built with React and Tailwind CSS, it offers a sleek with support for multiple themes to suit user preferences. The app integrates Supabase for robust authentication and data storage. Enhanced with GSAP animations, the UI delivers smooth, engaging interactions, while React Hot Toast provides feedback for user actions. Key features include task prioritization, due dates, and descriptions, all wrapped in a minimalist, user-friendly design.`;
+
+  const shortDescription = description.slice(0, 120) + (description.length > 120 ? "..." : "");
+
   return (
-    <div className="border-r-2 border-b-2 border-t-2 mx-20 mb-8 rounded-md border-slate-400 flex hover:shadow-[10px_10px_0px_0px_rgba(203,213,225)] dark:hover:shadow-[10px_10px_0px_0px_rgba(51,65,85)] transition-all duration-500">
-      <div className="">
+    <div className="border-2 mx-2 sm:mx-6 md:mx-0 mb-8 rounded-md border-slate-400 flex flex-col sm:flex-row hover:shadow-[10px_10px_0px_0px_rgba(203,213,225)] dark:hover:shadow-[10px_10px_0px_0px_rgba(51,65,85)] transition-all duration-500 w-full">
+      <div className="flex justify-center items-start w-full sm:w-auto">
         <Compare
           firstImage="/highlightedProject/main.png"
           secondImage="/highlightedProject/main2.png"
           firstImageClassName="object-cover object-left-top"
           secondImageClassname="object-cover object-right-top"
-          className="h-[200px] md:h-[250px] lg:h-[350px] m-4 border-2 border-slate-400 rounded-2xl"
+          className="w-[400px] xs:w-[320px] h-[180px] xs:h-[200px] md:h-[250px] lg:h-[400px] m-2 sm:m-4 border-2 border-slate-400 rounded-2xl"
           slideMode={isMobile ? "hover" : "drag"}
         />
       </div>
-      <div className="flex flex-col">
-        <div className="py-2 px-6 mt-8 mb-12">
+      <div className="flex flex-col w-full">
+        <div className="py-2 px-3 sm:px-6 mt-4 sm:mt-4">
           <p className="text-slate-700 dark:text-slate-500">
-            A feature-rich Todo application designed for seamless task
-            management. Built with React and Tailwind CSS, it offers a sleek
-            with support for multiple themes to suit user preferences. The app
-            integrates Supabase for robust authentication and data storage.
-            Enhanced with GSAP animations, the UI delivers smooth, engaging
-            interactions, while React Hot Toast provides feedback for user
-            actions. Key features include task prioritization, status tracking,
-            due dates, and descriptions, all wrapped in a minimalist,
-            user-friendly design.
+            {isMobile ? (showMore ? description : shortDescription) : description}
+            {isMobile && !showMore && (
+              <button
+                className="ml-2 text-blue-500 underline text-sm focus:outline-none"
+                onClick={() => setShowMore((prev) => !prev)}
+              >
+                Read More
+              </button>
+            )}
+            {isMobile && showMore && (
+              <button
+                className="ml-2 text-blue-500 underline text-sm focus:outline-none"
+                onClick={() => setShowMore((prev) => !prev)}
+              >
+                Read Less
+              </button>
+            )}
           </p>
-          <p className="text-sm text-slate-500 dark:text-slate-400">
-            This project is still in BETA phase so feel free to leave issues and
-            comments on the github repo...
+          <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-2">
+            This project is still in BETA phase so feel free to leave issues and comments on the github repo...
           </p>
-          <div className="mt-10 items-center flex gap-2">
-            <h2 className="dark:text-slate-300 text-slate-700 min-w-22">
-              Tech Stack
-            </h2>
-            <div className="grid grid-cols-6 w-full gap-2">
+          <div className="mt-6 sm:mt-4 items-center flex flex-col sm:flex-row gap-2 mx-0 sm:mx-12 mb-6">
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 w-full gap-1 ml-10 md:m-0 md:gap-2">
               {techStack.map((tech) => (
                 <button
-                  className={`px-2 py-1 h-8 rounded-full relative text-gray-900 dark:bg-slate-700 dark:text-white text-sm hover:shadow-2xl hover:shadow-white/[0.1] transition duration-200 border border-[var(--tech-color)]`}
+                  className={`px-2 py-1 w-30 h-7 rounded-full relative text-gray-900 dark:bg-slate-700 dark:text-white text-xs sm:text-sm hover:shadow-2xl hover:shadow-white/[0.1] transition duration-200 border border-[var(--tech-color)]`}
                   onMouseEnter={() => setHovered(tech.id)}
                   onMouseLeave={() => setHovered(null)}
                   style={{ "--tech-color": tech.color }}
@@ -101,10 +116,9 @@ const HighlightedProject = ({ isMobile }) => {
             </div>
           </div>
         </div>
-
-        <div className="flex gap-4 w-full mx-5 justify-center items-center">
+        <div className="flex flex-col sm:flex-row gap-3 w-full justify-center items-center mb-4">
           <a
-            className="relative inline-flex h-10 overflow-hidden rounded-full p-[1px] focus:outline-none w-40 transition-all duration-300 hover:-translate-y-1"
+            className="relative inline-flex h-10 overflow-hidden rounded-full p-[1px] focus:outline-none w-full sm:w-40 transition-all duration-300 hover:-translate-y-1 mb-2 sm:mb-0"
             href="https://todo-hyper-neon.vercel.app/"
             target="_blank"
           >
@@ -115,7 +129,7 @@ const HighlightedProject = ({ isMobile }) => {
             </span>
           </a>
           <a
-            className="relative inline-flex h-10 overflow-hidden rounded-full p-[1px] focus:outline-none w-40 transition-all duration-300 hover:-translate-y-1"
+            className="relative inline-flex h-10 overflow-hidden rounded-full p-[1px] focus:outline-none w-full sm:w-40 transition-all duration-300 hover:-translate-y-1 mb-2 sm:mb-0"
             href="https://github.com/Hyperion147/todo-supabase"
             target="_blank"
           >
@@ -126,7 +140,7 @@ const HighlightedProject = ({ isMobile }) => {
             </span>
           </a>
           <a
-            className="relative inline-flex h-10 overflow-hidden rounded-full p-[1px] focus:outline-none w-40 transition-all duration-300 hover:-translate-y-1"
+            className="relative inline-flex h-10 overflow-hidden rounded-full p-[1px] focus:outline-none w-full sm:w-40 transition-all duration-300 hover:-translate-y-1"
             href="https://github.com/Hyperion147"
             target="_blank"
           >
