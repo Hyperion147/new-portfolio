@@ -9,6 +9,7 @@ import ProjectSection from './components/sections/ProjectSection'
 import FixedButtons from "./components/ui/FixedButtons"
 import { useState, useEffect } from 'react'
 
+
 function App() {
 
   const [isLoaded, setIsLoaded] = useState(false)
@@ -20,7 +21,6 @@ function App() {
 
   return (
     <>
-
       {!isLoaded && <Loading onComplete={() => setIsLoaded(true)} />}
       <div className={`min-h-screen transition-opacity duration-700 dark:bg-slate-800 ${isLoaded ? "opacity-100" : "opacity-0"}`}>
         <Navbar hamMenu={hamMenu} setHamMenu={setHamMenu} />

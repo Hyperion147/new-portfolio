@@ -27,7 +27,7 @@ const Loading = ({onComplete}) => {
             {text}<span className='animate-blink ml-1 font-light'>|</span>
         </div>
 
-        <div className='w-[250px] h-[2px] bg-blue-200 rouded relative overflow-hidden'>
+        <div className='w-[280px] h-[2px] bg-blue-200 rouded relative overflow-hidden'>
             <div className='w-[40%] h-full bg-purple-500 shadow-[0_0_15px_#3b82f6] animate-loading-bar'>
               
             </div>
