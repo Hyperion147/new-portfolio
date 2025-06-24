@@ -23,8 +23,8 @@ function App() {
   return (
     <>
       {!isLoaded && <Loading onComplete={() => setIsLoaded(true)} />}
-      <div className={`min-h-screen transition-opacity duration-300 dark:bg-slate-800 ${isLoaded ? "opacity-100" : "opacity-0"}`}>
-        <div className="max-w-[100vw] overflow-x-hidden mt-5 sm:mt-0">
+      <div className={`min-h-screen transition-opacity duration-300 bg-[#fff9f0] dark:bg-slate-800 ${isLoaded ? "opacity-100" : "opacity-0"}`}>
+        <div className="max-w-[100vw] overflow-x-hidden">
           <Navbar hamMenu={hamMenu} setHamMenu={setHamMenu} />
           <Mobile hamMenu={hamMenu} setHamMenu={setHamMenu} />
           <Hero />

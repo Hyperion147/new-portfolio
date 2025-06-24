@@ -3,6 +3,7 @@ import { Link as ScrollLink } from "react-scroll";
 import { FlipWords } from "../ui/flip-words";
 import { useGSAP } from "@gsap/react";
 import { motion } from "motion/react";
+import { Boxes } from "../ui/background-box";
 import gsap from "gsap";
 
 const Hero = () => {
@@ -27,19 +28,12 @@ const Hero = () => {
   });
 
   return (
-    <main className="relative flex justify-center bg-white dark:bg-slate-800 min-h-screen mb-20">
-      <div
-        className={cn(
-          "absolute inset-0",
-          "bg-[length:20px_20px]",
-          "bg-[image:radial-gradient(#d4d4d4_1px,transparent_1px)] dark:opacity-20"
-        )}
-      />
-      <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-white dark:bg-slate-800 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
+    <main className="relative flex justify-center bg-[#fff9f0] dark:bg-slate-800 min-h-screen mb-20">
       <section
         id="home"
         className="min-h-screen flex flex-col items-center justify-center relative w-full px-2"
       >
+      <Boxes />
         <div className="relative text-center z-10 px-2 bottom-15 w-full">
           <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-7xl font-bold mb-6 pb-2 bg-gradient-to-r from-indigo-200 to-gray-500 dark:to-white leading-right rounded-2xl bg-clip-text text-transparent head text-center" role="heading" aria-level="1">
             Hello, I'm Suryansu Singh
