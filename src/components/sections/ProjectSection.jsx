@@ -66,7 +66,7 @@ const ProjectSection = () => {
       >
         Projects
       </h2>
-      <article className="">
+      <article className="mx-auto flex">
         <HighlightedProject />
       </article>
       <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full border-2 py-4 rounded-md border-slate-400 px-2 sm:px-4 hover:shadow-[-8px_8px_2px_0px_rgba(203,213,225)] dark:hover:shadow-[-8px_8px_2px_0px_rgba(51,65,85)] transition-all duration-300" aria-label="Project gallery">

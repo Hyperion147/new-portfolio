@@ -1,14 +1,13 @@
-import { useEffect } from "react";
 import { Link as ScrollLink } from "react-scroll";
 import { useGSAP } from "@gsap/react";
 import ToggleDark from "./ToggleDark";
 import gsap from "gsap";
 
-const Navbar = ({ hamMenu, setHamMenu }) => {
+const Navbar = ({ setHamMenu }) => {
 
   useGSAP(() => {
     gsap.set(".boxCont", {
-      y: -100,
+      y: -20,
       borderRadius: 0,
       height: "80px",
       width: "2000px",
@@ -17,7 +16,7 @@ const Navbar = ({ hamMenu, setHamMenu }) => {
       gsap.to(".boxCont", {
         y: 0,
         borderRadius: "30px",
-        duration: 4,
+        duration: 1,
         ease: "power3.out",
         height: "65px",
         width: "100%",
@@ -27,7 +26,7 @@ const Navbar = ({ hamMenu, setHamMenu }) => {
       gsap.to(".boxCont", {
         y: 10,
         borderRadius: "9999px",
-        duration: 4,
+        duration: 1,
         ease: "power3.out",
         height: "65px",
         width: "100%",
@@ -36,7 +35,7 @@ const Navbar = ({ hamMenu, setHamMenu }) => {
     }
     gsap.from(".linkers", {
       x: 100,
-      duration: 4,
+      duration: 2,
     })
   });
 

@@ -52,7 +52,7 @@ const HighlightedProject = ({ isMobile }) => {
     description.slice(0, 120) + (description.length > 120 ? "..." : "");
 
   return (
-    <div className="border-2 mx-2 sm:mx-6 md:mx-0 mb-8 rounded-md border-slate-400 flex flex-col sm:flex-row hover:shadow-[10px_10px_0px_0px_rgba(203,213,225)] dark:hover:shadow-[10px_10px_0px_0px_rgba(51,65,85)] transition-all duration-500 w-full">
+    <div className="border-2 sm:mx-6 md:mx-0 mb-8 rounded-md border-slate-400 flex flex-col sm:flex-row hover:shadow-[10px_10px_0px_0px_rgba(203,213,225)] dark:hover:shadow-[10px_10px_0px_0px_rgba(51,65,85)] transition-all duration-500 w-full mx-auto">
       <div className="flex justify-center items-start w-full sm:w-auto">
         <Compare
           firstImage="/highlightedProject/main.png"
@@ -88,10 +88,6 @@ const HighlightedProject = ({ isMobile }) => {
               </button>
             )}
           </p>
-          <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-2">
-            This project is still in BETA phase so feel free to leave issues and
-            comments on the github repo...
-          </p>
           <div className="mt-6 sm:mt-4 items-center flex flex-col sm:flex-row gap-2 mx-0 sm:mx-12 mb-6">
             <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 w-full gap-1 ml-10 md:m-0 md:gap-2">
               {techStack.map((tech) => (
@@ -110,7 +106,7 @@ const HighlightedProject = ({ isMobile }) => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col sm:flex-row gap-3 w-full justify-center items-center mb-4">
+        <div className="flex flex-col sm:flex-row gap-3 w-full justify-center items-center mb-4 px-8 md:px-0">
           <a
             className="relative inline-flex h-10 overflow-hidden rounded-full p-[1px] focus:outline-none w-full sm:w-40 transition-all duration-300 hover:-translate-y-1 mb-2 sm:mb-0"
             href="https://todo.suryansu.pro/todo"
