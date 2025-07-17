@@ -3,6 +3,7 @@ import { FlipWords } from "../ui/flip-words";
 import { useGSAP } from "@gsap/react";
 import { motion } from "motion/react";
 import gsap from "gsap";
+import { useState, useEffect } from "react";
 import { SparklesCore } from "../ui/sparkles";
 
 const Hero = () => {
@@ -18,7 +19,6 @@ const Hero = () => {
         });
         gsap.from(".ring", {
             y: 200,
-            scale: 2,
             opacity: 0,
             duration: 1,
         });
@@ -34,14 +34,14 @@ const Hero = () => {
                 id="home"
                 className="min-h-screen flex flex-col items-center justify-center relative w-full px-2"
             >
-            <SparklesCore
-                background="transparent"
-                minSize={0.1}
-                maxSize={1}
-                particleDensity={70}
-                className="w-full h-full absolute"
-                particleColor="#FFFFFF"
-            />
+                <SparklesCore
+                    background="transparent"
+                    minSize={0.1}
+                    maxSize={1}
+                    particleDensity={70}
+                    className="w-full h-full absolute"
+                    particleColor="#FFFFFF"
+                />
                 <div className="relative text-center z-10 px-2 bottom-15 w-full">
                     <h1
                         className="text-3xl xs:text-4xl sm:text-5xl md:text-7xl font-bold mb-6 pb-2 bg-gradient-to-r from-indigo-200 to-gray-500 dark:to-white leading-right rounded-2xl bg-clip-text text-transparent head text-center"

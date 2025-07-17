@@ -65,7 +65,7 @@ const Cursor = () => {
 
         const handleHover = () => {
             gsap.to(cursor, {
-                scale: 0.9,
+                scale: 0.8,
                 backgroundColor: 'rgba(255, 255, 255, 0.8)',
                 duration: 0.15
             })

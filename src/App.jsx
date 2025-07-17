@@ -19,8 +19,8 @@ function App() {
 
   return (
     <>
-      <div className="min-h-screen transition-opacity duration-300 bg-[#fff9f0] dark:bg-slate-800">
-        <div className="max-w-[100vw] overflow-x-hidden">
+      <div className="min-h-screen bg-[#fff9f0] dark:bg-slate-800">
+        <div className="max-w-[100vw] overflow-x-hidden transition-colors duration-500">
           <Navbar hamMenu={hamMenu} setHamMenu={setHamMenu} />
           <Mobile hamMenu={hamMenu} setHamMenu={setHamMenu} />
           <Hero />
