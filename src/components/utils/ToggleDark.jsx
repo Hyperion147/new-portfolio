@@ -3,38 +3,25 @@ import sunIcon from "/Sun.svg";
 import moonIcon from "/Moon.svg";
 
 const ToggleDark = () => {
-  const [isDark, setIsDark] = useState(() => {
-    // Check if we're in the browser
-    if (typeof window !== 'undefined') {
-      const savedTheme = localStorage.getItem("theme");
-      const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      
-      // Return true if explicitly dark or if no preference and system prefers dark
-      return savedTheme === "dark" || (!savedTheme && systemPrefersDark);
-    }
-    return false;
-  });
+  const [isDark, setIsDark] = useState(null)
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
     const systemPrefersDark = window.matchMedia(
       "(prefers-color-scheme: dark)"
     ).matches;
-
-    const shouldBeDark = savedTheme === "dark" || (!savedTheme && systemPrefersDark);
+    const dark = savedTheme === "dark" || (!savedTheme && systemPrefersDark);
+    setIsDark(dark);
     
-    setIsDark(shouldBeDark);
-    
-    if (shouldBeDark) {
-      setIsDark(true);
+    if (dark) {
       document.documentElement.classList.add("dark");
     } else {
-      setIsDark(false);
       document.documentElement.classList.remove("dark");
     }
   }, []);
 
   const toggleTheme = () => {
+    if (isDark === null) return;
     const newIsDark = !isDark;
     setIsDark(newIsDark);
 
@@ -46,6 +33,8 @@ const ToggleDark = () => {
       localStorage.setItem("theme", "light");
     }
   };
+
+  if(isDark === null) return null
 
   return (
     <button
@@ -59,6 +48,7 @@ const ToggleDark = () => {
             transition-all duration-300 linker
           "
       aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
+      suppressHydrationWarning={true}
     >
       <span
         className={`

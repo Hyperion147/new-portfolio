@@ -7,35 +7,33 @@ const Navbar = ({ setHamMenu }) => {
 
   useGSAP(() => {
     gsap.set(".boxCont", {
-      y: -20,
-      borderRadius: 0,
-      height: "80px",
-      width: "2000px",
+      width: "2200px",
+      filter: "blur(5px)",
+      opacity: 0
     })
     if (window.innerWidth > 769) {
       gsap.to(".boxCont", {
-        y: 0,
         borderRadius: "30px",
         duration: 1,
-        ease: "power3.out",
-        height: "65px",
         width: "100%",
-        alignItems: "center"
+        filter: "blur(0px)",
+        alignItems: "center",
+        opacity: 0.8
       })
     } else {
       gsap.to(".boxCont", {
         y: 10,
         borderRadius: "9999px",
         duration: 1,
-        ease: "power3.out",
-        height: "65px",
         width: "100%",
-        alignItems: "center"
+        filter: "blur(0px)",
+        alignItems: "center",
+        opacity: 0.8
       })
     }
     gsap.from(".linkers", {
       x: 100,
-      duration: 2,
+      duration: 1.5,
     })
   });
 

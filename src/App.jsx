@@ -3,11 +3,11 @@ import Navbar from './components/utils/Navbar'
 import Mobile from './components/utils/Mobile'
 import Hero from './components/sections/Hero'
 import AboutSection from './components/sections/AboutSection'
-import ContactSection from './components/sections/ContactSection'
-import ProjectSection from './components/sections/ProjectSection'
 import FixedButtons from "./components/ui/FixedButtons"
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 
+const ContactSection = React.lazy(() => import("./components/sections/ContactSection"))
+const ProjectSection = React.lazy(() => import("./components/sections/ProjectSection"))
 
 function App() {
 

@@ -1,4 +1,3 @@
-
 import React, { useId } from "react";
 import { useEffect, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
@@ -6,7 +5,7 @@ import { loadSlim } from "@tsparticles/slim";
 import { cn } from "../utils/Utils";
 import { motion, useAnimation } from "motion/react";
 
-export const SparklesCore = (props) => {
+const SparklesCore = (props) => {
   const {
     id,
     className,
@@ -419,3 +418,5 @@ export const SparklesCore = (props) => {
     </motion.div>
   );
 };
+
+export default SparklesCore
