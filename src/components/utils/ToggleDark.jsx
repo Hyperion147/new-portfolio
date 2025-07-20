@@ -44,7 +44,7 @@ const ToggleDark = () => {
             md:w-14 md:h-7
             lg:w-16 lg:h-8 
             rounded-full
-            bg-gray-300 dark:bg-gray-700 
+            bg-[#e5e0d9] dark:bg-gray-700 
             transition-all duration-300 linker
           "
       aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
