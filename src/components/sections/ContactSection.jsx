@@ -1,6 +1,7 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 import { BackgroundLines } from "../ui/background-lines";
+import { createParticleCanvas } from "package-particlefx";
 emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
 
 const ContactSection = () => {
@@ -63,16 +64,44 @@ const ContactSection = () => {
         });
     };
 
+    const containerRef = useRef(null);
+    const particleCanvasRef = useRef(null);
+    const [config, setConfig] = useState({
+        imageSrc: "/footer.png",
+        particleGap: 8,
+        gravity: 0.2,
+        noise: 1,
+    });
+
+    useEffect(() => {
+        if (containerRef.current) {
+            particleCanvasRef.current = createParticleCanvas(
+                containerRef.current,
+                config
+            );
+        }
+
+        return () => {
+            particleCanvasRef.current?.destroy();
+        };
+    }, [config]);
+
     return (
         <section
             id="contact"
-            className="relative pt-10 pb-20 md:pb-0 px-2 sm:px-4 md:px-8 lg:px-16 max-w-full md:max-w-3xl mx-auto"
+            className="pt-10 pb-20 md:pb-0 px-2 sm:px-4 md:px-8 lg:px-16 mx-auto md:mx-60 my-10"
         >
-            <BackgroundLines className="flex items-center justify-center w-full flex-col px-2 sm:px-4 -z-10">
+            <div className="flex justify-between">
+                <div className="w-1/2 hidden md:flex mt-10">
+                    <div
+                        ref={containerRef}
+                        style={{ width: "1080px", height: "400px" }}
+                    />
+                </div>
                 <form
                     ref={formRef}
                     onSubmit={handleSubmit}
-                    className="mt-4 flex flex-col gap-4 sm:gap-6 w-full max-w-lg mx-auto z-20"
+                    className="mt-4 flex flex-col gap-4 sm:gap-6 w-1/2 md:w-full max-w-lg mx-auto z-20"
                 >
                     <h2
                         id="heading"
@@ -171,7 +200,7 @@ const ContactSection = () => {
                         )}
                     </button>
                 </form>
-            </BackgroundLines>
+            </div>
         </section>
     );
 };
