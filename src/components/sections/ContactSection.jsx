@@ -89,7 +89,7 @@ const ContactSection = () => {
     return (
         <section
             id="contact"
-            className="pt-10 pb-20 md:pb-0 px-2 sm:px-4 md:px-8 lg:px-16 mx-auto md:mx-60 my-10"
+            className="pt-10 pb-5 md:pb-0 px-2 sm:px-4 md:px-8 lg:px-16 mx-auto md:mx-60 mb-10"
         >
             <div className="flex justify-between">
                 <div className="w-1/2 hidden md:flex mt-10">
@@ -101,7 +101,7 @@ const ContactSection = () => {
                 <form
                     ref={formRef}
                     onSubmit={handleSubmit}
-                    className="mt-4 flex flex-col gap-4 sm:gap-6 w-1/2 md:w-full max-w-lg mx-auto z-20"
+                    className="mt-4 flex flex-col gap-4 sm:gap-6 md:w-1/2 mx-10 w-full max-w-lg md:mx-auto z-20"
                 >
                     <h2
                         id="heading"
