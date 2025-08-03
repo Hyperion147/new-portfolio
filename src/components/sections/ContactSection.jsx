@@ -68,7 +68,7 @@ const ContactSection = () => {
     const particleCanvasRef = useRef(null);
     const [config, setConfig] = useState({
         imageSrc: "/footer.png",
-        particleGap: 8,
+        particleGap: 4,
         gravity: 0.2,
         noise: 1,
     });
