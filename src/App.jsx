@@ -1,37 +1,23 @@
-import './App.css'
-import Navbar from './components/utils/Navbar'
-import Mobile from './components/utils/Mobile'
-import Hero from './components/sections/Hero'
-import AboutSection from './components/sections/AboutSection'
-import FixedButtons from "./components/ui/FixedButtons"
-import React, { useState, useEffect } from 'react'
+import "./App.css";
+import MainLayout from "./pages/MainLayout";
+import ProjectsLayout from "./pages/ProjectsLayout";
 
-const ContactSection = React.lazy(() => import("./components/sections/ContactSection"))
-const ProjectSection = React.lazy(() => import("./components/sections/ProjectSection"))
+import { Route, Routes } from "react-router-dom";
+import React, { useEffect } from "react";
 
 function App() {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
-  const [hamMenu, setHamMenu] = useState(false)
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
-  return (
-    <>
-      <div className="min-h-screen bg-[#fff9f0] dark:bg-slate-800">
-        <div className="max-w-[100vw] overflow-x-hidden transition-colors duration-500">
-          <Navbar hamMenu={hamMenu} setHamMenu={setHamMenu} />
-          <Mobile hamMenu={hamMenu} setHamMenu={setHamMenu} />
-          <Hero />
-          <AboutSection />
-          <ProjectSection />
-          <ContactSection />
-          <FixedButtons />
-        </div>
-      </div>
-    </>
-  )
+    return (
+        <>
+            <Routes>
+                <Route path="/" element={<MainLayout />}></Route>
+                <Route path="/projects" element={<ProjectsLayout />}></Route>
+            </Routes>
+        </>
+    );
 }
 
-export default App
+export default App;

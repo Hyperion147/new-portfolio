@@ -1,79 +1,83 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap");
 
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
-  --animate-meteor-effect: meteor 5s linear infinite;
+    --animate-meteor-effect: meteor 5s linear infinite;
 
-  @keyframes meteor {
-    0% {
-      transform: rotate(215deg) translateX(0);
-      opacity: 1;
-    }
+    @keyframes meteor {
+        0% {
+            transform: rotate(215deg) translateX(0);
+            opacity: 1;
+        }
 
-    70% {
-      opacity: 1;
-    }
+        70% {
+            opacity: 1;
+        }
 
-    100% {
-      transform: rotate(215deg) translateX(-500px);
-      opacity: 0;
+        100% {
+            transform: rotate(215deg) translateX(-500px);
+            opacity: 0;
+        }
     }
-  }
 }
 
 html,
 body {
-  margin: 0;
-  padding: 0;
-  font-family: "Roboto Flex", monospace;
-  scroll-behavior: smooth;
-  @apply dark:bg-slate-800
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto Flex", monospace;
+    scroll-behavior: smooth;
+    @apply dark:bg-slate-800;
+}
+
+.pixeltext {
+    font-family: "Pixelify Sans", sans-serif;
 }
 
 @layer base {
-  ::selection {
-    @apply bg-black text-[#ffffff];
-  }
-  .dark ::selection {
-    @apply bg-[#dcdcdc] text-black;
-  }
+    ::selection {
+        @apply bg-black text-[#ffffff];
+    }
+    .dark ::selection {
+        @apply bg-[#dcdcdc] text-black;
+    }
 }
 
 #logo-name,
 #heading {
-  font-family: "Space Mono";
+    font-family: "Space Mono";
 }
 
 ::view-transition-old(root),
 ::view-transition-new(root) {
-  animation: none;
-  mix-blend-mode: normal;
+    animation: none;
+    mix-blend-mode: normal;
 }
 
 * {
-  transition: 
-    background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-    border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-    color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-    box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+        border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+        color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @layer utilities {
-  @keyframes blink {
-    0%,
-    100% {
-      opacity: 1;
+    @keyframes blink {
+        0%,
+        100% {
+            opacity: 1;
+        }
+
+        50% {
+            opacity: 0;
+        }
     }
 
-    50% {
-      opacity: 0;
+    .animate-blink {
+        animation: blink 0.8s step-end infinite;
     }
-  }
-
-  .animate-blink {
-    animation: blink 0.8s step-end infinite;
-  }
 }

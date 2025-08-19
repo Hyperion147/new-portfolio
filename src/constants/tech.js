@@ -11,7 +11,6 @@ import {
     git,
     figma,
     docker,
-    threejs,
     portfolio,
     ajivak
   } from "../assets/index";
@@ -53,10 +52,6 @@ import {
     //   name: "MongoDB",
     //   icon: mongodb,
     // },
-    {
-      name: "Three JS",
-      icon: threejs,
-    },
     {
       name: "git",
       icon: git,

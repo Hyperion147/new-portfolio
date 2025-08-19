@@ -1,6 +1,5 @@
 import { useState, useRef, useEffect } from "react";
 import emailjs from "@emailjs/browser";
-import { BackgroundLines } from "../ui/background-lines";
 import { createParticleCanvas } from "package-particlefx";
 emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
 
@@ -68,8 +67,7 @@ const ContactSection = () => {
     const particleCanvasRef = useRef(null);
     const [config, setConfig] = useState({
         imageSrc: "/footer.png",
-        particleGap: 5,
-        gravity: 0.2,
+        particleGap: 4,
         noise: 1,
     });
 
