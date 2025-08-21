@@ -18,7 +18,7 @@ const ProjectDetails = ({
             onClick={() => closeModal()}
         >
             <motion.div
-                className="relative max-w-2xl shadow-sm rounded-2xl bg-gradient-to-l dark:text-white border-2 border-slate-300 z-60"
+                className="relative max-w-2xl shadow-sm rounded-2xl bg-gradient-to-l dark:text-white border-2 border-slate-300 z-60 mx-10 md:mx-0"
                 initial={{ opacity: 0, filter: "blur(14px)" }}
                 animate={{
                     opacity: 1,
