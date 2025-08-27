@@ -16,6 +16,7 @@
     "@tsparticles/engine": "^3.8.1",
     "@tsparticles/react": "^3.0.0",
     "@tsparticles/slim": "^3.8.1",
+    "@vercel/analytics": "^1.5.0",
     "clsx": "^2.1.1",
     "cobe": "^0.6.4",
     "gsap": "^3.13.0",
