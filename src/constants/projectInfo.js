@@ -71,7 +71,7 @@ export const projectInfo = [
             {
                 id: 3,
                 name: "#leaflet",
-            }
+            },
             {
                 id: 4,
                 name: "#shadcn",
