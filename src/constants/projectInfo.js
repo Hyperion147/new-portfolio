@@ -51,4 +51,31 @@ export const projectInfo = [
             }
         ],
     },
+    {
+        id: 3,
+        title: "panipatconnect.com",
+        heading: "Green Panipat Mission",
+        description: "This website is a personal blog built with React and Tailwind CSS, combining modern web development techniques with a clean, responsive design. It offers a seamless reading experience and interactive features to engage visitors. The blog showcases my ability to create intuitive user interfaces while sharing insights and ideas.",
+        href: "https://panipatconnect.com",
+        image: "/projects/green.png",
+        preview: "/projects/green.png",
+        tags: [
+            {
+                id: 1,
+                name: "#react",
+            },
+            {
+                id: 2,
+                name: "#tailwind",
+            },
+            {
+                id: 3,
+                name: "#leaflet",
+            }
+            {
+                id: 4,
+                name: "#shadcn",
+            }
+        ],
+    },
 ]
