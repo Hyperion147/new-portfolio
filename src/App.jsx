@@ -2,7 +2,7 @@ import "./App.css";
 import MainLayout from "./pages/MainLayout";
 import ProjectsLayout from "./pages/ProjectsLayout";
 
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, ScrollRestoration } from "react-router-dom";
 import React, { useEffect } from "react";
 
 function App() {

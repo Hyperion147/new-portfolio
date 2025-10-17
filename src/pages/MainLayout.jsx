@@ -5,6 +5,7 @@ import AboutSection from "../components/sections/AboutSection";
 import FixedButtons from "../components/ui/FixedButtons";
 
 import React, { useState } from "react";
+// import ExperienceSection from "../components/sections/ExperienceSection";
 
 const ContactSection = React.lazy(() =>
     import("../components/sections/ContactSection")
@@ -24,6 +25,7 @@ const MainLayout = () => {
                 <Hero />
                 <AboutSection />
                 <ProjectSection />
+                {/* <ExperienceSection /> */}
                 <ContactSection />
                 <FixedButtons />
             </div>

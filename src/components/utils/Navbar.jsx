@@ -59,6 +59,13 @@ const Navbar = ({ setHamMenu }) => {
           </div>
 
           <div className="hidden md:flex items-center space-x-8">
+            <a
+              href="https://blog.suryansu.pro/"
+              target="_blank"
+              className="hover:text-gray-600 font-bold transition-colors cursor-pointer linkers"
+            >
+              Blogs
+            </a>
             <ScrollLink
               to="about"
               smooth={true}
