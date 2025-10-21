@@ -2,10 +2,9 @@ import Navbar from "../components/utils/Navbar";
 import Mobile from "../components/utils/Mobile";
 import Hero from "../components/sections/Hero";
 import AboutSection from "../components/sections/AboutSection";
-import FixedButtons from "../components/ui/FixedButtons";
+// import ExperienceSection from "../components/sections/ExperienceSection";
 
 import React, { useState } from "react";
-// import ExperienceSection from "../components/sections/ExperienceSection";
 
 const ContactSection = React.lazy(() =>
     import("../components/sections/ContactSection")
@@ -27,7 +26,6 @@ const MainLayout = () => {
                 <ProjectSection />
                 {/* <ExperienceSection /> */}
                 <ContactSection />
-                <FixedButtons />
             </div>
         </div>
     );
