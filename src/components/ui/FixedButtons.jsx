@@ -1,23 +1,9 @@
-import { FaGithub, FaRegStar } from "react-icons/fa";
-import { IoDocumentOutline } from "react-icons/io5";
+import { FaRegStar } from "react-icons/fa";
 
 const FixedButtons = () => {
   const buttons = [
     {
       id: 1,
-      logo: <FaGithub className="w-4 h-4 md:w-5 md:h-5" />,
-      link: "https://github.com/Hyperion147",
-      name: "Github",
-    },
-    {
-      id: 2,
-      logo: <IoDocumentOutline className="w-4 h-4 md:w-5 md:h-5" />,
-      link: "https://drive.google.com/file/d/1su8kU2JIohmi4JQ1EwQPqqfvK4MSg7Rc/view?usp=sharing",
-      name: "Resume",
-    },
-
-    {
-      id: 3,
       logo: <FaRegStar className="w-4 h-4 md:w-5 md:h-5" />,
       link: "https://github.com/Hyperion147/new-portfolio",
       name: "Drop a Star",
@@ -25,7 +11,7 @@ const FixedButtons = () => {
   ];
 
   return (
-    <div className="fixed bottom-5 right-5 flex flex-col z-50 gap-4">
+    <div className="fixed bottom-5 md:top-8 right-5 flex flex-col z-50 gap-4">
       {buttons.map((button) => (
         <div className="flex justify-end gap-2 items-center" key={button.id}>
           <p className="text-slate-500 hidden md:block">{button.name}</p>

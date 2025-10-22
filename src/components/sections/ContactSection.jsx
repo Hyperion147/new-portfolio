@@ -4,6 +4,7 @@ import { getCalApi } from "@calcom/embed-react";
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import gsap from "gsap";
+import FooterLinks from "../ui/footer-links"
 
 const ContactSection = () => {
   useEffect(() => {
@@ -105,6 +106,8 @@ const ContactSection = () => {
             <CiMail className="w-5 h-5 group-hover:transition-all duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-slate-300" />
           </Link>
         </div>
+        <div className="bg-gradient-to-r text-red-50 w-full from-slate-100 dark:from-slate-900 via-gray-500 dark:via-indigo-200 to-slate-100 dark:to-slate-900 mt-4 h-[1px]" />
+        <FooterLinks />
       </div>
     </footer>
   );

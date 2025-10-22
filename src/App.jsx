@@ -6,6 +6,7 @@ import { Route, Routes } from "react-router-dom";
 import { useEffect } from "react";
 import FixedButtons from "./components/ui/FixedButtons";
 import ContactLayout from "./pages/ContactLayout";
+import ResumeLayout from "./pages/ResumeLayout";
 
 function App() {
   useEffect(() => {
@@ -13,15 +14,16 @@ function App() {
   }, []);
 
   return (
-    <>
+    <div className="overflow-x-hidden">
       <Toaster position="bottom-right" />
       <FixedButtons />
       <Routes>
         <Route path="/" element={<MainLayout />}></Route>
         <Route path="/projects" element={<ProjectsLayout />}></Route>
         <Route path="/contact" element={<ContactLayout />}></Route>
+        <Route path="/resume" element={<ResumeLayout />}></Route>
       </Routes>
-    </>
+    </div>
   );
 }
 

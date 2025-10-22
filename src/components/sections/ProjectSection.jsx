@@ -24,7 +24,7 @@ const ProjectSection = () => {
     return (
         <section
             id="projects"
-            className="px-2 sm:px-4 md:px-8 max-w-full md:max-w-5xl mx-auto mt-20 md:mt-30 mb-20 md:mb-0"
+            className="px-2 sm:px-4 md:px-8 max-w-full md:max-w-5xl mx-auto mb-20 md:mb-0"
         >
             <h2
                 id="heading"
