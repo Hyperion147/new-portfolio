@@ -1,3 +1,0 @@
-# React + Vite
-
-This Website is currently under production, don't judge is just yet and give adives on UI/UX of this website...
