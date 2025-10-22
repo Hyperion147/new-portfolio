@@ -3,8 +3,9 @@ import MainLayout from "./pages/MainLayout";
 import ProjectsLayout from "./pages/ProjectsLayout";
 import { Toaster } from "react-hot-toast";
 import { Route, Routes } from "react-router-dom";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import FixedButtons from "./components/ui/FixedButtons";
+import ContactLayout from "./pages/ContactLayout";
 
 function App() {
   useEffect(() => {
@@ -18,6 +19,7 @@ function App() {
       <Routes>
         <Route path="/" element={<MainLayout />}></Route>
         <Route path="/projects" element={<ProjectsLayout />}></Route>
+        <Route path="/contact" element={<ContactLayout />}></Route>
       </Routes>
     </>
   );

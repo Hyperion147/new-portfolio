@@ -1,200 +1,112 @@
-import { useState, useRef, useEffect } from "react";
-import emailjs from "@emailjs/browser";
-import { createParticleCanvas } from "package-particlefx";
-import toast from "react-hot-toast";
-
-emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
+import { CiMail } from "react-icons/ci";
+import { CiCalendarDate } from "react-icons/ci";
+import { getCalApi } from "@calcom/embed-react";
+import { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
+import gsap from "gsap";
 
 const ContactSection = () => {
-  const formRef = useRef();
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-  const [loading, setLoading] = useState(false);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setForm({ ...form, [name]: value });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!form.name.trim() || !form.email.trim() || !form.message.trim()) {
-      alert("Please fill in all fields");
-      return;
-    }
-
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
-      alert("Please enter a valid email address");
-      return;
-    }
-
-    setLoading(true);
-
-    try {
-      await emailjs.send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        {
-          from_name: form.name.trim(),
-          to_name: "Suryansu",
-          from_email: form.email.trim(),
-          to_email: "suryansu87@gmail.com",
-          message: form.message.trim(),
-        },
-      );
-
-      setLoading(false);
-      toast.success("Thank you! I'll respond asap.");
-      setForm({
-        name: "",
-        email: "",
-        message: "",
-      });
-    } catch (error) {
-      setLoading(false);
-      toast.error("Error, Please contact through Resume.");
-    }
-  };
-
-  const containerRef = useRef(null);
-  const particleCanvasRef = useRef(null);
-  const [config, setConfig] = useState({
-    imageSrc: "/footer.png",
-    particleGap: 4,
-    noise: 1,
-  });
-
   useEffect(() => {
-    if (containerRef.current) {
-      particleCanvasRef.current = createParticleCanvas(
-        containerRef.current,
-        config,
-      );
-    }
-
-    return () => {
-      particleCanvasRef.current?.destroy();
-    };
-  }, [config]);
+    (async function () {
+      const cal = await getCalApi({ namespace: "15min" });
+      cal("ui", {
+        theme: "auto",
+        hideEventTypeDetails: false,
+        layout: "month_view",
+      });
+    })();
+  }, []);
+  
+  const buttonRef = useRef(null);
+    const iconRef = useRef(null);
+  
+    useEffect(() => {
+      const btn = buttonRef.current;
+      const icon = iconRef.current;
+  
+      // Hover in animation
+      const handleEnter = () => {
+        gsap.to(btn, {
+          width: "220px", // expand width
+          duration: 0.4,
+          ease: "power2.out"
+        });
+        gsap.to(icon, {
+          opacity: 1,
+          x: 0,
+          duration: 0.4,
+          ease: "power2.out"
+        });
+      };
+  
+      // Hover out animation
+      const handleLeave = () => {
+        gsap.to(btn, {
+          width: "200px",
+          duration: 0.4,
+          ease: "power2.inOut"
+        });
+        gsap.to(icon, {
+          opacity: 0,
+          x: -10,
+          duration: 0.4,
+          ease: "power2.inOut"
+        });
+      };
+  
+      btn.addEventListener("mouseenter", handleEnter);
+      btn.addEventListener("mouseleave", handleLeave);
+  
+      return () => {
+        btn.removeEventListener("mouseenter", handleEnter);
+        btn.removeEventListener("mouseleave", handleLeave);
+      };
+    }, []);
 
   return (
-    <section
+    <footer
       id="contact"
-      className="pt-10 pb-5 md:pb-0 px-2 sm:px-4 md:px-8 lg:px-16 mx-auto md:mx-60 mb-10"
+      className="text-gray-500 text-center py-10 w-full px-2 sm:px-4 md:px-8 max-w-full md:max-w-5xl mx-auto mb-8"
     >
-      <div className="flex justify-between">
-        <div className="w-1/2 hidden md:flex mt-10">
-          <div
-            ref={containerRef}
-            style={{ width: "1080px", height: "400px" }}
-          />
-        </div>
-        <form
-          ref={formRef}
-          onSubmit={handleSubmit}
-          className="mt-4 flex flex-col sm:gap-4 md:w-1/2 mx-10 w-full max-w-lg md:mx-auto z-20"
-        >
-          <h2
-            id="heading"
-            className="bg-gradient-to-r from-indigo-200 to-gray-900 dark:to-slate-200 leading-right rounded-2xl bg-clip-text text-transparent text-4xl font-medium text-center"
-          >
-            Contact Me
-          </h2>
-          <div className="flex flex-col gap-1">
-            <label
-              htmlFor="name"
-              className="font-medium text-gray-700 dark:text-gray-300"
-            >
-              Your Name
-            </label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={form.name}
-              onChange={handleChange}
-              placeholder="What's your name?"
-              className="py-2 sm:py-3 px-3 sm:px-4 w-full placeholder:text-gray-400 rounded-lg border border-gray-600 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition-all dark:text-white"
-              required
-            />
-          </div>
-
-          <div className="flex flex-col gap-1">
-            <label
-              htmlFor="email"
-              className="font-medium text-gray-700 dark:text-gray-300"
-            >
-              Your Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={form.email}
-              onChange={handleChange}
-              placeholder="What's your email?"
-              className="py-2 sm:py-3 px-3 sm:px-4 w-full placeholder:text-gray-400 rounded-lg border border-gray-600 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition-all dark:text-white"
-              required
-            />
-          </div>
-
-          <div className="flex flex-col gap-1 ">
-            <label
-              htmlFor="message"
-              className="font-medium text-gray-700 dark:text-gray-300"
-            >
-              Your Message
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              rows={4}
-              value={form.message}
-              onChange={handleChange}
-              placeholder="What do you want to say?"
-              className="py-2 sm:py-3 px-3 sm:px-4 w-full placeholder:text-gray-400 rounded-lg border border-gray-600 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition-all resize-none dark:text-white"
-              required
-            />
-          </div>
-          <button
-            type="submit"
-            disabled={loading}
-            className="mt-2 bg-indigo-600 cursor-pointer hover:bg-blue-700 text-white font-bold py-2 sm:py-3 px-6 sm:px-2 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
-          >
-            {loading ? (
-              <span className="flex items-center justify-center gap-2">
-                <svg
-                  className="animate-spin h-5 w-5 text-white"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                >
-                  <circle
-                    className="opacity-25"
-                    cx="12"
-                    cy="12"
-                    r="10"
-                    stroke="currentColor"
-                    strokeWidth="4"
-                  ></circle>
-                  <path
-                    className="opacity-75"
-                    fill="currentColor"
-                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                  ></path>
-                </svg>
-                Sending...
+      <h2
+        className="bg-gradient-to-r from-indigo-200 to-gray-900 dark:to-slate-300 leading-right bg-clip-text text-transparent text-4xl font-medium text-center pb-4 mb-2"
+        id="heading"
+      >
+        Contact
+      </h2>
+      <div className="flex flex-col items-center justify-center gap-4 w-full p-8 md:p-10 border-slate-500 border-dashed rounded-md border-2 hover:shadow-[10px_10px_0px_0px_rgba(203,213,225)] dark:hover:shadow-[10px_10px_0px_0px_rgba(51,65,85)]">
+        <p className="text-lg text-slate-800 dark:text-slate-300 tracking-widest">
+          Since you scrolled this far!
+        </p>
+        <div className="flex gap-4 md:gap-8 flex-col md:flex-row">
+          <button className="no-underline group cursor-pointer relative font-semibold leading-6  dark:text-slate-200 text-slate-800 inline-block gap-2 overflow-hidden  group dark:hover:text-slate-300 hover:text-slate-600"
+            data-cal-namespace="15min"
+            data-cal-link="suryansu/15min"
+            data-cal-config='{"layout":"month_view","theme":"auto"}'>
+            <span className="absolute inset-0 overflow-hidden rounded-md">
+              <span className="absolute inset-0 rounded-md bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+            </span>
+            <div className="relative flex items-center justify-center space-x-2 z-10 rounded-md border border-slate-500  py-2  ring-1 ring-white/10 w-[200px] dark:bg-slate-800 bg-[#fff9f0]" ref={buttonRef}>
+              <span className="flex gap-2 items-center justify-center ">
+                Book a Free Meeting
+                <CiCalendarDate
+                  ref={iconRef}
+                  className="w-5 h-5 opacity-0 translate-x-[-10px] text-slate-900 dark:text-slate-100 hidden group-hover:block"
+                />
               </span>
-            ) : (
-              "Send Message"
-            )}
+            </div>
+            <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-emerald-400/0 via-emerald-400/90 to-emerald-400/0 transition-opacity duration-500 group-hover:opacity-40" />
           </button>
-        </form>
+          <Link
+            to="/contact"
+            className="flex items-center justify-center gap-2 group py-2 px-4 border-slate-500 rounded-md border-2 border-dashed"
+          >
+            <p>Email Me</p>
+            <CiMail className="w-5 h-5 group-hover:transition-all duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-slate-300" />
+          </Link>
+        </div>
       </div>
-    </section>
+    </footer>
   );
 };
 
