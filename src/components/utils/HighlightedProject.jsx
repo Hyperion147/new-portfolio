@@ -52,7 +52,7 @@ const HighlightedProject = ({ isMobile }) => {
     description.slice(0, 120) + (description.length > 120 ? "..." : "");
 
   return (
-    <div className="border-2 sm:mx-6 md:mx-0 mb-8 rounded-md border-slate-400 flex flex-col sm:flex-row hover:shadow-[10px_10px_0px_0px_rgba(203,213,225)] dark:hover:shadow-[10px_10px_0px_0px_rgba(51,65,85)] transition-all duration-500 w-full mx-auto">
+    <div className="border-2 sm:mx-6 md:mx-0 mb-4 rounded-md border-slate-300 dark:border-slate-600 flex flex-col sm:flex-row w-full mx-auto">
       <div className="flex justify-center items-start w-full sm:w-auto">
         <Compare
           firstImage="/highlightedProject/main.png"
@@ -63,8 +63,8 @@ const HighlightedProject = ({ isMobile }) => {
           slideMode={isMobile ? "hover" : "drag"}
         />
       </div>
-      <div className="flex flex-col w-full">
-        <div className="py-2 px-3 sm:px-6 mt-4 sm:mt-4">
+      <div className="flex flex-col w-full text-start">
+        <div className="py-2 px-3 sm:px-6 mt-4">
           <p className="text-slate-700 dark:text-slate-500">
             {isMobile
               ? showMore

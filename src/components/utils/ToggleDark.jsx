@@ -1,6 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import sunIcon from "/Sun.svg";
-import moonIcon from "/Moon.svg";
 import { motion, AnimatePresence } from "motion/react";
 import { flushSync } from "react-dom";
 
@@ -61,7 +59,7 @@ const ToggleDark = () => {
 
         document.documentElement.animate(
             {
-                clipPath:[
+                clipPath: [
                     `circle(0px at ${x}px ${y}px)`,
                     `circle(${maxRadius}px at ${x}px ${y}px)`,
                 ],
@@ -117,14 +115,14 @@ const ToggleDark = () => {
                 animate={{
                     x: isDark
                         ? ["1.25rem", "1.5rem", "1.75rem", "2rem"][
-                              window.innerWidth >= 1024
-                                  ? 3
-                                  : window.innerWidth >= 768
-                                  ? 2
-                                  : window.innerWidth >= 640
-                                  ? 1
-                                  : 0
-                          ]
+                        window.innerWidth >= 1024
+                            ? 3
+                            : window.innerWidth >= 768
+                                ? 2
+                                : window.innerWidth >= 640
+                                    ? 1
+                                    : 0
+                        ]
                         : 0,
                 }}
                 transition={{
@@ -144,7 +142,7 @@ const ToggleDark = () => {
                         transition={{ duration: 0.2 }}
                     >
                         <img
-                            src={isDark ? moonIcon : sunIcon}
+                            src={isDark ? "/Moon.svg" : "/Sun.svg"}
                             alt={isDark ? "Moon" : "Sun"}
                             className="w-3 h-3 sm:w-3 sm:h-3 md:w-3.5 md:h-3.5 lg:w-4 lg:h-4"
                         />

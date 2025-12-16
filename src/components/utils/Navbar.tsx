@@ -3,49 +3,54 @@ import { useGSAP } from "@gsap/react";
 import ToggleDark from "./ToggleDark";
 import gsap from "gsap";
 
-const Navbar = ({ setHamMenu }) => {
+import React, { Dispatch, SetStateAction } from "react";
+
+interface NavbarProps {
+  hamMenu: boolean;
+  setHamMenu: Dispatch<SetStateAction<boolean>>;
+}
+
+const Navbar = ({ hamMenu, setHamMenu }: NavbarProps) => {
 
   useGSAP(() => {
-    gsap.set(".boxCont", {
-      width: "2200px",
-      filter: "blur(5px)",
-      opacity: 0
+    gsap.from(".boxCont", {
+      filter: "blur(12px)",
+      opacity: 0,
+      duration: 1,
+    })
+    gsap.set(".linkers", {
+      x: 100,
     })
     if (window.innerWidth > 769) {
       gsap.to(".boxCont", {
-        borderRadius: "30px",
         duration: 1,
-        width: "100%",
         filter: "blur(0px)",
         alignItems: "center",
-        opacity: 0.8
+        opacity: 1
       })
     } else {
       gsap.to(".boxCont", {
-        y: 10,
-        borderRadius: "9999px",
         duration: 1,
-        width: "100%",
         filter: "blur(0px)",
         alignItems: "center",
-        opacity: 0.8
+        opacity: 1
       })
     }
-    gsap.from(".linkers", {
-      x: 100,
+    gsap.to(".linkers", {
+      x: 0,
       duration: 1.5,
     })
   });
 
   return (
-    <nav className="fixed left-1/2 -translate-x-1/2 md:top-5 w-full max-w-[92vw] md:max-w-5xl z-40 backdrop-blur-md shadow-sm drop-shadow-transparent shadow-gray-700 dark:bg-slate-900/80 dark:text-white boxCont">
-      <div className="mx-auto px-4 ">
+    <nav className="fixed left-1/2 -translate-x-1/2 top-5 max-w-[48vw] w-full rounded-md z-40 backdrop-blur-md shadow-sm drop-shadow-transparent shadow-gray-700 dark:bg-slate-900/80 dark:text-white boxCont">
+      <div className="mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           <ScrollLink
             to="home"
             smooth={true}
             duration={100}
-            className="font-medium text-xl cursor-pointer ml-3"
+            className="font-medium text-xl cursor-pointer pl-3"
           >
             S<span className="text-gray-400">uryansu</span>
             S<span className="text-gray-400">ingh</span>

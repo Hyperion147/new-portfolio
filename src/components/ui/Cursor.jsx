@@ -1,3 +1,5 @@
+"use client"
+
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 
@@ -111,15 +113,13 @@ const Cursor = () => {
         <>
             <div
                 ref={cursorRef}
-                className={`fixed border pointer-events-none w-6 h-6 rounded-full bg-gray mix-blend-difference z-[9999] transform scale-100 ${
-                    isMobile ? "hidden" : "opacity-0"
-                }`}
+                className={`fixed border pointer-events-none w-6 h-6 rounded-full bg-gray mix-blend-difference z-[9999] transform scale-100 ${isMobile ? "hidden" : "opacity-0"
+                    }`}
             />
             <div
                 ref={backdropRef}
-                className={`fixed pointer-events-none w-8 h-8 rounded-full bg-black/10 border border-white/10 z-[9998] transform scale-100 ${
-                    isMobile ? "hidden" : "opacity-0"
-                }`}
+                className={`fixed pointer-events-none w-8 h-8 rounded-full bg-black/10 border border-white/10 z-[9998] transform scale-100 ${isMobile ? "hidden" : "opacity-0"
+                    }`}
             />
         </>
     );

@@ -2,11 +2,12 @@ import { CiMail } from "react-icons/ci";
 import { CiCalendarDate } from "react-icons/ci";
 import { getCalApi } from "@calcom/embed-react";
 import { useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import gsap from "gsap";
 import FooterLinks from "../ui/footer-links"
+import { cn } from "@/components/utils/Utils";
 
-const ContactSection = () => {
+const ContactSection = ({ className = "" }) => {
   useEffect(() => {
     (async function () {
       const cal = await getCalApi({ namespace: "15min" });
@@ -17,65 +18,59 @@ const ContactSection = () => {
       });
     })();
   }, []);
-  
+
   const buttonRef = useRef(null);
-    const iconRef = useRef(null);
-  
-    useEffect(() => {
-      const btn = buttonRef.current;
-      const icon = iconRef.current;
-  
-      // Hover in animation
-      const handleEnter = () => {
-        gsap.to(btn, {
-          width: "220px", // expand width
-          duration: 0.4,
-          ease: "power2.out"
-        });
-        gsap.to(icon, {
-          opacity: 1,
-          x: 0,
-          duration: 0.4,
-          ease: "power2.out"
-        });
-      };
-  
-      // Hover out animation
-      const handleLeave = () => {
-        gsap.to(btn, {
-          width: "200px",
-          duration: 0.4,
-          ease: "power2.inOut"
-        });
-        gsap.to(icon, {
-          opacity: 0,
-          x: -10,
-          duration: 0.4,
-          ease: "power2.inOut"
-        });
-      };
-  
-      btn.addEventListener("mouseenter", handleEnter);
-      btn.addEventListener("mouseleave", handleLeave);
-  
-      return () => {
-        btn.removeEventListener("mouseenter", handleEnter);
-        btn.removeEventListener("mouseleave", handleLeave);
-      };
-    }, []);
+  const iconRef = useRef(null);
+
+  useEffect(() => {
+    const btn = buttonRef.current;
+    const icon = iconRef.current;
+
+    // Hover in animation
+    const handleEnter = () => {
+      gsap.to(btn, {
+        width: "220px", // expand width
+        duration: 0.4,
+        ease: "power2.out"
+      });
+      gsap.to(icon, {
+        opacity: 1,
+        x: 0,
+        duration: 0.4,
+        ease: "power2.out"
+      });
+    };
+
+    // Hover out animation
+    const handleLeave = () => {
+      gsap.to(btn, {
+        width: "200px",
+        duration: 0.4,
+        ease: "power2.inOut"
+      });
+      gsap.to(icon, {
+        opacity: 0,
+        x: -10,
+        duration: 0.4,
+        ease: "power2.inOut"
+      });
+    };
+
+    btn.addEventListener("mouseenter", handleEnter);
+    btn.addEventListener("mouseleave", handleLeave);
+
+    return () => {
+      btn.removeEventListener("mouseenter", handleEnter);
+      btn.removeEventListener("mouseleave", handleLeave);
+    };
+  }, []);
 
   return (
     <footer
       id="contact"
-      className="text-gray-500 text-center py-10 w-full px-2 sm:px-4 md:px-8 max-w-full md:max-w-5xl mx-auto mb-8"
+      className={cn("text-gray-500 text-center w-full max-w-full md:max-w-5xl mx-auto h-full", className)}
     >
-      <h2
-        className="bg-gradient-to-r from-indigo-200 to-gray-900 dark:to-slate-300 leading-right bg-clip-text text-transparent text-4xl font-medium text-center pb-4 mb-2"
-        id="heading"
-      >
-        Contact
-      </h2>
-      <div className="flex flex-col items-center justify-center gap-4 w-full p-8 md:p-10 border-slate-500 border-dashed rounded-md border-2 hover:shadow-[10px_10px_0px_0px_rgba(203,213,225)] dark:hover:shadow-[10px_10px_0px_0px_rgba(51,65,85)]">
+      <div className="flex flex-col items-center justify-center gap-4">
         <p className="text-lg text-slate-800 dark:text-slate-300 tracking-widest">
           Since you scrolled this far!
         </p>
@@ -99,14 +94,13 @@ const ContactSection = () => {
             <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-emerald-400/0 via-emerald-400/90 to-emerald-400/0 transition-opacity duration-500 group-hover:opacity-40" />
           </button>
           <Link
-            to="/contact"
+            href="/contact"
             className="flex items-center justify-center gap-2 group py-2 px-4 border-slate-500 rounded-md border-2 border-dashed"
           >
-            <p>Email Me</p>
+            <p className="dark:text-slate-300">Email Me</p>
             <CiMail className="w-5 h-5 group-hover:transition-all duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-slate-300" />
           </Link>
         </div>
-        <div className="bg-gradient-to-r text-red-50 w-full from-slate-100 dark:from-slate-900 via-gray-500 dark:via-indigo-200 to-slate-100 dark:to-slate-900 mt-4 h-[1px]" />
         <FooterLinks />
       </div>
     </footer>

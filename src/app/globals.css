@@ -8,6 +8,10 @@
 @theme inline {
     --animate-meteor-effect: meteor 5s linear infinite;
 
+    --font-sans: "Roboto Flex", ui-sans-serif, system-ui, sans-serif;
+    --font-mono: "Space Mono", ui-monospace, monospace;
+    --font-pixel: "Pixelify Sans", sans-serif;
+
     @keyframes meteor {
         0% {
             transform: rotate(215deg) translateX(0);
@@ -29,7 +33,7 @@ html,
 body {
     margin: 0;
     padding: 0;
-    font-family: "Roboto Flex", monospace;
+    font-family: "Roboto Flex", ui-sans-serif, system-ui, sans-serif;
     scroll-behavior: smooth;
     @apply dark:bg-slate-800;
 }
@@ -38,17 +42,31 @@ body {
     font-family: "Pixelify Sans", sans-serif;
 }
 
+@layer utilities {
+  /* Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* IE and Edge */
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none; /* Firefox */
+  }
+}
+
+
 @layer base {
     ::selection {
         @apply bg-black text-[#ffffff];
     }
+
     .dark ::selection {
         @apply bg-[#dcdcdc] text-black;
     }
 }
 
-#logo-name,
-#heading {
+#logo-name {
     font-family: "Space Mono";
 }
 
@@ -63,10 +81,12 @@ body {
         border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
         color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
         box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: none !important;
 }
 
 @layer utilities {
     @keyframes blink {
+
         0%,
         100% {
             opacity: 1;
@@ -79,5 +99,32 @@ body {
 
     .animate-blink {
         animation: blink 0.8s step-end infinite;
+    }
+}
+
+.heading {
+    background-image: linear-gradient(to right, rgb(199, 210, 254), rgb(17, 24, 39));
+    border-radius: 1rem;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+    font-weight: 500;
+    text-align: center;
+    padding-bottom: 1rem;
+    margin-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+@media (min-width: 768px) {
+    .heading {
+        margin-bottom: 1rem;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .heading {
+        background-image: linear-gradient(to right, rgb(199, 210, 254), rgb(203, 213, 225));
     }
 }
