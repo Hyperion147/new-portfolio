@@ -1,3 +1,7 @@
+"use client"
+
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 import { AnimatedTooltip } from "../ui/animated-tooltip";
 import { cn } from "@/components/utils/Utils";
 
@@ -51,9 +55,18 @@ const languages = [
 ];
 
 const Skills = ({ className = "" }: { className?: string }) => {
+
+    useGSAP(() => {
+        gsap.from(".skillCont", {
+            y: 50,
+            filter: "blur(15px)",
+            duration: 1
+        });
+    });
+
     return (
         <section
-            className={cn("flex flex-row h-full flex-wrap items-center justify-center w-full gap-2", className)}
+            className={cn("flex flex-row h-full flex-wrap items-center justify-center w-full gap-2 skillCont", className)}
             aria-label="Technologies and skills"
         >
             <AnimatedTooltip items={languages} />

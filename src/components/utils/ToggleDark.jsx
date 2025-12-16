@@ -1,9 +1,12 @@
+"use client"
+
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { flushSync } from "react-dom";
 
 const ToggleDark = () => {
     const [isDark, setIsDark] = useState(null);
+    const [togglePosition, setTogglePosition] = useState(0);
     const toggleRef = useRef(null);
 
     useEffect(() => {
@@ -20,6 +23,18 @@ const ToggleDark = () => {
         } else {
             document.documentElement.classList.remove("dark");
         }
+
+        const updatePosition = () => {
+            const width = window.innerWidth;
+            if (width >= 1024) setTogglePosition(3);
+            else if (width >= 768) setTogglePosition(2);
+            else if (width >= 640) setTogglePosition(1);
+            else setTogglePosition(0);
+        };
+
+        updatePosition();
+        window.addEventListener("resize", updatePosition);
+        return () => window.removeEventListener("resize", updatePosition);
     }, []);
 
     const toggleTheme = async () => {
@@ -84,6 +99,8 @@ const ToggleDark = () => {
 
     if (isDark === null) return null;
 
+    const positions = ["1.25rem", "1.5rem", "1.75rem", "2rem"];
+
     return (
         <motion.button
             ref={toggleRef}
@@ -97,7 +114,6 @@ const ToggleDark = () => {
             transition-all duration-300 linker
           "
             aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
-            suppressHydrationWarning={true}
         >
             <motion.span
                 className={`
@@ -113,17 +129,7 @@ const ToggleDark = () => {
                     flex items-center justify-center
             `}
                 animate={{
-                    x: isDark
-                        ? ["1.25rem", "1.5rem", "1.75rem", "2rem"][
-                        window.innerWidth >= 1024
-                            ? 3
-                            : window.innerWidth >= 768
-                                ? 2
-                                : window.innerWidth >= 640
-                                    ? 1
-                                    : 0
-                        ]
-                        : 0,
+                    x: isDark ? positions[togglePosition] : 0,
                 }}
                 transition={{
                     type: "spring",

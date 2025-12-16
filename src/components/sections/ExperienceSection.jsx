@@ -1,13 +1,22 @@
 "use client";
 
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 import { experienceInfo } from "@/constants/experienceInfo";
 import { cn } from "@/components/utils/Utils";
 
 const ExperienceSection = ({ className = "" }) => {
+  useGSAP(() => {
+          gsap.from(".expCont", {
+              y: 50,
+              filter: "blur(15px)",
+              duration: 1
+          });
+      });
   return (
     <section
       id="experience"
-      className={cn("px-4 sm:px-8 bg-[#fff9f0] dark:bg-slate-800", className)}
+      className={cn("px-4 sm:px-8 bg-[#fff9f0] dark:bg-slate-800 expCont", className)}
     >
       <div className="max-w-5xl mx-auto">
         {/* Section Header */}
@@ -21,12 +30,12 @@ const ExperienceSection = ({ className = "" }) => {
               className="border-b border-gray-300 dark:border-gray-600 pb-8 last:border-b-0"
             >
               {/* Header: Role, Company, Duration */}
-              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 mb-4">
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 mb-2">
                 <div>
                   <h3 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white">
                     {experience.role}
                   </h3>
-                  <p className="text-lg text-indigo-600 dark:text-indigo-400 font-semibold">
+                  <p className="text-lg text-indigo-400 dark:text-indigo-300 font-semibold">
                     {experience.company}
                   </p>
                 </div>

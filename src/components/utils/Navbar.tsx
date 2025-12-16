@@ -1,3 +1,4 @@
+"use client";
 import { Link as ScrollLink } from "react-scroll";
 import { useGSAP } from "@gsap/react";
 import ToggleDark from "./ToggleDark";
@@ -21,21 +22,12 @@ const Navbar = ({ hamMenu, setHamMenu }: NavbarProps) => {
     gsap.set(".linkers", {
       x: 100,
     })
-    if (window.innerWidth > 769) {
-      gsap.to(".boxCont", {
-        duration: 1,
-        filter: "blur(0px)",
-        alignItems: "center",
-        opacity: 1
-      })
-    } else {
-      gsap.to(".boxCont", {
-        duration: 1,
-        filter: "blur(0px)",
-        alignItems: "center",
-        opacity: 1
-      })
-    }
+    gsap.to(".boxCont", {
+      duration: 1,
+      filter: "blur(0px)",
+      alignItems: "center",
+      opacity: 1
+    })
     gsap.to(".linkers", {
       x: 0,
       duration: 1.5,
@@ -43,8 +35,8 @@ const Navbar = ({ hamMenu, setHamMenu }: NavbarProps) => {
   });
 
   return (
-    <nav className="fixed left-1/2 -translate-x-1/2 top-5 max-w-[48vw] w-full rounded-md z-40 backdrop-blur-md shadow-sm drop-shadow-transparent shadow-gray-700 dark:bg-slate-900/80 dark:text-white boxCont">
-      <div className="mx-auto px-4">
+    <nav className="fixed left-1/2 -translate-x-1/2 max-w-[90vw] md:max-w-5xl w-full top-5 rounded-md z-40 backdrop-blur-md shadow-sm drop-shadow-transparent shadow-gray-700 dark:bg-slate-900/80 dark:text-white boxCont">
+      <div className="mx-auto px-4 w-full">
         <div className="flex justify-between items-center h-16">
           <ScrollLink
             to="home"

@@ -1,28 +1,23 @@
+"use client";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import HighlightedProject from "../utils/HighlightedProject";
 import Link from "next/link";
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 
-gsap.registerPlugin(ScrollTrigger);
-
 const ProjectSection = () => {
     useGSAP(() => {
         gsap.from("#projects", {
-            y: 300,
-            scrollTrigger: {
-                trigger: "#about",
-                start: "top 50%",
-                duration: 3,
-            },
+            y: 100,
+            filter: "blur(15px)",
+            duration: 1
         });
     });
 
     return (
         <section
             id="projects"
-            className="text-gray-500 text-center w-full max-w-full md:max-w-5xl mx-auto h-full py-6"
+            className="text-gray-500 text-center w-full max-w-full md:max-w-5xl mx-auto h-full py-6 px-2"
         >
             <h2
                 className="heading"

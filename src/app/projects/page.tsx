@@ -21,10 +21,6 @@ export default function ProjectsPage() {
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    });
-
     const x = useMotionValue(0);
     const y = useMotionValue(0);
 

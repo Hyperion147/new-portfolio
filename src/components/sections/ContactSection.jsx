@@ -1,9 +1,12 @@
+"use client";
+
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 import { CiMail } from "react-icons/ci";
 import { CiCalendarDate } from "react-icons/ci";
 import { getCalApi } from "@calcom/embed-react";
 import { useEffect, useRef } from "react";
 import Link from "next/link";
-import gsap from "gsap";
 import FooterLinks from "../ui/footer-links"
 import { cn } from "@/components/utils/Utils";
 
@@ -18,6 +21,14 @@ const ContactSection = ({ className = "" }) => {
       });
     })();
   }, []);
+
+    useGSAP(() => {
+            gsap.from(".contactCont", {
+                y: 50,
+                filter: "blur(15px)",
+                duration: 1
+            });
+        });
 
   const buttonRef = useRef(null);
   const iconRef = useRef(null);
@@ -68,7 +79,7 @@ const ContactSection = ({ className = "" }) => {
   return (
     <footer
       id="contact"
-      className={cn("text-gray-500 text-center w-full max-w-full md:max-w-5xl mx-auto h-full", className)}
+      className={cn("text-gray-500 text-center w-full max-w-full md:max-w-5xl mx-auto h-full contactCont", className)}
     >
       <div className="flex flex-col items-center justify-center gap-4">
         <p className="text-lg text-slate-800 dark:text-slate-300 tracking-widest">

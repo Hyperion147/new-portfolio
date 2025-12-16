@@ -7,41 +7,17 @@ const Hero = () => {
   const words3 = ["Motion", "Tailwind"];
 
   useGSAP(() => {
-    // Set initial states immediately to prevent flash
-    gsap.set(".head", {
-      y: -100,
-      opacity: 0,
-      filter: "blur(10px)",
-    });
-    gsap.set(".words", {
-      y: -100,
-      opacity: 0,
-      filter: "blur(12px)",
-    });
-    gsap.set(".ring", {
-      y: -100,
-      opacity: 0,
-      filter: "blur(15px)",
-    });
-
-    // Animate to final state
-    gsap.to(".head", {
-      y: 0,
+    gsap.from(".head", {
+      y: -50,
       duration: 1,
-      filter: "blur(0px)",
+      filter: "blur(15px)",
       opacity: 1,
     });
-    gsap.to(".words", {
-      y: 0,
+    gsap.from(".words", {
+      y: -50,
       opacity: 1,
-      filter: "blur(0px)",
-      duration: 1.5,
-    });
-    gsap.to(".ring", {
-      y: 0,
-      opacity: 1,
-      filter: "blur(0px)",
-      duration: 1.5,
+      filter: "blur(15px)",
+      duration: 1.2,
     });
   });
 

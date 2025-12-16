@@ -21,10 +21,10 @@ export default function Home() {
   return (
     <div className=" bg-[#fff9f0] dark:bg-slate-800">
       <div className="overflow-x-hidden transition-colors duration-500">
-        <Navbar hamMenu={hamMenu} setHamMenu={setHamMenu} />
-        <Mobile hamMenu={hamMenu} setHamMenu={setHamMenu} />
 
         <div className="pt-28 px-4 pb-12 max-w-7xl mx-auto">
+        <Navbar hamMenu={hamMenu} setHamMenu={setHamMenu} />
+        <Mobile hamMenu={hamMenu} setHamMenu={setHamMenu} />
           <BentoGrid className="max-w-5xl mx-auto md:auto-rows-[150px] md:grid-cols-4">
             <BentoGridItem
               className="md:col-span-2 md:row-span-2"

@@ -1,3 +1,4 @@
+"use client";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import ProjectDetails from "./ProjectDetails";
 import { useState, Dispatch, SetStateAction } from "react";

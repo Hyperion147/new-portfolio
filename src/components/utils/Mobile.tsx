@@ -41,7 +41,7 @@ const Mobile = ({ hamMenu, setHamMenu }: MobileProps) => {
                 href="#about"
                 className={`menuLink text-2xl font-semibold my-4 transform transition-transform duration-300 ${hamMenu
                     ? "opacity-100 translate-y-0"
-                    : "opactiy-0 translate-y-5"
+                    : "opacity-0 translate-y-5"
                     }`}
                 onClick={() => setHamMenu(false)}
             >
@@ -51,7 +51,7 @@ const Mobile = ({ hamMenu, setHamMenu }: MobileProps) => {
                 href="#projects"
                 className={`menuLink text-2xl font-semibold my-4 transform transition-transform duration-300 ${hamMenu
                     ? "opacity-100 translate-y-0"
-                    : "opactiy-0 translate-y-5"
+                    : "opacity-0 translate-y-5"
                     }`}
                 onClick={() => setHamMenu(false)}
             >
@@ -61,7 +61,7 @@ const Mobile = ({ hamMenu, setHamMenu }: MobileProps) => {
                 href="#contact"
                 className={`menuLink text-2xl font-semibold my-4 transform transition-transform duration-300 ${hamMenu
                     ? "opacity-100 translate-y-0"
-                    : "opactiy-0 translate-y-5"
+                    : "opacity-0 translate-y-5"
                     }`}
                 onClick={() => setHamMenu(false)}
             >
