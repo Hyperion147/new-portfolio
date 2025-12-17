@@ -4,15 +4,16 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { experienceInfo } from "@/constants/experienceInfo";
 import { cn } from "@/components/utils/Utils";
+import { MdKeyboardArrowRight } from "react-icons/md";
 
 const ExperienceSection = ({ className = "" }) => {
   useGSAP(() => {
-          gsap.from(".expCont", {
-              y: 50,
-              filter: "blur(15px)",
-              duration: 1
-          });
-      });
+    gsap.from(".expCont", {
+      y: 50,
+      filter: "blur(15px)",
+      duration: 1
+    });
+  });
   return (
     <section
       id="experience"
@@ -50,9 +51,17 @@ const ExperienceSection = ({ className = "" }) => {
               </p>
 
               {/* Description */}
-              <p className="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
-                {experience.description}
-              </p>
+              <ul className="space-y-2 mb-4">
+                {experience.description.map((point, index) => (
+                  <li
+                    key={index}
+                    className="flex items-start gap-2 text-gray-500 dark:text-gray-300 leading-relaxed"
+                  >
+                    <MdKeyboardArrowRight className="mt-1 font-bold shrink-0 text-slate-600 dark:text-slate-300" />
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
 
               {/* Technologies */}
               <div className="flex flex-wrap gap-2">

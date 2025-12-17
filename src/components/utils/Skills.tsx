@@ -29,29 +29,49 @@ const languages = [
     },
     {
         id: 5,
+        name: "Next.js",
+        image: "/tech/next.png",
+    },
+    {
+        id: 6,
         name: "Tailwind",
         image: "/tech/tailwind.png",
     },
     {
-        id: 6,
+        id: 7,
         name: "Typescript",
         image: "/tech/typescript.png",
     },
     {
-        id: 7,
+        id: 8,
         name: "GIT",
         image: "/tech/git.png",
     },
     {
-        id: 8,
+        id: 9,
         name: "Figma",
         image: "/tech/figma.png",
     },
     {
-        id: 9,
+        id: 10,
         name: "Supabase",
         image: "/tech/supabase.png",
     },
+    {
+        id: 11,
+        name: "Tanstack",
+        image: "/tech/tanstack.png",
+    },
+    {
+        id: 12,
+        name: "Material UI",
+        image: "/tech/mui.png",
+    },
+    {
+        id: 13,
+        name: "GSAP",
+        image: "/tech/gsap.png",
+    }
 ];
 
 const Skills = ({ className = "" }: { className?: string }) => {
