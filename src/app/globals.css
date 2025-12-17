@@ -100,6 +100,25 @@ body {
     .animate-blink {
         animation: blink 0.8s step-end infinite;
     }
+
+    @keyframes arrow-cycle {
+        0% {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        50% {
+          transform: translateX(15px);
+          opacity: 0;
+        }
+        100% {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    .animate-arrow-cycle {
+        animation: arrow-cycle 1.5s infinite;
+    }
 }
 
 .heading {

@@ -30,9 +30,13 @@ const ProjectSection = () => {
             <div className="w-full mt-4">
                 <div className="flex justify-end">
                     <Link href="/projects">
-                        <p className="bg-gradient-to-l from-slate-500 dark:from-indigo-200 to-slate-400 dark:to-slate-300 leading-right bg-clip-text text-transparent text-xl font-medium pixeltext flex items-center gap-2 pr-4">
-                            view all projects
-                            <MdKeyboardDoubleArrowRight className="dark:text-indigo-200 text-slate-500" />
+                        <p className="text-xl font-medium pixeltext flex items-center gap-2 pr-4 text-slate-500 dark:text-indigo-200">
+                            <span className="relative">
+                                <span className="bg-gradient-to-l from-slate-500 dark:from-indigo-200 to-slate-400 dark:to-slate-300 bg-clip-text text-transparent">
+                                    view all projects
+                                </span>
+                            </span>
+                            <MdKeyboardDoubleArrowRight className="dark:text-indigo-200 text-slate-500 animate-arrow-cycle" />
                         </p>
                     </Link>
                 </div>
