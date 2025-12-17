@@ -43,7 +43,7 @@ export default function Home() {
               header={<ProjectSection />}
             />
             <BentoGridItem
-              className="md:col-span-4 md:row-span-4 overflow-y-auto no-scrollbar"
+              className="md:col-span-4 md:row-span-4"
               header={<ExperienceSection className="py-6" />}
             />
             <BentoGridItem

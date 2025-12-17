@@ -17,7 +17,7 @@ const ProjectSection = () => {
     return (
         <section
             id="projects"
-            className="text-gray-500 text-center w-full max-w-full md:max-w-5xl mx-auto h-full py-6 px-2"
+            className="text-gray-500 text-center w-full max-w-full md:max-w-5xl mx-auto h-full py-6 px-2 group"
         >
             <h2
                 className="heading"

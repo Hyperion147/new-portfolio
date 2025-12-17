@@ -16,7 +16,7 @@ const ExperienceSection = ({ className = "" }) => {
   return (
     <section
       id="experience"
-      className={cn("px-4 sm:px-8 bg-[#fff9f0] dark:bg-slate-800 expCont", className)}
+      className={cn("px-4 sm:px-8 bg-[#fff9f0] dark:bg-slate-800 expCont overflow-hidden", className)}
     >
       <div className="max-w-5xl mx-auto">
         {/* Section Header */}
@@ -59,7 +59,7 @@ const ExperienceSection = ({ className = "" }) => {
                 {experience.technologies.map((tech, idx) => (
                   <span
                     key={idx}
-                    className="px-3 py-1 bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-gray-300 rounded-lg text-xs font-medium border border-gray-200 dark:border-slate-600"
+                    className="px-3 py-1 text-gray-700 dark:text-gray-300 rounded-lg text-xs font-medium border border-gray-200 dark:border-slate-600"
                   >
                     {tech}
                   </span>

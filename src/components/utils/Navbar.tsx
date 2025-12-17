@@ -64,15 +64,6 @@ const Navbar = ({ hamMenu, setHamMenu }: NavbarProps) => {
               Blogs
             </a>
             <ScrollLink
-              to="about"
-              smooth={true}
-              duration={100}
-              offset={-120}
-              className="hover:text-gray-600 font-bold transition-colors cursor-pointer linkers"
-            >
-              About
-            </ScrollLink>
-            <ScrollLink
               to="projects"
               smooth={true}
               duration={100}

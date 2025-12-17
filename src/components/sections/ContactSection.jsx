@@ -81,7 +81,7 @@ const ContactSection = ({ className = "" }) => {
       id="contact"
       className={cn("text-gray-500 text-center w-full max-w-full md:max-w-5xl mx-auto h-full contactCont", className)}
     >
-      <div className="flex flex-col items-center justify-center gap-4">
+      <div className="flex flex-col items-center justify-center gap-4 ">
         <p className="text-lg text-slate-800 dark:text-slate-300 tracking-widest">
           Since you scrolled this far!
         </p>
