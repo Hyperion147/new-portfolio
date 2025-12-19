@@ -7,7 +7,6 @@ import { CiCalendarDate } from "react-icons/ci";
 import { getCalApi } from "@calcom/embed-react";
 import { useEffect, useRef } from "react";
 import Link from "next/link";
-import FooterLinks from "../ui/footer-links"
 import { cn } from "@/components/utils/Utils";
 
 const ContactSection = ({ className = "" }) => {
@@ -81,7 +80,7 @@ const ContactSection = ({ className = "" }) => {
       id="contact"
       className={cn("text-gray-500 text-center w-full max-w-full md:max-w-5xl mx-auto h-full contactCont", className)}
     >
-      <div className="flex flex-col items-center justify-center gap-4 ">
+      <div className="flex flex-col items-center justify-center gap-6 ">
         <p className="text-lg text-slate-800 dark:text-slate-300 tracking-widest">
           Since you scrolled this far!
         </p>
@@ -112,7 +111,6 @@ const ContactSection = ({ className = "" }) => {
             <CiMail className="w-5 h-5 group-hover:transition-all duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-slate-300" />
           </Link>
         </div>
-        <FooterLinks />
       </div>
     </footer>
   );

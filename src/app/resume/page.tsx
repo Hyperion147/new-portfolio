@@ -7,7 +7,7 @@ import ToggleDark from "@/components/utils/ToggleDark";
 
 export default function ResumePage() {
     // Replace with your actual Google Drive share link
-    const googleDriveUrl = 'https://drive.google.com/file/d/1su8kU2JIohmi4JQ1EwQPqqfvK4MSg7Rc/view?usp=sharing';
+    const googleDriveUrl = "https://drive.google.com/file/d/12qG3WJMPRUQPlaLPaUjajII6GvxUsRrs/view?usp=sharing";
 
     return (
         <motion.section
@@ -45,7 +45,7 @@ export default function ResumePage() {
                 <iframe
                     src={`${googleDriveUrl.replace('/view', '/preview')}`}
                     width="100%"
-                    height="600px"
+                    height="750px"
                     className="border border-slate-500 rounded-md"
                     title="Resume Preview"
                     allow="autoplay"

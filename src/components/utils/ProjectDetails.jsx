@@ -1,3 +1,5 @@
+"use client";
+import { createPortal } from "react-dom";
 import { IoMdClose } from "react-icons/io";
 import { RxExternalLink } from "react-icons/rx";
 import { FaCode } from "react-icons/fa6";
@@ -12,9 +14,11 @@ const ProjectDetails = ({
     code,
     closeModal,
 }) => {
-    return (
+    if (typeof document === "undefined") return null;
+
+    return createPortal(
         <div
-            className="fixed inset-0 z-50 flex items-center justify-center w-full h-full backdrop-blur-sm  overflow-hidden"
+            className="fixed inset-0 z-50 flex items-center justify-center w-full h-full backdrop-blur-sm overflow-hidden"
             onClick={() => closeModal()}
         >
             <motion.div
@@ -73,7 +77,8 @@ const ProjectDetails = ({
                     </div>
                 </div>
             </motion.div>
-        </div>
+        </div>,
+        document.body
     );
 };
 

@@ -3,8 +3,8 @@ import { Link as ScrollLink } from "react-scroll";
 import { useGSAP } from "@gsap/react";
 import ToggleDark from "./ToggleDark";
 import gsap from "gsap";
-
-import React, { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction } from "react";
+import Link from "next/link";
 
 interface NavbarProps {
   hamMenu: boolean;
@@ -63,23 +63,25 @@ const Navbar = ({ hamMenu, setHamMenu }: NavbarProps) => {
             >
               Blogs
             </a>
-            <ScrollLink
-              to="projects"
-              smooth={true}
-              duration={100}
-              offset={-100}
+            <a
+              href="https://github.com/Hyperion147"
+              target="_blank"
+              className="hover:text-gray-600 font-bold transition-colors cursor-pointer linkers"
+            >
+              GitHub
+            </a>
+            <Link
+              href="/projects"
               className="hover:text-gray-600 font-bold transition-colors cursor-pointer linkers"
             >
               Projects
-            </ScrollLink>
-            <ScrollLink
-              to="contact"
-              smooth={true}
-              duration={100}
+            </Link>
+            <Link
+              href="/resume"
               className="hover:text-gray-600 font-bold transition-colors cursor-pointer linkers"
             >
-              Contact
-            </ScrollLink>
+              Resume
+            </Link>
             <ToggleDark />
           </div>
         </div>
