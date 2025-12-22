@@ -35,8 +35,8 @@ export const projectInfo = [
       "A feature-rich Todo application designed for seamless task management. Built with React and Tailwind CSS, it offers a sleek with support for multiple themes to suit user preferences. The app integrates Supabase for robust authentication and data storage. Enhanced with GSAP animations, the UI delivers smooth, engaging interactions, while React Hot Toast provides feedback for user actions. Key features include task prioritization, due dates, and descriptions, all wrapped in a minimalist, user-friendly design.",
     href: "https://todo.suryansu.pro/",
     code: "https://github.com/Hyperion147/todo-supabase",
-    image: "/highlightedProject/main.png",
-    preview: "/highlightedProject/main2.png",
+    image: "/projects/todo.png",
+    preview: "/projects/todo.png",
     tags: [
       {
         id: 1,
