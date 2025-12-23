@@ -56,7 +56,7 @@ const HighlightedProject = () => {
 
   const description = `Flora is an innovative plantation website where users can add and geotag their plants, fostering a community of nature enthusiasts. The platform features a competitive leaderboard to encourage engagement and an admin dashboard for seamless management. Users can also access a dedicated plant section with downloadable certificates recognizing their contributions and milestones. This project showcases my skills in full-stack development and geolocation integration.`;
 
-  const shadowDescription = `I have built a similar project for Municipal Corporation Panipat with 10k+ plants on it presented throughout the city of Panipat`;
+  const shadowDescription = `I have built a similar project for Municipal Corporation Panipat with 10k+ plants on it, presented throughout the city of Panipat`;
 
   const displayedDescription =
     isMobile && !showMore
