@@ -135,7 +135,7 @@ const GithubSection = ({ className = "" }) => {
     >
       <div className="flex items-center justify-between mb-6">
         <div className="github-title flex items-center gap-2 sm:gap-4 bg-slate-100/50 dark:bg-slate-700/30 pr-2 sm:pr-5 pl-2 py-2 rounded-2xl border border-slate-200 dark:border-slate-700/50">
-          <div className="p-2 bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700">
+          <div className="p-2 bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700">
             <FaGithub className="text-lg sm:text-xl text-slate-800 dark:text-white" />
           </div>
           <div className="flex flex-col hidden sm:flex">

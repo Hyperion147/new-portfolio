@@ -21,13 +21,13 @@ const ContactSection = ({ className = "" }) => {
     })();
   }, []);
 
-    useGSAP(() => {
-            gsap.from(".contactCont", {
-                y: 50,
-                filter: "blur(15px)",
-                duration: 1
-            });
-        });
+  useGSAP(() => {
+    gsap.from(".contactCont", {
+      y: 50,
+      filter: "blur(15px)",
+      duration: 1,
+    });
+  });
 
   const buttonRef = useRef(null);
   const iconRef = useRef(null);
@@ -41,13 +41,13 @@ const ContactSection = ({ className = "" }) => {
       gsap.to(btn, {
         width: "220px", // expand width
         duration: 0.4,
-        ease: "power2.out"
+        ease: "power2.out",
       });
       gsap.to(icon, {
         opacity: 1,
         x: 0,
         duration: 0.4,
-        ease: "power2.out"
+        ease: "power2.out",
       });
     };
 
@@ -56,13 +56,13 @@ const ContactSection = ({ className = "" }) => {
       gsap.to(btn, {
         width: "200px",
         duration: 0.4,
-        ease: "power2.inOut"
+        ease: "power2.inOut",
       });
       gsap.to(icon, {
         opacity: 0,
         x: -10,
         duration: 0.4,
-        ease: "power2.inOut"
+        ease: "power2.inOut",
       });
     };
 
@@ -78,21 +78,29 @@ const ContactSection = ({ className = "" }) => {
   return (
     <footer
       id="contact"
-      className={cn("text-gray-500 text-center w-full max-w-full md:max-w-5xl mx-auto h-full contactCont", className)}
+      className={cn(
+        "text-gray-500 text-center w-full max-w-full md:max-w-5xl mx-auto h-full contactCont",
+        className
+      )}
     >
       <div className="flex flex-col items-center justify-center gap-6 ">
         <p className="text-lg text-slate-800 dark:text-slate-300 tracking-widest">
           Since you scrolled this far!
         </p>
         <div className="flex gap-4 md:gap-8 flex-col md:flex-row">
-          <button className="no-underline group cursor-pointer relative font-semibold leading-6  dark:text-slate-200 text-slate-800 inline-block gap-2 overflow-hidden  group dark:hover:text-slate-300 hover:text-slate-600"
+          <button
+            className="no-underline group cursor-pointer relative font-semibold leading-6  dark:text-slate-200 text-slate-800 inline-block gap-2 overflow-hidden  group dark:hover:text-slate-300 hover:text-slate-600"
             data-cal-namespace="15min"
             data-cal-link="suryansu/15min"
-            data-cal-config='{"layout":"month_view","theme":"auto"}'>
+            data-cal-config='{"layout":"month_view","theme":"auto"}'
+          >
             <span className="absolute inset-0 overflow-hidden rounded-md">
               <span className="absolute inset-0 rounded-md bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
             </span>
-            <div className="relative flex items-center justify-center space-x-2 z-10 rounded-md border border-slate-500  py-2  ring-1 ring-white/10 w-[180px] dark:bg-slate-800 bg-[#fff9f0]" ref={buttonRef}>
+            <div
+              className="relative flex items-center justify-center space-x-2 z-10 rounded-md border border-slate-500  py-2  ring-1 ring-white/10 w-[180px] dark:bg-gray-900 bg-[#fff9f0]"
+              ref={buttonRef}
+            >
               <span className="flex gap-2 items-center justify-center ">
                 Book a Meeting
                 <CiCalendarDate

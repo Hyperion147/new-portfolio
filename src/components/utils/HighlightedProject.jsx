@@ -22,7 +22,7 @@ const HighlightedProject = () => {
     { id: "1", name: "React JS" },
     { id: "2", name: "Tailwind" },
     { id: "3", name: "Supabase" },
-    { id: "4", name: "Framer Motion" },
+    { id: "4", name: "Motion" },
     { id: "5", name: "Leaflet" },
     { id: "6", name: "ShadCN" },
   ];
@@ -72,7 +72,7 @@ const HighlightedProject = () => {
           firstImageClassName="object-cover object-left-top"
           secondImageClassname="object-cover object-right-top"
           className="w-[400px] xs:w-[320px] h-[180px] xs:h-[200px] md:h-[250px] lg:h-[400px] m-2 sm:m-4 border-2 border-slate-400 rounded-md"
-          slideMode={"hover"}
+          slideMode={"drag"}
         />
       </div>
       <div className="flex flex-col w-full text-start">
@@ -123,7 +123,7 @@ const HighlightedProject = () => {
 
 const TechBadge = ({ name, color }) => (
   <button
-    className="px-2 py-1 w-30 h-7 rounded-full relative text-gray-900 dark:bg-slate-700 dark:text-white text-xs sm:text-sm border border-slate-400 hover:shadow-[4px_4px_0px_0px_rgba(203,213,225)] dark:hover:shadow-[4px_4px_0px_0px_rgba(51,65,85)] transition-all duration-200"
+    className="px-2 py-1 w-30 h-7 rounded-full relative text-gray-900 dark:text-white text-xs sm:text-sm border border-slate-400 hover:shadow-[4px_4px_0px_0px_rgba(203,213,225)] dark:hover:shadow-[4px_4px_0px_0px_rgba(51,65,85)] transition-all duration-200"
     style={{ "--tech-color": color }}
   >
     <span className="absolute inset-0 flex items-center justify-center">

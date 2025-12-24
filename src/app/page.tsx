@@ -20,7 +20,7 @@ export default function Home() {
   const [hamMenu, setHamMenu] = useState(false);
 
   return (
-    <div className=" bg-[#fff9f0] dark:bg-slate-800">
+    <div className="bg-[#fff9f0] dark:bg-gray-900">
       <div className="overflow-x-hidden transition-colors duration-500">
         <div className="pt-28 px-4 pb-12 max-w-7xl mx-auto">
           <Navbar hamMenu={hamMenu} setHamMenu={setHamMenu} />

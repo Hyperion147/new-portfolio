@@ -11,13 +11,16 @@ const ExperienceSection = ({ className = "" }) => {
     gsap.from(".expCont", {
       y: 50,
       filter: "blur(15px)",
-      duration: 1
+      duration: 1,
     });
   });
   return (
     <section
       id="experience"
-      className={cn("px-4 sm:px-8 bg-[#fff9f0] dark:bg-slate-800 expCont overflow-hidden", className)}
+      className={cn(
+        "px-4 sm:px-8 bg-[#fff9f0] dark:bg-gray-900 expCont overflow-hidden",
+        className
+      )}
     >
       <div className="max-w-5xl mx-auto">
         {/* Section Header */}

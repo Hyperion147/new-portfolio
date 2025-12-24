@@ -1,0 +1,16 @@
+{
+  "name": "Suryansu | Fullstack Developer",
+  "short_name": "Suryansu",
+  "description": "Personal portfolio of Suryansu, a passionate Fullstack Developer.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1e293b",
+  "theme_color": "#1e293b",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    }
+  ]
+}

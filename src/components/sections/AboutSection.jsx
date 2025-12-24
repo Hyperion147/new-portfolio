@@ -12,12 +12,15 @@ const AboutSection = () => {
     gsap.from(".desc", {
       y: -50,
       duration: 1,
-      filter: "blur(5px)"
+      filter: "blur(5px)",
     });
   });
 
   return (
-    <section id="about" className="dark:bg-slate-800 flex items-center justify-center h-full px-4">
+    <section
+      id="about"
+      className="dark:bg-gray-900 flex items-center justify-center h-full px-4"
+    >
       <p className="text-base sm:text-lg dark:text-slate-300 text-slate-700 mx-auto text-start desc flex-col">
         I’m a frontend developer specializing in React and TypeScript,
         <br /> creating smooth, responsive interfaces with some libraries...
