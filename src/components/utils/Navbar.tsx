@@ -56,6 +56,12 @@ const Navbar = ({ hamMenu, setHamMenu }: NavbarProps) => {
           </div>
 
           <div className="hidden md:flex items-center space-x-8">
+            <Link
+              href="/projects"
+              className="hover:text-gray-600 font-bold transition-colors cursor-pointer linkers"
+            >
+              Projects
+            </Link>
             <a
               href="https://blog.suryansu.pro/"
               target="_blank"
@@ -70,18 +76,13 @@ const Navbar = ({ hamMenu, setHamMenu }: NavbarProps) => {
             >
               GitHub
             </a>
-            <Link
-              href="/projects"
-              className="hover:text-gray-600 font-bold transition-colors cursor-pointer linkers"
-            >
-              Projects
-            </Link>
-            <Link
-              href="/resume"
+            <a
+              href="https://drive.google.com/file/d/12qG3WJMPRUQPlaLPaUjajII6GvxUsRrs/view?usp=sharing"
+              target="_blank"
               className="hover:text-gray-600 font-bold transition-colors cursor-pointer linkers"
             >
               Resume
-            </Link>
+            </a>
             <ToggleDark />
           </div>
         </div>

@@ -119,7 +119,7 @@ export default function ProjectsClient() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8 }}
             transition={{ duration: 0.2 }}
-            className="fixed top-0 left-0 z-50 object-cover h-40 w-60 sm:h-50 sm:w-80 rounded-lg shadow-2xl pointer-events-none border-gray-400 border-2"
+            className="fixed top-0 left-0 z-50 object-cover w-80 rounded-lg shadow-2xl pointer-events-none border-gray-400 border-2"
             style={{ x: springX, y: springY }}
             src={preview}
             alt="Project preview"

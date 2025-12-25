@@ -10,6 +10,7 @@ interface ProjectsProps {
   href: string;
   code?: string;
   image: string;
+  video?: string;
   preview: string;
   tags: { id: number; name: string }[];
   setPreview: Dispatch<SetStateAction<string | null>>;
@@ -22,6 +23,7 @@ const Projects = ({
   href,
   code,
   image,
+  video,
   preview,
   tags,
   setPreview,
@@ -60,7 +62,6 @@ const Projects = ({
           </div>
         </div>
 
-        {/* Read More Button */}
         <button
           className="
             flex items-center gap-1 
@@ -70,7 +71,7 @@ const Projects = ({
             transition-all duration-300 pixeltext
           "
         >
-          read more
+          view more
           <MdKeyboardArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
         </button>
       </div>
@@ -83,6 +84,7 @@ const Projects = ({
           heading={heading}
           description={description}
           image={image}
+          video={video}
           tags={tags}
           href={href}
           code={code}

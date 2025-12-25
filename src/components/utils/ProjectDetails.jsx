@@ -1,20 +1,23 @@
 "use client";
 import { createPortal } from "react-dom";
-import { IoMdClose } from "react-icons/io";
 import { RxExternalLink } from "react-icons/rx";
 import { FaCode } from "react-icons/fa6";
 import { motion } from "motion/react";
+// use native <video> to avoid next-video loader when not configured
 
 const ProjectDetails = ({
     heading,
     description,
     href,
+    video,
     image,
     tags,
     code,
     closeModal,
 }) => {
     if (typeof document === "undefined") return null;
+
+    // safe fallback: show video when available otherwise show image
 
     return createPortal(
         <div
@@ -31,16 +34,23 @@ const ProjectDetails = ({
                 }}
                 onClick={(e) => e.stopPropagation()}
             >
-                <button
-                    onClick={closeModal}
-                    className="absolute p-2 rounded-sm top-5 right-5 bg-gray-900"
-                >
-                    <IoMdClose className="text-white" />
-                </button>
-                <a href={href} target="_blank">
-                    <img src={image} alt="" className="w-full rounded-t-2xl" />
-                </a>
-                <div className="py-5 px-8">
+                <div className="group relative aspect-video overflow-hidden">
+                    <div className="aspect-video w-full p-4">
+                        {video ? (
+                            <video
+                                className="h-full w-full object-cover"
+                                src={video}
+                                autoPlay
+                                loop
+                                muted
+                                playsInline
+                            />
+                        ) : (
+                            <img src={image} alt={heading} className="h-full w-full object-cover" />
+                        )}
+                    </div>
+                </div>
+                <div className="pb-5 px-6">
                     <div className="flex items-center justify-between">
                         <h5 className="mb-2 text-2xl font-bold">{heading}</h5>
                         <div className="flex gap-4 dark:text-indigo-200 text-gray-500">
