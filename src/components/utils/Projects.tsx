@@ -76,7 +76,7 @@ const Projects = ({
       </div>
 
       {/* Divider */}
-      <div className="bg-gradient-to-r from-gray-700 dark:from-indigo-200 via-gray-500 dark:via-indigo-100 to-transparent h-[1px] px-4 sm:px-8 lg:mx-80 transition-all" />
+      <div className="bg-linear-to-r from-gray-700 dark:from-indigo-200 via-gray-500 dark:via-indigo-100 to-transparent h-px px-4 sm:px-8 lg:mx-80 transition-all" />
 
       {isHidden && (
         <ProjectDetails

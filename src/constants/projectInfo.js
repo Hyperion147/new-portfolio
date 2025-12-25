@@ -29,6 +29,43 @@ export const projectInfo = [
   },
   {
     id: 2,
+    title: "dashboard.react",
+    heading: "Dashboard - React",
+    description:
+      "Template build using react, shadcn, forms, GSAP and motion. This project is mainly to show a workaround example of dashboard I have built as a working person, this includes small parts of all dashboards I have worked on till now. I will keep updating this as my UI skills improve. Treat it as a UI template.",
+    href: "https://dashboard-react-teal-three.vercel.app/",
+    code: "https://github.com/Hyperion147/dashboard-react",
+    image: "/projects/dashboard.png",
+    preview: "/projects/dashboard.png",
+    tags: [
+      {
+        id: 1,
+        name: "#react",
+      },
+      {
+        id: 2,
+        name: "#tailwind",
+      },
+      {
+        id: 3,
+        name: "#forms",
+      },
+      {
+        id: 4,
+        name: "#shadcn",
+      },
+      {
+        id: 5,
+        name: "#gsap",
+      },
+      {
+        id:6,
+        name: "#motion"
+      }
+    ],
+  },
+  {
+    id: 3,
     title: "todo.suryansu.pro",
     heading: "Todo App",
     description:
@@ -57,7 +94,7 @@ export const projectInfo = [
     ],
   },
   {
-    id: 3,
+    id: 4,
     title: "blog.suryansu.pro",
     heading: "Blog",
     description:
@@ -81,4 +118,5 @@ export const projectInfo = [
       },
     ],
   },
+  
 ];

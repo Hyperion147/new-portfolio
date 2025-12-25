@@ -78,14 +78,14 @@ export default function ProjectsClient() {
       >
         {/* Back button */}
         <Link className="z-50" href="/">
-          <p className="bg-gradient-to-r from-slate-500 dark:from-indigo-200 to-gray-400 dark:to-slate-500 leading-right bg-clip-text text-transparent text-sm sm:text-lg lg:text-xl font-medium pixeltext flex items-center gap-2">
+          <p className="bg-linear-to-r from-slate-500 dark:from-indigo-200 to-gray-400 dark:to-slate-500 leading-right bg-clip-text text-transparent text-sm sm:text-lg lg:text-xl font-medium pixeltext flex items-center gap-2">
             <MdKeyboardDoubleArrowLeft className="dark:text-indigo-200 text-slate-500" />
             go back
           </p>
         </Link>
 
         {/* Title center on mobile, right on desktop */}
-        <h2 className="bg-gradient-to-r from-slate-500 dark:from-indigo-200 to-gray-700 dark:to-slate-300 leading-right bg-clip-text text-transparent sm:text-lg lg:text-xl font-medium pixeltext text-center sm:text-left">
+        <h2 className="bg-linear-to-r from-slate-500 dark:from-indigo-200 to-gray-700 dark:to-slate-300 leading-right bg-clip-text text-transparent sm:text-lg lg:text-xl font-medium pixeltext text-center sm:text-left">
           /pages/projects.jsx
         </h2>
 
@@ -97,7 +97,7 @@ export default function ProjectsClient() {
         initial={{ scaleX: 0, opacity: 0 }}
         animate={{ scaleX: 1, opacity: 1 }}
         transition={{ duration: 1, delay: 0.2, ease: "circOut" }}
-        className="bg-gradient-to-r from-transparent via-gray-500 dark:via-indigo-200 to-transparent mt-4 h-[1px] mx-6 sm:mx-12 lg:mx-80 origin-center"
+        className="bg-linear-to-r from-transparent via-gray-500 dark:via-indigo-200 to-transparent mt-4 h-px mx-6 sm:mx-12 lg:mx-80 origin-center"
       />
 
       {/* Project Cards */}
