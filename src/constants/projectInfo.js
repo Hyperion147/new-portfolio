@@ -21,18 +21,14 @@ export const projectInfo = [
             },
             {
                 id: 3,
-                name: "#forms",
-            },
-            {
-                id: 4,
                 name: "#shadcn",
             },
             {
-                id: 5,
+                id: 4,
                 name: "#gsap",
             },
             {
-                id: 6,
+                id: 5,
                 name: "#motion",
             },
         ],
