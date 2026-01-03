@@ -81,7 +81,7 @@ const HighlightedProject = () => {
             {displayedDescription}
             {isMobile && (
               <button
-                className="ml-2 text-blue-500 underline text-sm focus:outline-none"
+                className="ml-2 text-gray-500 dark:text-gray-400 underline text-sm focus:outline-none md:mb-0 mb-2"
                 onClick={() => setShowMore((prev) => !prev)}
               >
                 {showMore ? "Read Less" : "Read More"}
@@ -100,14 +100,14 @@ const HighlightedProject = () => {
             </a>
           </p>
           <div className="mt-6 sm:mt-4 items-center flex flex-col sm:flex-row gap-2 mx-0 sm:mx-12 mb-4">
-            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 w-full gap-1 ml-10 md:m-0 md:gap-2">
+            <div className="grid grid-cols-3 sm:grid-cols-2 md:grid-cols-3 w-full gap-1 ml-0 md:ml-10 md:m-0 md:gap-2">
               {techStack.map((tech) => (
                 <TechBadge key={tech.id} {...tech} />
               ))}
             </div>
           </div>
         </div>
-        <div className="flex flex-col sm:flex-row gap-3 w-full justify-center items-center mb-4 px-8 md:px-0">
+        <div className="flex flex-row gap-2 w-full justify-center items-center mb-4 px-4">
           {projectLinks.map((link, index) => (
             <ProjectLink
               key={link.id}
@@ -123,7 +123,7 @@ const HighlightedProject = () => {
 
 const TechBadge = ({ name, color }) => (
   <button
-    className="px-2 py-1 w-30 h-7 rounded-full relative text-gray-900 dark:text-white text-xs sm:text-sm border border-slate-400 hover:shadow-[4px_4px_0px_0px_rgba(203,213,225)] dark:hover:shadow-[4px_4px_0px_0px_rgba(51,65,85)] transition-all duration-200"
+    className="px-2 py-1 w-24 md:w-30 h-7 rounded-full relative text-gray-900 dark:text-white text-xs sm:text-sm border border-slate-400 hover:shadow-[4px_4px_0px_0px_rgba(203,213,225)] dark:hover:shadow-[4px_4px_0px_0px_rgba(51,65,85)] transition-all duration-200"
     style={{ "--tech-color": color }}
   >
     <span className="absolute inset-0 flex items-center justify-center">
@@ -139,9 +139,7 @@ const ProjectLink = ({ href, Icon, colors, label, innerClassName, isLast }) => {
 
   return (
     <a
-      className={`relative inline-flex h-10 overflow-hidden rounded-full hover:shadow-[5px_5px_0px_0px_rgba(203,213,225)] dark:hover:shadow-[5px_5px_0px_0px_rgba(51,65,85)] transition-all duration-500 p-[1px] focus:outline-none w-full sm:w-40 transition-all duration-300 ${
-        !isLast ? "mb-2 sm:mb-0" : ""
-      }`}
+      className="relative inline-flex h-10 overflow-hidden rounded-full hover:shadow-[5px_5px_0px_0px_rgba(203,213,225)] dark:hover:shadow-[5px_5px_0px_0px_rgba(51,65,85)] transition-all duration-500 p-[1px] focus:outline-none md:w-full w-30 transition-all duration-300"
       href={href}
       target="_blank"
       rel="noreferrer"
@@ -153,7 +151,7 @@ const ProjectLink = ({ href, Icon, colors, label, innerClassName, isLast }) => {
       <span
         className={`inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full py-1 font-medium text-black dark:text-white backdrop-blur-3xl ${innerClassName}`}
       >
-        <Icon className="text-lg mr-3" />
+        <Icon className="text-lg mr-2 md:mr-3" />
         {label}
       </span>
     </a>
