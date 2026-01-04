@@ -77,7 +77,7 @@ const Navbar = ({ hamMenu, setHamMenu }: NavbarProps) => {
               GitHub
             </a>
             <a
-              href="https://drive.google.com/file/d/12qG3WJMPRUQPlaLPaUjajII6GvxUsRrs/view?usp=sharing"
+              href="https://drive.google.com/file/d/1Q3JveWSVsuqKC9BBUGo2jsHTzZPE0SO6/view?usp=sharing"
               target="_blank"
               className="hover:text-gray-600 font-bold transition-colors cursor-pointer linkers"
             >

@@ -70,6 +70,7 @@ export const projectInfo = [
         description:
             "Panipat Connect is an innovative plantation website where users can add and geotag their plants, fostering a community of nature enthusiasts. The platform features a competitive leaderboard to encourage engagement and an admin dashboard for seamless management. Users can also access a dedicated plant section with downloadable certificates recognizing their contributions and milestones. This project showcases my skills in full-stack development, geolocation integration, and dynamic content generation.",
         href: "https://panipatconnect.com",
+        code: "https://github.com/Hyperion147/flora",
         image: "/projects/green.png",
         video: "/projects/video/plantation.webm",
         preview: "/projects/green.png",
