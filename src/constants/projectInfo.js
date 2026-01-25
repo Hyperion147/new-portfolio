@@ -1,6 +1,32 @@
 export const projectInfo = [
-    {
+       {
         id: 1,
+        title: "convergence.suryansu.pro",
+        heading: "Convergence-UI Package",
+        description:
+            "A dynamic theming engine for modern web applications. Inject OKLCH colors directly into your DOM and transform your UI in real-time. Built on the OKLCH color space for perceptual uniformity. Convergence automatically handles contrast ratios and semantic mapping across your entire application.",
+        href: "https://convergence.suryansu.pro/",
+        code: "https://github.com/Hyperion147/package-convergence",
+        image: "/projects/convergence.png",
+        video: "/projects/video/convergence.webm",
+        preview: "/projects/convergence.png",
+        tags: [
+            {
+                id: 1,
+                name: "#javascript",
+            },
+            {
+                id: 2,
+                name: "#lucide-react",
+            },
+            {
+                id: 3,
+                name: "#shadcn",
+            },
+        ],
+    },
+    {
+        id: 2,
         title: "dashboard.react",
         heading: "Dashboard - React",
         description:
@@ -34,7 +60,7 @@ export const projectInfo = [
         ],
     },
     {
-        id: 2,
+        id: 3,
         title: "todo.suryansu.pro",
         heading: "Todo App",
         description:
@@ -64,7 +90,7 @@ export const projectInfo = [
         ],
     },
     {
-        id: 3,
+        id: 4,
         title: "panipatconnect.com",
         heading: "Green Panipat Mission",
         description:
@@ -94,7 +120,7 @@ export const projectInfo = [
         ],
     },
     {
-        id: 4,
+        id: 5,
         title: "blog.suryansu.pro",
         heading: "Blog",
         description:

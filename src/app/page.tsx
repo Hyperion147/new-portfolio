@@ -53,7 +53,7 @@ export default function Home() {
               header={<GithubSection />}
             />
             <BentoGridItem
-              className="md:col-span-4 md:row-span-1"
+              className="md:col-span-4 md:row-span-2"
               header={
                 <ContactSection className="flex items-center justify-center" />
               }
