@@ -83,11 +83,11 @@ const ContactSection = ({ className = "" }) => {
                 className
             )}
         >
-            <div className="flex flex-col items-center justify-center gap-4">
+            <div className="flex flex-col items-center justify-center gap-2">
                 <p className="text-lg text-slate-800 dark:text-slate-300 tracking-widest">
                     Since you scrolled this far!
                 </p>
-                <div className="flex gap-4 md:gap-8 flex-col md:flex-row">
+                <div className="flex gap-4 flex-col md:flex-row">
                     <button
                         className="no-underline group cursor-pointer relative font-semibold leading-6  dark:text-slate-200 text-slate-800 inline-block gap-2 overflow-hidden  group dark:hover:text-slate-300 hover:text-slate-600"
                         data-cal-namespace="15min"
@@ -113,25 +113,12 @@ const ContactSection = ({ className = "" }) => {
                     </button>
                     <Link
                         href="/contact"
-                        className="flex items-center justify-center gap-2 group py-2 px-4 border-slate-500 rounded-md border-2 border-dashed"
+                        className="flex items-center justify-center py-2 px-4 border-slate-500 rounded-md border-2 hover:border-dashed transition-all duration-300 hover:inset-shadow-sm inset-shadow-gray-500/50 group gap-2"
                     >
                         <p className="dark:text-slate-300">Email Me</p>
                         <CiMail className="w-5 h-5 group-hover:transition-all duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-slate-300" />
                     </Link>
                 </div>
-            </div>
-            <div className="w-full h-px bg-gray-800" />
-            <div className="gap-4 flex flex-col">
-                <p className="text-slate-800 dark:text-slate-300 tracking-widest">
-                    Also if you are free check this out!
-                </p>
-                <a
-                    href="https://theapp.suryansu.pro"
-                    target="_blank"
-                    className="flex items-center justify-center py-2 px-4 border-slate-500 rounded-md border-2 hover:border-dashed transition-all duration-300 hover:inset-shadow-sm inset-shadow-gray-500/50"
-                >
-                    <p className="dark:text-slate-300">theapp.suryansu.pro</p>
-                </a>
             </div>
         </footer>
     );
