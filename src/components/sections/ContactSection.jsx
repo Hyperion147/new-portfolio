@@ -116,7 +116,7 @@ const ContactSection = ({ className = "" }) => {
                         className="flex items-center justify-center py-2 px-4 border-slate-500 rounded-md border-2 hover:border-dashed transition-all duration-300 hover:inset-shadow-sm inset-shadow-gray-500/50 group gap-2"
                     >
                         <p className="dark:text-slate-300">Email Me</p>
-                        <CiMail className="w-5 h-5 group-hover:transition-all duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-slate-300" />
+                        <CiMail className="w-5 h-5 group-hover:transition-all duration-300 group-hover:text-slate-300" />
                     </Link>
                 </div>
             </div>

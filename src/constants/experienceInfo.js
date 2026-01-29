@@ -8,8 +8,9 @@ export const experienceInfo = [
         description: [
             "HRMS dashboard admin and employee, turborepo project (complete).",
             "Inventory management system frontend.",
+            "Car-QR "
         ],
-        technologies: ["React", "TypeScript", "Tanstack Query", "GSAP", "MUI", "Zod"],
+        technologies: ["Next", "TypeScript", "React-Native", "Tanstack Query", "GSAP", "MUI", "Zod"],
         type: "internship",
     },
     {
