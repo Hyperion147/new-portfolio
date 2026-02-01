@@ -1,5 +1,5 @@
 export const templateInfo = [
-       {
+    {
         id: 1,
         title: "dashboard-hcode.vercel.app",
         heading: "Dashboard - React",
@@ -33,4 +33,38 @@ export const templateInfo = [
             },
         ],
     },
-]
+    {
+        id: 2,
+        title: "student-hub.vercel.app",
+        heading: "Student Hub",
+        description:
+            "Cooking...",
+        href: "https://fiver-clone-one.vercel.app/",
+        code: "https://github.com/Hyperion147/fiver-clone",
+        image: "/projects/landing-ui/students-hub.png",
+        video: "",
+        preview: "/projects/landing-ui/students-hub.png",
+        tags: [
+            {
+                id: 1,
+                name: "#react",
+            },
+            {
+                id: 2,
+                name: "#tailwind",
+            },
+            {
+                id: 3,
+                name: "#shadcn",
+            },
+            {
+                id: 4,
+                name: "#gsap",
+            },
+            {
+                id: 5,
+                name: "#motion",
+            },
+        ],
+    },
+];
