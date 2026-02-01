@@ -1,6 +1,7 @@
 "use client";
 
 import { projectInfo } from "@/constants/projectInfo";
+import {templateInfo} from "@/constants/templateInfo"
 import { useState, useEffect } from "react";
 import ToggleDark from "@/components/utils/ToggleDark";
 import Link from "next/link";
@@ -86,7 +87,7 @@ export default function ProjectsClient() {
 
         {/* Title center on mobile, right on desktop */}
         <h2 className="bg-linear-to-r from-slate-500 dark:from-indigo-200 to-gray-700 dark:to-slate-300 leading-right bg-clip-text text-transparent sm:text-lg lg:text-xl font-medium pixeltext text-center sm:text-left">
-          /pages/projects.jsx
+          /page/projects.jsx
         </h2>
 
         <ToggleDark />
@@ -104,11 +105,55 @@ export default function ProjectsClient() {
       <motion.div
         variants={containerVariants}
         onMouseMove={handleMouseMove}
-        className="px-4 sm:px-8 mt-8 relative words transition-opacity duration-1000"
+        className="px-4 sm:px-8 relative words transition-opacity duration-1000"
       >
         {projectInfo.map((project) => (
           <motion.div key={project.id} variants={itemVariants}>
             <Projects {...project} setPreview={setPreview} />
+          </motion.div>
+        ))}
+
+        {/* Desktop preview (hidden on mobile) */}
+        {!isMobile && preview && (
+          <motion.img
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            transition={{ duration: 0.2 }}
+            className="fixed top-0 left-0 z-50 object-cover w-80 rounded-lg shadow-2xl pointer-events-none border-gray-400 border-2"
+            style={{ x: springX, y: springY }}
+            src={preview}
+            alt="Project preview"
+          />
+        )}
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
+        animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="flex flex-row justify-center items-center px-6 sm:px-12 lg:mx-80 pt-6 lg:pt-8 head gap-4"
+      >
+        <h2 className="bg-linear-to-r from-slate-500 dark:from-indigo-200 to-gray-700 dark:to-slate-300 leading-right bg-clip-text text-transparent sm:text-lg lg:text-xl font-medium pixeltext text-center">
+          /section/templates.jsx
+        </h2>
+      </motion.div>
+
+      <motion.div
+        initial={{ scaleX: 0, opacity: 0 }}
+        animate={{ scaleX: 1, opacity: 1 }}
+        transition={{ duration: 1, delay: 0.2, ease: "circOut" }}
+        className="bg-linear-to-r from-transparent via-gray-500 dark:via-indigo-200 to-transparent mt-4 h-px mx-6 sm:mx-12 lg:mx-120 origin-center"
+      />
+
+      <motion.div
+        variants={containerVariants}
+        onMouseMove={handleMouseMove}
+        className="px-4 sm:px-8 relative words transition-opacity duration-1000"
+      >
+        {templateInfo.map((template) => (
+          <motion.div key={template.id} variants={itemVariants}>
+            <Projects {...template} setPreview={setPreview} />
           </motion.div>
         ))}
 
