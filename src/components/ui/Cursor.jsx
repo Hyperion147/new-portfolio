@@ -119,13 +119,13 @@ const Cursor = () => {
         <>
             <div
                 ref={cursorRef}
-                className={`fixed border pointer-events-none w-6 h-6 rounded-full bg-gray mix-blend-difference z-9999 transform scale-100 ${
+                className={`fixed border pointer-events-none w-3 h-3 rounded-full bg-gray mix-blend-difference z-9999 transform scale-100 ${
                     isMobile ? "hidden" : "opacity-0"
                 }`}
             />
             <div
                 ref={backdropRef}
-                className={`fixed pointer-events-none w-8 h-8 rounded-full bg-black/10 border border-white/10 z-9998 transform scale-100 ${
+                className={`fixed pointer-events-none w-4 h-4 rounded-full bg-black/10 border border-white/10 z-9998 transform scale-100 ${
                     isMobile ? "hidden" : "opacity-0"
                 }`}
             />
