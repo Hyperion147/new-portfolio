@@ -56,8 +56,8 @@ export const AnimatedTooltip = ({ items }) => {
                 }}
                 className="absolute -top-16 left-1/2 z-50 flex -translate-x-1/2 flex-col items-center justify-center rounded-md bg-slate-400 dark:bg-slate-950 px-4 py-2 text-xs shadow-xl"
               >
-                <div className="absolute inset-x-5 -bottom-px z-30 h-px w-[50%] bg-gradient-to-r from-transparent via-emerald-500 to-transparent" />
-                <div className="absolute -bottom-px left-5 z-30 h-px w-[50%] bg-gradient-to-r from-transparent via-sky-500 to-transparent" />
+                <div className="absolute inset-x-5 -bottom-px z-30 h-px w-[50%] bg-linear-to-r from-transparent via-emerald-500 to-transparent" />
+                <div className="absolute -bottom-px left-5 z-30 h-px w-[50%] bg-linear-to-r from-transparent via-sky-500 to-transparent" />
                 <div className="relative z-30 text-base font-bold text-black dark:text-white">
                   {item.name}
                 </div>
@@ -71,7 +71,7 @@ export const AnimatedTooltip = ({ items }) => {
             src={item.image}
             alt={item.name}
             className={cn(
-              "relative !m-0 h-14 w-14 rounded-full border-2 border-slate-500 object-cover object-top !p-0 transition duration-500 group-hover:z-30 group-hover:scale-105",
+              "relative m-0! h-14 w-14 rounded-full border-2 border-slate-500 object-cover object-top p-0! transition duration-500 group-hover:z-30 group-hover:scale-105",
               item.customBg
             )}
           />

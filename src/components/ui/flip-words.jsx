@@ -1,7 +1,7 @@
 // Took from Aceternity.
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion"
 
 export const FlipWords = ({ words, duration = 3000 }) => {
   const [currentWord, setCurrentWord] = useState(0);

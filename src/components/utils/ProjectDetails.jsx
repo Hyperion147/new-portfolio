@@ -3,7 +3,7 @@ import { createPortal } from "react-dom";
 import { RxExternalLink } from "react-icons/rx";
 import { FaCode } from "react-icons/fa6";
 import { motion } from "motion/react";
-// use native <video> to avoid next-video loader when not configured
+import Image from "next/image";
 
 const ProjectDetails = ({
     heading,
@@ -16,8 +16,6 @@ const ProjectDetails = ({
     closeModal,
 }) => {
     if (typeof document === "undefined") return null;
-
-    // safe fallback: show video when available otherwise show image
 
     return createPortal(
         <div
@@ -46,7 +44,7 @@ const ProjectDetails = ({
                                 playsInline
                             />
                         ) : (
-                            <img src={image} alt={heading} className="h-full w-full object-cover" />
+                            <Image src={image} alt={heading} width={1080} height={1920} className="h-full w-full object-cover" />
                         )}
                     </div>
                 </div>

@@ -36,9 +36,9 @@ const Projects = ({
         className="
           flex flex-col sm:flex-row
           justify-between items-start sm:items-center
-          py-6 sm:py-8 
+          py-6 
           space-y-4 sm:space-y-0
-          px-4 sm:px-8 lg:mx-80 
+          px-4 pr-12 lg:mx-80 
           dark:text-white cursor-pointer
         "
         onMouseEnter={() => setPreview(preview)}
@@ -50,16 +50,6 @@ const Projects = ({
           <p className="text-lg sm:text-xl lg:text-2xl pixeltext lowercase">
             {title}
           </p>
-          <div className="flex flex-wrap gap-3 mt-2">
-            {tags.map((tag) => (
-              <span
-                key={tag.id}
-                className="text-xs sm:text-sm text-slate-500 pixeltext"
-              >
-                {tag.name}
-              </span>
-            ))}
-          </div>
         </div>
 
         <button
@@ -67,12 +57,12 @@ const Projects = ({
             flex items-center gap-1 
             mt-2 sm:mt-0
             text-sm sm:text-base
-            hover:scale-105 hover:-translate-y-1 
+             group 
             transition-all duration-300 pixeltext
           "
         >
           view more
-          <MdKeyboardArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
+          <MdKeyboardArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1" />
         </button>
       </div>
 
