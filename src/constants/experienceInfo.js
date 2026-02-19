@@ -8,9 +8,9 @@ export const experienceInfo = [
         description: [
             "HRMS dashboard admin and employee, turborepo project (complete).",
             "Inventory management system frontend.",
-            "Car-QR "
+            "React Native App that scans QR and perform calling with encryption on Cars."
         ],
-        technologies: ["Next", "TypeScript", "React-Native", "Tanstack Query", "GSAP", "MUI", "Zod"],
+        technologies: ["NextJs", "TypeScript", "React-Native", "Tanstack Query", "GSAP", "MUI", "Zod", "Socket.IO", "WebRTC"],
         type: "internship",
     },
     {
@@ -24,7 +24,7 @@ export const experienceInfo = [
             "Implemented an admin dashboard for seamless management and a competitive leaderboard system.",
             "Created a dedicated plant section with downloadable certificates recognizing user contributions."
         ],
-        technologies: ["React", "Tailwind CSS", "Supabase", "JavaScript", "Leaflet"],
+        technologies: ["React", "Tailwind CSS", "Supabase", "JavaScript", "Leaflet", "ThreeJs"],
         type: "internship",
     },
 ];

@@ -2,17 +2,6 @@
 
 A high-performance, interactive developer portfolio built with the latest web technologies. This project showcases a modern design, advanced animations, and a seamless user experience to highlight projects and skills effectively.
 
-## ✨ Key Features
-
-- **⚡ Cutting-Edge Stack**: Built with [Next.js 16](https://nextjs.org/) (App Router) and [React 19](https://react.dev/).
-- **🎨 Modern Styling**: Fully styled with [Tailwind CSS v4](https://tailwindcss.com/) for a sleek, responsive design.
-- **✨ Advanced Animations**: Smooth, complex animations powered by [GSAP](https://gsap.com/) and [Motion](https://motion.dev/) (formerly Framer Motion).
-- **🌍 Interactive 3D Elements**: Features a high-performance 3D globe visualization using [Cobe](https://github.com/shuding/cobe).
-- **📱 Responsive Design**: optimized layouts that look great on mobile, tablet, and desktop.
-- **📧 Working Contact Form**: Integrated with [EmailJS](https://www.emailjs.com/) for direct messaging directly from the browser.
-- **📅 Appointment Scheduling**: Seamless booking integration via [Cal.com](https://cal.com/).
-- **🚀 Performance Optimized**: Utilizes `next/font` with Geist, optimized images, and efficient code splitting.
-
 ## 🛠️ Tech Stack
 
 - **Framework**: [Next.js 16](https://nextjs.org/)
