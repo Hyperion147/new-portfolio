@@ -38,15 +38,13 @@ const Navbar = ({ hamMenu, setHamMenu }: NavbarProps) => {
     <nav className="fixed left-1/2 -translate-x-1/2 max-w-[90vw] md:max-w-5xl w-full top-5 rounded-md z-40 backdrop-blur-md shadow-sm drop-shadow-transparent shadow-gray-700 dark:bg-slate-950/50 dark:text-white boxCont">
       <div className="mx-auto px-4 w-full">
         <div className="flex justify-between items-center h-16">
-          <ScrollLink
-            to="home"
-            smooth={true}
-            duration={100}
+          <Link
+            href="/"
             className="font-medium text-xl cursor-pointer pl-3"
           >
             S<span className="text-gray-400">uryansu</span>
             S<span className="text-gray-400">ingh</span>
-          </ScrollLink>
+          </Link>
 
           <div
             className="w-7 h-5 relative cursor-pointer z-40 md:hidden"
@@ -83,6 +81,12 @@ const Navbar = ({ hamMenu, setHamMenu }: NavbarProps) => {
             >
               Resume
             </a>
+            <Link
+              href="/stats"
+              className="hover:text-gray-600 font-bold transition-colors cursor-pointer linkers"
+            >
+              Stats
+            </Link>
             <ToggleDark />
           </div>
         </div>
