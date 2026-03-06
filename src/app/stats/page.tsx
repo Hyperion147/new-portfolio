@@ -58,11 +58,11 @@ const CategorySection = ({
             </h3>
             <div className="flex flex-col gap-3 flex-1 justify-center">
                 {stats.map((stat, idx) => (
-                    <div key={idx} className="flex justify-between items-center">
-                        <span className="text-sm dark:text-slate-300 text-slate-700">
+                    <div key={idx} className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1 sm:gap-4">
+                        <span className="text-sm dark:text-slate-300 text-slate-700 shrink-0">
                             {stat.label}
                         </span>
-                        <span className="text-sm font-bold dark:text-white text-slate-800">
+                        <span className="text-sm font-bold dark:text-white text-slate-800 sm:text-right text-left break-words">
                             {stat.value}
                         </span>
                     </div>
