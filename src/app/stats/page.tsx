@@ -8,23 +8,26 @@ import Mobile from "@/components/utils/Mobile";
 import MobileTheme from "@/components/utils/MobileTheme";
 import { useState } from "react";
 import { FaTrophy, FaGithub, FaCube, FaKeyboard, FaGamepad, FaMedal } from "react-icons/fa";
-import { IoStatsChart } from "react-icons/io5";
 import { MdSchool } from "react-icons/md";
 import { HiDesktopComputer } from "react-icons/hi";
+import { BiChevronRight } from "react-icons/bi";
 
 const StatCard = ({
     title,
     value,
     subtitle,
     icon,
+    link,
 }: {
     title: string;
     value: string;
     subtitle?: string;
     icon?: React.ReactNode;
+    link?: string;
 }) => {
     return (
-        <div className="flex flex-col justify-center items-center h-full">
+        <a href={link} className="flex flex-col justify-center items-center h-full group">
+            {link && <BiChevronRight className="w-6 h-6 flex absolute top-5 right-5 text-indigo-200 group-hover:block hidden" />}
             {icon && <div className="text-4xl mb-2 dark:text-indigo-300 text-indigo-500">{icon}</div>}
             <h3 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-indigo-200 to-gray-500 dark:to-white bg-clip-text text-transparent">
                 {value}
@@ -37,7 +40,7 @@ const StatCard = ({
                     {subtitle}
                 </p>
             )}
-        </div>
+        </a>
     );
 };
 
@@ -119,6 +122,7 @@ export default function StatsPage() {
                                     title="Github"
                                     value="800+"
                                     subtitle="Contribution"
+                                    link="https://github.com/Hyperion147"
                                 />
                             }
                         />
@@ -188,7 +192,7 @@ export default function StatsPage() {
                                     icon={<FaGamepad />}
                                     stats={[
                                         { label: "Valorant", value: "Diamond 2" },
-                                        { label: "CS2 (Premier)", value: "17,500" },
+                                        { label: "CS2 (Premier)", value: "19,500" },
                                         { label: "CS2 (Faceit)", value: "Level 6" },
                                         { label: "Clash of Clans", value: "Champion 2" },
                                         { label: "Battlegrounds", value: "Crown 4 (2019)" },
