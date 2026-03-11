@@ -7,9 +7,8 @@ export const experienceInfo = [
         location: "Remote | New Delhi",
         description: [
             "HRMS dashboard admin and employee, turborepo project (complete).",
-            "Mobile app for contacting through WebRTC and dashboard for managing.",
-            "Inventory management system frontend.",
-            "React Native App that scans QR and perform calling with encryption on Cars."
+            "Worked on the NexAmaze Inventory Management tool.",
+            "React Native App that scans QR and perform calling functions through WebRTC and Socket.io with encryption on Cars."
         ],
         technologies: ["React", "NextJs", "TypeScript", "React-Native", "Tanstack Query", "GSAP", "MUI", "Zod", "Socket.IO", "WebRTC"],
         type: "internship",
