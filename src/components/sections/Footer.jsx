@@ -11,7 +11,7 @@ const Footer = () => {
     return (
         <div className="lg:mx-28 mx-0">
             <div className="h-0.5 bg-gray-500 mt-8 mb-4" />
-            <div className="flex justify-between">
+            <div className="flex md:flex-row flex-col justify-between">
                 <div className="flex gap-2 items-end">
                     <p className="text-gray-400 text-sm">
                         Designed and Developed by
@@ -44,7 +44,7 @@ const Footer = () => {
                                     alt="Hyperion9913"
                                     className="rounded-md"
                                 />
-                                <div className="">
+                                <div>
                                     <p>suryansu.pro</p>
                                     <p>Part Time College ~Full time dev</p>
                                 </div>
