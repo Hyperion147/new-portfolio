@@ -5,6 +5,7 @@ import Mobile from "@/components/utils/Mobile";
 import Hero from "@/components/sections/Hero";
 import ContactSection from "@/components/sections/ContactSection";
 import ExperienceSection from "@/components/sections/ExperienceSection";
+import Footer from "@/components/sections/Footer"
 import React, { useState } from "react";
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
 import AboutSection from "@/components/sections/AboutSection";
@@ -59,6 +60,7 @@ export default function Home() {
               }
             />
           </BentoGrid>
+          <Footer />
         </div>
       </div>
     </div>

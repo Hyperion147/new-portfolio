@@ -98,7 +98,7 @@ const ContactSection = ({ className = "" }) => {
                             <span className="absolute inset-0 rounded-md bg-[radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                         </span>
                         <div
-                            className="relative flex items-center justify-center space-x-2 z-10 rounded-md border border-slate-500  py-2  ring-1 ring-white/10 w-[180px] dark:bg-gray-900 bg-[#fff9f0]"
+                            className="relative flex items-center justify-center space-x-2 z-10 rounded-md border border-slate-500  py-2  ring-1 ring-white/10 w-45 dark:bg-gray-900 bg-[#fff9f0]"
                             ref={buttonRef}
                         >
                             <span className="flex gap-2 items-center justify-center ">
@@ -116,7 +116,7 @@ const ContactSection = ({ className = "" }) => {
                         className="flex items-center justify-center py-2 px-4 border-slate-500 rounded-md border-2 hover:border-dashed transition-all duration-300 hover:inset-shadow-sm inset-shadow-gray-500/50 group gap-2"
                     >
                         <p className="dark:text-slate-300">Email Me</p>
-                        <CiMail className="w-5 h-5 group-hover:transition-all duration-300 group-hover:text-slate-300" />
+                        <CiMail className="w-5 h-5 group-hover:transition-all duration-300 dark:group-hover:text-slate-300 group-hover:text-slate-700" />
                     </Link>
                 </div>
             </div>
