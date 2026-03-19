@@ -10,12 +10,6 @@ interface MobileProps {
 
 const links = [
     {
-        id: 1,
-        href: "/projects",
-        name: "Projects",
-        external: false,
-    },
-    {
         id: 2,
         href: "https://blog.suryansu.pro/",
         name: "Blogs",

@@ -9,14 +9,14 @@ import JSONLD from "@/components/utils/JSONLD";
 export const metadata: Metadata = {
   metadataBase: new URL("https://suryansu.pro"),
   title: {
-    default: "Suryansu | Fullstack Developer",
+    default: "Suryansu | Frontend Developer",
     template: "%s | Suryansu",
   },
   description:
-    "Personal portfolio of Suryansu, a passionate Fullstack Developer specializing in building modern, responsive, and high-performance web applications using React, Next.js, and TypeScript.",
+    "Personal portfolio of Suryansu, a passionate Frontend Developer specializing in building modern, responsive, and high-performance web applications using React, Next.js, and TypeScript.",
   keywords: [
     "Suryansu",
-    "Fullstack Developer",
+    "Frontend Developer",
     "Frontend Developer",
     "React Developer",
     "Next.js Developer",
@@ -31,8 +31,8 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://suryansu.pro",
-    siteName: "Suryansu | Fullstack Developer",
-    title: "Suryansu | Fullstack Developer",
+    siteName: "Suryansu | Frontend Developer",
+    title: "Suryansu | Frontend Developer",
     description:
       "Personal portfolio showcasing projects, experience, and skills in modern web development.",
     images: [
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Suryansu | Fullstack Developer",
+    title: "Suryansu | Frontend Developer",
     description:
       "Personal portfolio showcasing projects, experience, and skills in modern web development.",
     images: ["/og-image.png"],

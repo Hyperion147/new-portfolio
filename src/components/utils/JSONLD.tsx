@@ -6,13 +6,13 @@ export default function JSONLD() {
     "@type": "Person",
     name: "Suryansu",
     url: "https://suryansu.pro",
-    jobTitle: "Fullstack Developer",
+    jobTitle: "Frontend Developer",
     sameAs: [
       "https://github.com/Hyperion147",
       "https://linkedin.com/in/suryansu", // Assuming these, can be updated
     ],
     description:
-      "Frontend and Fullstack Developer specializing in React, TypeScript, and modern web technologies.",
+      "Frontend and Frontend Developer specializing in React, TypeScript, and modern web technologies.",
   };
 
   return (

@@ -33,41 +33,23 @@ const Projects = ({
   return (
     <div>
       <div
-        className="
-          flex flex-col sm:flex-row
-          justify-between items-start sm:items-center
-          py-6 
-          space-y-4 sm:space-y-0
-          px-4 pr-12 lg:mx-80 
-          dark:text-white cursor-pointer
-        "
+        className="flex flex-row justify-between items-center py-5 px-2 dark:text-white cursor-pointer"
         onMouseEnter={() => setPreview(preview)}
         onMouseLeave={() => setPreview(null)}
         onClick={() => setIsHidden(true)}
       >
-        {/* Title + Tags */}
-        <div className="w-full sm:w-auto">
-          <p className="text-lg sm:text-xl lg:text-2xl pixeltext lowercase">
-            {title}
-          </p>
-        </div>
+        <p className="text-base sm:text-xl lg:text-2xl pixeltext lowercase truncate pr-4">
+          {title}
+        </p>
 
-        <button
-          className="
-            flex items-center gap-1 
-            mt-2 sm:mt-0
-            text-sm sm:text-base
-             group 
-            transition-all duration-300 pixeltext
-          "
-        >
-          view more
+        <button className="flex items-center gap-1 shrink-0 text-sm sm:text-base group transition-all duration-300 pixeltext">
+          click to view
           <MdKeyboardArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1" />
         </button>
       </div>
 
       {/* Divider */}
-      <div className="bg-linear-to-r from-gray-700 dark:from-indigo-200 via-gray-500 dark:via-indigo-100 to-transparent h-px px-4 sm:px-8 lg:mx-80 transition-all" />
+      <div className="bg-linear-to-r from-slate-400 dark:from-slate-500 via-slate-600 dark:via-slate-800 to-transparent h-px transition-all" />
 
       {isHidden && (
         <ProjectDetails

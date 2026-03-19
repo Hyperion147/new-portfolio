@@ -3,21 +3,21 @@
 import { projectInfo } from "@/constants/projectInfo";
 import { templateInfo } from "@/constants/templateInfo";
 import { useState, useEffect } from "react";
-import ToggleDark from "@/components/utils/ToggleDark";
-import Link from "next/link";
-import { MdKeyboardDoubleArrowLeft } from "react-icons/md";
+import { createPortal } from "react-dom";
 import { motion, useMotionValue, useSpring } from "motion/react";
 import Projects from "@/components/utils/Projects";
 import Image from "next/image";
 
+const MotionImage = motion.create(Image);
+
 export default function ProjectsClient() {
     const [isMobile, setIsMobile] = useState(false);
+    const [preview, setPreview] = useState<string | null>(null);
+    const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
-        const handleResize = () => {
-            setIsMobile(window.innerWidth < 768); // Tailwind's md breakpoint
-        };
-
+        setMounted(true);
+        const handleResize = () => setIsMobile(window.innerWidth < 768);
         handleResize();
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
@@ -25,157 +25,56 @@ export default function ProjectsClient() {
 
     const x = useMotionValue(0);
     const y = useMotionValue(0);
-
     const springX = useSpring(x, { damping: 50, stiffness: 150 });
     const springY = useSpring(y, { damping: 50, stiffness: 150 });
 
     const handleMouseMove = (e: React.MouseEvent) => {
         if (!isMobile) {
-            // only track mouse for desktop
-            x.set(e.clientX + 20);
-            y.set(e.clientY + 10);
+            x.set(e.clientX);
+            y.set(e.clientY);
         }
     };
 
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        show: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.1,
-                delayChildren: 0.3,
-            },
-        },
-    };
-
-    const itemVariants = {
-        hidden: { opacity: 0, y: 20, filter: "blur(5px)" },
-        show: {
-            opacity: 1,
-            y: 0,
-            filter: "blur(0px)",
-            transition: {
-                type: "spring",
-                stiffness: 50,
-                damping: 20,
-            } as const,
-        },
-    };
-
-    const MotionImage = motion.create(Image);
-
-    const [preview, setPreview] = useState<string | null>(null);
-
     return (
-        <motion.section
+        <section
             aria-label="Project gallery"
-            className="bg-[#fff9f0] dark:bg-gray-900 min-h-screen overflow-x-hidden mx-auto"
-            initial="hidden"
-            animate="show"
+            className="w-full mx-auto"
+            onMouseMove={handleMouseMove}
         >
-            {/* Header */}
-            <motion.div
-                initial={{ opacity: 0, y: -20, filter: "blur(10px)" }}
-                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                className="flex flex-row justify-between items-center px-6 sm:px-12 lg:mx-80 pt-6 lg:pt-8 head gap-4"
-            >
-                {/* Back button */}
-                <Link className="z-50" href="/">
-                    <p className="bg-linear-to-r from-slate-500 dark:from-indigo-200 to-gray-400 dark:to-slate-500 leading-right bg-clip-text text-transparent text-sm sm:text-lg lg:text-xl font-medium pixeltext flex items-center gap-2">
-                        <MdKeyboardDoubleArrowLeft className="dark:text-indigo-200 text-slate-500" />
-                        go back
-                    </p>
-                </Link>
+            {mounted && !isMobile && preview && createPortal(
+                <MotionImage
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.2 }}
+                    style={{ x: springX, y: springY }}
+                    src={preview}
+                    alt="Project preview"
+                    width={320}
+                    height={180}
+                    className="fixed top-0 left-0 z-9999 object-cover rounded-lg shadow-2xl pointer-events-none border-gray-400 border-2"
+                />,
+                document.body
+            )}
 
-                {/* Title center on mobile, right on desktop */}
-                <h2 className="bg-linear-to-r from-slate-500 dark:from-indigo-200 to-gray-700 dark:to-slate-300 leading-right bg-clip-text text-transparent sm:text-lg lg:text-xl font-medium pixeltext text-center sm:text-left">
-                    /page/projects.jsx
-                </h2>
-
-                <ToggleDark />
-            </motion.div>
-
-            {/* Divider */}
-            <motion.div
-                initial={{ scaleX: 0, opacity: 0 }}
-                animate={{ scaleX: 1, opacity: 1 }}
-                transition={{ duration: 1, delay: 0.2, ease: "circOut" }}
-                className="bg-linear-to-r from-transparent via-gray-500 dark:via-indigo-200 to-transparent mt-4 h-px mx-6 sm:mx-12 lg:mx-80 origin-center"
-            />
-
-            {/* Project Cards */}
-            <motion.div
-                variants={containerVariants}
-                onMouseMove={handleMouseMove}
-                className="px-4 sm:px-8 relative words transition-opacity duration-1000"
-            >
+            <div className="px-2 sm:px-4">
                 {projectInfo.map((project) => (
-                    <motion.div key={project.id} variants={itemVariants}>
-                        <Projects {...project} setPreview={setPreview} />
-                    </motion.div>
+                    <Projects key={project.id} {...project} setPreview={setPreview} />
                 ))}
+            </div>
 
-                {!isMobile && preview && (
-                    <MotionImage
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.8 }}
-                        transition={{ duration: 0.2 }}
-                        style={{ x: springX, y: springY }}
-                        src={preview}
-                        alt="Project preview"
-                        width={320} 
-                        height={180} 
-                        className="fixed top-0 left-0 z-50 object-cover rounded-lg shadow-2xl pointer-events-none border-gray-400 border-2"
-                    />
-                )}
-            </motion.div>
-
-            <motion.div
-                initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
-                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                className="flex flex-row justify-center items-center px-6 sm:px-12 lg:mx-80 pt-6 lg:pt-8 head gap-4"
-            >
+            <div className="flex flex-row px-2 sm:px-4 items-center pt-6 lg:pt-8 head gap-4">
                 <h2 className="bg-linear-to-r from-slate-500 dark:from-indigo-200 to-gray-700 dark:to-slate-300 leading-right bg-clip-text text-transparent sm:text-lg lg:text-xl font-medium pixeltext text-center">
-                    /section/templates.jsx
+                    templates
                 </h2>
-            </motion.div>
+            </div>
 
-            <motion.div
-                initial={{ scaleX: 0, opacity: 0 }}
-                animate={{ scaleX: 1, opacity: 1 }}
-                transition={{ duration: 1, delay: 0.2, ease: "circOut" }}
-                className="bg-linear-to-r from-transparent via-gray-500 dark:via-indigo-200 to-transparent mt-4 h-px mx-6 sm:mx-12 lg:mx-120 origin-center"
-            />
+            <div className="bg-linear-to-r from-indigo-200 via-slate-500 dark:via-indigo-200 to-transparent mx-2 sm:mx-4 w-28 h-px" />
 
-            <motion.div
-                variants={containerVariants}
-                onMouseMove={handleMouseMove}
-                className="px-4 sm:px-8 relative words transition-opacity duration-1000"
-            >
+            <div className="px-2 sm:px-4">
                 {templateInfo.map((template) => (
-                    <motion.div key={template.id} variants={itemVariants}>
-                        <Projects {...template} setPreview={setPreview} />
-                    </motion.div>
+                    <Projects key={template.id} {...template} setPreview={setPreview} />
                 ))}
-
-                {!isMobile && preview && (
-                    <MotionImage
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.8 }}
-                        transition={{ duration: 0.2 }}
-                        style={{ x: springX, y: springY }}
-                        src={preview}
-                        alt="Project preview"
-                        width={320} 
-                        height={180}
-                        className="fixed top-0 left-0 z-50 object-cover rounded-lg shadow-2xl pointer-events-none border-gray-400 border-2"
-                    />
-                )}
-            </motion.div>
-        </motion.section>
+            </div>
+        </section>
     );
 }

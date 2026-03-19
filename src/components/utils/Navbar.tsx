@@ -54,12 +54,6 @@ const Navbar = ({ hamMenu, setHamMenu }: NavbarProps) => {
           </div>
 
           <div className="hidden md:flex items-center space-x-8">
-            <Link
-              href="/projects"
-              className="hover:text-gray-600 font-bold transition-colors cursor-pointer linkers"
-            >
-              Projects
-            </Link>
             <a
               href="https://blog.suryansu.pro/"
               target="_blank"

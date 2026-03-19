@@ -23,7 +23,7 @@ const ProjectDetails = ({
             onClick={() => closeModal()}
         >
             <motion.div
-                className="relative max-w-2xl shadow-sm rounded-2xl bg-linear-to-l dark:text-white border-2 border-slate-300 z-60 mx-10 md:mx-0"
+                className="relative w-full max-w-2xl shadow-sm rounded-2xl bg-linear-to-l dark:text-white border-2 border-slate-300 z-60 mx-4"
                 initial={{ opacity: 0, filter: "blur(14px)" }}
                 animate={{
                     opacity: 1,
@@ -71,17 +71,12 @@ const ProjectDetails = ({
                     <p className="mb-3 text-sm text-gray-700 dark:text-gray-300">
                         {description}
                     </p>
-                    <div className="flex items-center justify-between mt-4 dark:text-indigo-200 text-gray-500">
-                        <div className="flex gap-2">
-                            {tags.map((tag) => (
-                                <p
-                                    key={tag.id}
-                                    className=" hover:-translate-y-1 transition-all duration-500"
-                                >
-                                    {tag.name}
-                                </p>
-                            ))}
-                        </div>
+                    <div className="flex flex-wrap gap-2 mt-4 dark:text-indigo-200 text-gray-500">
+                        {tags.map((tag) => (
+                            <p key={tag.id} className="text-sm hover:-translate-y-1 transition-all duration-500">
+                                {tag.name}
+                            </p>
+                        ))}
                     </div>
                 </div>
             </motion.div>

@@ -42,7 +42,7 @@ export default function Home() {
               header={<Skills />}
             />
             <BentoGridItem
-              className="md:col-span-4 md:row-span-4"
+              className="md:col-span-4 md:row-span-8"
               header={<ProjectSection />}
             />
             <BentoGridItem
