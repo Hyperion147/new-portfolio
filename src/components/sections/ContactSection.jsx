@@ -6,7 +6,6 @@ import { CiMail } from "react-icons/ci";
 import { CiCalendarDate } from "react-icons/ci";
 import { getCalApi } from "@calcom/embed-react";
 import { useEffect, useRef } from "react";
-import Link from "next/link";
 import { cn } from "@/components/utils/Utils";
 
 const ContactSection = ({ className = "" }) => {
@@ -29,52 +28,6 @@ const ContactSection = ({ className = "" }) => {
         });
     });
 
-    const buttonRef = useRef(null);
-    const iconRef = useRef(null);
-
-    useEffect(() => {
-        const btn = buttonRef.current;
-        const icon = iconRef.current;
-
-        // Hover in animation
-        const handleEnter = () => {
-            gsap.to(btn, {
-                width: "220px", // expand width
-                duration: 0.4,
-                ease: "power2.out",
-            });
-            gsap.to(icon, {
-                opacity: 1,
-                x: 0,
-                duration: 0.4,
-                ease: "power2.out",
-            });
-        };
-
-        // Hover out animation
-        const handleLeave = () => {
-            gsap.to(btn, {
-                width: "200px",
-                duration: 0.4,
-                ease: "power2.inOut",
-            });
-            gsap.to(icon, {
-                opacity: 0,
-                x: -10,
-                duration: 0.4,
-                ease: "power2.inOut",
-            });
-        };
-
-        btn.addEventListener("mouseenter", handleEnter);
-        btn.addEventListener("mouseleave", handleLeave);
-
-        return () => {
-            btn.removeEventListener("mouseenter", handleEnter);
-            btn.removeEventListener("mouseleave", handleLeave);
-        };
-    }, []);
-
     return (
         <footer
             id="contact"
@@ -94,30 +47,18 @@ const ContactSection = ({ className = "" }) => {
                         data-cal-link="suryansu/15min"
                         data-cal-config='{"layout":"month_view","theme":"auto"}'
                     >
-                        <span className="absolute inset-0 overflow-hidden rounded-md">
-                            <span className="absolute inset-0 rounded-md bg-[radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-                        </span>
-                        <div
-                            className="relative flex items-center justify-center space-x-2 z-10 rounded-md border border-slate-500  py-2  ring-1 ring-white/10 w-45 dark:bg-gray-900 bg-[#fff9f0]"
-                            ref={buttonRef}
+                        <a
+                            href="mailto:suryansuwork@gmail.com"
+                            className="flex items-center justify-center py-2 px-12 border-slate-500 rounded-md border-2 hover:border-dashed transition-all duration-300 hover:inset-shadow-sm inset-shadow-gray-500/50 group gap-2"
                         >
                             <span className="flex gap-2 items-center justify-center ">
                                 Book a Meeting
                                 <CiCalendarDate
-                                    ref={iconRef}
-                                    className="w-5 h-5 opacity-0 translate-x-2.5px text-slate-900 dark:text-slate-100 hidden group-hover:block"
+                                    className="w-5 h-5 translate-x-2.5px text-gray-500"
                                 />
                             </span>
-                        </div>
-                        <span className="absolute bottom-0 left-4.5 h-px w-[calc(100%-2.25rem)] bg-linear-to-r from-emerald-400/0 via-emerald-400/90 to-emerald-400/0 transition-opacity duration-500 group-hover:opacity-40" />
+                        </a>
                     </button>
-                    <Link
-                        href="/contact"
-                        className="flex items-center justify-center py-2 px-4 border-slate-500 rounded-md border-2 hover:border-dashed transition-all duration-300 hover:inset-shadow-sm inset-shadow-gray-500/50 group gap-2"
-                    >
-                        <p className="dark:text-slate-300">Email Me</p>
-                        <CiMail className="w-5 h-5 group-hover:transition-all duration-300 dark:group-hover:text-slate-300 group-hover:text-slate-700" />
-                    </Link>
                 </div>
             </div>
         </footer>
