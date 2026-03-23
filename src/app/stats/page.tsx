@@ -6,7 +6,7 @@ import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
 import Navbar from "@/components/utils/Navbar";
 import Mobile from "@/components/utils/Mobile";
 import MobileTheme from "@/components/utils/MobileTheme";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaTrophy, FaGithub, FaCube, FaKeyboard, FaGamepad, FaMedal } from "react-icons/fa";
 import { MdSchool } from "react-icons/md";
 import { HiDesktopComputer } from "react-icons/hi";
@@ -75,8 +75,95 @@ const CategorySection = ({
     );
 };
 
+interface PersonalBestEntry {
+    acc: number;
+    consistency: number;
+    difficulty: string;
+    lazyMode: boolean;
+    language: string;
+    punctuation: boolean;
+    numbers: boolean;
+    raw: number;
+    wpm: number;
+    timestamp: number;
+}
+
+interface MonkeyProfile {
+    name: string;
+    xp: number;
+    isPremium: boolean;
+    streak: number;
+    maxStreak: number;
+    typingStats: {
+        completedTests: number;
+        startedTests: number;
+        timeTyping: number;
+    };
+    personalBests: {
+        time: { [mode2: string]: PersonalBestEntry[] };
+        words: { [mode2: string]: PersonalBestEntry[] };
+    };
+    allTimeLbs: {
+        time: {
+            [lang: string]: {
+                [mode2: string]: { rank: number; count: number };
+            };
+        };
+    };
+    details?: {
+        bio?: string;
+        keyboard?: string;
+    };
+}
+
+function getBest(entries: PersonalBestEntry[] | undefined): PersonalBestEntry | null {
+    if (!entries?.length) return null;
+    return entries.reduce((a, b) => (a.wpm > b.wpm ? a : b));
+}
+
+function fmtWpm(entries: PersonalBestEntry[] | undefined): string {
+    const b = getBest(entries);
+    return b ? `${Math.round(b.wpm)} WPM` : "—";
+}
+
+function fmtTime(seconds: number): string {
+    const h = Math.floor(seconds / 3600);
+    const m = Math.floor((seconds % 3600) / 60);
+    return h > 0 ? `${h}h ${m}m` : `${m}m`;
+}
+
+// Mini bar showing acc/consistency/raw for a best entry
+const PbBar = ({ entry }: { entry: PersonalBestEntry | null }) => {
+    if (!entry) return <span className="text-slate-400 text-xs">—</span>;
+    return (
+        <div className="flex flex-col gap-0.5">
+            <span className="text-sm font-bold dark:text-white text-slate-800">{Math.round(entry.wpm)} WPM</span>
+            <span className="text-xs dark:text-slate-400 text-slate-500">
+                {Math.round(entry.acc)}% acc · {Math.round(entry.raw)} raw · {Math.round(entry.consistency)}% con
+            </span>
+        </div>
+    );
+};
+
 export default function StatsPage() {
     const [hamMenu, setHamMenu] = useState(false);
+    const [profile, setProfile] = useState<MonkeyProfile | null>(null);
+
+    useEffect(() => {
+        const fetchProfile = async () => {
+            try {
+                const res = await fetch(
+                    `${process.env.NEXT_PUBLIC_MONKEY_API}users/${process.env.NEXT_PUBLIC_MONKEY_USER}/profile`,
+                    { headers: { Authorization: `ApeKey ${process.env.NEXT_PUBLIC_MONKEY_KEY}` } }
+                );
+                const json = await res.json();
+                if (json?.data) setProfile(json.data);
+            } catch {
+                // silently fail
+            }
+        };
+        fetchProfile();
+    }, []);
 
     useGSAP(() => {
         gsap.from(".stats-header", {
@@ -103,15 +190,84 @@ export default function StatsPage() {
 
                 <div className="pt-28 px-4 pb-12 max-w-7xl mx-auto">
                     <BentoGrid className="max-w-5xl mx-auto stats-grid">
+                        {/* MonkeyType Full Section */}
                         <BentoGridItem
-                            className="md:col-span-1 md:row-span-1"
+                            className="md:col-span-3 md:row-span-1"
                             header={
-                                <StatCard
-                                    icon={<FaTrophy />}
-                                    title="Hackathons"
-                                    value="2"
-                                    subtitle="Participated"
-                                />
+                                <div className="flex flex-col h-full px-4 gap-4">
+                                    {/* Header row */}
+                                    <div className="flex items-center justify-between flex-wrap gap-2">
+                                        <a
+                                            href={`https://monkeytype.com/profile/${process.env.NEXT_PUBLIC_MONKEY_USER}`}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="flex items-center gap-2 group"
+                                        >
+                                            {profile?.isPremium && (
+                                                <span className="text-xs bg-yellow-400/20 text-yellow-600 dark:text-yellow-300 px-2 rounded-full font-semibold">
+                                                    Premium
+                                                </span>
+                                            )}
+                                        </a>
+                                    </div>
+                                    <p className="text-xs font-semibold dark:text-slate-400 text-slate-500 uppercase tracking-wider">
+                                        Typing Stats
+                                    </p>
+                                    {/* Stats row */}
+                                    <div className="grid grid-cols-3 gap-3 text-center">
+                                        <div className="border-r-2 border-b-2 p-2 md:border-gray-500">
+                                            <p className="text-2xl font-bold dark:text-white text-slate-800">
+                                                {profile?.typingStats.completedTests.toLocaleString() ?? "—"}
+                                            </p>
+                                            <p className="text-xs dark:text-slate-400 text-slate-500 mt-0.5">tests completed</p>
+                                        </div>
+                                        <div className="border-l-2 border-b-2 border-r-2 p-2 border-gray-500">
+                                            <p className="text-2xl font-bold dark:text-white text-slate-800">
+                                                {profile ? fmtTime(profile.typingStats.timeTyping) : "—"}
+                                            </p>
+                                            <p className="text-xs dark:text-slate-400 text-slate-500 mt-0.5">time typing</p>
+                                        </div>
+                                        <div className="border-l-2 border-b-2 p-2 border-gray-500">
+                                            <p className="text-2xl font-bold dark:text-white text-slate-800">
+                                                {profile ? fmtWpm(profile.personalBests?.time?.["60"]) : "—"}
+                                            </p>
+                                            <p className="text-xs dark:text-slate-400 text-slate-500 mt-0.5">best 60s</p>
+                                        </div>
+                                    </div>
+
+                                    {/* Personal Bests — side by side */}
+                                    <div className="flex gap-4">
+                                        {/* Time */}
+                                        <div className="flex-1">
+                                            <p className="text-xs font-semibold dark:text-slate-400 text-slate-500 uppercase tracking-wider mb-2">
+                                                Time Mode Personal Bests
+                                            </p>
+                                            <div className="grid grid-cols-1 gap-2">
+                                                {["15"].map((m) => (
+                                                    <div key={m} className="border-r-2 border-t-2 p-2 border-gray-500">
+                                                        <p className="text-xs dark:text-slate-400 text-slate-500 mb-1">{m}s</p>
+                                                        <PbBar entry={getBest(profile?.personalBests?.time?.[m])} />
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+
+                                        {/* Words */}
+                                        <div className="flex-1">
+                                            <p className="text-xs font-semibold dark:text-slate-400 text-slate-500 uppercase tracking-wider mb-2">
+                                                Words Mode Personal Bests
+                                            </p>
+                                            <div className="grid grid-cols-1 gap-2">
+                                                {["10"].map((m) => (
+                                                    <div key={m} className="border-l-2 border-t-2 p-2 border-gray-500">
+                                                        <p className="text-xs dark:text-slate-400 text-slate-500 mb-1">{m} words</p>
+                                                        <PbBar entry={getBest(profile?.personalBests?.words?.[m])} />
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             }
                         />
                         <BentoGridItem
@@ -127,33 +283,6 @@ export default function StatsPage() {
                             }
                         />
                         <BentoGridItem
-                            className="md:col-span-1 md:row-span-1"
-                            header={
-                                <CategorySection
-                                    category="Typing Speed"
-                                    icon={<FaKeyboard />}
-                                    stats={[
-                                        { label: "Max (10 words / 15 sec)", value: "96 WPM" },
-                                        { label: "Min (100 words / 120 sec)", value: "74 WPM" },
-                                        { label: "MonkeyType", value: "5 hours" },
-                                    ]}
-                                />
-                            }
-                        />
-
-                        {/* Rubik's Cube Stats */}
-                        <BentoGridItem
-                            className="md:col-span-1 md:row-span-1"
-                            header={
-                                <StatCard
-                                    icon={<FaCube />}
-                                    title="Rubik's Cube"
-                                    value="55s"
-                                    subtitle="Personal Best"
-                                />
-                            }
-                        />
-                        <BentoGridItem
                             className="md:col-span-2 md:row-span-1"
                             header={
                                 <CategorySection
@@ -164,6 +293,7 @@ export default function StatsPage() {
                                         { label: "Class 12th Score", value: "60%" },
                                         { label: "College GPA", value: "8.2" },
                                         { label: "Competitive Exams", value: "6+" },
+                                        { label: "Hackathons Participated", value: "2" }
                                     ]}
                                 />
                             }
@@ -179,7 +309,7 @@ export default function StatsPage() {
                                         { label: "Monitor", value: "Lenovo Legion R24e ( 180Hz )" },
                                         { label: "Keyboard", value: "Aula F75 ( Ice Blue | Akko V3 Yellow Pros Switches )" },
                                         { label: "Mouse", value: "ATK A9 Ultra ( 8k Hz | 53 grams )" },
-                                        { label: "Audio", value: "KZ Edx Pro 2 ( Mic | 3.5mm )"}
+                                        { label: "Audio", value: "KZ Edx Pro 2 ( Mic | 3.5mm )" }
                                     ]}
                                 />
                             }
