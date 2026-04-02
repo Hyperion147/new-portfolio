@@ -14,9 +14,12 @@ export const metadata: Metadata = {
   },
   description:
     "Personal portfolio of Suryansu, a passionate Frontend Developer specializing in building modern, responsive, and high-performance web applications using React, Next.js, and TypeScript.",
+  applicationName: "Suryansu Portfolio",
+  alternates: {
+    canonical: "/",
+  },
   keywords: [
     "Suryansu",
-    "Frontend Developer",
     "Frontend Developer",
     "React Developer",
     "Next.js Developer",
@@ -27,6 +30,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Suryansu" }],
   creator: "Suryansu",
+  category: "technology",
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -37,10 +41,11 @@ export const metadata: Metadata = {
       "Personal portfolio showcasing projects, experience, and skills in modern web development.",
     images: [
       {
-        url: "/og-image.png",
+        url: "https://suryansu.pro/og-image.png",
         width: 1200,
         height: 630,
         alt: "Suryansu Portfolio",
+        type: "image/png",
       },
     ],
   },
@@ -49,8 +54,13 @@ export const metadata: Metadata = {
     title: "Suryansu | Frontend Developer",
     description:
       "Personal portfolio showcasing projects, experience, and skills in modern web development.",
-    images: ["/og-image.png"],
-    creator: "@suryansu", // Placeholder
+    images: [
+      {
+        url: "https://suryansu.pro/og-image.png",
+        alt: "Suryansu Portfolio",
+      },
+    ],
+    creator: "@suryansu",
   },
   robots: {
     index: true,
@@ -62,6 +72,15 @@ export const metadata: Metadata = {
       "max-image-preview": "large",
       "max-snippet": -1,
     },
+  },
+  other: {
+    "og:image": "https://suryansu.pro/og-image.png",
+    "og:image:url": "https://suryansu.pro/og-image.png",
+    "og:image:secure_url": "https://suryansu.pro/og-image.png",
+    "og:image:width": "1200",
+    "og:image:height": "630",
+    "og:image:alt": "Suryansu Portfolio",
+    "og:image:type": "image/png",
   },
 };
 
