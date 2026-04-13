@@ -1,81 +1,65 @@
-# 🚀 Modern Developer Portfolio
+# suryansu.pro
 
-A high-performance, interactive developer portfolio built with the latest web technologies. This project showcases a modern design, advanced animations, and a seamless user experience to highlight projects and skills effectively.
+Personal portfolio built with Next.js 16 and React 19.
 
-## 🛠️ Tech Stack
+## Stack
 
-- **Framework**: [Next.js 16](https://nextjs.org/)
-- **Core Library**: [React 19](https://react.dev/)
-- **Language**: [TypeScript](https://www.typescriptlang.org/)
-- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/), `clsx`, `tailwind-merge`
-- **Animation**: [GSAP](https://gsap.com/), [Motion](https://motion.dev/), [tsparticles](https://particles.js.org/)
-- **Icons**: [React Icons](https://react-icons.github.io/react-icons/)
-- **Notifications**: [React Hot Toast](https://react-hot-toast.com/)
+- **Next.js 16** · App Router, SSR, sitemap & robots auto-generation
+- **React 19** · with lazy-loaded sections
+- **TypeScript** · throughout
+- **Tailwind CSS 4** · dark mode, custom bento grid layout
+- **GSAP + Motion** · page & element animations
+- **tsparticles** · sparkle / particle effects
+- **EmailJS** · contact form
+- **Cal.com embed** · meeting scheduling
+- **Vercel Analytics** · built-in
 
-## 🚀 Getting Started
+## Pages
 
-Follow these steps to set up the project locally.
+| Route | Description |
+|-------|-------------|
+| `/` | Hero, About, Skills, Projects, Experience, GitHub, Contact |
+| `/stats` | Live MonkeyType stats, gaming, setup, academics |
+| `/projects` | Full project listing |
 
-### Prerequisites
+## Features
 
-Ensure you have Node.js installed on your machine.
+- Bento grid layout across all pages
+- Dark / light theme toggle (desktop + mobile)
+- Live MonkeyType profile via API (WPM, streaks, personal bests)
+- Highlighted project showcase with video previews
+- Animated tooltip skill icons
+- Flip-words hero animation
+- GitHub contributions section
+- Experience timeline
+- SEO — OG image, JSON-LD, sitemap, robots
+- PWA manifest
+- Custom cursor
+- Responsive navbar with hamburger menu
 
-- [Node.js](https://nodejs.org/) (Latest LTS recommended)
+## Projects Showcased
 
-### Installation
+- **Convergence UI** — OKLCH dynamic theming engine (npm package)
+- **Green Panipat Mission** — geo-tagged plantation tracker with leaderboard
+- **Todo App** — Supabase auth + task management
+- **Blog** — personal blog with GSAP animations
 
-1.  **Clone the repository:**
-
-    ```bash
-    git clone https://github.com/StartYourDayRight/new-portfolio.git
-    cd next-portfolio
-    ```
-
-2.  **Install dependencies:**
-
-    ```bash
-    npm install
-    # or
-    yarn install
-    # or
-    pnpm install
-    # or
-    bun install
-    ```
-
-3.  **Run the development server:**
-
-    ```bash
-    npm run dev
-    ```
-
-4.  **Open the app:**
-    Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-## 📂 Project Structure
+## Setup
 
 ```bash
-src/
-├── app/              # Next.js App Router pages and layouts
-├── components/       # React components
-│   ├── sections/     # Page sections (Hero, About, Projects, etc.)
-│   ├── ui/           # Reusable UI components
-│   └── utils/        # Utility components
-├── constants/        # Content and configuration constants
-└── ...
+pnpm install
 ```
 
-## 📜 Scripts
+Create a `.env` file:
 
-- `npm run dev`: Runs the app in development mode.
-- `npm run build`: Builds the app for production.
-- `npm run start`: Starts the production build.
-- `npm run lint`: Runs ESLint to check for code quality issues.
+```env
+NEXT_PUBLIC_MONKEY_API=
+NEXT_PUBLIC_MONKEY_USER=
+NEXT_PUBLIC_MONKEY_KEY=
+```
 
-## 📄 License
+```bash
+pnpm dev
+```
 
-This project is open source and available under the [MIT License](LICENSE).
-
----
-
-Based on the [Next.js](https://nextjs.org) project structure.
+Open [http://localhost:3000](http://localhost:3000).
