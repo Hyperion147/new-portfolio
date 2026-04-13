@@ -110,4 +110,34 @@ export const projectInfo = [
             },
         ],
     },
+    {
+        id: 5,
+        title: "ssh-18.vercel.app",
+        heading: "ssh-18 hackathon project",
+        description:
+            "Built a full-stack jewellery e-commerce platform in a 10-hour hackathon. The app features a complete shopping experience — product catalog, cart, wishlist, checkout with live payments, and a user profile with order history. Auth is handled end-to-end with Supabase including Google OAuth, session persistence, and transactional emails via Resend.",
+        href: "https://ssh-18.vercel.app/",
+        code: "https://github.com/Hyperion147/ssh-18",
+        image: "/projects/ssh-18.png",
+        video: "/projects/video/ssh-18.webm",
+        preview: "/projects/ssh-18.png",
+        tags: [
+            {
+                id: 1,
+                name: "#nextjs",
+            },
+            {
+                id: 2,
+                name: "#tailwind",
+            },
+            {
+                id: 3,
+                name: "#motion/react",
+            },
+            {
+                id: 4,
+                name: "#supabase",
+            },
+        ],
+    },
 ];

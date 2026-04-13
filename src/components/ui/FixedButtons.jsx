@@ -11,7 +11,7 @@ const FixedButtons = () => {
   ];
 
   return (
-    <div className="fixed bottom-5 md:top-8 right-5 flex flex-col z-50 gap-4">
+    <div className="fixed bottom-5 right-5 flex flex-col z-50 gap-4">
       {buttons.map((button) => (
         <div className="flex justify-end gap-2 items-center" key={button.id}>
           <p className="text-slate-500 hidden md:block">{button.name}</p>

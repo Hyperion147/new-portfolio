@@ -27,9 +27,9 @@ const StatCard = ({
 }) => {
     return (
         <a href={link} className="flex flex-col justify-center items-center h-full group">
-            {link && <BiChevronRight className="w-6 h-6 flex absolute top-5 right-5 text-indigo-200 group-hover:block hidden" />}
+            {link && <BiChevronRight className="w-6 h-6 flex absolute top-5 right-5 text-indigo-200 group-hover:block" />}
             {icon && <div className="text-4xl mb-2 dark:text-indigo-300 text-indigo-500">{icon}</div>}
-            <h3 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-indigo-200 to-gray-500 dark:to-white bg-clip-text text-transparent">
+            <h3 className="text-3xl md:text-4xl font-bold bg-linear-to-r from-indigo-200 to-gray-500 dark:to-white bg-clip-text text-transparent">
                 {value}
             </h3>
             <p className="text-sm md:text-base dark:text-slate-300 text-slate-700 font-semibold mt-1">
@@ -65,7 +65,7 @@ const CategorySection = ({
                         <span className="text-sm dark:text-slate-300 text-slate-700 shrink-0">
                             {stat.label}
                         </span>
-                        <span className="text-sm font-bold dark:text-white text-slate-800 sm:text-right text-left break-words">
+                        <span className="text-sm font-bold dark:text-white text-slate-800 sm:text-right text-left wrap-break-word">
                             {stat.value}
                         </span>
                     </div>
@@ -276,7 +276,7 @@ export default function StatsPage() {
                                 <StatCard
                                     icon={<FaGithub />}
                                     title="Github"
-                                    value="800+"
+                                    value="900+"
                                     subtitle="Contribution"
                                     link="https://github.com/Hyperion147"
                                 />
@@ -292,8 +292,7 @@ export default function StatsPage() {
                                         { label: "JEE Mains Percentile", value: "88.5%" },
                                         { label: "Class 12th Score", value: "60%" },
                                         { label: "College GPA", value: "8.2" },
-                                        { label: "Competitive Exams", value: "6+" },
-                                        { label: "Hackathons Participated", value: "2" }
+                                        { label: "Hackathons Participated", value: "3 (cooked)" }
                                     ]}
                                 />
                             }
@@ -305,7 +304,7 @@ export default function StatsPage() {
                                     category="Setup"
                                     icon={<HiDesktopComputer />}
                                     stats={[
-                                        { label: "Laptop", value: "Lenovo Legion 5 ( 1650 | 16gb | 750gb SSD | 120Hz )" },
+                                        { label: "Laptop", value: "Lenovo Legion 5 ( 1650 | 16gb | 750gb | 120Hz )" },
                                         { label: "Monitor", value: "Lenovo Legion R24e ( 180Hz )" },
                                         { label: "Keyboard", value: "Aula F75 ( Ice Blue | Akko V3 Yellow Pros Switches )" },
                                         { label: "Mouse", value: "ATK A9 Ultra ( 8k Hz | 53 grams )" },
