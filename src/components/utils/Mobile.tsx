@@ -23,7 +23,7 @@ const links = [
     },
     {
         id: 4,
-        href: "https://drive.google.com/file/d/1goCEtvlA-1pGBi3_tSJPPkdnu487utMX/view",
+        href: "https://drive.google.com/file/d/19CnRqrwcdfE8TvR5-aqtRlOMPscuXFVd/view?usp=sharing",
         name: "Resume",
         external: true,
     },
