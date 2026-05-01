@@ -54,7 +54,7 @@ const ContactSection = ({ className = "" }) => {
                             <span className="flex gap-2 items-center justify-center ">
                                 Book a Meeting
                                 <CiCalendarDate
-                                    className="w-5 h-5 translate-x-2.5px text-gray-500"
+                                    className="w-6 h-6 translate-x-2.5px"
                                 />
                             </span>
                         </a>

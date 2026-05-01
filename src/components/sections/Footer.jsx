@@ -10,7 +10,7 @@ const Footer = () => {
     });
     return (
         <div className="lg:mx-28 mx-0">
-            <div className="h-0.5 bg-gray-500 mt-8 mb-4" />
+            <div className="h-0.5 bg-gray-500 mt-8 mb-4 border-dashed" />
             <div className="flex md:flex-row flex-col justify-between">
                 <div className="flex gap-2 items-end">
                     <p className="text-gray-400 text-sm">

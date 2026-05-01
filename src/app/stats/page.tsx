@@ -321,7 +321,7 @@ export default function StatsPage() {
                                     icon={<FaGamepad />}
                                     stats={[
                                         { label: "Valorant", value: "Diamond 2" },
-                                        { label: "CS2 (Premier)", value: "20,124" },
+                                        { label: "CS2 (Premier)", value: "21,745" },
                                         { label: "CS2 (Faceit)", value: "Level 6" },
                                         { label: "Clash of Clans", value: "Champion 2" },
                                         { label: "Battlegrounds", value: "Crown 4 (2019)" },

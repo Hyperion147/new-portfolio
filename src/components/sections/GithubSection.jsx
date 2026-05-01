@@ -26,7 +26,7 @@ const getLevelColor = (level) => {
 const ContributionSquare = memo(({ day, onHover }) => {
   return (
     <div
-      className={`contribution-square w-[12px] h-[12px] rounded-[3px] ${getLevelColor(
+      className={`contribution-square w-[12px] h-[12px] rounded-[2px] ${getLevelColor(
         day.level
       )} cursor-pointer transition-all duration-200 border border-black/10 dark:border-white/10 hover:scale-110 hover:z-10`}
       onMouseEnter={() => onHover(day)}
@@ -134,11 +134,11 @@ const GithubSection = ({ className = "" }) => {
       className={`flex flex-col h-full w-full py-4 px-3 sm:px-6 relative ${className}`}
     >
       <div className="flex items-center justify-between mb-6">
-        <div className="github-title flex items-center gap-2 sm:gap-4 bg-slate-100/50 dark:bg-slate-700/30 pr-2 sm:pr-5 pl-2 py-2 rounded-2xl border border-slate-200 dark:border-slate-700/50">
-          <div className="p-2 bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700">
+        <div className="github-title flex items-center gap-2 sm:gap-4 bg-slate-100/50 dark:bg-slate-700/30 pr-5 pl-1 py-1 rounded-md border border-slate-200 dark:border-slate-700/50">
+          <div className="p-2 bg-white dark:bg-gray-900 rounded-md shadow-sm border border-slate-200 dark:border-slate-700">
             <FaGithub className="text-lg sm:text-xl text-slate-800 dark:text-white" />
           </div>
-          <div className="flex flex-col hidden sm:flex">
+          <div className="flex-col hidden sm:flex">
             <h2 className="text-sm font-bold text-slate-800 dark:text-slate-100 leading-tight">
               GitHub Contributions
             </h2>
@@ -193,9 +193,9 @@ const GithubSection = ({ className = "" }) => {
         className="flex-1 overflow-x-auto no-scrollbar relative"
         onMouseLeave={() => setHoveredDay(null)}
       >
-        <div className="flex gap-[4px] min-w-max pb-4">
+        <div className="flex gap-1 min-w-max justify-end pb-4">
           {weeks.map((week, wIndex) => (
-            <div key={wIndex} className="flex flex-col gap-[4px]">
+            <div key={wIndex} className="flex flex-col gap-1">
               {week.map((day, dIndex) => (
                 <ContributionSquare
                   key={`${day.date}-${wIndex}-${dIndex}`}
@@ -217,13 +217,13 @@ const GithubSection = ({ className = "" }) => {
         >
           @Hyperion147
         </a>
-        <div className="flex items-center gap-2 text-[10px] text-slate-400 dark:text-slate-500 uppercase tracking-[0.1em] font-bold">
+        <div className="flex items-center gap-2 text-[10px] text-slate-400 dark:text-slate-500 uppercase tracking-widest font-bold">
           <span>Less</span>
-          <div className="flex gap-[2px]">
+          <div className="flex gap-0.5">
             {[0, 1, 2, 3, 4].map((level) => (
               <div
                 key={level}
-                className={`w-[10px] h-[10px] rounded-[2px] shadow-sm border border-black/5 dark:border-white/5 ${getLevelColor(
+                className={`w-2.5 h-2.5 rounded-xs shadow-sm border border-black/5 dark:border-white/5 ${getLevelColor(
                   level
                 )}`}
               />
