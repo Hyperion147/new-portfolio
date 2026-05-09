@@ -83,6 +83,10 @@ body {
         box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+button, a{
+    z-index: 9999;
+}
+
 @layer utilities {
     @keyframes blink {
 

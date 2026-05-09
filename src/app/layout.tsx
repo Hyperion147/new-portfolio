@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Cursor from "@/components/ui/Cursor";
 import { Analytics } from "@vercel/analytics/react";
 import { Toaster } from "react-hot-toast";
 import FixedButtons from "@/components/ui/FixedButtons";
 import JSONLD from "@/components/utils/JSONLD";
+import CursorWrapper from "@/components/ui/CursorWrapper";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://suryansu.pro"),
@@ -89,6 +89,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
     <html lang="en" className="dark">
       <head>
@@ -117,7 +118,7 @@ export default function RootLayout({
         <JSONLD />
       </head>
       <body className="overflow-x-hidden">
-        <Cursor />
+        <CursorWrapper />
         <Toaster position="bottom-right" />
         <FixedButtons />
         {children}

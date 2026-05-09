@@ -57,27 +57,27 @@ const Navbar = ({ hamMenu, setHamMenu }: NavbarProps) => {
             <a
               href="https://blog.suryansu.pro/"
               target="_blank"
-              className="hover:text-gray-600 font-bold transition-colors cursor-pointer linkers"
+              className=" font-bold  cursor-pointer linkers z-9999"
             >
               Blogs
             </a>
             <a
               href="https://github.com/Hyperion147"
               target="_blank"
-              className="hover:text-gray-600 font-bold transition-colors cursor-pointer linkers"
+              className=" font-bold  cursor-pointer linkers"
             >
               GitHub
             </a>
             <a
               href="https://drive.google.com/file/d/1rBRBMXnYFoU8icPtfRIi3SumEu_5Ygp4/view?usp=sharing"
               target="_blank"
-              className="hover:text-gray-600 font-bold transition-colors cursor-pointer linkers"
+              className="font-bold  cursor-pointer linkers"
             >
               Resume
             </a>
             <Link
               href="/stats"
-              className="hover:text-gray-600 font-bold transition-colors cursor-pointer linkers"
+              className="font-bold  cursor-pointer linkers"
             >
               Stats
             </Link>

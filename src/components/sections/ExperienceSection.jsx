@@ -71,6 +71,7 @@ const ExperienceSection = ({ className = "" }) => {
                 {experience.technologies.map((tech, idx) => (
                   <span
                     key={idx}
+                    data-cursor-hover
                     className="px-3 py-1 text-gray-700 dark:text-gray-300 rounded-lg text-xs font-medium border border-gray-200 dark:border-slate-600"
                   >
                     {tech}

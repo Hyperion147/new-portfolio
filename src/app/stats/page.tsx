@@ -7,7 +7,12 @@ import Navbar from "@/components/utils/Navbar";
 import Mobile from "@/components/utils/Mobile";
 import MobileTheme from "@/components/utils/MobileTheme";
 import { useState, useEffect } from "react";
-import { FaTrophy, FaGithub, FaCube, FaKeyboard, FaGamepad, FaMedal } from "react-icons/fa";
+import {
+    FaGithub,
+    FaGamepad,
+    FaMedal,
+} from "react-icons/fa";
+import { FiArrowUpRight } from "react-icons/fi";
 import { MdSchool } from "react-icons/md";
 import { HiDesktopComputer } from "react-icons/hi";
 import { BiChevronRight } from "react-icons/bi";
@@ -26,21 +31,30 @@ const StatCard = ({
     link?: string;
 }) => {
     return (
-        <a href={link} className="flex flex-col justify-center items-center h-full group">
-            {link && <BiChevronRight className="w-6 h-6 flex absolute top-5 right-5 text-indigo-200 group-hover:block" />}
-            {icon && <div className="text-4xl mb-2 dark:text-indigo-300 text-indigo-500">{icon}</div>}
+        <div
+            className="flex flex-col justify-center items-center h-full group"
+        >
+            {link && (
+                <BiChevronRight className="w-6 h-6 flex absolute top-5 right-5 text-indigo-200 group-hover:block" />
+            )}
+            {icon && (
+                <div className="text-4xl mb-2 dark:text-indigo-300 text-indigo-500">
+                    {icon}
+                </div>
+            )}
             <h3 className="text-3xl md:text-4xl font-bold bg-linear-to-r from-indigo-200 to-gray-500 dark:to-white bg-clip-text text-transparent">
                 {value}
             </h3>
-            <p className="text-sm md:text-base dark:text-slate-300 text-slate-700 font-semibold mt-1">
+            <a href={link} target="_blank" rel="noopener noreferrer" className="text-sm md:text-base dark:text-slate-300 text-slate-700 font-semibold mt-1">
                 {title}
-            </p>
+                <FiArrowUpRight className="w-4 h-4 inline-block ml-1" />
+            </a>
             {subtitle && (
                 <p className="text-xs dark:text-slate-400 text-slate-500 mt-1">
                     {subtitle}
                 </p>
             )}
-        </a>
+        </div>
     );
 };
 
@@ -56,12 +70,19 @@ const CategorySection = ({
     return (
         <div className="flex flex-col h-full p-4">
             <h3 className="text-xl font-bold dark:text-white text-slate-800 mb-4 flex items-center gap-2">
-                {icon && <span className="dark:text-indigo-300 text-indigo-500">{icon}</span>}
+                {icon && (
+                    <span className="dark:text-indigo-300 text-indigo-500">
+                        {icon}
+                    </span>
+                )}
                 {category}
             </h3>
             <div className="flex flex-col gap-3 flex-1 justify-center">
                 {stats.map((stat, idx) => (
-                    <div key={idx} className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1 sm:gap-4">
+                    <div
+                        key={idx}
+                        className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1 sm:gap-4"
+                    >
                         <span className="text-sm dark:text-slate-300 text-slate-700 shrink-0">
                             {stat.label}
                         </span>
@@ -116,7 +137,9 @@ interface MonkeyProfile {
     };
 }
 
-function getBest(entries: PersonalBestEntry[] | undefined): PersonalBestEntry | null {
+function getBest(
+    entries: PersonalBestEntry[] | undefined,
+): PersonalBestEntry | null {
     if (!entries?.length) return null;
     return entries.reduce((a, b) => (a.wpm > b.wpm ? a : b));
 }
@@ -137,9 +160,12 @@ const PbBar = ({ entry }: { entry: PersonalBestEntry | null }) => {
     if (!entry) return <span className="text-slate-400 text-xs">—</span>;
     return (
         <div className="flex flex-col gap-0.5">
-            <span className="text-sm font-bold dark:text-white text-slate-800">{Math.round(entry.wpm)} WPM</span>
+            <span className="text-sm font-bold dark:text-white text-slate-800">
+                {Math.round(entry.wpm)} WPM
+            </span>
             <span className="text-xs dark:text-slate-400 text-slate-500">
-                {Math.round(entry.acc)}% acc · {Math.round(entry.raw)} raw · {Math.round(entry.consistency)}% con
+                {Math.round(entry.acc)}% acc · {Math.round(entry.raw)} raw ·{" "}
+                {Math.round(entry.consistency)}% con
             </span>
         </div>
     );
@@ -154,7 +180,11 @@ export default function StatsPage() {
             try {
                 const res = await fetch(
                     `${process.env.NEXT_PUBLIC_MONKEY_API}users/${process.env.NEXT_PUBLIC_MONKEY_USER}/profile`,
-                    { headers: { Authorization: `ApeKey ${process.env.NEXT_PUBLIC_MONKEY_KEY}` } }
+                    {
+                        headers: {
+                            Authorization: `ApeKey ${process.env.NEXT_PUBLIC_MONKEY_KEY}`,
+                        },
+                    },
                 );
                 const json = await res.json();
                 if (json?.data) setProfile(json.data);
@@ -183,7 +213,7 @@ export default function StatsPage() {
 
     return (
         <div className="bg-[#fff9f0] dark:bg-gray-900 min-h-screen">
-            <div className="overflow-x-hidden transition-colors duration-500">
+            <div className="overflow-x-hidden duration-500">
                 <Mobile hamMenu={hamMenu} setHamMenu={setHamMenu} />
                 <MobileTheme />
                 <Navbar hamMenu={hamMenu} setHamMenu={setHamMenu} />
@@ -195,43 +225,66 @@ export default function StatsPage() {
                             className="md:col-span-3 md:row-span-1"
                             header={
                                 <div className="flex flex-col h-full px-4 gap-4">
-                                    {/* Header row */}
-                                    <div className="flex items-center justify-between flex-wrap gap-2">
-                                        <a
-                                            href={`https://monkeytype.com/profile/${process.env.NEXT_PUBLIC_MONKEY_USER}`}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="flex items-center gap-2 group"
-                                        >
-                                            {profile?.isPremium && (
-                                                <span className="text-xs bg-yellow-400/20 text-yellow-600 dark:text-yellow-300 px-2 rounded-full font-semibold">
-                                                    Premium
+                                    <div className="flex w-full items-center justify-between">
+                                        <p className="text-xs font-semibold dark:text-slate-400 text-slate-500 uppercase tracking-wider">
+                                            Typing Stats
+                                        </p>
+                                        <div className="flex items-center justify-between flex-wrap gap-2">
+                                            <a
+                                                href={`https://monkeytype.com/profile/${process.env.NEXT_PUBLIC_MONKEY_USER}`}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="flex items-center gap-2 group"
+                                            >
+                                                <span className="text-xs font-semibold dark:text-slate-400 text-slate-500 uppercase tracking-wider flex">
+                                                    {" "}
+                                                    Profile{" "}
+                                                    <FiArrowUpRight className="w-4 h-4" />
                                                 </span>
-                                            )}
-                                        </a>
+                                                {profile?.isPremium && (
+                                                    <span className="text-xs bg-yellow-400/20 text-yellow-600 dark:text-yellow-300 px-2 rounded-full font-semibold">
+                                                        Premium
+                                                    </span>
+                                                )}
+                                            </a>
+                                        </div>
                                     </div>
-                                    <p className="text-xs font-semibold dark:text-slate-400 text-slate-500 uppercase tracking-wider">
-                                        Typing Stats
-                                    </p>
                                     {/* Stats row */}
                                     <div className="grid grid-cols-3 gap-3 text-center">
                                         <div className="border-r-2 border-b-2 p-2 md:border-gray-500">
                                             <p className="text-2xl font-bold dark:text-white text-slate-800">
-                                                {profile?.typingStats.completedTests.toLocaleString() ?? "—"}
+                                                {profile?.typingStats.completedTests.toLocaleString() ??
+                                                    "—"}
                                             </p>
-                                            <p className="text-xs dark:text-slate-400 text-slate-500 mt-0.5">tests completed</p>
+                                            <p className="text-xs dark:text-slate-400 text-slate-500 mt-0.5">
+                                                tests completed
+                                            </p>
                                         </div>
                                         <div className="border-l-2 border-b-2 border-r-2 p-2 border-gray-500">
                                             <p className="text-2xl font-bold dark:text-white text-slate-800">
-                                                {profile ? fmtTime(profile.typingStats.timeTyping) : "—"}
+                                                {profile
+                                                    ? fmtTime(
+                                                          profile.typingStats
+                                                              .timeTyping,
+                                                      )
+                                                    : "—"}
                                             </p>
-                                            <p className="text-xs dark:text-slate-400 text-slate-500 mt-0.5">time typing</p>
+                                            <p className="text-xs dark:text-slate-400 text-slate-500 mt-0.5">
+                                                time typing
+                                            </p>
                                         </div>
                                         <div className="border-l-2 border-b-2 p-2 border-gray-500">
                                             <p className="text-2xl font-bold dark:text-white text-slate-800">
-                                                {profile ? fmtWpm(profile.personalBests?.time?.["60"]) : "—"}
+                                                {profile
+                                                    ? fmtWpm(
+                                                          profile.personalBests
+                                                              ?.time?.["60"],
+                                                      )
+                                                    : "—"}
                                             </p>
-                                            <p className="text-xs dark:text-slate-400 text-slate-500 mt-0.5">best 60s</p>
+                                            <p className="text-xs dark:text-slate-400 text-slate-500 mt-0.5">
+                                                best 60s
+                                            </p>
                                         </div>
                                     </div>
 
@@ -244,9 +297,20 @@ export default function StatsPage() {
                                             </p>
                                             <div className="grid grid-cols-1 gap-2">
                                                 {["15"].map((m) => (
-                                                    <div key={m} className="border-r-2 border-t-2 p-2 border-gray-500">
-                                                        <p className="text-xs dark:text-slate-400 text-slate-500 mb-1">{m}s</p>
-                                                        <PbBar entry={getBest(profile?.personalBests?.time?.[m])} />
+                                                    <div
+                                                        key={m}
+                                                        className="border-r-2 border-t-2 p-2 border-gray-500"
+                                                    >
+                                                        <p className="text-xs dark:text-slate-400 text-slate-500 mb-1">
+                                                            {m}s
+                                                        </p>
+                                                        <PbBar
+                                                            entry={getBest(
+                                                                profile
+                                                                    ?.personalBests
+                                                                    ?.time?.[m],
+                                                            )}
+                                                        />
                                                     </div>
                                                 ))}
                                             </div>
@@ -259,9 +323,22 @@ export default function StatsPage() {
                                             </p>
                                             <div className="grid grid-cols-1 gap-2">
                                                 {["10"].map((m) => (
-                                                    <div key={m} className="border-l-2 border-t-2 p-2 border-gray-500">
-                                                        <p className="text-xs dark:text-slate-400 text-slate-500 mb-1">{m} words</p>
-                                                        <PbBar entry={getBest(profile?.personalBests?.words?.[m])} />
+                                                    <div
+                                                        key={m}
+                                                        className="border-l-2 border-t-2 p-2 border-gray-500"
+                                                    >
+                                                        <p className="text-xs dark:text-slate-400 text-slate-500 mb-1">
+                                                            {m} words
+                                                        </p>
+                                                        <PbBar
+                                                            entry={getBest(
+                                                                profile
+                                                                    ?.personalBests
+                                                                    ?.words?.[
+                                                                    m
+                                                                ],
+                                                            )}
+                                                        />
                                                     </div>
                                                 ))}
                                             </div>
@@ -289,10 +366,19 @@ export default function StatsPage() {
                                     category="Academic Achievements"
                                     icon={<MdSchool />}
                                     stats={[
-                                        { label: "JEE Mains Percentile", value: "88.5%" },
-                                        { label: "Class 12th Score", value: "60%" },
+                                        {
+                                            label: "JEE Mains Percentile",
+                                            value: "88.5%",
+                                        },
+                                        {
+                                            label: "Class 12th Score",
+                                            value: "60%",
+                                        },
                                         { label: "College GPA", value: "8.2" },
-                                        { label: "Hackathons Participated", value: "3 (cooked)" }
+                                        {
+                                            label: "Hackathons Participated",
+                                            value: "3 (cooked)",
+                                        },
                                     ]}
                                 />
                             }
@@ -304,11 +390,26 @@ export default function StatsPage() {
                                     category="Setup"
                                     icon={<HiDesktopComputer />}
                                     stats={[
-                                        { label: "Laptop", value: "Lenovo Legion 5 ( 1650 | 16gb | 750gb | 120Hz )" },
-                                        { label: "Monitor", value: "Lenovo Legion R24e ( 180Hz )" },
-                                        { label: "Keyboard", value: "Aula F75 ( Ice Blue | Akko V3 Yellow Pros Switches )" },
-                                        { label: "Mouse", value: "ATK A9 Ultra ( 8k Hz | 53 grams )" },
-                                        { label: "Audio", value: "KZ Edx Pro 2 ( Mic | 3.5mm )" }
+                                        {
+                                            label: "Laptop",
+                                            value: "Lenovo Legion 5 ( 1650 | 16gb | 750gb | 120Hz )",
+                                        },
+                                        {
+                                            label: "Monitor",
+                                            value: "Lenovo Legion R24e ( 180Hz )",
+                                        },
+                                        {
+                                            label: "Keyboard",
+                                            value: "Aula F75 ( Ice Blue | Akko V3 Yellow Pros Switches )",
+                                        },
+                                        {
+                                            label: "Mouse",
+                                            value: "ATK A9 Ultra ( 8k Hz | 53 grams )",
+                                        },
+                                        {
+                                            label: "Audio",
+                                            value: "KZ Edx Pro 2 ( Mic | 3.5mm )",
+                                        },
                                     ]}
                                 />
                             }
@@ -320,11 +421,26 @@ export default function StatsPage() {
                                     category="Gaming Stats"
                                     icon={<FaGamepad />}
                                     stats={[
-                                        { label: "Valorant", value: "Diamond 2" },
-                                        { label: "CS2 (Premier)", value: "21,745" },
-                                        { label: "CS2 (Faceit)", value: "Level 6" },
-                                        { label: "Clash of Clans", value: "Champion 2" },
-                                        { label: "Battlegrounds", value: "Crown 4 (2019)" },
+                                        {
+                                            label: "Valorant",
+                                            value: "Diamond 2",
+                                        },
+                                        {
+                                            label: "CS2 (Premier)",
+                                            value: "21,745",
+                                        },
+                                        {
+                                            label: "CS2 (Faceit)",
+                                            value: "Level 6",
+                                        },
+                                        {
+                                            label: "Clash of Clans",
+                                            value: "Champion 2",
+                                        },
+                                        {
+                                            label: "Battlegrounds",
+                                            value: "Crown 4 (2019)",
+                                        },
                                     ]}
                                 />
                             }
@@ -336,8 +452,14 @@ export default function StatsPage() {
                                     category="Misc."
                                     icon={<FaMedal />}
                                     stats={[
-                                        { label: "Skating", value: "State Level" },
-                                        { label: "Baseball", value: "District Level" },
+                                        {
+                                            label: "Skating",
+                                            value: "State Level",
+                                        },
+                                        {
+                                            label: "Baseball",
+                                            value: "District Level",
+                                        },
                                         { label: "Olympiads", value: "Silver" },
                                     ]}
                                 />
@@ -348,7 +470,9 @@ export default function StatsPage() {
                     <div className="mt-8 text-center">
                         <p className="text-xs dark:text-slate-500 text-slate-600">
                             Stats are updated manually •{" "}
-                            <span className="italic">Last updated: March 2026</span>
+                            <span className="italic">
+                                Last updated: March 2026
+                            </span>
                         </p>
                     </div>
                 </div>

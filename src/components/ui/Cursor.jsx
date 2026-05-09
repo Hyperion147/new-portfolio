@@ -10,124 +10,122 @@ const Cursor = () => {
 
     useEffect(() => {
         const checkMobile = () => {
-            const isMobileDevice =
-                /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-                    navigator.userAgent,
-                ) ||
+            setIsMobile(
+                /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
                 window.innerWidth <= 768 ||
-                "ontouchstart" in window;
-            setIsMobile(isMobileDevice);
+                "ontouchstart" in window
+            );
         };
-
         checkMobile();
         window.addEventListener("resize", checkMobile);
         return () => window.removeEventListener("resize", checkMobile);
     }, []);
 
     useEffect(() => {
-        if (
-            isMobile ||
-            !cursorRef.current ||
-            !backdropRef.current ||
-            typeof window === "undefined"
-        )
-            return;
+        if (isMobile || !cursorRef.current || !backdropRef.current) return;
 
         const cursor = cursorRef.current;
         const backdrop = backdropRef.current;
-
-        gsap.set([cursor, backdrop], {
-            xPercent: -50,
-            yPercent: -50,
-            opacity: 1,
-        });
-
+        
         let mouseX = 0;
         let mouseY = 0;
+        let isHovering = false;
+
+        gsap.set([cursor, backdrop], { xPercent: -50, yPercent: -50, opacity: 1 });
 
         const updatePosition = (e) => {
             mouseX = e.clientX;
             mouseY = e.clientY;
-        };
-        const follower = gsap.to(backdrop, {
-            x: mouseX,
-            y: mouseY,
-            ease: "power3.out",
-            duration: 0.15,
-        });
-
-        const render = () => {
+            
+            // The small dot always follows the mouse
             gsap.set(cursor, {
                 x: mouseX,
                 y: mouseY,
-                duration: 0,
             });
 
-            follower.vars.x = mouseX;
-            follower.vars.y = mouseY;
-            follower.invalidate().restart();
-
-            requestAnimationFrame(render);
+            // The backdrop follows the mouse ONLY if not hovering an element
+            if (!isHovering) {
+                gsap.to(backdrop, {
+                    x: mouseX,
+                    y: mouseY,
+                    duration: 0.15,
+                    ease: "power3.out",
+                });
+            }
         };
-        requestAnimationFrame(render);
-        window.addEventListener("mousemove", updatePosition);
 
-        const handleHover = () => {
-            gsap.to(cursor, {
-                scale: 0.8,
-                backgroundColor: "rgba(255, 255, 255, 0.8)",
-                duration: 0.15,
-            });
+        const handleHover = (e) => {
+            isHovering = true;
+            const target = e.currentTarget;
+            const rect = target.getBoundingClientRect();
+
+            gsap.killTweensOf(backdrop);
+
             gsap.to(backdrop, {
-                scale: 1,
-                backgroundColor: "rgba(0, 0, 0, 0.2)",
-                duration: 0.15,
+                x: rect.left + rect.width / 2,
+                y: rect.top + rect.height / 2,
+                width: rect.width + 10, // Added slight padding
+                height: rect.height + 4,
+                borderRadius: "8px",
+                backgroundColor: "rgba(255, 255, 255, 0.1)",
+                duration: 0.3,
+                ease: "power3.out",
             });
+
+            gsap.to(cursor, { opacity: 0, duration: 0.3 });
         };
 
         const handleUnHover = () => {
-            gsap.to(cursor, {
-                scale: 1,
-                backgroundColor: "rgba(255, 255, 255, 1)",
-                duration: 0.15,
-            });
+            isHovering = false;
             gsap.to(backdrop, {
-                scale: 1,
+                width: 16, // Back to original size
+                height: 16,
+                borderRadius: "100%",
                 backgroundColor: "rgba(0, 0, 0, 0.1)",
-                duration: 0.15,
+                backdropFilter: "blur(0px)",
+                duration: 0.5,
+                ease: "power3.out",
             });
+            gsap.to(cursor, { opacity: 1, duration: 0.3 });
         };
 
-        const hoverElements = document.querySelectorAll(
-            "a, button, [data-cursor-hover]",
-        );
-        hoverElements.forEach((element) => {
-            element.addEventListener("mouseenter", handleHover);
-            element.addEventListener("mouseleave", handleUnHover);
-        });
+        window.addEventListener("mousemove", updatePosition);
+
+        // Attach listeners to current elements
+        const refreshListeners = () => {
+            const elements = document.querySelectorAll("a, button, [data-cursor-hover]");
+            elements.forEach((el) => {
+                el.addEventListener("mouseenter", handleHover);
+                el.addEventListener("mouseleave", handleUnHover);
+            });
+            return elements;
+        };
+
+        const hoverElements = refreshListeners();
 
         return () => {
             window.removeEventListener("mousemove", updatePosition);
-            hoverElements.forEach((element) => {
-                element.removeEventListener("mouseenter", handleHover);
-                element.removeEventListener("mouseleave", handleUnHover);
+            hoverElements.forEach((el) => {
+                el.removeEventListener("mouseenter", handleHover);
+                el.removeEventListener("mouseleave", handleUnHover);
             });
         };
     }, [isMobile]);
 
+    if (isMobile) return null;
+
     return (
         <>
+            {/* The Main Dot */}
             <div
                 ref={cursorRef}
-                className={`fixed border pointer-events-none w-3 h-3 rounded-full bg-gray mix-blend-difference z-9999 transform scale-100 ${
-                    isMobile ? "hidden" : "opacity-0"
-                }`}
+                className="fixed top-0 left-0 pointer-events-none w-2 h-2 rounded-full bg-white mix-blend-difference z-9998 "
             />
+            {/* The Glassmorphic Bubble */}
             <div
                 ref={backdropRef}
-                className={`fixed pointer-events-none w-4 h-4 rounded-full bg-black/10 border border-white/10 z-9998 transform scale-100 ${
-                    isMobile ? "hidden" : "opacity-0"
-                }`}
+                className="fixed top-0 left-0 pointer-events-none w-4 h-4 rounded-full border border-slate-400 bg-white/5 z-9997 "
+                style={{ willChange: "width, height, transform" }}
             />
         </>
     );

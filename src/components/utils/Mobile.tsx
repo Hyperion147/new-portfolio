@@ -56,7 +56,7 @@ const Mobile = ({ hamMenu, setHamMenu }: MobileProps) => {
                 <div className="flex justify-end mb-8">
                     <button
                         onClick={() => setHamMenu(false)}
-                        className="text-4xl text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors focus:outline-none mr-3"
+                        className="text-4xl text-gray-500 hover:text-gray-900 dark:text-gray-400 transition-colors dark:hover:text-white  focus:outline-none mr-3"
                         aria-label="Close Menu"
                     >
                         &times;
