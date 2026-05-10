@@ -4,7 +4,7 @@ export const blocks = [
         eyebrow: "Interactive UI",
         description:
             "The Cursor component replaces the standard browser pointer with a minimalist, interactive dual-element system. It is context-aware, automatically adjusting its shape and behavior based on the elements it interacts with.",
-        note: "Use CursorProvider and data-cursor-hover to enable cursor interactions on elements except hyperlinks and buttons.",
+        note: "Wrap this component in CursorProvider before adding to layout.tsx and use data-cursor-hover to enable cursor interactions on elements except hyperlinks and buttons.",
         video: "/blocks/cursor.webm",
         preview: "/projects/landing-ui/dashboard.png",
         href: "https://github.com/Hyperion147",

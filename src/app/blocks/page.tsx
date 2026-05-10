@@ -44,7 +44,7 @@ function CodeBlock({ code, title }: { code: string; title: string }) {
 
 function PreviewBlock({ block }: { block: (typeof blocks)[number] }) {
     return (
-        <div className="flex h-full flex-col gap-4">
+        <div className="flex h-full flex-col gap-2">
             <div className="flex gap-2 items-start justify-between">
                 <div>
                     <p className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
@@ -70,7 +70,7 @@ function PreviewBlock({ block }: { block: (typeof blocks)[number] }) {
             <div className="border w-full border-slate-300 dark:border-slate-700 text-sm font-mono tracking-wider text-slate-500 dark:text-slate-400 px-3 py-1">
                 Note: {block.note}
             </div>
-            <div className="relative mt-auto overflow-hidden rounded-md border-2 border-slate-300 bg-slate-100 dark:border-slate-700 dark:bg-slate-950">
+            <div className="relative mt-auto overflow-hidden border-2 border-slate-300 bg-slate-100 dark:border-slate-700 dark:bg-slate-950">
                 <video
                     className="aspect-video w-full object-cover"
                     src={block.video}
