@@ -1,6 +1,7 @@
 "use client";
 
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
+import { playClickSound } from "@/components/ui/click";
 import { blobCursorCode } from "@/constants/blocks";
 import toast from "react-hot-toast";
 import { FiArrowUpRight, FiCopy } from "react-icons/fi";
@@ -24,7 +25,10 @@ const BlobCursor = () => {
                                 <p className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
                                     Interactive UI
                                 </p>
-                                <h2 data-cursor-hover className="text-2xl font-bold bg-linear-to-r from-indigo-200 to-gray-500 bg-clip-text text-transparent dark:to-white">
+                                <h2
+                                    data-cursor-hover
+                                    className="text-2xl font-bold bg-linear-to-r from-indigo-200 to-gray-500 bg-clip-text text-transparent dark:to-white"
+                                >
                                     Blob Cursor
                                 </h2>
                             </div>
@@ -45,8 +49,11 @@ const BlobCursor = () => {
                             interacts with.
                         </p>
                         <div className="border w-full border-slate-300 dark:border-slate-700 text-sm font-mono tracking-wider text-slate-500 dark:text-slate-400 px-3 py-1">
-                            Note: Wrap this component in <span data-cursor-hover>CursorProvider</span> before
-                            adding to <span data-cursor-hover>layout.tsx</span> and use <span data-cursor-hover>data-cursor-hover</span> to
+                            Note: Wrap this component in{" "}
+                            <span data-cursor-hover>CursorProvider</span> before
+                            adding to <span data-cursor-hover>layout.tsx</span>{" "}
+                            and use{" "}
+                            <span data-cursor-hover>data-cursor-hover</span> to
                             enable interactions.
                         </div>
                         <div className="relative mt-auto overflow-hidden border-2 border-slate-300 bg-slate-100 dark:border-slate-700 dark:bg-slate-950">
@@ -71,9 +78,10 @@ const BlobCursor = () => {
                             </div>
                             <button
                                 type="button"
-                                onClick={() =>
-                                    copyCode(blobCursorCode, "Blob Cursor")
-                                }
+                                onClick={() => {
+                                    playClickSound();
+                                    copyCode(blobCursorCode, "Blob Cursor");
+                                }}
                                 data-cursor-hover
                                 className="inline-flex h-8 w-8 items-center justify-center rounded-md border border-slate-300 text-slate-700 hover:shadow-[3px_3px_0px_0px_rgba(203,213,225)] dark:border-slate-700 dark:text-slate-200 dark:hover:shadow-[3px_3px_0px_0px_rgba(51,65,85)]"
                                 aria-label="Copy Blob Cursor code"
