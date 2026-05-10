@@ -33,6 +33,12 @@ const links = [
         name: "Stats",
         external: false,
     },
+    {
+        id: 6,
+        href: "/blocks",
+        name: "Blocks",
+        external: false,
+    },
 ];
 
 const Mobile = ({ hamMenu, setHamMenu }: MobileProps) => {

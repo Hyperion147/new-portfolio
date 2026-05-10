@@ -119,7 +119,7 @@ export default function RootLayout({
       </head>
       <body className="overflow-x-hidden">
         <CursorWrapper />
-        <Toaster position="bottom-right" />
+        <Toaster position="top-right" />
         <FixedButtons />
         {children}
         <Analytics />

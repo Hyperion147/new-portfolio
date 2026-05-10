@@ -1,5 +1,4 @@
 "use client";
-import { Link as ScrollLink } from "react-scroll";
 import { useGSAP } from "@gsap/react";
 import ToggleDark from "./ToggleDark";
 import gsap from "gsap";
@@ -11,7 +10,7 @@ interface NavbarProps {
   setHamMenu: Dispatch<SetStateAction<boolean>>;
 }
 
-const Navbar = ({ hamMenu, setHamMenu }: NavbarProps) => {
+const Navbar = ({ setHamMenu }: NavbarProps) => {
 
   useGSAP(() => {
     gsap.from(".boxCont", {
@@ -80,6 +79,12 @@ const Navbar = ({ hamMenu, setHamMenu }: NavbarProps) => {
               className="font-bold  cursor-pointer linkers"
             >
               Stats
+            </Link>
+            <Link
+              href="/blocks"
+              className="font-bold  cursor-pointer linkers"
+            >
+              Blocks
             </Link>
             <ToggleDark />
           </div>
