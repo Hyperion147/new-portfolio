@@ -1,14 +1,4 @@
-export const blocks = [
-    {
-        title: "Blob Cursor",
-        eyebrow: "Interactive UI",
-        description:
-            "The Cursor component replaces the standard browser pointer with a minimalist, interactive dual-element system. It is context-aware, automatically adjusting its shape and behavior based on the elements it interacts with.",
-        note: "Wrap this component in CursorProvider before adding to layout.tsx and use data-cursor-hover to enable cursor interactions on elements except hyperlinks and buttons.",
-        video: "/blocks/cursor.webm",
-        preview: "/projects/landing-ui/dashboard.png",
-        href: "https://github.com/Hyperion147",
-        code: `"use client";
+export const blobCursorCode = `"use client";
 
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
@@ -47,13 +37,8 @@ const Cursor = () => {
             mouseX = e.clientX;
             mouseY = e.clientY;
             
-            // The small dot always follows the mouse
-            gsap.set(cursor, {
-                x: mouseX,
-                y: mouseY,
-            });
+            gsap.set(cursor, { x: mouseX, y: mouseY });
 
-            // The backdrop follows the mouse ONLY if not hovering an element
             if (!isHovering) {
                 gsap.to(backdrop, {
                     x: mouseX,
@@ -74,7 +59,7 @@ const Cursor = () => {
             gsap.to(backdrop, {
                 x: rect.left + rect.width / 2,
                 y: rect.top + rect.height / 2,
-                width: rect.width + 10, // Added slight padding
+                width: rect.width + 10,
                 height: rect.height + 4,
                 borderRadius: "8px",
                 backgroundColor: "rgba(255, 255, 255, 0.1)",
@@ -88,11 +73,10 @@ const Cursor = () => {
         const handleUnHover = () => {
             isHovering = false;
             gsap.to(backdrop, {
-                width: 16, // Back to original size
+                width: 16,
                 height: 16,
                 borderRadius: "100%",
                 backgroundColor: "rgba(0, 0, 0, 0.1)",
-                backdropFilter: "blur(0px)",
                 duration: 0.5,
                 ease: "power3.out",
             });
@@ -101,7 +85,6 @@ const Cursor = () => {
 
         window.addEventListener("mousemove", updatePosition);
 
-        // Attach listeners to current elements
         const refreshListeners = () => {
             const elements = document.querySelectorAll("a, button, [data-cursor-hover]");
             elements.forEach((el) => {
@@ -126,21 +109,10 @@ const Cursor = () => {
 
     return (
         <>
-            {/* The Main Dot */}
-            <div
-                ref={cursorRef}
-                className="fixed top-0 left-0 pointer-events-none w-2 h-2 rounded-full bg-white mix-blend-difference z-9998 "
-            />
-            {/* The Glassmorphic Bubble */}
-            <div
-                ref={backdropRef}
-                className="fixed top-0 left-0 pointer-events-none w-4 h-4 rounded-full border border-slate-400 bg-white/5 z-9997 "
-                style={{ willChange: "width, height, transform" }}
-            />
+            <div ref={cursorRef} className="fixed top-0 left-0 pointer-events-none w-2 h-2 rounded-full bg-white mix-blend-difference z-9998" />
+            <div ref={backdropRef} className="fixed top-0 left-0 pointer-events-none w-4 h-4 rounded-full border border-slate-400 bg-white/5 z-9997" style={{willChange: "width, height, transform"}} />
         </>
     );
 };
 
-export default Cursor;`,
-    },
-];
+export default Cursor;`;
