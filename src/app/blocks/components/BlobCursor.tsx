@@ -10,7 +10,7 @@ import { VscCode } from "react-icons/vsc";
 const BlobCursor = () => {
     const copyCode = async (code: string, title: string) => {
         await navigator.clipboard.writeText(code);
-        toast.success(`${title} copied, give a star on GitHub!`);
+        toast.success(`${title} copied! star please :)`);
     };
 
     return (

@@ -39,7 +39,7 @@ const ThemeClipperBlock = () => {
     const copyCode = async (code: string, title: string) => {
         try {
             await navigator.clipboard.writeText(code);
-            toast.success(`${title} copied!`);
+            toast.success(`${title} copied! star please :)`);
         } catch (err) {
             toast.error("Failed to copy code");
         }
