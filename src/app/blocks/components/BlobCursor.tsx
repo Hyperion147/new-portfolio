@@ -1,6 +1,6 @@
 "use client";
 
-import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
+import { BentoGridItem } from "@/components/ui/bento-grid";
 import { playClickSound } from "@/components/ui/click";
 import { blobCursorCode } from "@/constants/blocks";
 import toast from "react-hot-toast";
@@ -10,7 +10,7 @@ import { VscCode } from "react-icons/vsc";
 const BlobCursor = () => {
     const copyCode = async (code: string, title: string) => {
         await navigator.clipboard.writeText(code);
-        toast.success(`${title} copied`);
+        toast.success(`${title} copied, give a star on GitHub!`);
     };
 
     return (
@@ -27,13 +27,13 @@ const BlobCursor = () => {
                                 </p>
                                 <h2
                                     data-cursor-hover
-                                    className="text-2xl font-bold bg-linear-to-r from-indigo-200 to-gray-500 bg-clip-text text-transparent dark:to-white"
+                                    className="text-2xl font-bold text-slate-600 dark:text-slate-400"
                                 >
                                     Blob Cursor
                                 </h2>
                             </div>
                             <a
-                                href="https://github.com/Hyperion147"
+                                href="https://github.com/Hyperion147/new-portfolio"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="inline-flex items-center gap-2 text-sm font-semibold text-slate-700 dark:text-slate-300"
