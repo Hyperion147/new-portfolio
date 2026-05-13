@@ -10,6 +10,7 @@ import Navbar from "@/components/utils/Navbar";
 import { BentoGrid } from "@/components/ui/bento-grid";
 import BlobCursor from "./components/BlobCursor";
 import ThemeClipperBlock from "./components/ThemeClipper";
+import RectTip from "./components/RectTip";
 
 export default function BlocksPage() {
     const [hamMenu, setHamMenu] = useState(false);
@@ -36,6 +37,7 @@ export default function BlocksPage() {
                     <BentoGrid className="blocks-grid mx-auto max-w-5xl md:auto-rows-[180px] md:grid-cols-4">
                         <BlobCursor />
                         <ThemeClipperBlock />
+                        <RectTip />
                     </BentoGrid>
                 </main>
             </div>

@@ -61,7 +61,7 @@ const ThemeClipperBlock = () => {
                                     data-cursor-hover
                                     className="text-2xl font-bold text-slate-600 dark:text-slate-400"
                                 >
-                                    Theme Toggler
+                                    Theme Clipper
                                 </h2>
                             </div>
                             <a
