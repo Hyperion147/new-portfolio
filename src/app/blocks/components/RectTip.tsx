@@ -135,9 +135,9 @@ const RectTip = () => {
                         </div>
                         <div className="w-full border flex items-center justify-center h-full rounded-md border-slate-300 dark:border-slate-700">
                             <RectTipComp
-                                heading="Star on Github"
-                                description="If you find this component interesting, please consider giving it a star on GitHub."
-                                width="w-80"
+                                heading="Rect Tip Component"
+                                description="Change the text, image, and link in the code block section!"
+                                width="w-60"
                                 photo="/profile.jpg"
                                 link="https://github.com/Hyperion147/new-portfolio"
                             />
