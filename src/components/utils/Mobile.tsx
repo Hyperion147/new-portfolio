@@ -10,31 +10,31 @@ interface MobileProps {
 
 const links = [
     {
-        id: 2,
-        href: "https://blog.suryansu.pro/",
-        name: "Blogs",
-        external: true,
+        id: 1,
+        href: "/projects",
+        name: "Projects",
+        external: false,
     },
     {
-        id: 3,
+        id: 2,
         href: "https://github.com/Hyperion147",
         name: "GitHub",
         external: true,
     },
     {
-        id: 4,
+        id: 3,
         href: "https://drive.google.com/file/d/1rBRBMXnYFoU8icPtfRIi3SumEu_5Ygp4/view?usp=sharing",
         name: "Resume",
         external: true,
     },
     {
-        id: 5,
+        id: 4,
         href: "/stats",
         name: "Stats",
         external: false,
     },
     {
-        id: 6,
+        id: 5,
         href: "/blocks",
         name: "Blocks",
         external: false,

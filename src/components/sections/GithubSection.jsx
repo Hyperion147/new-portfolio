@@ -1,9 +1,10 @@
 "use client";
-import React, { useEffect, useState, useMemo, memo, useRef } from "react";
+import { useEffect, useState, useMemo, memo, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { FaGithub } from "react-icons/fa";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import RectTipComp from "../ui/rect-tip";
+import { GithubIcon } from "../ui/github-icon";
 
 const getLevelColor = (level) => {
   switch (level) {
@@ -41,6 +42,15 @@ const GithubSection = ({ className = "" }) => {
   const [loading, setLoading] = useState(true);
   const [hoveredDay, setHoveredDay] = useState(null);
   const containerRef = useRef(null);
+  const iconRef = useRef(null);
+
+  const handleMouseEnter = () => {
+    iconRef.current?.startAnimation();
+  };
+
+  const handleMouseLeave = () => {
+    iconRef.current?.stopAnimation();
+  };
 
   useEffect(() => {
     fetch("https://github-contributions-api.jogruber.de/v4/Hyperion147?y=last")
@@ -134,9 +144,14 @@ const GithubSection = ({ className = "" }) => {
       className={`flex flex-col h-full w-full py-4 px-3 sm:px-6 relative ${className}`}
     >
       <div className="flex items-center justify-between mb-6">
-        <div className="github-title flex items-center gap-2 sm:gap-4 bg-slate-100/50 dark:bg-slate-700/30 pr-5 pl-1 py-1 rounded-md border border-slate-200 dark:border-slate-700/50">
-          <div className="p-2 bg-white dark:bg-gray-900 rounded-md shadow-sm border border-slate-200 dark:border-slate-700">
-            <FaGithub className="text-lg sm:text-xl text-slate-800 dark:text-white" />
+        <div
+          data-cursor-hover
+          className="github-title flex items-center gap-2 sm:gap-4 bg-slate-100/50 dark:bg-slate-700/30 pr-5 pl-1 py-1 rounded-md border border-slate-200 dark:border-slate-700/50"
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
+          <div className="px-2 pt-2 bg-white dark:bg-gray-900 rounded-md shadow-sm border border-slate-200 dark:border-slate-700">
+            <GithubIcon ref={iconRef} size={20} />
           </div>
           <div className="flex-col hidden sm:flex">
             <h2 className="text-sm font-bold text-slate-800 dark:text-slate-100 leading-tight">
@@ -209,14 +224,14 @@ const GithubSection = ({ className = "" }) => {
       </div>
 
       <div className="flex items-center justify-between mt-auto pt-4 border-t border-slate-200 dark:border-slate-700/50">
-        <a
-          href="https://github.com/Hyperion147"
-          target="_blank"
-          rel="noopener noreferrer"
+        <RectTipComp
+          heading="@Hyperion147"
+          photo="/profile.jpg"
+          description="frontend > fullstack"
+          width="w-48"
+          link="https://github.com/Hyperion147"
           className="text-xs font-medium text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-white transition-colors"
-        >
-          @Hyperion147
-        </a>
+        />
         <div className="flex items-center gap-2 text-[10px] text-slate-400 dark:text-slate-500 uppercase tracking-widest font-bold">
           <span>Less</span>
           <div className="flex gap-0.5">

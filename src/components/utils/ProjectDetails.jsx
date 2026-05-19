@@ -19,11 +19,11 @@ const ProjectDetails = ({
 
     return createPortal(
         <div
-            className="fixed inset-0 z-50 flex items-center justify-center w-full h-full backdrop-blur-sm overflow-hidden"
+            className="fixed inset-0 z-50 flex items-center justify-center w-full h-full backdrop-blur-xs overflow-hidden"
             onClick={() => closeModal()}
         >
             <motion.div
-                className="relative w-full max-w-2xl shadow-sm rounded-2xl bg-linear-to-l dark:text-white border-2 border-slate-300 z-60 mx-4"
+                className="relative w-full bg-[#fff9f0] dark:bg-gray-900 max-w-2xl shadow-sm bg-linear-to-l dark:text-white border-2 border-slate-300 z-60 mx-4"
                 initial={{ opacity: 0, filter: "blur(14px)" }}
                 animate={{
                     opacity: 1,

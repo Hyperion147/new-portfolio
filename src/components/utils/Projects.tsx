@@ -31,9 +31,9 @@ const Projects = ({
   const [isHidden, setIsHidden] = useState(false);
 
   return (
-    <div>
+    <>
       <div
-        className="flex flex-row justify-between items-center py-5 px-2 dark:text-white cursor-pointer"
+        className="flex flex-row justify-between items-center px-2 dark:text-white cursor-pointer"
         onMouseEnter={() => setPreview(preview)}
         onMouseLeave={() => setPreview(null)}
         onClick={() => setIsHidden(true)}
@@ -63,7 +63,7 @@ const Projects = ({
           closeModal={() => setIsHidden(false)}
         />
       )}
-    </div>
+    </>
   );
 };
 

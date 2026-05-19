@@ -35,15 +35,15 @@ export const templateInfo = [
     },
     {
         id: 2,
-        title: "student-hub.vercel.app",
-        heading: "Student Hub",
+        title: "travel-website.app",
+        heading: "Travel Website Template",
         description:
-            "Cooking...",
-        href: "https://fiver-clone-one.vercel.app/",
-        code: "https://github.com/Hyperion147/fiver-clone",
-        image: "/projects/landing-ui/students-hub.png",
-        video: "",
-        preview: "/projects/landing-ui/students-hub.png",
+            "Template build using react, shadcn, forms, GSAP and motion. This project is mainly to show a workaround example of dashboard I have built as a working person, this includes small parts of all dashboards I have worked on till now. I will keep updating this as my UI skills improve. Treat it as a UI template.",
+        href: "https://travel-hcode.vercel.app/",
+        code: "https://github.com/Hyperion147/travel-website",
+        image: "/projects/landing-ui/travel.png",
+        video: "/projects/video/travel.webm",
+        preview: "/projects/landing-ui/travel.png",
         tags: [
             {
                 id: 1,
@@ -69,15 +69,15 @@ export const templateInfo = [
     },
     {
         id: 3,
-        title: "travel-website.app",
-        heading: "Travel Website Template",
+        title: "student-hub.vercel.app",
+        heading: "Student Hub",
         description:
-            "Template build using react, shadcn, forms, GSAP and motion. This project is mainly to show a workaround example of dashboard I have built as a working person, this includes small parts of all dashboards I have worked on till now. I will keep updating this as my UI skills improve. Treat it as a UI template.",
-        href: "https://travel-hcode.vercel.app/",
-        code: "https://github.com/Hyperion147/travel-website",
-        image: "/projects/landing-ui/travel.png",
-        video: "/projects/video/travel.webm",
-        preview: "/projects/landing-ui/travel.png",
+            "Cooking...",
+        href: "https://fiver-clone-one.vercel.app/",
+        code: "https://github.com/Hyperion147/fiver-clone",
+        image: "/projects/landing-ui/students-hub.png",
+        video: "",
+        preview: "/projects/landing-ui/students-hub.png",
         tags: [
             {
                 id: 1,

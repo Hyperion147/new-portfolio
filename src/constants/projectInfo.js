@@ -57,6 +57,69 @@ export const projectInfo = [
     },
     {
         id: 3,
+        title: "flora.suryansu.pro",
+        heading: "Flora",
+        description:
+            "Flora is an innovative plantation website where users can add and geotag their plants, fostering a community of nature enthusiasts. The platform features a competitive leaderboard to encourage engagement and an admin dashboard for seamless management. Users can also access a dedicated plant section with downloadable certificates recognizing their contributions and milestones. Built a similar production deployment for Municipal Corporation Panipat with 10k+ plants.",
+        href: "https://flora.suryansu.pro/",
+        code: "https://github.com/Hyperion147/flora",
+        image: "/highlightedProject/main.png",
+        preview: "/highlightedProject/main.png",
+        tags: [
+            {
+                id: 1,
+                name: "#react",
+            },
+            {
+                id: 2,
+                name: "#tailwind",
+            },
+            {
+                id: 3,
+                name: "#supabase",
+            },
+            {
+                id: 4,
+                name: "#leaflet",
+            },
+            {
+                id: 5,
+                name: "#shadcn",
+            },
+        ],
+    },
+    {
+        id: 4,
+        title: "ssh-18.vercel.app",
+        heading: "ssh-18 hackathon project",
+        description:
+            "Built a full-stack jewellery e-commerce platform in a 10-hour hackathon. The app features a complete shopping experience — product catalog, cart, wishlist, checkout with live payments, and a user profile with order history. Auth is handled end-to-end with Supabase including Google OAuth, session persistence, and transactional emails via Resend.",
+        href: "https://ssh-18.vercel.app/",
+        code: "https://github.com/Hyperion147/ssh-18",
+        image: "/projects/ssh-18.png",
+        video: "/projects/video/ssh-18.webm",
+        preview: "/projects/ssh-18.png",
+        tags: [
+            {
+                id: 1,
+                name: "#nextjs",
+            },
+            {
+                id: 2,
+                name: "#tailwind",
+            },
+            {
+                id: 3,
+                name: "#motion/react",
+            },
+            {
+                id: 4,
+                name: "#supabase",
+            },
+        ],
+    },
+    {
+        id: 5,
         title: "todo.suryansu.pro",
         heading: "Todo App",
         description:
@@ -86,7 +149,7 @@ export const projectInfo = [
         ],
     },
     {
-        id: 4,
+        id: 6,
         title: "blog.suryansu.pro",
         heading: "Blog",
         description:
@@ -107,36 +170,6 @@ export const projectInfo = [
             {
                 id: 3,
                 name: "#gsap",
-            },
-        ],
-    },
-    {
-        id: 5,
-        title: "ssh-18.vercel.app",
-        heading: "ssh-18 hackathon project",
-        description:
-            "Built a full-stack jewellery e-commerce platform in a 10-hour hackathon. The app features a complete shopping experience — product catalog, cart, wishlist, checkout with live payments, and a user profile with order history. Auth is handled end-to-end with Supabase including Google OAuth, session persistence, and transactional emails via Resend.",
-        href: "https://ssh-18.vercel.app/",
-        code: "https://github.com/Hyperion147/ssh-18",
-        image: "/projects/ssh-18.png",
-        video: "/projects/video/ssh-18.webm",
-        preview: "/projects/ssh-18.png",
-        tags: [
-            {
-                id: 1,
-                name: "#nextjs",
-            },
-            {
-                id: 2,
-                name: "#tailwind",
-            },
-            {
-                id: 3,
-                name: "#motion/react",
-            },
-            {
-                id: 4,
-                name: "#supabase",
             },
         ],
     },
