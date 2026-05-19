@@ -4,8 +4,6 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { educationInfo } from "@/constants/educationInfo";
 import { cn } from "@/components/utils/Utils";
-import { MdKeyboardArrowRight } from "react-icons/md";
-import { PiGraduationCapBold } from "react-icons/pi";
 
 const EducationSection = ({ className = "" }) => {
   useGSAP(() => {
@@ -20,7 +18,7 @@ const EducationSection = ({ className = "" }) => {
     <section
       id="education"
       className={cn(
-        "px-4 sm:px-8 bg-[#fff9f0] dark:bg-gray-900 eduCont overflow-hidden",
+        "px-4 bg-[#fff9f0] dark:bg-gray-900 eduCont overflow-hidden",
         className
       )}
     >
@@ -37,10 +35,10 @@ const EducationSection = ({ className = "" }) => {
               <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2">
                 <div className="flex items-start gap-3">
                   <div className="space-y-2">
-                    <h3 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white">
+                    <h3 className="text-md md:text-2xl font-bold text-gray-900 dark:text-white">
                       {edu.institution}
                     </h3>
-                    <p className="text-lg text-indigo-400 dark:text-indigo-300 font-semibold">
+                    <p className="text-sm sm:text-lg text-indigo-400 dark:text-indigo-300 font-semibold">
                       {edu.degree}
                     </p>
                     <p className="text-sm text-gray-500 dark:text-gray-400">
@@ -48,7 +46,7 @@ const EducationSection = ({ className = "" }) => {
                     </p>
                   </div>
                 </div>
-                <div className="flex flex-col items-start sm:items-end gap-1 shrink-0 pl-8 sm:pl-0">
+                <div className="flex flex-row md:flex-col justify-between items-start sm:items-end gap-1 shrink-0 sm:pl-0">
                   <span className="text-sm text-gray-500 dark:text-gray-400 whitespace-nowrap">
                     {edu.duration}
                   </span>
