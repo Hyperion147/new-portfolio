@@ -63,8 +63,8 @@ export const projectInfo = [
             "Flora is an innovative plantation website where users can add and geotag their plants, fostering a community of nature enthusiasts. The platform features a competitive leaderboard to encourage engagement and an admin dashboard for seamless management. Users can also access a dedicated plant section with downloadable certificates recognizing their contributions and milestones. Built a similar production deployment for Municipal Corporation Panipat with 10k+ plants.",
         href: "https://flora.suryansu.pro/",
         code: "https://github.com/Hyperion147/flora",
-        image: "/highlightedProject/main.png",
-        preview: "/highlightedProject/main.png",
+        image: "/projects/flora.png",
+        preview: "/projects/flora.png",
         tags: [
             {
                 id: 1,
