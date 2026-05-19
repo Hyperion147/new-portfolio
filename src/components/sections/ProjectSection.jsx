@@ -17,7 +17,7 @@ const ProjectSection = () => {
     return (
         <section
             id="projects"
-            className="text-gray-500 text-center w-full max-w-full md:max-w-5xl mx-auto h-full p-4 group"
+            className="text-gray-500 text-center w-full max-w-full md:max-w-5xl mx-auto h-full md:p-4 group"
         >
             <article className="mx-auto w-full mb-4">
                 <HighlightedProject />

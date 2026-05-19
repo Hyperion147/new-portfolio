@@ -105,7 +105,7 @@ const ImageGallery = () => {
     }, []);
 
     return (
-        <div className="grid w-full gap-3 md:grid-cols-[minmax(0,1fr)_10rem]">
+        <div className="grid w-full gap-2 md:grid-cols-[minmax(0,1fr)_10rem]">
             <div className="relative min-h-[16rem] overflow-hidden border-2 border-dashed border-slate-300 bg-slate-50 dark:border-slate-700 dark:bg-slate-800 md:min-h-[24rem]">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.22),transparent_40%)] dark:bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.08),transparent_40%)]" />
                 <AnimatePresence mode="wait">
@@ -146,7 +146,7 @@ const ImageGallery = () => {
                 </div>
             </div>
 
-            <div className="flex flex-col gap-2">
+            <div className="hidden md:flex flex-col gap-2">
                 {galleryItems.map((item, i) => (
                     <button
                         key={item.id}
