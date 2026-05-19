@@ -1,161 +1,414 @@
 "use client";
-import { Compare } from "../ui/compare";
-import { useState, useEffect } from "react";
-import { FaGithub } from "react-icons/fa";
-import { VscCode } from "react-icons/vsc";
-import { SiTodoist } from "react-icons/si";
 
-const HighlightedProject = () => {
-  const [isMobile, setIsMobile] = useState(false);
-  const [showMore, setShowMore] = useState(false);
+import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
+import { motion, AnimatePresence } from "motion/react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
+// ─── Data ─────────────────────────────────────────────────────────────────────
 
-  const techStack = [
-    { id: "1", name: "React JS" },
-    { id: "2", name: "Tailwind" },
-    { id: "3", name: "Supabase" },
-    { id: "4", name: "Motion" },
-    { id: "5", name: "Leaflet" },
-    { id: "6", name: "ShadCN" },
-  ];
-
-  const projectLinks = [
+const galleryItems = [
     {
-      id: "app",
-      href: "https://flora.suryansu.pro/",
-      label: "Flora",
-      Icon: SiTodoist,
-      colors: ["#00CE1B", "#ffffffff", "#00CE1B"],
-      innerClassName: "bg-gradient-to-r bg-[#fff9f0] dark:bg-slate-700",
+        id: 1,
+        label: "Website",
+        src: "/highlightedProject/website.png",
+        fallback: "/highlightedProject/main.png",
     },
     {
-      id: "code",
-      href: "https://github.com/Hyperion147/flora",
-      label: "Code",
-      Icon: VscCode,
-      colors: ["#00AABA", "#ffffffff", "#00AABA"],
-      innerClassName: "bg-[#fff9f0] dark:bg-slate-950",
+        id: 2,
+        label: "Marketplace",
+        src: "/highlightedProject/marketplace.png",
+        fallback: "/highlightedProject/main2.png",
     },
     {
-      id: "github",
-      href: "https://github.com/Hyperion147",
-      label: "Github",
-      Icon: FaGithub,
-      colors: ["#393BB2", "#ffffffff", "#393BB2"],
-      innerClassName: "bg-[#fff9f0] dark:bg-slate-950",
+        id: 3,
+        label: "Mobile App",
+        src: "/highlightedProject/mobile.png",
+        fallback: "/highlightedProject/main.png",
     },
-  ];
+    {
+        id: 4,
+        label: "Admin",
+        src: "/highlightedProject/admin.png",
+        fallback: "/highlightedProject/main2.png",
+    },
+];
 
-  const description = `Flora is an innovative plantation website where users can add and geotag their plants, fostering a community of nature enthusiasts. The platform features a competitive leaderboard to encourage engagement and an admin dashboard for seamless management. Users can also access a dedicated plant section with downloadable certificates recognizing their contributions and milestones. This project showcases my skills in full-stack development and geolocation integration.`;
+const flowSteps = [
+    {
+        id: "guest",
+        label: "Guest",
+        sub: "Landing",
+        stat: "Public",
+    },
+    {
+        id: "auth",
+        label: "Auth",
+        sub: "Identity",
+        stat: "Secure",
+    },
+    {
+        id: "session",
+        label: "Session",
+        sub: "Profile",
+        stat: "Synced",
+    },
+    {
+        id: "call",
+        label: "Call/Chat",
+        sub: "Realtime",
+        stat: "Live",
+    },
+    {
+        id: "market",
+        label: "Market",
+        sub: "Commerce",
+        stat: "Orders",
+    },
+    {
+        id: "admin",
+        label: "Admin",
+        sub: "Control",
+        stat: "Audit",
+    },
+];
 
-  const shadowDescription = `I have built a similar project for Municipal Corporation Panipat with 10k+ plants on it, presented throughout the city of Panipat`;
-
-  const displayedDescription =
-    isMobile && !showMore
-      ? description.slice(0, 120) + (description.length > 120 ? "..." : "")
-      : description;
-
-  return (
-    <div className="border-2 sm:mx-6 md:mx-0 mb-4 rounded-md border-slate-300 dark:border-slate-600 flex flex-col sm:flex-row w-full mx-auto">
-      <div className="flex justify-center items-start w-full sm:w-auto">
-        <Compare
-          firstImage="/highlightedProject/main.png"
-          secondImage="/highlightedProject/main2.png"
-          firstImageClassName="object-cover object-left-top"
-          secondImageClassname="object-cover object-right-top"
-          className="w-100 xs:w-[320px] h-45 xs:h-[200px] md:h-62.5 lg:h-100 m-2 sm:m-4 border-2 border-slate-400 rounded-md"
-          slideMode={"drag"}
-        />
-      </div>
-      <div className="flex flex-col w-full text-start">
-        <div className="py-2 px-4 mt-4">
-          <p className="text-slate-700 dark:text-slate-500">
-            {displayedDescription}
-            {isMobile && (
-              <button
-                className="ml-2 text-gray-500 dark:text-gray-400 underline text-sm focus:outline-none"
-                onClick={() => setShowMore((prev) => !prev)}
-              >
-                {showMore ? "Read Less" : "Read More"}
-              </button>
-            )}
-          </p>
-          <p className="text-slate-900 dark:text-slate-300 text-xs border border-md px-2 py-1.5 rounded-md bg-gray-50 dark:bg-slate-700 mt-2">
-            {shadowDescription}
-            <a
-              href="https://panipatconnect.com"
-              target="_blank"
-              rel="noreferrer"
-              className="ml-1 underline text-slate-950 dark:text-slate-50"
-            >
-              panipatconnect.com
-            </a>
-          </p>
-          <div className="mt-6 items-center flex flex-col sm:flex-row gap-2 mx-0 mb-4">
-            <div className="grid grid-cols-3 sm:grid-cols-2 md:grid-cols-3 w-full gap-1 ml-0 md:ml-10 md:m-0 md:gap-2">
-              {techStack.map((tech) => (
-                <TechBadge key={tech.id} {...tech} />
-              ))}
-            </div>
-          </div>
-        </div>
-        <div className="flex flex-row gap-2 w-full justify-start items-center mb-4 px-8">
-          {projectLinks.map((link, index) => (
-            <ProjectLink
-              key={link.id}
-              {...link}
-              isLast={index === projectLinks.length - 1}
-            />
-          ))}
-        </div>
-      </div>
-    </div>
-  );
+const descriptions = {
+    guest: "The visitor starts with a fast public view: landing copy, QR context, and a clear route into the product without account friction.",
+    auth: "Authentication turns the anonymous scan into a trusted user session with guarded access for calls, chats, and marketplace actions.",
+    session:
+        "Session state keeps profile, permissions, and QR ownership in sync so the experience survives refreshes and device changes.",
+    call: "The core interaction opens instantly: realtime chat and WebRTC calls connect the scanner with the owner from the same flow.",
+    market: "Marketplace actions branch from the relationship layer, letting users move from discovery to listings and transactions.",
+    admin: "The admin layer closes the loop with moderation, user controls, audit visibility, and operational health checks.",
 };
 
-const TechBadge = ({ name, color }) => (
-  <button
-    className="px-2 py-1 w-24 md:w-30 h-7 rounded-md relative text-gray-900 dark:text-white text-xs sm:text-sm border border-slate-400 hover:shadow-[4px_4px_0px_0px_rgba(203,213,225)] dark:hover:shadow-[4px_4px_0px_0px_rgba(51,65,85)] transition-all duration-200"
-    style={{ "--tech-color": color }}
-  >
-    <span className="absolute inset-0 flex items-center justify-center">
-      {name}
-    </span>
-  </button>
-);
+const techStack = ["React", "Tailwind", "ShadCN", "WebRTC", "Socket.IO"];
 
-const ProjectLink = ({ href, Icon, colors, label, innerClassName, isLast }) => {
-  const gradientStyle = {
-    background: `conic-gradient(from 90deg at 50% 50%, ${colors[0]} 0%, ${colors[1]} 50%, ${colors[2]} 100%)`,
-  };
+// ─── Image Gallery ────────────────────────────────────────────────────────────
 
-  return (
-    <a
-      className="relative inline-flex h-10 overflow-hidden rounded-md hover:shadow-[5px_5px_0px_0px_rgba(203,213,225)] dark:hover:shadow-[5px_5px_0px_0px_rgba(51,65,85)] transition-all duration-500 p-px focus:outline-none md:w-full w-30"
-      href={href}
-      target="_blank"
-      rel="noreferrer"
-    >
-      <span
-        className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite]"
-        style={gradientStyle}
-      />
-      <span
-        className={`inline-flex h-full w-full cursor-pointer items-center justify-center rounded-md font-medium text-black dark:text-white backdrop-blur-3xl ${innerClassName}`}
-      >
-        <Icon className="text-lg mr-2" />
-        {label}
-      </span>
-    </a>
-  );
+const ImageGallery = () => {
+    const [active, setActive] = useState(0);
+    const [errored, setErrored] = useState({});
+    const CAROUSEL_DELAY = 3000;
+
+    const getSrc = (item) => (errored[item.id] ? item.fallback : item.src);
+    const handleError = (id) => setErrored((prev) => ({ ...prev, [id]: true }));
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setActive((current) => (current + 1) % galleryItems.length);
+        }, CAROUSEL_DELAY);
+
+        return () => clearInterval(timer);
+    }, []);
+
+    return (
+        <div className="grid w-full gap-3 md:grid-cols-[minmax(0,1fr)_10rem]">
+            <div className="relative min-h-[16rem] overflow-hidden border-2 border-dashed border-slate-300 bg-slate-50 dark:border-slate-700 dark:bg-slate-800 md:min-h-[24rem]">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.22),transparent_40%)] dark:bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.08),transparent_40%)]" />
+                <AnimatePresence mode="wait">
+                    <motion.div
+                        key={active}
+                        initial={{ opacity: 0, scale: 1.02 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.985 }}
+                        transition={{ duration: 0.35, ease: "easeOut" }}
+                        className="absolute inset-0"
+                    >
+                        <Image
+                            src={getSrc(galleryItems[active])}
+                            alt={galleryItems[active].label}
+                            fill
+                            className="object-contain"
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                            onError={() => handleError(galleryItems[active].id)}
+                        />
+                    </motion.div>
+                </AnimatePresence>
+                <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 bg-linear-to-t from-slate-950/80 via-slate-900/35 to-transparent p-3 text-white">
+                    <p className="mt-1 text-sm font-semibold tracking-wide">
+                        {galleryItems[active].label}
+                    </p>
+                    <div className="flex items-center gap-2">
+                        {galleryItems.map((item, index) => (
+                            <span
+                                key={`progress-${item.id}`}
+                                className={`h-1 transition-all duration-300 ${
+                                    active === index
+                                        ? "w-8 bg-white"
+                                        : "w-3 bg-white/35"
+                                }`}
+                            />
+                        ))}
+                    </div>
+                </div>
+            </div>
+
+            <div className="flex flex-col gap-2">
+                {galleryItems.map((item, i) => (
+                    <button
+                        key={item.id}
+                        onClick={() => setActive(i)}
+                        type="button"
+                        aria-pressed={active === i}
+                        className={`group relative flex min-h-[5.6rem] items-center gap-4 overflow-hidden transition-all duration-300 ${
+                            active === i
+                                ? "border-slate-900 bg-slate-900 text-white shadow-[6px_6px_0_rgba(15,23,42,0.12)] dark:border-white dark:bg-white dark:text-slate-950"
+                                : "border-dashed border-slate-300 bg-white/60 text-slate-600 hover:border-slate-500 dark:border-slate-700 dark:bg-slate-950/40 dark:text-slate-300"
+                        }`}
+                    >
+                        <div className="relative aspect-video w-40 shrink-0 overflow-hidden">
+                            <Image
+                                src={getSrc(item)}
+                                alt={item.label}
+                                fill
+                                className="object-cover transition-transform duration-500"
+                                sizes="(max-width: 768px) 35vw, 12vw"
+                                onError={() => handleError(item.id)}
+                            />
+                        </div>
+                    </button>
+                ))}
+            </div>
+        </div>
+    );
+};
+
+const FlowDiagram = () => {
+    const [activeStep, setActiveStep] = useState("guest");
+    const containerRef = useRef(null);
+    const STEP_DURATION = 4;
+
+    // GSAP clean entrance animation for header items
+    useGSAP(
+        () => {
+            gsap.from(".flow-step", {
+                opacity: 0,
+                y: 10,
+                stagger: 0.06,
+                duration: 0.45,
+                ease: "power3.out",
+            });
+        },
+        { scope: containerRef },
+    );
+
+    // Automatically loop through steps on a timer
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setActiveStep((current) => {
+                const currentIndex = flowSteps.findIndex(
+                    (step) => step.id === current,
+                );
+                const nextIndex = (currentIndex + 1) % flowSteps.length;
+                return flowSteps[nextIndex].id;
+            });
+        }, STEP_DURATION * 1000);
+
+        return () => clearInterval(timer);
+    }, []);
+
+    const activeIndex = flowSteps.findIndex((step) => step.id === activeStep);
+    const activeStepData = flowSteps[activeIndex];
+    const currentDescription = descriptions[activeStep];
+
+    const handleStepSelect = (stepId) => {
+        if (stepId === activeStep) return;
+
+        setActiveStep(stepId);
+    };
+
+    return (
+        <div
+            ref={containerRef}
+            className="flex w-full select-none flex-col overflow-hidden text-left"
+        >
+            <div className="mb-4 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-6">
+                {flowSteps.map((step, index) => {
+                    const isActive = activeStep === step.id;
+                    const isComplete = index < activeIndex;
+
+                    return (
+                        <button
+                            key={`flow-step-${step.id}`}
+                            type="button"
+                            onClick={() => handleStepSelect(step.id)}
+                            className={`flow-step group relative overflow-hidden border px-3 py-2 text-left transition-all duration-300 ${
+                                isActive
+                                    ? "border-slate-900 bg-slate-900 text-white shadow-[6px_6px_0_rgba(15,23,42,0.14)] dark:border-white dark:bg-white dark:text-slate-950"
+                                    : "border-dashed border-slate-300 bg-white/40 text-slate-600 hover:-translate-y-0.5 hover:border-slate-500 dark:border-slate-700 dark:bg-slate-950/30 dark:text-slate-300 dark:hover:border-slate-500"
+                            }`}
+                        >
+                            <span
+                                className="absolute inset-x-0 bottom-0 h-0.5 origin-left transition-transform duration-500"
+                                style={{
+                                    backgroundColor:
+                                        isActive || isComplete
+                                            ? "#0f172a"
+                                            : "#cbd5e1",
+                                    transform:
+                                        isActive || isComplete
+                                            ? "scaleX(1)"
+                                            : "scaleX(0)",
+                                }}
+                            />
+                            <span className="mb-1 flex items-center justify-between gap-2">
+                                <span className="font-mono text-[10px] uppercase tracking-widest">
+                                    0{index + 1}
+                                </span>
+                                <span
+                                    className="h-2 w-2 rounded-full"
+                                    style={{
+                                        backgroundColor:
+                                            isActive || isComplete
+                                                ? "#475569"
+                                                : "#cbd5e1",
+                                    }}
+                                />
+                            </span>
+                            <span className="block text-sm font-semibold leading-tight">
+                                {step.label}
+                            </span>
+                            <span
+                                className={`mt-0.5 block text-[10px] ${
+                                    isActive
+                                        ? "text-white/70 dark:text-slate-600"
+                                        : "text-slate-400 dark:text-slate-500"
+                                }`}
+                            >
+                                {step.sub}
+                            </span>
+                        </button>
+                    );
+                })}
+            </div>
+
+            <div className="flex flex-col justify-between border border-dashed border-slate-300 bg-white/50 p-4 dark:border-slate-700 dark:bg-slate-950/30">
+                <AnimatePresence mode="wait">
+                    <motion.div
+                        key={activeStep}
+                        initial={{ opacity: 0, y: 8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -8 }}
+                        transition={{ duration: 0.24 }}
+                    >
+                        <div className="mb-4 flex items-center justify-between">
+                            <div className="flex items-center gap-4">
+                                <span
+                                    className="h-3 w-3 rounded-full"
+                                    style={{ backgroundColor: "#475569" }}
+                                />
+                                <p className="pixeltext text-sm uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">
+                                    {activeStepData.sub}
+                                </p>
+                            </div>
+                            <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-slate-400">
+                                step 0{activeIndex + 1}
+                            </span>
+                        </div>
+                        <h5 className="mt-2 text-2xl font-bold text-slate-900 dark:text-white">
+                            {activeStepData.label}
+                        </h5>
+                        <p className="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+                            {currentDescription}
+                        </p>
+                    </motion.div>
+                </AnimatePresence>
+
+                <div className="mt-6">
+                    <div className="mb-2 flex items-center justify-between text-[10px] uppercase tracking-[0.16em] text-slate-400">
+                        <span>handoff progress</span>
+                        <span>
+                            {Math.round(
+                                ((activeIndex + 1) / flowSteps.length) * 100,
+                            )}
+                            %
+                        </span>
+                    </div>
+                    <div className="h-2 overflow-hidden bg-slate-200 dark:bg-slate-800">
+                        <motion.div
+                            className="h-full bg-slate-700 dark:bg-slate-200"
+                            initial={false}
+                            animate={{
+                                width: `${
+                                    ((activeIndex + 1) / flowSteps.length) * 100
+                                }%`,
+                            }}
+                            transition={{ duration: 0.45, ease: "easeOut" }}
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+// ─── Main Component ───────────────────────────────────────────────────────────
+
+const HighlightedProject = () => {
+    const containerRef = useRef(null);
+
+    useGSAP(
+        () => {
+            gsap.from(".hp-card", {
+                opacity: 0,
+                y: 15,
+                stagger: 0.08,
+                duration: 0.5,
+                ease: "power2.out",
+            });
+        },
+        {},
+        { scope: containerRef },
+    );
+
+    return (
+        <div ref={containerRef} className="w-full">
+            {/* Bento grid */}
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
+                {/* Card 1 — Image gallery (2 cols) */}
+                <div className="hp-card md:col-span-4 border-2 border-dashed border-slate-300 dark:border-slate-700 p-2 bg-[#fff9f0] dark:bg-gray-900">
+                    <ImageGallery />
+                </div>
+
+                {/* Card 2 — Project info (1 col) */}
+                <div className="hp-card md:col-span-4 border-2 border-dashed border-slate-300 dark:border-slate-700 p-4 bg-[#fff9f0] dark:bg-gray-900 flex flex-col md:flex-row gap-4 md:gap-6 items-start">
+                    <div className="flex flex-col shrink-0 text-start">
+                        <h3 className="text-lg font-bold text-gray-900 dark:text-white leading-tight mb-1">
+                            SSH-18
+                        </h3>
+                        <p className="pixeltext text-xs tracking-wide text-slate-500 dark:text-slate-400">
+                            flora.suryansu.pro
+                        </p>
+                    </div>
+
+                    <p className="text-xs text-start text-slate-600 dark:text-slate-300 leading-relaxed flex-1">
+                        A QR-based communication platform scan a code to
+                        instantly call or chat with the owner. Built with
+                        WebRTC, real-time sockets, full auth, a marketplace, and
+                        an admin panel.
+                    </p>
+
+                    <div className="flex flex-wrap gap-1.5 md:max-w-70 md:justify-end">
+                        {techStack.map((t) => (
+                            <span
+                                key={t}
+                                className="text-[10px] px-2 py-0.5 border border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-400 rounded-none"
+                            >
+                                {t}
+                            </span>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Card 4 — Flow diagram (full width) */}
+                <div className="hp-card md:col-span-4 border-2 border-dashed border-slate-300 dark:border-slate-700 p-4 bg-[#fff9f0] dark:bg-gray-900">
+                    <FlowDiagram />
+                </div>
+            </div>
+        </div>
+    );
 };
 
 export default HighlightedProject;

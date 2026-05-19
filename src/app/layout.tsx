@@ -5,6 +5,10 @@ import { Toaster } from "react-hot-toast";
 import FixedButtons from "@/components/ui/FixedButtons";
 import JSONLD from "@/components/utils/JSONLD";
 import CursorWrapper from "@/components/ui/CursorWrapper";
+import { Geist } from "next/font/google";
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://suryansu.pro"),
@@ -91,7 +95,7 @@ export default function RootLayout({
 }>) {
 
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className={cn("dark", "font-sans", geist.variable)}>
       <head>
         <script
           dangerouslySetInnerHTML={{

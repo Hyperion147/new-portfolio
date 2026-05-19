@@ -28,12 +28,14 @@ export const BentoGridItem = ({
   description,
   header,
   icon,
+  noSlide,
 }: {
   className?: string;
   title?: string | React.ReactNode;
   description?: string | React.ReactNode;
   header?: React.ReactNode;
   icon?: React.ReactNode;
+  noSlide?: boolean;
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const { contextSafe } = useGSAP({ scope: containerRef });
@@ -74,7 +76,7 @@ export const BentoGridItem = ({
       <div className="corner-line bg-slate-800 dark:bg-white -bottom-[18px] -right-[2px] h-2 w-[2px] absolute" />
 
       {header}
-      <div className="group-hover/bento:translate-x-2 transition duration-200">
+      <div className={cn("transition duration-200", !noSlide && "group-hover/bento:translate-x-2")}>
         {icon}
         <div className="font-sans font-bold text-neutral-600 dark:text-neutral-200">
           {title}

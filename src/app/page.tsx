@@ -5,6 +5,8 @@ import Mobile from "@/components/utils/Mobile";
 import Hero from "@/components/sections/Hero";
 import ContactSection from "@/components/sections/ContactSection";
 import ExperienceSection from "@/components/sections/ExperienceSection";
+import EducationSection from "@/components/sections/EducationSection";
+import LinksSection from "@/components/sections/LinksSection";
 import Footer from "@/components/sections/Footer"
 import React, { useState } from "react";
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
@@ -42,7 +44,7 @@ export default function Home() {
               header={<Skills />}
             />
             <BentoGridItem
-              className="md:col-span-4 md:row-span-8"
+              className="md:col-span-4 md:row-span-6"
               header={<ProjectSection />}
             />
             <BentoGridItem
@@ -50,8 +52,16 @@ export default function Home() {
               header={<ExperienceSection className="py-6" />}
             />
             <BentoGridItem
+              className="md:col-span-4 md:row-span-3"
+              header={<EducationSection className="py-6" />}
+            />
+            <BentoGridItem
               className="md:col-span-4 md:row-span-2"
               header={<GithubSection />}
+            />
+            <BentoGridItem
+              className="md:col-span-4 md:row-span-1"
+              header={<LinksSection className="py-6" />}
             />
             <BentoGridItem
               className="md:col-span-4 md:row-span-1"

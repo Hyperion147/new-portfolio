@@ -53,13 +53,12 @@ const Navbar = ({ setHamMenu }: NavbarProps) => {
           </div>
 
           <div className="hidden md:flex items-center space-x-8">
-            <a
-              href="https://blog.suryansu.pro/"
-              target="_blank"
+            <Link
+              href="/projects"
               className=" font-bold  cursor-pointer linkers z-9999"
             >
-              Blogs
-            </a>
+              Projects
+            </Link>
             <a
               href="https://github.com/Hyperion147"
               target="_blank"
