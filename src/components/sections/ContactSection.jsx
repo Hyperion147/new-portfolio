@@ -49,7 +49,7 @@ const ContactSection = ({ className = "" }) => {
                     >
                         <a
                             href="mailto:suryansuwork@gmail.com"
-                            className="flex items-center justify-center py-2 px-12 border-slate-500 rounded-md border-2 hover:border-dashed transition-all duration-300 hover:inset-shadow-sm inset-shadow-gray-500/50 group gap-2"
+                            className="flex items-center justify-center py-2 px-12 border-slate-500 rounded-sm border-2 hover:border-dashed transition-all duration-300 hover:inset-shadow-sm inset-shadow-gray-500/50 group gap-2"
                         >
                             <span className="flex gap-2 items-center justify-center ">
                                 Book a Meeting

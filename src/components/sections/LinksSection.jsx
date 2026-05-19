@@ -23,7 +23,7 @@ const LinkCard = ({ id, label, handle, href, Icon }) => {
             href={href}
             target={href.startsWith("mailto") ? "_self" : "_blank"}
             rel="noreferrer"
-            className="flex items-center gap-3 px-4 py-3 border border-slate-300 dark:border-slate-700 rounded-md hover:border-slate-500 dark:hover:border-slate-400 hover:shadow-[4px_4px_0px_0px_rgba(203,213,225)] dark:hover:shadow-[4px_4px_0px_0px_rgba(51,65,85)] transition-all duration-200"
+            className="flex items-center gap-3 px-4 py-3 border border-slate-300 dark:border-slate-700 rounded-sm hover:border-slate-500 dark:hover:border-slate-400 hover:shadow-[4px_4px_0px_0px_rgba(203,213,225)] dark:hover:shadow-[4px_4px_0px_0px_rgba(51,65,85)] transition-all duration-200"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
         >
