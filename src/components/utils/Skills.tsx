@@ -73,6 +73,11 @@ const languages = [
     name: "GSAP",
     image: "/tech/gsap.png",
   },
+  {
+    id: 14,
+    name: "n8n workflow",
+    image: "/tech/n8n.png",
+  },
 ];
 
 const Skills = ({ className = "" }: { className?: string }) => {
