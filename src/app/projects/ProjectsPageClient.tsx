@@ -172,7 +172,7 @@ const SectionLabel = ({ label }: { label: string }) => (
 
 export default function ProjectsPageClient() {
   return (
-    <div className="bg-[#fff9f0] dark:bg-gray-900 min-h-screen">
+    <div className="bg-background min-h-screen">
       <div className="overflow-x-hidden transition-colors duration-500">
         <div className="pt-4 md:pt-28 px-4 pb-28 max-w-7xl mx-auto">
           <Navbar />

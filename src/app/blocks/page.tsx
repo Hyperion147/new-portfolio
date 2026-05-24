@@ -22,7 +22,7 @@ export default function BlocksPage() {
     });
 
     return (
-        <div className="min-h-screen bg-[#fff9f0] dark:bg-gray-900">
+        <div className="min-h-screen bg-background">
             <div className="overflow-x-hidden duration-500">
                 <Navbar />
 

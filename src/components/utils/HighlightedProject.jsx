@@ -368,12 +368,12 @@ const HighlightedProject = () => {
             {/* Bento grid */}
             <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
                 {/* Card 1 — Image gallery (2 cols) */}
-                <div className="hp-card md:col-span-4 border-2 border-dashed border-slate-300 dark:border-slate-700 p-2 bg-[#fff9f0] dark:bg-gray-900">
+                <div className="hp-card md:col-span-4 border-2 border-dashed border-slate-300 dark:border-slate-700 p-2 bg-background">
                     <ImageGallery />
                 </div>
 
                 {/* Card 2 — Project info (1 col) */}
-                <div className="hp-card md:col-span-4 border-2 border-dashed border-slate-300 dark:border-slate-700 p-4 bg-[#fff9f0] dark:bg-gray-900 flex flex-col md:flex-row gap-4 md:gap-6 items-start">
+                <div className="hp-card md:col-span-4 border-2 border-dashed border-slate-300 dark:border-slate-700 p-4 bg-background flex flex-col md:flex-row gap-4 md:gap-6 items-start">
                     <div className="flex flex-col shrink-0 text-start">
                         <h3 className="text-lg font-bold text-gray-900 dark:text-white leading-tight mb-1">
                             SSH-18
@@ -403,7 +403,7 @@ const HighlightedProject = () => {
                 </div>
 
                 {/* Card 4 — Flow diagram (full width) */}
-                <div className="hp-card md:col-span-4 border-2 border-dashed border-slate-300 dark:border-slate-700 p-4 bg-[#fff9f0] dark:bg-gray-900">
+                <div className="hp-card md:col-span-4 border-2 border-dashed border-slate-300 dark:border-slate-700 p-4 bg-background">
                     <FlowDiagram />
                 </div>
             </div>

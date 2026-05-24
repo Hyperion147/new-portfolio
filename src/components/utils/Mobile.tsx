@@ -11,32 +11,32 @@ interface MobileProps {
 const links = [
     {
         id: 1,
-        href: "/projects",
-        name: "Projects",
-        external: false,
-    },
-    {
-        id: 2,
         href: "https://github.com/Hyperion147",
         name: "GitHub",
         external: true,
     },
     {
-        id: 3,
+        id: 2,
         href: "https://drive.google.com/file/d/1rBRBMXnYFoU8icPtfRIi3SumEu_5Ygp4/view?usp=sharing",
         name: "Resume",
         external: true,
     },
     {
-        id: 4,
+        id: 3,
         href: "/stats",
         name: "Stats",
         external: false,
     },
     {
-        id: 5,
+        id: 4,
         href: "/blocks",
         name: "Blocks",
+        external: false,
+    },
+    {
+        id: 5,
+        href: "/projects",
+        name: "Projects",
         external: false,
     },
 ];
@@ -55,7 +55,7 @@ const Mobile = ({ hamMenu, setHamMenu }: MobileProps) => {
 
             {/* Sidebar drawer */}
             <div
-                className={`fixed top-0 right-0 w-64 sm:w-80 h-full bg-white dark:bg-gray-900 border-l border-gray-200 dark:border-gray-800 shadow-2xl flex flex-col p-8 z-50 transition-transform duration-300 ease-in-out md:hidden ${
+                className={`fixed top-0 right-0 w-64 sm:w-80 h-full bg-background border-l border-gray-200 dark:border-gray-800 shadow-2xl flex flex-col p-8 z-50 transition-transform duration-300 ease-in-out md:hidden ${
                     hamMenu ? "translate-x-0" : "translate-x-full"
                 }`}
             >

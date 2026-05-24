@@ -62,7 +62,7 @@ export const BentoGridItem = ({
       ref={containerRef}
       onMouseEnter={handleMouseEnter}
       className={cn(
-        "row-span-1 relative group/bento p-4 dark:bg-gray-900 bg-[#fff9f0] border-2 border-dashed border-slate-300 dark:border-slate-700 justify-between flex flex-col space-y-4",
+        "row-span-1 relative group/bento p-4 bg-background border-2 border-dashed border-slate-300 dark:border-slate-700 justify-between flex flex-col space-y-4",
         className
       )}
     >

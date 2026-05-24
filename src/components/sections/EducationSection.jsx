@@ -18,7 +18,7 @@ const EducationSection = ({ className = "" }) => {
     <section
       id="education"
       className={cn(
-        "px-4 bg-[#fff9f0] dark:bg-gray-900 eduCont overflow-hidden",
+        "px-4 bg-background eduCont overflow-hidden",
         className
       )}
     >

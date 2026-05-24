@@ -23,7 +23,7 @@ const ProjectDetails = ({
             onClick={() => closeModal()}
         >
             <motion.div
-                className="relative w-full bg-[#fff9f0] dark:bg-gray-900 max-w-2xl shadow-sm bg-linear-to-l dark:text-white border-2 border-slate-300 z-60 mx-4"
+                className="relative w-full bg-background max-w-2xl shadow-sm bg-linear-to-l dark:text-white border-2 border-slate-300 z-60 mx-4"
                 initial={{ opacity: 0, filter: "blur(14px)" }}
                 animate={{
                     opacity: 1,

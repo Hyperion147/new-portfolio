@@ -116,7 +116,7 @@ const MobileTheme = () => {
                         animate={{ rotate: 0, opacity: 1 }}
                         exit={{ rotate: 90, opacity: 0 }}
                         transition={{ duration: 0.2 }}
-                        className="relative dark:bg-gray-800 hover:bg-slate-300 dark:hover:bg-slate-800 inline-flex bg-[#fff9f0] text-black dark:text-white p-2 rounded-full shadow-lg transition-all duration-300"
+                        className="relative bg-background hover:bg-slate-300 dark:bg-gray-800 dark:hover:bg-slate-800 text-black dark:text-white p-2 rounded-full shadow-lg transition-all duration-300"
                     >
                         {isDark ? <BiMoon /> : <BiSun />}
                     </motion.div>

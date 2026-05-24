@@ -21,7 +21,7 @@ const ProjectSection = React.lazy(
 
 export default function Home() {
   return (
-    <div className="bg-[#fff9f0] dark:bg-gray-900">
+    <div className="bg-background">
       <div className="overflow-x-hidden transition-colors duration-500">
         <div className="pt-4 md:pt-28 px-4 pb-28 max-w-7xl mx-auto">
           <Navbar />

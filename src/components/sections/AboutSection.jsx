@@ -19,7 +19,7 @@ const AboutSection = () => {
   return (
     <section
       id="about"
-      className="dark:bg-gray-900 flex items-center justify-center h-full px-4"
+      className="bg-background flex items-center justify-center h-full px-4"
     >
       <p className="text-base sm:text-lg dark:text-slate-300 text-slate-700 mx-auto text-start desc flex-col">
         I’m a frontend developer specializing in React and TypeScript,

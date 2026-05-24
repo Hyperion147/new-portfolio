@@ -18,7 +18,7 @@ const ExperienceSection = ({ className = "" }) => {
     <section
       id="experience"
       className={cn(
-        "px-4 sm:px-8 bg-[#fff9f0] dark:bg-gray-900 expCont overflow-hidden",
+        "px-4 sm:px-8 bg-background expCont overflow-hidden",
         className
       )}
     >

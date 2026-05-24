@@ -57,7 +57,7 @@ const LinksSection = ({ className = "" }) => {
         <section
             id="links"
             className={cn(
-                "px-4 sm:px-8 bg-[#fff9f0] dark:bg-gray-900 linksCont overflow-hidden",
+                "px-4 sm:px-8 bg-background linksCont overflow-hidden",
                 className
             )}
         >

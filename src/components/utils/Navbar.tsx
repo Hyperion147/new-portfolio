@@ -16,12 +16,6 @@ import { MdOutlineWorkOutline } from "react-icons/md";
 const links = [
     { href: "/", label: "Home", external: false, Icon: FiHome },
     {
-        href: "/projects",
-        label: "Projects",
-        external: false,
-        Icon: MdOutlineWorkOutline,
-    },
-    {
         href: "https://github.com/Hyperion147",
         label: "GitHub",
         external: true,
@@ -32,6 +26,12 @@ const links = [
         label: "Resume",
         external: true,
         Icon: FiFileText,
+    },
+    {
+        href: "/projects",
+        label: "Projects",
+        external: false,
+        Icon: MdOutlineWorkOutline,
     },
     { href: "/stats", label: "Stats", external: false, Icon: FiBarChart2 },
     { href: "/blocks", label: "Blocks", external: false, Icon: FiGrid },
@@ -76,7 +76,7 @@ const Navbar = () => {
 
     return (
         <>
-            <nav className="desktop-nav fixed left-1/2 top-5 z-50 hidden  -translate-x-1/2 rounded-md border border-slate-300/70 bg-[#fff9f0]/72 text-slate-900 shadow-[0_12px_34px_rgba(15,23,42,0.1)] backdrop-blur-md dark:border-slate-700/70 dark:bg-slate-950/72 dark:text-white md:block">
+            <nav className="desktop-nav fixed left-1/2 top-5 z-50 hidden  -translate-x-1/2 rounded-md border border-slate-300/70 bg-background/72 text-slate-900 shadow-[0_12px_34px_rgba(15,23,42,0.1)] backdrop-blur-md dark:border-slate-700/70 dark:text-white md:block">
                 <div className="flex items-center justify-between gap-6 w-[min(90vw,64rem)]  px-4 py-3">
                     <Link
                         href="/"
@@ -129,9 +129,9 @@ const Navbar = () => {
 
             <div
                 aria-hidden="true"
-                className="pointer-events-none fixed inset-x-0 bottom-0 z-40 h-28 bg-gradient-to-t from-[#fff9f0]/95 via-[#fff9f0]/72 to-transparent backdrop-blur-[2px] [mask-image:linear-gradient(to_top,black_42%,transparent_100%)] dark:from-gray-900/95 dark:via-gray-900/72 md:hidden"
+                className="pointer-events-none fixed inset-x-0 bottom-0 z-40 h-28 bg-gradient-to-t from-background/95 via-background/72 to-transparent backdrop-blur-[2px] [mask-image:linear-gradient(to_top,black_42%,transparent_100%)] md:hidden"
             />
-            <nav className="mobile-nav fixed bottom-4 left-1/2 z-50 -translate-x-1/2 rounded-full border border-slate-300/70 bg-[#fff9f0]/82 text-slate-900 shadow-[0_14px_44px_rgba(15,23,42,0.16)] backdrop-blur-2xl dark:border-slate-700/70 dark:bg-slate-950/78 dark:text-white md:hidden">
+            <nav className="mobile-nav fixed bottom-4 left-1/2 z-50 -translate-x-1/2 rounded-full border border-slate-300/70 bg-background/82 text-slate-900 shadow-[0_14px_44px_rgba(15,23,42,0.16)] backdrop-blur-2xl dark:border-slate-700/70 dark:text-white md:hidden">
                 <div className="flex max-w-[calc(100vw-2rem)] items-center gap-1 overflow-x-auto no-scrollbar p-1.5">
                     {links.map((link) => {
                         const Icon = link.Icon;

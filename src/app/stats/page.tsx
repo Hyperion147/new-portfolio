@@ -204,7 +204,7 @@ export default function StatsPage() {
     });
 
     return (
-        <div className="bg-[#fff9f0] dark:bg-gray-900 min-h-screen">
+        <div className="bg-background min-h-screen">
             <div className="overflow-x-hidden duration-500">
                 <Navbar />
 

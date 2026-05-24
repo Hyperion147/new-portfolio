@@ -173,7 +173,7 @@ const GithubSection = ({ className = "" }) => {
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-          <div className="px-2 pt-2 bg-white dark:bg-gray-900 rounded-md shadow-sm border border-slate-200 dark:border-slate-700">
+          <div className="px-2 pt-2 bg-background rounded-md shadow-sm border border-slate-200 dark:border-slate-700">
             <GithubIcon ref={iconRef} size={20} />
           </div>
           <div className="flex-col hidden sm:flex">
