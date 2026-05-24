@@ -11,10 +11,9 @@ import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
 import { projectInfo } from "@/constants/projectInfo";
 import { templateInfo } from "@/constants/templateInfo";
 import Navbar from "@/components/utils/Navbar";
-import Mobile from "@/components/utils/Mobile";
-import MobileTheme from "@/components/utils/MobileTheme";
 import Footer from "@/components/sections/Footer";
 import ProjectDetails from "@/components/utils/ProjectDetails";
+import MobilePageHeading from "@/components/utils/MobilePageHeading";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -172,15 +171,15 @@ const SectionLabel = ({ label }: { label: string }) => (
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function ProjectsPageClient() {
-  const [hamMenu, setHamMenu] = useState(false);
-
   return (
     <div className="bg-[#fff9f0] dark:bg-gray-900 min-h-screen">
       <div className="overflow-x-hidden transition-colors duration-500">
-        <Mobile hamMenu={hamMenu} setHamMenu={setHamMenu} />
-        <MobileTheme />
-        <div className="pt-28 px-4 pb-12 max-w-7xl mx-auto">
-          <Navbar hamMenu={hamMenu} setHamMenu={setHamMenu} />
+        <div className="pt-4 md:pt-28 px-4 pb-28 max-w-7xl mx-auto">
+          <Navbar />
+          <MobilePageHeading
+            eyebrow="selected work"
+            title="Projects"
+          />
 
           {/* Projects grid */}
           <motion.div

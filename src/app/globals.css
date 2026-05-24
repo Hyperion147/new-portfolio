@@ -163,6 +163,19 @@ body {
     mix-blend-mode: normal;
 }
 
+::view-transition-old(root) {
+    z-index: 0;
+}
+
+::view-transition-new(root) {
+    z-index: 1;
+}
+
+html.theme-switching,
+html.theme-switching * {
+    transition: none !important;
+}
+
 * {
     transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
         border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
