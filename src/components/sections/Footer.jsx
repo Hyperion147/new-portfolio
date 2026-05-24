@@ -20,9 +20,9 @@ const Footer = () => {
                 )}
                 style={{ backgroundSize: "8px 8px" }}
             >
-                <div className="flex md:flex-row flex-col justify-between pt-4 px-4">
+                <div className="flex md:flex-row flex-col justify-between pt-2 md:pt-4 md:px-4">
                     <div className="flex gap-2 items-end">
-                        <p className="text-gray-400 text-sm">
+                        <p className="text-gray-400 text-xs md:text-sm">
                             Designed and Developed by
                         </p>
                         <div
@@ -34,7 +34,7 @@ const Footer = () => {
                                 <motion.a
                                     href="https://x.com/Hyperion9913"
                                     target="_blank"
-                                    className="absolute -top-16 left-1/2 z-40 w-42 h-16 flex -translate-x-1/2 gap-2 rounded-md border border-gray-300 px-2 py-2 text-xs dark:text-white backdrop-blur-2xl"
+                                    className="absolute -top-16 left-1/2 z-40 w-42 h-16 flex -translate-x-1/2 gap-2 rounded-md border border-gray-300 px-2 py-2 dark:text-white backdrop-blur-2xl"
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{
                                         opacity: 1,
@@ -62,13 +62,13 @@ const Footer = () => {
                             <a
                                 href="https://x.com/Hyperion9913"
                                 target="_blank"
-                                className="dark:text-white text-black"
+                                className="dark:text-white text-black text-sm md:text-base"
                             >
                                 @x.com/Hyperion9913
                             </a>
                         </div>
                     </div>
-                    <div className="flex gap-2 items-end">
+                    <div className="flex gap-2 items-end text-sm md:text-base">
                         <p className="text-gray-400 text-sm">HR, IN</p>
                         <p className="dark:text-white">{istTime}</p>
                     </div>
