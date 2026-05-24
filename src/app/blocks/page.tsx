@@ -1,20 +1,15 @@
 "use client";
 
-import { useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import toast from "react-hot-toast";
-import Mobile from "@/components/utils/Mobile";
-import MobileTheme from "@/components/utils/MobileTheme";
 import Navbar from "@/components/utils/Navbar";
 import { BentoGrid } from "@/components/ui/bento-grid";
+import MobilePageHeading from "@/components/utils/MobilePageHeading";
 import BlobCursor from "./components/BlobCursor";
 import ThemeClipperBlock from "./components/ThemeClipper";
 import RectTip from "./components/RectTip";
 
 export default function BlocksPage() {
-    const [hamMenu, setHamMenu] = useState(false);
-
     // Initial page entrance animation
     useGSAP(() => {
         gsap.from(".blocks-grid", {
@@ -29,11 +24,13 @@ export default function BlocksPage() {
     return (
         <div className="min-h-screen bg-[#fff9f0] dark:bg-gray-900">
             <div className="overflow-x-hidden duration-500">
-                <Mobile hamMenu={hamMenu} setHamMenu={setHamMenu} />
-                <MobileTheme />
-                <Navbar hamMenu={hamMenu} setHamMenu={setHamMenu} />
+                <Navbar />
 
-                <main className="mx-auto max-w-7xl px-4 pb-12 pt-28">
+                <main className="mx-auto max-w-7xl px-4 pb-28 pt-4 md:pt-28">
+                    <MobilePageHeading
+                        eyebrow="components"
+                        title="Blocks"
+                    />
                     <BentoGrid className="blocks-grid mx-auto max-w-5xl md:auto-rows-[180px] md:grid-cols-4">
                         <BlobCursor />
                         <ThemeClipperBlock />

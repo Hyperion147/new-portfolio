@@ -3,10 +3,10 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { flushSync } from "react-dom";
+import { FiMoon, FiSun } from "react-icons/fi";
 
 const ToggleDark = () => {
     const [isDark, setIsDark] = useState(null);
-    const [togglePosition, setTogglePosition] = useState(0);
     const toggleRef = useRef(null);
 
     useEffect(() => {
@@ -24,22 +24,12 @@ const ToggleDark = () => {
             document.documentElement.classList.remove("dark");
         }
 
-        const updatePosition = () => {
-            const width = window.innerWidth;
-            if (width >= 1024) setTogglePosition(3);
-            else if (width >= 768) setTogglePosition(2);
-            else if (width >= 640) setTogglePosition(1);
-            else setTogglePosition(0);
-        };
-
-        updatePosition();
-        window.addEventListener("resize", updatePosition);
-        return () => window.removeEventListener("resize", updatePosition);
     }, []);
 
     const toggleTheme = async () => {
         if (isDark === null || !toggleRef.current) return;
         const newIsDark = !isDark;
+        const root = document.documentElement;
 
         if (
             !document.startViewTransition ||
@@ -50,6 +40,8 @@ const ToggleDark = () => {
             return;
         }
 
+        root.classList.add("theme-switching");
+
         const transition = document.startViewTransition(() => {
             flushSync(() => {
                 setIsDark(newIsDark);
@@ -57,34 +49,56 @@ const ToggleDark = () => {
             });
         });
 
-        await transition.ready;
+        try {
+            await transition.ready;
 
-        const { top, left, width, height } =
-            toggleRef.current.getBoundingClientRect();
-        const x = left + width / 2;
-        const y = top + height / 2;
+            const { top, left, width, height } =
+                toggleRef.current.getBoundingClientRect();
+            const x = left + width / 2;
+            const y = top + height / 2;
 
-        const right = window.innerWidth - left;
-        const bottom = window.innerHeight - top;
+            const right = window.innerWidth - left;
+            const bottom = window.innerHeight - top;
 
-        const maxRadius = Math.hypot(
-            Math.max(left, right),
-            Math.max(top, bottom)
-        );
+            const maxRadius = Math.hypot(
+                Math.max(left, right),
+                Math.max(top, bottom)
+            );
 
-        document.documentElement.animate(
-            {
-                clipPath: [
-                    `circle(0px at ${x}px ${y}px)`,
-                    `circle(${maxRadius}px at ${x}px ${y}px)`,
-                ],
-            },
-            {
-                duration: 1000,
-                easing: "cubic-bezier(0.5, 0, 0.2,1)",
-                pseudoElement: "::view-transition-new(root)",
-            }
-        );
+            const duration = 1050;
+            const easing = "cubic-bezier(0.35, 0, 0.2, 1)";
+
+            root.animate(
+                {
+                    clipPath: [
+                        `circle(0px at ${x}px ${y}px)`,
+                        `circle(${maxRadius}px at ${x}px ${y}px)`,
+                    ],
+                },
+                {
+                    duration,
+                    easing,
+                    pseudoElement: "::view-transition-new(root)",
+                }
+            );
+
+            root.animate(
+                {
+                    filter: ["blur(0px)", "blur(30px)"],
+                    opacity: [1, 0.72],
+                    transform: ["scale(1)", "scale(1.012)"],
+                },
+                {
+                    duration,
+                    easing,
+                    pseudoElement: "::view-transition-old(root)",
+                }
+            );
+
+            await transition.finished;
+        } finally {
+            root.classList.remove("theme-switching");
+        }
     };
 
     const updateTheme = (dark) => {
@@ -99,62 +113,25 @@ const ToggleDark = () => {
 
     if (isDark === null) return null;
 
-    const positions = ["1.25rem", "1.5rem", "1.75rem", "2rem"];
-
     return (
         <motion.button
             ref={toggleRef}
             onClick={toggleTheme}
-            className="relative w-12 h-7 border-2 md:border-none border-gray-500      
-            sm:w-12 sm:h-6 
-            md:w-14 md:h-7
-            lg:w-16 lg:h-8 
-            rounded-full
-            bg-[#e5e0d9] dark:bg-gray-700 
-            transition-all duration-300 linker
-          "
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-slate-300/80 bg-white/70 text-slate-700 shadow-sm transition-colors duration-200 hover:bg-slate-900 hover:text-white focus-visible:bg-slate-900 focus-visible:text-white focus-visible:outline-none dark:border-slate-700/80 dark:bg-slate-900/70 dark:text-slate-200 dark:hover:bg-white dark:hover:text-slate-950 dark:focus-visible:bg-white dark:focus-visible:text-slate-950"
             aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
+            whileTap={{ scale: 0.94 }}
         >
-            <motion.span
-                className={`
-                    absolute top-0.5 left-0.5 
-                    w-5 h-5       
-                    sm:w-5 sm:h-5   
-                    md:w-6 md:h-6  
-                    lg:w-7 lg:h-7 
-                    rounded-full 
-                    border border-gray-300 dark:border-gray-500 
-                    bg-white dark:bg-gray-400 
-                    shadow-md 
-                    flex items-center justify-center
-            `}
-                animate={{
-                    x: isDark ? positions[togglePosition] : 0,
-                }}
-                transition={{
-                    type: "spring",
-                    stiffness: 500,
-                    damping: 30,
-                    mass: 0.8,
-                }}
-                whileTap={{ scale: 0.9 }}
-            >
-                <AnimatePresence mode="wait">
-                    <motion.div
-                        key={isDark ? "moon" : "sun"}
-                        initial={{ rotate: -90, opacity: 0 }}
-                        animate={{ rotate: 0, opacity: 1 }}
-                        exit={{ rotate: 90, opacity: 0 }}
-                        transition={{ duration: 0.2 }}
-                    >
-                        <img
-                            src={isDark ? "/Moon.svg" : "/Sun.svg"}
-                            alt={isDark ? "Moon" : "Sun"}
-                            className="w-3 h-3 sm:w-3 sm:h-3 md:w-3.5 md:h-3.5 lg:w-4 lg:h-4"
-                        />
-                    </motion.div>
-                </AnimatePresence>
-            </motion.span>
+            <AnimatePresence mode="wait" initial={false}>
+                <motion.span
+                    key={isDark ? "moon" : "sun"}
+                    initial={{ rotate: -36, opacity: 0, scale: 0.82 }}
+                    animate={{ rotate: 0, opacity: 1, scale: 1 }}
+                    exit={{ rotate: 36, opacity: 0, scale: 0.82 }}
+                    transition={{ duration: 0.26, ease: "easeOut" }}
+                >
+                    {isDark ? <FiMoon className="h-4 w-4" /> : <FiSun className="h-4 w-4" />}
+                </motion.span>
+            </AnimatePresence>
         </motion.button>
     );
 };

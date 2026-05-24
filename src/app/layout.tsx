@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import { Toaster } from "react-hot-toast";
-import FixedButtons from "@/components/ui/FixedButtons";
 import JSONLD from "@/components/utils/JSONLD";
 import CursorWrapper from "@/components/ui/CursorWrapper";
 import { Geist } from "next/font/google";
@@ -95,7 +94,11 @@ export default function RootLayout({
 }>) {
 
   return (
-    <html lang="en" className={cn("dark", "font-sans", geist.variable)}>
+    <html
+      lang="en"
+      className={cn("font-sans", geist.variable)}
+      suppressHydrationWarning
+    >
       <head>
         <script
           dangerouslySetInnerHTML={{
@@ -106,6 +109,8 @@ export default function RootLayout({
                 const dark = savedTheme === 'dark' || (!savedTheme && systemPrefersDark);
                 if (dark) {
                   document.documentElement.classList.add('dark');
+                } else {
+                  document.documentElement.classList.remove('dark');
                 }
               })();
             `,
@@ -124,7 +129,6 @@ export default function RootLayout({
       <body className="overflow-x-hidden">
         <CursorWrapper />
         <Toaster position="top-right" />
-        <FixedButtons />
         {children}
         <Analytics />
       </body>

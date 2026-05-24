@@ -4,8 +4,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
 import Navbar from "@/components/utils/Navbar";
-import Mobile from "@/components/utils/Mobile";
-import MobileTheme from "@/components/utils/MobileTheme";
+import MobilePageHeading from "@/components/utils/MobilePageHeading";
 import { useState, useEffect } from "react";
 import {
     FaGithub,
@@ -172,7 +171,6 @@ const PbBar = ({ entry }: { entry: PersonalBestEntry | null }) => {
 };
 
 export default function StatsPage() {
-    const [hamMenu, setHamMenu] = useState(false);
     const [profile, setProfile] = useState<MonkeyProfile | null>(null);
 
     useEffect(() => {
@@ -196,12 +194,6 @@ export default function StatsPage() {
     }, []);
 
     useGSAP(() => {
-        gsap.from(".stats-header", {
-            y: -50,
-            duration: 1,
-            filter: "blur(15px)",
-            opacity: 0,
-        });
         gsap.from(".stats-grid", {
             y: 50,
             duration: 1.2,
@@ -214,11 +206,13 @@ export default function StatsPage() {
     return (
         <div className="bg-[#fff9f0] dark:bg-gray-900 min-h-screen">
             <div className="overflow-x-hidden duration-500">
-                <Mobile hamMenu={hamMenu} setHamMenu={setHamMenu} />
-                <MobileTheme />
-                <Navbar hamMenu={hamMenu} setHamMenu={setHamMenu} />
+                <Navbar />
 
-                <div className="pt-28 px-4 pb-12 max-w-7xl mx-auto">
+                <div className="pt-4 md:pt-28 px-4 pb-28 max-w-7xl mx-auto">
+                    <MobilePageHeading
+                        eyebrow="numbers"
+                        title="Stats"
+                    />
                     <BentoGrid className="max-w-5xl mx-auto stats-grid">
                         {/* MonkeyType Full Section */}
                         <BentoGridItem

@@ -28,7 +28,7 @@ const Hero = () => {
       >
         <div className="text-end z-10">
           <h1
-            className="text-3xl md:text-4xl font-bold pb-2 bg-gradient-to-r from-indigo-200 to-gray-500 dark:to-white leading-right bg-clip-text text-transparent head text-end"
+            className="text-3xl md:text-4xl font-bold pb-2 bg-linear-to-r from-indigo-200 to-gray-500 dark:to-white leading-right bg-clip-text text-transparent head text-end"
             role="heading"
             aria-level="1"
           >
