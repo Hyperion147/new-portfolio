@@ -28,7 +28,7 @@ export default function Home() {
       <div className="overflow-x-hidden transition-colors duration-500">
           <Mobile hamMenu={hamMenu} setHamMenu={setHamMenu} />
           <MobileTheme />
-        <div className="pt-28 px-4 pb-12 max-w-7xl mx-auto">
+        <div className="pt-28 px-4 max-w-7xl mx-auto">
           <Navbar hamMenu={hamMenu} setHamMenu={setHamMenu} />
           <BentoGrid className="max-w-5xl mx-auto md:auto-rows-[150px] md:grid-cols-4">
             <BentoGridItem

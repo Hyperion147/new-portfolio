@@ -53,22 +53,46 @@ const GithubSection = ({ className = "" }) => {
   };
 
   useEffect(() => {
-    fetch("https://github-contributions-api.jogruber.de/v4/Hyperion147?y=last")
-      .then((res) => res.json())
-      .then((data) => {
-        setData(data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.error("Error fetching github data:", err);
-        setLoading(false);
-      });
+    const controller = new AbortController();
+
+    const fetchGithubData = async () => {
+      setLoading(true);
+
+      try {
+        const res = await fetch(
+          "https://github-contributions-api.jogruber.de/v4/Hyperion147?y=last",
+          {
+            cache: "no-store",
+            signal: controller.signal,
+          }
+        );
+        const githubData = await res.json();
+        setData(githubData);
+      } catch (err) {
+        if (err.name !== "AbortError") {
+          console.error("Error fetching github data:", err);
+          setData(null);
+        }
+      } finally {
+        if (!controller.signal.aborted) {
+          setLoading(false);
+        }
+      }
+    };
+
+    fetchGithubData();
+
+    return () => controller.abort();
   }, []);
 
   // Performance: Stagger animation using GSAP instead of 365+ Framer Motion delay props
   useGSAP(
     () => {
       if (!loading && data) {
+        gsap.set([".github-title", ".github-stats-item", ".contribution-square"], {
+          clearProps: "all",
+        });
+
         const tl = gsap.timeline();
         tl.from(".github-title", {
           opacity: 0,
@@ -97,8 +121,7 @@ const GithubSection = ({ className = "" }) => {
           );
       }
     },
-    [loading, data],
-    { scope: containerRef }
+    { scope: containerRef, dependencies: [loading, data], revertOnUpdate: true }
   );
 
   // Memoize weeks to prevent recalculation on hover
