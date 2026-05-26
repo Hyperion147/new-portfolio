@@ -1,42 +1,60 @@
 "use client";
-// goto line-98
 
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { educationInfo } from "@/constants/educationInfo";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const AboutSection = () => {
   useGSAP(() => {
-    gsap.from(".desc", {
-      y: -50,
-      duration: 1,
-      filter: "blur(5px)",
+    gsap.from(".about-copy", {
+      y: 18,
+      duration: 0.8,
+      filter: "blur(8px)",
+      opacity: 0,
+      stagger: 0.08,
+      ease: "power3.out",
     });
   });
 
   return (
     <section
       id="about"
-      className="bg-background flex items-center justify-center h-full px-4"
+      className="flex h-full items-center bg-background px-4"
     >
-      <p className="text-base sm:text-lg dark:text-slate-300 text-slate-700 mx-auto text-start desc flex-col">
-        I’m a frontend developer specializing in React and TypeScript,
-        <br /> creating smooth, responsive interfaces with some libraries...
-        <br />
-        <span className="text-slate-500 text-xs text-end w-full">
-          I use{" "}
-          <a
-            href="https://github.com/Hyperion147/new-portfolio/blob/main/src/components/sections/AboutSection.jsx"
-            target="_blank"
-            className="underline underline-offset-2 dark:text-gray-400 text-gray-600"
-          >
-            &lt;br /&gt;
-          </a>{" "}
-          tags btw
-        </span>
-      </p>
+      <div className="grid w-full gap-6 md:items-start">
+        <div className="about-copy space-y-3">
+          {educationInfo.map((edu) => (
+            <div key={edu.id} className="border-b border-dashed border-slate-300 pb-3 last:border-b-0 last:pb-0 dark:border-slate-700">
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <h3 className="text-sm font-bold text-slate-900 dark:text-white">
+                    {edu.degree}
+                  </h3>
+                  <p className="mt-1 text-xs leading-5 text-slate-600 dark:text-slate-300">
+                    {edu.institution}
+                  </p>
+                  <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
+                    {edu.field}
+                  </p>
+                </div>
+                <div className="shrink-0 text-right">
+                  <p className="text-xs font-semibold text-slate-700 dark:text-slate-300">
+                    {edu.duration}
+                  </p>
+                  {edu.grade && (
+                    <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
+                      {edu.grade}
+                    </p>
+                  )}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
     </section>
   );
 };

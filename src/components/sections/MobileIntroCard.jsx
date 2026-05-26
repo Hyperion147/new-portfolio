@@ -1,6 +1,8 @@
 "use client";
 
 import Image from "next/image";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 const noiseStyle = {
     backgroundImage:
@@ -9,9 +11,20 @@ const noiseStyle = {
 };
 
 const MobileIntroCard = () => {
+    useGSAP(() => {
+        gsap.from(".mobile-intro-animate", {
+            y: 18,
+            opacity: 0,
+            filter: "blur(10px)",
+            duration: 0.9,
+            stagger: 0.08,
+            ease: "power3.out",
+        });
+    });
+
     return (
         <section className="overflow-hidden text-slate-900 dark:text-white">
-            <div className="relative h-40 overflow-hidden border-b border-dashed border-slate-300 dark:border-slate-700">
+            <div className="mobile-intro-animate relative h-40 overflow-hidden border-b border-dashed border-slate-300 dark:border-slate-700">
                 <Image
                     src="/light-mobile.jpg"
                     alt=""
@@ -42,7 +55,7 @@ const MobileIntroCard = () => {
             </div>
 
             <div className="relative px-5 pb-6 pt-14">
-                <div className="absolute -top-12 left-5 h-24 w-24 overflow-hidden rounded-full border-4 border-[#fff9f0] bg-slate-200 shadow-[0_10px_24px_rgba(15,23,42,0.22)] dark:border-gray-900 dark:bg-slate-800">
+                <div className="mobile-intro-animate absolute -top-12 left-5 h-24 w-24 overflow-hidden rounded-full border-4 border-background bg-slate-200 shadow-[0_10px_24px_rgba(15,23,42,0.22)] dark:bg-slate-800">
                     <Image
                         src="/profile.jpg"
                         alt="Suryansu Singh"
@@ -53,21 +66,24 @@ const MobileIntroCard = () => {
                     />
                 </div>
 
-                <div className="mb-4 flex items-start justify-between gap-4">
+                <div className="mobile-intro-animate mb-4 flex items-start justify-between gap-4">
                     <div>
                         <h1 className="text-4xl font-semibold leading-none text-slate-950 dark:text-white">
                             Suryansu Singh
                         </h1>
                         <p className="mt-2 text-sm font-medium text-slate-500 dark:text-slate-400">
-                            20 | Part time college, full time dev
+                            20 | Frontend &gt; Fullstack
                         </p>
-                        <span className="text-sm">Frontend &gt; Fullstack</span>
+                        <span className="text-sm">
+                            Part time college, full time dev
+                        </span>
                     </div>
                 </div>
 
-                <div className="border-slate-300 text-[15px] leading-7 text-slate-700 dark:border-slate-700 dark:text-slate-300">
-                    Frontend developer focused on smooth, responsive interfaces
-                    with React, TypeScript, motion, and thoughtful UI details.
+                <div className="mobile-intro-animate border-slate-300 text-[15px] leading-7 text-slate-700 dark:border-slate-700 dark:text-slate-300">
+                    I build fast, polished web experiences that feel good to use
+                    and easy to ship. I&apos;m strongest in React, Next.js,
+                    TypeScript, motion, and UI craft.
                 </div>
             </div>
         </section>
