@@ -50,7 +50,7 @@ const Footer = () => {
                                 >
                                     <img
                                         src="/profile.jpg"
-                                        alt="Hyperion9913"
+                                        alt="suryansu87"
                                         className="rounded-md"
                                     />
                                     <div>
@@ -60,11 +60,11 @@ const Footer = () => {
                                 </motion.a>
                             )}
                             <a
-                                href="https://x.com/Hyperion9913"
+                                href="https://x.com/suryansu87"
                                 target="_blank"
                                 className="dark:text-white text-black text-sm md:text-base"
                             >
-                                @x.com/Hyperion9913
+                                @x.com/suryansu87
                             </a>
                         </div>
                     </div>

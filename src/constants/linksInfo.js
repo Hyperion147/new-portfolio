@@ -16,8 +16,8 @@ export const linksInfo = [
     {
         id: 2,
         label: "X / Twitter",
-        handle: "@Hyperion9913",
-        href: "https://x.com/Hyperion9913",
+        handle: "@suryansu87",
+        href: "https://x.com/suryansu87",
         Icon: TwitterIcon,
         color: "#000",
         darkColor: "#fff",
