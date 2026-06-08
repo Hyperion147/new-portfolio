@@ -18,7 +18,7 @@ const EducationSection = ({ className = "" }) => {
     <section
       id="education"
       className={cn(
-        "px-4 bg-background eduCont overflow-hidden",
+        "p-4 bg-background eduCont overflow-hidden",
         className
       )}
     >
@@ -53,7 +53,7 @@ const EducationSection = ({ className = "" }) => {
                   <span className="text-sm font-medium text-gray-700 dark:text-gray-300 whitespace-nowrap">
                     {edu.grade}
                   </span>
-                  <p className="text-sm text-gray-500 dark:text-gray-400 mb-4 pl-8">
+                  <p className="text-sm text-gray-500 dark:text-gray-400 mb-4 pl-4">
                     {edu.location}
                   </p>
                 </div>

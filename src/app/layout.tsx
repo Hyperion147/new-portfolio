@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     template: "%s | Suryansu",
   },
   description:
-    "Personal portfolio of Suryansu, a passionate Frontend Developer specializing in building modern, responsive, and high-performance web applications using React, Next.js, and TypeScript.",
+    "Suryansu Singh, Frontend Developer specializing in building modern, responsive, and high-performance web applications using React, Next.js, and TypeScript.",
   applicationName: "Suryansu Portfolio",
   alternates: {
     canonical: "/",

@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useGSAP } from "@gsap/react";
+import TrueFocus from "@/components/ui/text-track";
 import gsap from "gsap";
 
 const Hero = () => {
@@ -26,7 +27,7 @@ const Hero = () => {
     return (
         <section
             id="home"
-            className="flex h-full flex-col justify-between gap-6 text-slate-900 dark:text-white"
+            className="flex h-full flex-col justify-between gap-4 text-slate-900 dark:text-white p-4"
         >
             <div className="flex items-start gap-6">
                 <div className="hero-profile relative h-24 w-24 shrink-0 overflow-hidden border-2 border-dashed border-slate-300 bg-slate-200 shadow-[7px_7px_0_rgba(15,23,42,0.08)] dark:border-slate-700 dark:bg-slate-800 dark:shadow-[7px_7px_0_rgba(226,232,240,0.05)]">
@@ -51,9 +52,18 @@ const Hero = () => {
                     <p className="hero-copy text-lg font-medium text-slate-700 dark:text-slate-300">
                         20 | Frontend &gt; Fullstack
                     </p>
-                    <p className="hero-copy flex items-center gap-1 text-sm font-medium">
-                        <span className="inline-block rounded-full w-3 h-3 text-xs font-medium bg-green-500 animate-pulse mt-0.5" />
-                        open to work
+                    <p className="hero-copy flex items-center gap-2 text-sm font-medium mt-2">
+                        <span className="inline-block rounded-full w-2 h-2 text-xs font-medium bg-green-500 mt-0.5" />
+                        <span className="flex gap-1">
+                            open to
+                            <TrueFocus
+                                sentence="work freelance"
+                                manualMode={false}
+                                blurAmount={2}
+                                animationDuration={0.6}
+                                pauseBetweenAnimations={1}
+                            />
+                        </span>
                     </p>
                 </div>
             </div>
@@ -63,7 +73,7 @@ const Hero = () => {
                     Part time college, full time dev
                 </p>
                 <p
-                    className="hero-copy mt-2 max-w-2xl text-base leading-7 text-slate-600 dark:text-slate-300"
+                    className="hero-copy mt-2 max-w-2xl text-sm leading-6 text-slate-600 dark:text-slate-300"
                     aria-label="Introduction"
                 >
                     I build fast, polished web experiences that feel good to use
@@ -73,11 +83,6 @@ const Hero = () => {
                     at the handoff.
                 </p>
             </div>
-
-            <div
-                aria-hidden="true"
-                className="hero-copy h-px w-full bg-linear-to-r from-slate-300 via-slate-500 to-transparent dark:from-slate-700 dark:via-slate-400"
-            />
         </section>
     );
 };

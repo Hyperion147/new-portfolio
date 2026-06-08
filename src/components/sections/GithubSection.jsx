@@ -169,7 +169,7 @@ const GithubSection = ({ className = "" }) => {
       <div className="flex items-center justify-between mb-6">
         <div
           data-cursor-hover
-          className="github-title flex items-center gap-2 sm:gap-4 bg-slate-100/50 dark:bg-slate-700/30 pr-5 pl-1 py-1 rounded-md border border-slate-200 dark:border-slate-700/50"
+          className="github-title flex items-center gap-0 md:gap-2 bg-slate-100/50 dark:bg-slate-700/30 md:pr-5 px-1 py-1 rounded-md border border-slate-200 dark:border-slate-700/50"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >

@@ -20,7 +20,7 @@ const Footer = () => {
                 )}
                 style={{ backgroundSize: "8px 8px" }}
             >
-                <div className="flex md:flex-row flex-col justify-between pt-2 md:pt-4 md:px-4">
+                <div className="flex md:flex-row flex-col justify-between pt-2 md:pt-4 px-4">
                     <div className="flex gap-2 items-end">
                         <p className="text-gray-400 text-xs md:text-sm">
                             Designed and Developed by
@@ -62,7 +62,7 @@ const Footer = () => {
                             <a
                                 href="https://x.com/suryansu87"
                                 target="_blank"
-                                className="dark:text-white text-black text-sm md:text-base"
+                                className="dark:text-white text-black text-sm md:text-base md:translate-y-[1px] translate-y-[2px] flex"
                             >
                                 @x.com/suryansu87
                             </a>

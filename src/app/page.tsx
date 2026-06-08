@@ -52,8 +52,8 @@ export default function Home() {
               header={<ExperienceSection className="py-6" />}
             />
             <BentoGridItem
-              className="md:col-span-4 md:row-span-3"
-              header={<EducationSection className="py-6" />}
+              className="md:col-span-4 md:row-span-3 md:hidden flex"
+              header={<EducationSection className="p-6" />}
             />
             <BentoGridItem
               className="md:col-span-4 md:row-span-2"
