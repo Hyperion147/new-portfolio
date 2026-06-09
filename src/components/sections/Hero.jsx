@@ -52,19 +52,19 @@ const Hero = () => {
                     <p className="hero-copy text-lg font-medium text-slate-700 dark:text-slate-300">
                         20 | Frontend &gt; Fullstack
                     </p>
-                    <p className="hero-copy flex items-center gap-2 text-sm font-medium mt-2">
+                    <div className="hero-copy flex items-center gap-2 text-sm font-medium mt-2">
                         <span className="inline-block rounded-full w-2 h-2 text-xs font-medium bg-green-500 mt-0.5" />
                         <span className="flex gap-1">
                             open to
                             <TrueFocus
                                 sentence="work freelance"
                                 manualMode={false}
-                                blurAmount={2}
+                                blurAmount={3}
                                 animationDuration={0.6}
                                 pauseBetweenAnimations={1}
                             />
                         </span>
-                    </p>
+                    </div>
                 </div>
             </div>
 

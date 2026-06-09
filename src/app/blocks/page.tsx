@@ -8,6 +8,7 @@ import MobilePageHeading from "@/components/utils/MobilePageHeading";
 import BlobCursor from "./components/BlobCursor";
 import ThemeClipperBlock from "./components/ThemeClipper";
 import RectTip from "./components/RectTip";
+import FillButtons from "./components/FillButtons";
 
 export default function BlocksPage() {
     // Initial page entrance animation
@@ -32,9 +33,10 @@ export default function BlocksPage() {
                         title="Blocks"
                     />
                     <BentoGrid className="blocks-grid mx-auto max-w-5xl md:auto-rows-[180px] md:grid-cols-4">
-                        <BlobCursor />
-                        <ThemeClipperBlock />
+                        <FillButtons />
                         <RectTip />
+                        <ThemeClipperBlock />
+                        <BlobCursor />
                     </BentoGrid>
                 </main>
             </div>

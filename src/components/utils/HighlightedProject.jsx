@@ -5,26 +5,26 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import Link from "next/link";
+import { FiArrowUpRight } from "react-icons/fi";
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
 const galleryItems = [
     {
         id: 1,
-        label: "Website",
-        src: "/highlightedProject/website.png",
-        fallback: "/highlightedProject/main.png",
+        label: "Landing",
+        src: "/highlightedProject/landing.png",
     },
     {
         id: 2,
-        label: "Marketplace",
-        src: "/highlightedProject/marketplace.png",
-        fallback: "/highlightedProject/main2.png",
+        label: "Dashboard",
+        src: "/highlightedProject/dashboard.png",
     },
     {
         id: 3,
-        label: "Mobile App",
-        src: "/highlightedProject/mobile.png",
+        label: "Listings",
+        src: "/highlightedProject/listings.png",
         fallback: "/highlightedProject/main.png",
     },
     {
@@ -37,54 +37,54 @@ const galleryItems = [
 
 const flowSteps = [
     {
-        id: "guest",
-        label: "Guest",
+        id: "landing",
+        label: "Website",
         sub: "Landing",
         stat: "Public",
     },
     {
         id: "auth",
-        label: "Auth",
+        label: "Google Auth",
         sub: "Identity",
         stat: "Secure",
     },
     {
-        id: "session",
-        label: "Session",
-        sub: "Profile",
+        id: "private",
+        label: "Private Ideas",
+        sub: "Private",
         stat: "Synced",
     },
     {
-        id: "call",
-        label: "Call/Chat",
-        sub: "Realtime",
+        id: "public",
+        label: "Public Listings",
+        sub: "Public",
         stat: "Live",
     },
     {
-        id: "market",
-        label: "Market",
-        sub: "Commerce",
+        id: "interactive",
+        label: "Tubs",
+        sub: "Interactive",
         stat: "Orders",
     },
     {
         id: "admin",
         label: "Admin",
-        sub: "Control",
+        sub: "Moderation",
         stat: "Audit",
     },
 ];
 
 const descriptions = {
-    guest: "The visitor starts with a fast public view: landing copy, QR context, and a clear route into the product without account friction.",
-    auth: "Authentication turns the anonymous scan into a trusted user session with guarded access for calls, chats, and marketplace actions.",
-    session:
-        "Session state keeps profile, permissions, and QR ownership in sync so the experience survives refreshes and device changes.",
-    call: "The core interaction opens instantly: realtime chat and WebRTC calls connect the scanner with the owner from the same flow.",
-    market: "Marketplace actions branch from the relationship layer, letting users move from discovery to listings and transactions.",
-    admin: "The admin layer closes the loop with moderation, user controls, audit visibility, and operational health checks.",
+    landing: "The visitor starts with a dashboard demo, with actual dashboard redirect button in navbar to reduce friction.",
+    auth: "Private capture by default with Google sign-in.",
+    private:
+        "Session state keeps permissions and ownership in sync so the experience survives privacy.",
+    public: "The core is listings page, where people review and comment on your code",
+    interactive: "You can create tasks, time stamps and manage tub full of ideas.",
+    admin: "The admin layer closes the loop with moderation, user controls and audit visibility",
 };
 
-const techStack = ["React", "Tailwind", "ShadCN", "WebRTC", "Socket.IO"];
+const techStack = ["React", "Tailwind", "ShadCN", "React Hook Form", "Tanstack Query", "Zustand"];
 
 // ─── Image Gallery ────────────────────────────────────────────────────────────
 
@@ -123,7 +123,6 @@ const ImageGallery = () => {
                             fill
                             className="object-contain"
                             sizes="(max-width: 768px) 100vw, 50vw"
-                            onError={() => handleError(galleryItems[active].id)}
                         />
                     </motion.div>
                 </AnimatePresence>
@@ -177,7 +176,7 @@ const ImageGallery = () => {
 };
 
 const FlowDiagram = () => {
-    const [activeStep, setActiveStep] = useState("guest");
+    const [activeStep, setActiveStep] = useState("landing");
     const containerRef = useRef(null);
     const STEP_DURATION = 4;
 
@@ -374,20 +373,20 @@ const HighlightedProject = () => {
 
                 {/* Card 2 — Project info (1 col) */}
                 <div className="hp-card md:col-span-4 border-2 border-dashed border-slate-300 dark:border-slate-700 p-4 bg-background flex flex-col md:flex-row gap-4 md:gap-6 items-start">
-                    <div className="flex flex-col shrink-0 text-start">
-                        <h3 className="text-lg font-bold text-gray-900 dark:text-white leading-tight mb-1">
-                            SSH-18
+                    <Link href="https://tubmind.space" target="_blank" className="flex flex-col shrink-0 text-start">
+                        <h3 className="text-lg font-bold text-gray-900 dark:text-white leading-tight mb-1 flex gap-1 items-center">
+                            Tubmind
+                            <FiArrowUpRight className="size-5" />
                         </h3>
                         <p className="pixeltext text-xs tracking-wide text-slate-500 dark:text-slate-400">
-                            flora.suryansu.pro
+                            tubmind.space
                         </p>
-                    </div>
+                    </Link>
 
                     <p className="text-xs text-start text-slate-600 dark:text-slate-300 leading-relaxed flex-1">
-                        A QR-based communication platform scan a code to
-                        instantly call or chat with the owner. Built with
-                        WebRTC, real-time sockets, full auth, a marketplace, and
-                        an admin panel.
+                        Tubmind is a private idea workspace for capturing rough
+                        thoughts fast, shaping them into structured concepts,
+                        and publishing the strongest ideas for feedback.
                     </p>
 
                     <div className="flex flex-wrap gap-1.5 md:max-w-70 md:justify-end">
