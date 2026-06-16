@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/private/',
     },
-    sitemap: 'https://suryansu.pro/sitemap.xml',
+    sitemap: 'https://suryansu.in/sitemap.xml',
   }
 }
