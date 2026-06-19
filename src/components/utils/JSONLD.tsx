@@ -5,8 +5,8 @@ export default function JSONLD() {
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Suryansu",
-    url: "https://suryansu.pro",
-    image: "https://suryansu.pro/og-image.png",
+    url: "https://suryansu.in",
+    image: "https://suryansu.in/og-image.png",
     jobTitle: "Frontend Developer",
     sameAs: [
       "https://github.com/Hyperion147",

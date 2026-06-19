@@ -35,7 +35,7 @@ export const linksInfo = [
         id: 4,
         label: "Blogs",
         handle: "suryansu-singh",
-        href: "https://blog.suryansu.pro/",
+        href: "https://blog.suryansu.in/",
         Icon: BookOpenTextIcon,
         color: "#0A66C2",
         darkColor: "#0A66C2",

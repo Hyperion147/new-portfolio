@@ -54,7 +54,7 @@ const Footer = () => {
                                         className="rounded-md"
                                     />
                                     <div>
-                                        <p>suryansu.pro</p>
+                                        <p>suryansu.in</p>
                                         <p>Part Time College ~Full time dev</p>
                                     </div>
                                 </motion.a>

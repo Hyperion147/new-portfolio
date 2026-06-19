@@ -1,8 +1,8 @@
-# suryansu.pro
+# suryansu.in
 
 Personal portfolio built with Next.js 16, React 19, and Tailwind CSS 4.
 
-Live site: [suryansu.pro](https://suryansu.pro)
+Live site: [suryansu.in](https://suryansu.in)
 
 ## Overview
 

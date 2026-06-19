@@ -1,11 +1,11 @@
 export const projectInfo = [
     {
         id: 1,
-        title: "convergence.suryansu.pro",
+        title: "convergence.suryansu.in",
         heading: "Convergence-UI Package",
         description:
             "A dynamic theming engine for modern web applications. Inject OKLCH colors directly into your DOM and transform your UI in real-time. Built on the OKLCH color space for perceptual uniformity. Convergence automatically handles contrast ratios and semantic mapping across your entire application.",
-        href: "https://convergence.suryansu.pro/",
+        href: "https://convergence.suryansu.in/",
         code: "https://github.com/Hyperion147/package-convergence",
         image: "/projects/convergence.png",
         video: "/projects/video/convergence.webm",
@@ -57,11 +57,11 @@ export const projectInfo = [
     },
     {
         id: 3,
-        title: "flora.suryansu.pro",
+        title: "flora-hcode",
         heading: "Flora",
         description:
             "Flora is an innovative plantation website where users can add and geotag their plants, fostering a community of nature enthusiasts. The platform features a competitive leaderboard to encourage engagement and an admin dashboard for seamless management. Users can also access a dedicated plant section with downloadable certificates recognizing their contributions and milestones. Built a similar production deployment for Municipal Corporation Panipat with 10k+ plants.",
-        href: "https://flora.suryansu.pro/",
+        href: "https://flora-hcode.vercel.app/",
         code: "https://github.com/Hyperion147/flora",
         image: "/projects/flora.png",
         preview: "/projects/flora.png",
@@ -120,11 +120,11 @@ export const projectInfo = [
     },
     {
         id: 5,
-        title: "todo.suryansu.pro",
+        title: "todo-hcode",
         heading: "Todo App",
         description:
             "A feature-rich Todo application designed for seamless task management. Built with React and Tailwind CSS, it offers a sleek with support for multiple themes to suit user preferences. The app integrates Supabase for robust authentication and data storage. Enhanced with GSAP animations, the UI delivers smooth, engaging interactions, while React Hot Toast provides feedback for user actions. Key features include task prioritization, due dates, and descriptions, all wrapped in a minimalist, user-friendly design.",
-        href: "https://todo.suryansu.pro/",
+        href: "https://todo-hcode.vercel.app/",
         code: "https://github.com/Hyperion147/todo-supabase",
         image: "/projects/todo.png",
         video: "/projects/video/todo.webm",
@@ -150,11 +150,11 @@ export const projectInfo = [
     },
     {
         id: 6,
-        title: "blog.suryansu.pro",
+        title: "blog.suryansu.in",
         heading: "Blog",
         description:
             "This website is a personal blog built with React and Tailwind CSS, combining modern web development techniques with a clean, responsive design. It offers a seamless reading experience and interactive features to engage visitors. The blog showcases my ability to create intuitive user interfaces while sharing insights and ideas.",
-        href: "https://blog.suryansu.pro/",
+        href: "https://blog.suryansu.in/",
         code: "https://github.com/Hyperion147/blog",
         image: "/projects/blog.png",
         preview: "/projects/blogpreview.png",
