@@ -3,7 +3,7 @@ export const experienceInfo = [
         id: 1,
         company: "AdvikaInnovate",
         role: "Frontend Developer",
-        duration: "Aug 2025 - Present",
+        duration: "Aug 2025 - June 2026",
         location: "Remote | New Delhi",
         description: [
             "HRMS dashboard admin and employee, turborepo project (complete).",

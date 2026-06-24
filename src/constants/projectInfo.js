@@ -1,4 +1,5 @@
 export const projectInfo = [
+    // Convergence
     {
         id: 1,
         title: "convergence.suryansu.in",
@@ -25,8 +26,39 @@ export const projectInfo = [
             },
         ],
     },
+    // FragBasic
     {
         id: 2,
+        title: "fragbasic.fun",
+        heading: "FragBasic",
+        description:
+            "FragBasic is a competitive gaming gear database built for FPS players researching mousepads faster. The platform brings together cloth mousepads, glasspads, brand pages, category browsing, side-by-side comparisons, a universal compare flow, and a finder that helps players choose gear based on playstyle for games like Valorant, CS2, and Apex. It combines personal and community data into a focused research tool with a responsive, data-heavy interface.",
+        href: "https://fragbasic.fun/",
+        code: "https://github.com/Hyperion147/fragbasic",
+        image: "/projects/fragbasic.png",
+        preview: "/projects/fragbasic.png",
+        tags: [
+            {
+                id: 1,
+                name: "#nextjs",
+            },
+            {
+                id: 2,
+                name: "#typescript",
+            },
+            {
+                id: 3,
+                name: "#tailwind",
+            },
+            {
+                id: 4,
+                name: "#shadcn",
+            },
+        ],
+    },
+    // Panipat Connect
+    {
+        id: 3,
         title: "panipatconnect.com",
         heading: "Green Panipat Mission",
         description:
@@ -55,8 +87,9 @@ export const projectInfo = [
             },
         ],
     },
+    // Flora
     {
-        id: 3,
+        id: 4,
         title: "flora-hcode",
         heading: "Flora",
         description:
@@ -88,8 +121,9 @@ export const projectInfo = [
             },
         ],
     },
+    // SSH-18
     {
-        id: 4,
+        id: 5,
         title: "ssh-18.vercel.app",
         heading: "ssh-18 hackathon project",
         description:
@@ -118,8 +152,9 @@ export const projectInfo = [
             },
         ],
     },
+    // Todo
     {
-        id: 5,
+        id: 6,
         title: "todo-hcode",
         heading: "Todo App",
         description:
@@ -148,8 +183,9 @@ export const projectInfo = [
             },
         ],
     },
+    // Blog
     {
-        id: 6,
+        id: 7,
         title: "blog.suryansu.in",
         heading: "Blog",
         description:
