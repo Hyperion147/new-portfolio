@@ -24,6 +24,9 @@ export default function Home() {
     <div className="bg-background">
       <div className="overflow-x-hidden transition-colors duration-500">
         <div className="pt-4 md:pt-28 px-4 pb-28 max-w-7xl mx-auto">
+          <h1 className="sr-only">
+            Suryansu Singh Frontend Developer Portfolio
+          </h1>
           <Navbar />
           <BentoGrid className="max-w-5xl mx-auto md:auto-rows-[150px] md:grid-cols-4">
             <BentoGridItem

@@ -30,9 +30,9 @@ const MobilePageHeading = ({ eyebrow, title }) => {
                     <p className="pixeltext text-xs uppercase text-slate-500 dark:text-slate-400">
                         {eyebrow}
                     </p>
-                    <h1 className="text-4xl font-semibold leading-none text-slate-950 dark:text-white">
+                    <p className="text-4xl font-semibold leading-none text-slate-950 dark:text-white">
                         {title}
-                    </h1>
+                    </p>
                 </div>
             </div>
         </div>

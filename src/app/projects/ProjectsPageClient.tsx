@@ -1,12 +1,8 @@
 "use client";
 
 import { useState, useRef } from "react";
-import Link from "next/link";
 import Image from "next/image";
 import { motion } from "motion/react";
-import { RxExternalLink } from "react-icons/rx";
-import { FaCode } from "react-icons/fa6";
-import { MdKeyboardArrowLeft } from "react-icons/md";
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
 import { projectInfo } from "@/constants/projectInfo";
 import { templateInfo } from "@/constants/templateInfo";
@@ -157,17 +153,6 @@ const ProjectCard = ({ project }: { project: Project }) => {
   );
 };
 
-// ─── Section Label ─────────────────────────────────────────────────────────────
-
-const SectionLabel = ({ label }: { label: string }) => (
-  <div className="flex flex-col gap-1 mb-2">
-    <h2 className="bg-linear-to-r from-slate-500 dark:from-indigo-200 to-gray-700 dark:to-slate-300 bg-clip-text text-transparent text-lg font-medium pixeltext">
-      {label}
-    </h2>
-    <div className="bg-linear-to-r from-indigo-200 via-slate-500 dark:via-indigo-200 to-transparent w-28 h-px" />
-  </div>
-);
-
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function ProjectsPageClient() {
@@ -176,6 +161,9 @@ export default function ProjectsPageClient() {
       <div className="overflow-x-hidden transition-colors duration-500">
         <div className="pt-4 md:pt-28 px-4 pb-28 max-w-7xl mx-auto">
           <Navbar />
+          <h1 className="sr-only">
+            Projects by Suryansu Singh
+          </h1>
           <MobilePageHeading
             eyebrow="selected work"
             title="Projects"
@@ -187,6 +175,7 @@ export default function ProjectsPageClient() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.15 }}
           >
+            <h2 className="sr-only">Selected Projects</h2>
             <BentoGrid className="md:auto-rows-auto md:grid-cols-3 gap-4 mb-12">
               {projectInfo.map((project) => (
                 <ProjectCard key={project.id} project={project} />
@@ -200,6 +189,7 @@ export default function ProjectsPageClient() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
+            <h2 className="sr-only">UI Templates</h2>
             <BentoGrid className="md:auto-rows-auto md:grid-cols-3 gap-4">
               {templateInfo.map((template) => (
                 <ProjectCard key={template.id} project={template} />

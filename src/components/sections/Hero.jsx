@@ -42,13 +42,11 @@ const Hero = () => {
                 </div>
 
                 <div className="min-w-0">
-                    <h1
+                    <p
                         className="hero-copy text-3xl font-semibold leading-tight text-slate-950 dark:text-white"
-                        role="heading"
-                        aria-level="1"
                     >
                         Suryansu Singh
-                    </h1>
+                    </p>
                     <p className="hero-copy text-lg font-medium text-slate-700 dark:text-slate-300">
                         20 | Frontend &gt; Fullstack
                     </p>

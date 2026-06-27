@@ -19,6 +19,7 @@ const ProjectSection = () => {
             id="projects"
             className="text-gray-500 text-center w-full max-w-full md:max-w-5xl mx-auto h-full md:p-4 group"
         >
+            <h2 className="sr-only">Featured Project</h2>
             <article className="mx-auto w-full mb-4">
                 <HighlightedProject />
             </article>

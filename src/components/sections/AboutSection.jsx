@@ -25,6 +25,7 @@ const AboutSection = () => {
       className="flex h-full items-center bg-background px-4"
     >
       <div className="grid w-full gap-6 md:items-start">
+        <h2 className="sr-only">Education Snapshot</h2>
         <div className="about-copy space-y-3">
           {educationInfo.map((edu) => (
             <div key={edu.id} className="border-b border-dashed border-slate-300 pb-3 last:border-b-0 last:pb-0 dark:border-slate-700">

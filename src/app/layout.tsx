@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     "Suryansu Singh, Frontend Developer specializing in building modern, responsive, and high-performance web applications using React, Next.js, and TypeScript.",
   applicationName: "Suryansu Portfolio",
   alternates: {
-    canonical: "/",
+    canonical: "https://suryansu.in/",
   },
   keywords: [
     "Suryansu",

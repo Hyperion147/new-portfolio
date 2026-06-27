@@ -41,9 +41,9 @@ const StatCard = ({
                     {icon}
                 </div>
             )}
-            <h3 className="text-3xl md:text-4xl font-bold bg-linear-to-r from-indigo-200 to-gray-500 dark:to-white bg-clip-text text-transparent">
+            <p className="text-3xl md:text-4xl font-bold bg-linear-to-r from-indigo-200 to-gray-500 dark:to-white bg-clip-text text-transparent">
                 {value}
-            </h3>
+            </p>
             <a href={link} target="_blank" rel="noopener noreferrer" className="text-sm md:text-base dark:text-slate-300 text-slate-700 font-semibold mt-1">
                 {title}
                 <FiArrowUpRight className="w-4 h-4 inline-block ml-1" />
@@ -68,14 +68,14 @@ const CategorySection = ({
 }) => {
     return (
         <div className="flex flex-col h-full p-4">
-            <h3 className="text-xl font-bold dark:text-white text-slate-800 mb-4 flex items-center gap-2">
+            <h2 className="text-xl font-bold dark:text-white text-slate-800 mb-4 flex items-center gap-2">
                 {icon && (
                     <span className="dark:text-indigo-300 text-indigo-500">
                         {icon}
                     </span>
                 )}
                 {category}
-            </h3>
+            </h2>
             <div className="flex flex-col gap-3 flex-1 justify-center">
                 {stats.map((stat, idx) => (
                     <div
@@ -209,6 +209,9 @@ export default function StatsPage() {
                 <Navbar />
 
                 <div className="pt-4 md:pt-28 px-4 pb-28 max-w-7xl mx-auto">
+                    <h1 className="sr-only">
+                        Suryansu Singh Personal Stats
+                    </h1>
                     <MobilePageHeading
                         eyebrow="numbers"
                         title="Stats"

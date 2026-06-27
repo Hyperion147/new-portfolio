@@ -50,7 +50,7 @@ const ProjectDetails = ({
                 </div>
                 <div className="pb-5 px-6">
                     <div className="flex items-center justify-between">
-                        <h5 className="mb-2 text-2xl font-bold">{heading}</h5>
+                        <h2 className="mb-2 text-2xl font-bold">{heading}</h2>
                         <div className="flex gap-4 dark:text-indigo-200 text-gray-500">
                             <a
                                 href={href}

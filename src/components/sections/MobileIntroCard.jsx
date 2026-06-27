@@ -27,21 +27,19 @@ const MobileIntroCard = () => {
             <div className="mobile-intro-animate relative h-40 overflow-hidden border-b border-dashed border-slate-300 dark:border-slate-700">
                 <Image
                     src="/light-mobile.jpg"
-                    alt=""
+                    alt="Light theme mobile portfolio preview"
                     fill
                     sizes="(max-width: 768px) 100vw"
                     className="object-cover dark:hidden"
                     priority
-                    aria-hidden="true"
                 />
                 <Image
                     src="/dark-mobile.jpg"
-                    alt=""
+                    alt="Dark theme mobile portfolio preview"
                     fill
                     sizes="(max-width: 768px) 100vw"
                     className="hidden object-cover dark:block"
                     priority
-                    aria-hidden="true"
                 />
                 <div
                     className="absolute inset-0 opacity-35 mix-blend-overlay"
@@ -68,9 +66,9 @@ const MobileIntroCard = () => {
 
                 <div className="mobile-intro-animate mb-4 flex items-start justify-between gap-4">
                     <div>
-                        <h1 className="text-4xl font-semibold leading-none text-slate-950 dark:text-white">
+                        <p className="text-4xl font-semibold leading-none text-slate-950 dark:text-white">
                             Suryansu Singh
-                        </h1>
+                        </p>
                         <p className="mt-2 text-sm font-medium text-slate-500 dark:text-slate-400">
                             20 | Frontend &gt; Fullstack
                         </p>

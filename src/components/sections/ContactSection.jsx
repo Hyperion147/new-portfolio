@@ -2,10 +2,8 @@
 
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { CiMail } from "react-icons/ci";
-import { CiCalendarDate } from "react-icons/ci";
 import { getCalApi } from "@calcom/embed-react";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { cn } from "@/components/utils/Utils";
 
 const ContactSection = ({ className = "" }) => {
@@ -37,6 +35,7 @@ const ContactSection = ({ className = "" }) => {
             )}
         >
             <div className="flex flex-col items-center justify-center gap-2">
+                <h2 className="sr-only">Contact Suryansu Singh</h2>
                 <p className="text-lg text-slate-800 dark:text-slate-300 tracking-widest">
                     Since you scrolled this far!
                 </p>

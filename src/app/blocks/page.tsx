@@ -28,6 +28,9 @@ export default function BlocksPage() {
                 <Navbar />
 
                 <main className="mx-auto max-w-7xl px-4 pb-28 pt-4 md:pt-28">
+                    <h1 className="sr-only">
+                        UI Blocks by Suryansu Singh
+                    </h1>
                     <MobilePageHeading
                         eyebrow="components"
                         title="Blocks"

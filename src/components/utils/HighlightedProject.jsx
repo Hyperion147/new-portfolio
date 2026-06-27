@@ -307,9 +307,9 @@ const FlowDiagram = () => {
                                 step 0{activeIndex + 1}
                             </span>
                         </div>
-                        <h5 className="mt-2 text-2xl font-bold text-slate-900 dark:text-white">
+                        <h4 className="mt-2 text-2xl font-bold text-slate-900 dark:text-white">
                             {activeStepData.label}
-                        </h5>
+                        </h4>
                         <p className="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
                             {currentDescription}
                         </p>
