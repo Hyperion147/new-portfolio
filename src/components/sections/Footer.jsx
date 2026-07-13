@@ -34,7 +34,7 @@ const Footer = () => {
                                 <motion.a
                                     href="https://x.com/Hyperion9913"
                                     target="_blank"
-                                    className="absolute -top-16 left-1/2 z-40 w-42 h-16 flex -translate-x-1/2 gap-2 rounded-md border border-gray-300 px-2 py-2 dark:text-white backdrop-blur-2xl"
+                                    className="absolute bottom-6 left-1/2 z-40 flex w-48 -translate-x-1/2 items-center gap-2 rounded-md border border-gray-300 px-2 py-2 dark:text-white backdrop-blur-2xl"
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{
                                         opacity: 1,
@@ -51,11 +51,13 @@ const Footer = () => {
                                     <img
                                         src="/profile.jpg"
                                         alt="suryansu87"
-                                        className="rounded-md"
+                                        className="size-12 shrink-0 rounded-md object-cover"
                                     />
-                                    <div>
-                                        <p>suryansu.in</p>
-                                        <p>Part Time College ~Full time dev</p>
+                                    <div className="min-w-0">
+                                        <p className="whitespace-nowrap">suryansu.in</p>
+                                        <p className="text-xs leading-tight">
+                                            Part Time College ~ Full time dev
+                                        </p>
                                     </div>
                                 </motion.a>
                             )}

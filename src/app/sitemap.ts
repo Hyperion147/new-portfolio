@@ -2,7 +2,7 @@ import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://suryansu.in";
-  const lastModified = new Date("2026-06-27");
+  const lastModified = new Date("2026-07-13");
 
   return [
     {
@@ -28,6 +28,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: "monthly",
       priority: 0.5,
+    },
+    {
+      url: `${baseUrl}/wall`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.6,
     },
   ];
 }

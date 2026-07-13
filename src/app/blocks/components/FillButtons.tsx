@@ -18,17 +18,17 @@ const FillButtons = () => {
         <BentoGridItem
             className="md:col-span-4 md:row-span-3"
             header={
-                <div className="grid h-full gap-4 md:grid-cols-[1.1fr_0.9fr]">
+                <div className="grid h-full gap-5 md:grid-cols-[1.1fr_0.9fr]">
                     {/* Preview Section */}
-                    <div className="flex h-full flex-col gap-2">
-                        <div className="flex gap-2 items-start justify-between">
+                    <div className="flex h-full flex-col gap-3">
+                        <div className="flex items-start justify-between gap-3">
                             <div>
                                 <p className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
-                                    Interactive UI
+                                    Component study / 01
                                 </p>
                                 <h2
                                     data-cursor-hover
-                                    className="text-2xl font-bold text-slate-600 dark:text-slate-400"
+                                    className="text-2xl font-bold tracking-tight text-slate-800 dark:text-slate-100"
                                 >
                                     Fill Buttons
                                 </h2>
@@ -47,38 +47,51 @@ const FillButtons = () => {
                             buttons from shadcn to interactive dual-tone color
                             buttons.
                         </p>
-                        <div className="border w-full border-slate-300 dark:border-slate-700 text-sm font-mono tracking-wider text-slate-500 dark:text-slate-400 px-3 py-1">
-                            Note: Replace the code with buttons component after
-                            installing shadcn button.
+                        <div className="grid gap-2 sm:grid-cols-2">
+                            <div className="border-l-2 border-indigo-400 bg-indigo-50/70 px-3 py-2 text-xs leading-5 text-slate-600 dark:bg-indigo-950/20 dark:text-slate-400">
+                                <span className="font-semibold text-indigo-600 dark:text-indigo-300">
+                                    Note
+                                </span>{" "}
+                                Replace the code with the buttons component
+                                after installing shadcn button.
+                            </div>
+                            <div className="border-l-2 border-red-400 bg-red-50/70 px-3 py-2 text-xs leading-5 text-slate-600 dark:bg-red-950/20 dark:text-slate-400">
+                                <span className="font-semibold text-red-600 dark:text-red-300">
+                                    Important
+                                </span>{" "}
+                                Wrap button text with a span.
+                            </div>
                         </div>
-                        <div className="border w-full border-red-700 text-sm font-mono tracking-wider text-red-500 px-3 py-1">
-                            Important:{" "}
-                            <span className="dark:text-slate-300 text-slate-700">
-                                Wrap the text with a span{" "}
-                            </span>
-                        </div>
-                        <div className="relative mt-auto overflow-hidden grid-cols-2 w-full grid gap-5 rounded-none p-4 items-center border-2 border-slate-300 bg-slate-100 dark:border-slate-700 dark:bg-slate-950">
-                            <div className="w-full gap-2 grid text-center border p-2">
-                                <p>fillDefault</p>
-                                <Button variant="fillDefault">
+                        <div className="relative mt-auto grid w-full grid-cols-2 gap-px overflow-hidden border border-slate-300 bg-slate-300 shadow-[4px_4px_0px_0px_rgba(148,163,184,0.25)] dark:border-slate-700 dark:bg-slate-700 dark:shadow-[4px_4px_0px_0px_rgba(15,23,42,0.5)]">
+                            <div className="group flex min-h-28 flex-col items-center justify-center gap-3 bg-background p-3 text-center transition-colors hover:bg-slate-50 dark:hover:bg-slate-900">
+                                <p className="font-mono text-[10px] uppercase tracking-wider text-slate-400 group-hover:text-slate-600 dark:group-hover:text-slate-200">
+                                    Default
+                                </p>
+                                <Button variant="fillDefault" className="w-full">
                                     <span>Default</span>
                                 </Button>
                             </div>
-                            <div className="w-full gap-2 grid text-center border p-2">
-                                <p>fillSecondary</p>
-                                <Button variant="fillSecondary">
+                            <div className="group flex min-h-28 flex-col items-center justify-center gap-3 bg-background p-3 text-center transition-colors hover:bg-slate-50 dark:hover:bg-slate-900">
+                                <p className="font-mono text-[10px] uppercase tracking-wider text-slate-400 group-hover:text-slate-600 dark:group-hover:text-slate-200">
+                                    Secondary
+                                </p>
+                                <Button variant="fillSecondary" className="w-full">
                                     <span>Secondary</span>
                                 </Button>
                             </div>
-                            <div className="w-full gap-2 grid text-center border p-2">
-                                <p>fillGhost</p>
-                                <Button variant="fillGhost">
+                            <div className="group flex min-h-28 flex-col items-center justify-center gap-3 bg-background p-3 text-center transition-colors hover:bg-slate-50 dark:hover:bg-slate-900">
+                                <p className="font-mono text-[10px] uppercase tracking-wider text-slate-400 group-hover:text-slate-600 dark:group-hover:text-slate-200">
+                                    Ghost
+                                </p>
+                                <Button variant="fillGhost" className="w-full">
                                     <span>Ghost</span>
                                 </Button>
                             </div>
-                            <div className="w-full gap-2 grid text-center border p-2">
-                                <p>fillOutline</p>
-                                <Button variant="fillOutline">
+                            <div className="group flex min-h-28 flex-col items-center justify-center gap-3 bg-background p-3 text-center transition-colors hover:bg-slate-50 dark:hover:bg-slate-900">
+                                <p className="font-mono text-[10px] uppercase tracking-wider text-slate-400 group-hover:text-slate-600 dark:group-hover:text-slate-200">
+                                    Outline
+                                </p>
+                                <Button variant="fillOutline" className="w-full">
                                     <span>Outline</span>
                                 </Button>
                             </div>
@@ -99,7 +112,7 @@ const FillButtons = () => {
                                 }}
                                 data-cursor-hover
                                 className="inline-flex h-8 w-8 items-center justify-center rounded-md border border-slate-300 text-slate-700 hover:shadow-[3px_3px_0px_0px_rgba(203,213,225)] dark:border-slate-700 dark:text-slate-200 dark:hover:shadow-[3px_3px_0px_0px_rgba(51,65,85)]"
-                                aria-label="Copy Blob Cursor code"
+                                aria-label="Copy Fill Buttons code"
                             >
                                 <FiCopy />
                             </button>

@@ -126,7 +126,7 @@ export default function RootLayout({
         <link rel="manifest" href="/manifest.json" />
         <JSONLD />
       </head>
-      <body className="overflow-x-hidden">
+      <body className="overflow-x-hidden" suppressHydrationWarning>
         <CursorWrapper />
         <Toaster position="top-right" />
         {children}
