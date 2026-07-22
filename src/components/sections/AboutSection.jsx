@@ -45,9 +45,9 @@ const AboutSection = () => {
                   <p className="text-xs font-semibold text-slate-700 dark:text-slate-300">
                     {edu.duration}
                   </p>
-                  {edu.grade && (
+                  {edu.location && (
                     <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
-                      {edu.grade}
+                      {edu.location}
                     </p>
                   )}
                 </div>
