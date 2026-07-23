@@ -79,7 +79,7 @@ const ContactSection = ({ className = "" }) => {
                 className,
             )}
         >
-            <div className="relative w-1/2 shrink-0 overflow-hidden bg-background">
+            <div className="relative w-1/2 shrink-0 overflow-hidden bg-background md:flex hidden">
                 <Image
                     src="/contact-light.jpg"
                     alt="Light theme mobile portfolio preview"
