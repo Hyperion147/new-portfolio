@@ -62,7 +62,7 @@ export const BentoGridItem = ({
       ref={containerRef}
       onMouseEnter={handleMouseEnter}
       className={cn(
-        "row-span-1 relative group/bento p-4 bg-background border-2 border-dashed border-slate-300 dark:border-slate-700 justify-between flex flex-col space-y-4",
+        "row-span-1 relative group/bento p-4 bg-background border-2 border-dashed border-slate-300 dark:border-slate-700 justify-between flex flex-col",
         className
       )}
     >
@@ -70,10 +70,10 @@ export const BentoGridItem = ({
       <div className="corner-line bg-slate-800 dark:bg-white -top-[2px] -left-[2px] h-2 w-[2px] absolute" />
       <div className="corner-line bg-slate-800 dark:bg-white -top-[2px] -right-[2px] h-[2px] w-2 absolute" />
       <div className="corner-line bg-slate-800 dark:bg-white -top-[2px] -right-[2px] h-2 w-[2px] absolute" />
-      <div className="corner-line bg-slate-800 dark:bg-white -bottom-[18px] -left-[2px] h-[2px] w-2 absolute" />
-      <div className="corner-line bg-slate-800 dark:bg-white -bottom-[18px] -left-[2px] h-2 w-[2px] absolute" />
-      <div className="corner-line bg-slate-800 dark:bg-white -bottom-[18px] -right-[2px] h-[2px] w-2 absolute" />
-      <div className="corner-line bg-slate-800 dark:bg-white -bottom-[18px] -right-[2px] h-2 w-[2px] absolute" />
+      <div className="corner-line bg-slate-800 dark:bg-white -bottom-[2px] -left-[2px] h-[2px] w-2 absolute" />
+      <div className="corner-line bg-slate-800 dark:bg-white -bottom-[2px] -left-[2px] h-2 w-[2px] absolute" />
+      <div className="corner-line bg-slate-800 dark:bg-white -bottom-[2px] -right-[2px] h-[2px] w-2 absolute" />
+      <div className="corner-line bg-slate-800 dark:bg-white -bottom-[2px] -right-[2px] h-2 w-[2px] absolute" />
 
       {header}
       <div className={cn("transition duration-200", !noSlide && "group-hover/bento:translate-x-2")}>
