@@ -64,24 +64,24 @@ const ContactSection = ({ className = "" }) => {
         });
         gsap.from(".images", {
             anchor: "50%",
-            x:-50,
+            x: -50,
             y: 50,
             filter: "blur(15px)",
             duration: 1,
-        })
+        });
     });
 
     return (
         <footer
             id="contact"
             className={cn(
-                "text-gray-500 w-full mx-auto h-full flex flex-col md:flex-row gap-4 items-center md:items-stretch",
+                "text-gray-500 w-full mx-auto h-full flex flex-col md:flex-row gap-8 items-center md:items-stretch",
                 className,
             )}
         >
             <div className="relative w-1/2 shrink-0 overflow-hidden bg-background">
                 <Image
-                    src="/light-mobile.jpg"
+                    src="/contact-light.jpg"
                     alt="Light theme mobile portfolio preview"
                     fill
                     sizes="(max-width: 768px) 100vw"
@@ -89,7 +89,7 @@ const ContactSection = ({ className = "" }) => {
                     priority
                 />
                 <Image
-                    src="/dark-mobile.jpg"
+                    src="/contact-dark.jpg"
                     alt="Dark theme mobile portfolio preview"
                     fill
                     sizes="(max-width: 768px) 100vw"
@@ -101,10 +101,17 @@ const ContactSection = ({ className = "" }) => {
                     style={noiseStyle}
                 />
                 <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(255,249,240,0.18),rgba(17,24,39,0.54))] dark:bg-[linear-gradient(to_bottom,rgba(255,255,255,0.05),rgba(0,0,0,0.3))]" />
-
-                <p className="absolute inset-x-5 top-1/2 -translate-y-1/2 text-center pixeltext text-xl text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.45)]">
-                    Manners Maketh Man
-                </p>
+                <div className="flex flex-col items-center justify-center w-full h-full">
+                    <div className="isolate py-4 px-8 backdrop-blur-xs rounded-md inset-shadow-2xs bg-white/20 dark:bg-black/20 text-black dark:text-white ring-1 ring-black/5 dark:ring-white/5">
+                        {" "}
+                        <p className="text-center pixeltext text-xl drop-shadow-[0_2px_12px_rgba(0,0,0,0.45)]">
+                            Do it yourself
+                        </p>
+                        <p className="text-end text-xs drop-shadow-[0_2px_12px_rgba(0,0,0,0.45)]">
+                            - gpt5.6sol
+                        </p>
+                    </div>
+                </div>
             </div>
 
             <div className="flex flex-1 flex-col justify-center items-center md:items-start gap-2 contactCont">
