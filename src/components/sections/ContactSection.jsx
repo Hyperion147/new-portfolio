@@ -114,7 +114,7 @@ const ContactSection = ({ className = "" }) => {
                     data-cal-link="suryansu/15min"
                     data-cal-config='{"layout":"month_view","theme":"auto"}'
                 >
-                    <p className="py-2 px-4 border-slate-500 border-2 hover:border-dashed transition-all duration-300 hover:inset-shadow-sm inset-shadow-gray-500/50 group gap-2">
+                    <p className="py-2 px-4 border-slate-500 border-2 rounded-md border-dashed transition-all duration-300 inset-shadow-sm hover:inset-shadow-gray-500 inset-shadow-gray-500/50 group gap-2">
                         Schedule a meet
                     </p>
                 </button>
