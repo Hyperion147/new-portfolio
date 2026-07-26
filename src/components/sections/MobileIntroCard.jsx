@@ -80,7 +80,7 @@ const MobileIntroCard = () => {
 
                 <div className="mobile-intro-animate border-slate-300 text-[15px] leading-7 text-slate-700 dark:border-slate-700 dark:text-slate-300">
                     I build fast, polished web experiences that feel good to use
-                    and easy to ship. I&apos;m strongest in React, Next.js,
+                    and easy to ship. My tech stack includes React, Next.js,
                     TypeScript, motion, and UI craft.
                 </div>
             </div>

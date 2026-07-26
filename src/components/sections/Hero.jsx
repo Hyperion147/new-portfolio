@@ -75,7 +75,7 @@ const Hero = () => {
                     aria-label="Introduction"
                 >
                     I build fast, polished web experiences that feel good to use
-                    and easy to ship. I&apos;m strongest in React, Next.js,
+                    and easy to ship. My tech stack includes React, Next.js,
                     TypeScript, motion, and UI craft, with enough backend sense
                     to move from idea to working product without getting stuck
                     at the handoff.

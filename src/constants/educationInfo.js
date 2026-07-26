@@ -4,7 +4,7 @@ export const educationInfo = [
         institution: "Birla Institute of Technology, Mesra",
         degree: "Masters of Computer Applications",
         field: "Computer Science",
-        duration: "2026 - 2028",
+        duration: "2026 - Present",
         location: "Ranchi, Jharkhand"
     },
     {
