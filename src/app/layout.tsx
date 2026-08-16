@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://suryansu.in"),
+  metadataBase: new URL("https://www.suryansu.in"),
   title: {
     default: "Suryansu | Frontend Developer",
     template: "%s | Suryansu",
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     "Suryansu Singh, Frontend Developer specializing in building modern, responsive, and high-performance web applications using React, Next.js, and TypeScript.",
   applicationName: "Suryansu Portfolio",
   alternates: {
-    canonical: "https://suryansu.in/",
+    canonical: "https://www.suryansu.in/",
   },
   keywords: [
     "Suryansu",
@@ -37,14 +37,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://suryansu.in",
+    url: "https://www.suryansu.in",
     siteName: "Suryansu | Frontend Developer",
     title: "Suryansu | Frontend Developer",
     description:
       "Personal portfolio showcasing projects, experience, and skills in modern web development.",
     images: [
       {
-        url: "https://suryansu.in/og-image.png",
+        url: "https://www.suryansu.in/og-image.png",
         width: 1200,
         height: 630,
         alt: "Suryansu Portfolio",
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
       "Personal portfolio showcasing projects, experience, and skills in modern web development.",
     images: [
       {
-        url: "https://suryansu.in/og-image.png",
+        url: "https://www.suryansu.in/og-image.png",
         alt: "Suryansu Portfolio",
       },
     ],
@@ -77,9 +77,9 @@ export const metadata: Metadata = {
     },
   },
   other: {
-    "og:image": "https://suryansu.in/og-image.png",
-    "og:image:url": "https://suryansu.in/og-image.png",
-    "og:image:secure_url": "https://suryansu.in/og-image.png",
+    "og:image": "https://www.suryansu.in/og-image.png",
+    "og:image:url": "https://www.suryansu.in/og-image.png",
+    "og:image:secure_url": "https://www.suryansu.in/og-image.png",
     "og:image:width": "1200",
     "og:image:height": "630",
     "og:image:alt": "Suryansu Portfolio",
