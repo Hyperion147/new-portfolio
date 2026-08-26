@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useGSAP } from "@gsap/react";
+import { getSuryansuAge } from "@/lib/getAge";
 import gsap from "gsap";
 
 const noiseStyle = {
@@ -70,7 +71,7 @@ const MobileIntroCard = () => {
                             Suryansu Singh
                         </p>
                         <p className="mt-2 text-sm font-medium text-slate-500 dark:text-slate-400">
-                            20 | Frontend &gt; Fullstack
+                            {getSuryansuAge()} | Frontend &gt; Fullstack
                         </p>
                         <span className="text-sm">
                             Part time college, full time dev
