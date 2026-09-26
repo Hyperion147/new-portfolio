@@ -89,7 +89,7 @@ const flowSteps = [
 ];
 
 const descriptions = {
-    landing: "The landing page presents the core promise clearly: research FPS gear without the rabbit hole through category-driven discovery and product clarity.",
+    landing: "The landing page presents the core promise clearly: research FPS gear without the rabbit hole through discovery and product clarity.",
     compare: "Popular comparison pages help players stack mousepads side by side and evaluate speed, control, stopping power, and feel in context.",
     best: "Best guides turn broad gear research into practical recommendations for control, speed, glasspads, and FPS-specific play styles.",
     showcase: "The showcase section highlights the product experience in a more editorial format, emphasizing premium visuals and clear product positioning.",
@@ -111,7 +111,7 @@ const ImageGallery = ({ activeIndex }) => {
 
     return (
         <div className="w-full gap-2">
-            <div className="relative min-h-[16rem] overflow-hidden md:min-h-[24rem]">
+            <div className="relative min-h-[12rem] overflow-hidden md:min-h-[30rem]">
                 <div className="absolute inset-0" />
                 <AnimatePresence mode="wait">
                     <motion.div
