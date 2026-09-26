@@ -15,102 +15,107 @@ const galleryItems = [
         id: 1,
         label: "Landing",
         src: "/highlightedProject/landing.png",
+        fallback: "/highlightedProject/landing.png",
     },
     {
         id: 2,
-        label: "Dashboard",
-        src: "/highlightedProject/dashboard.png",
+        label: "Compare",
+        src: "/highlightedProject/compare.png",
+        fallback: "/highlightedProject/landing.png",
     },
     {
         id: 3,
-        label: "Listings",
-        src: "/highlightedProject/listings.png",
-        fallback: "/highlightedProject/main.png",
+        label: "Best guides",
+        src: "/highlightedProject/best.png",
+        fallback: "/highlightedProject/landing.png",
     },
     {
         id: 4,
-        label: "Admin",
-        src: "/highlightedProject/admin.png",
-        fallback: "/highlightedProject/main2.png",
+        label: "Showcase",
+        src: "/highlightedProject/showcase.png",
+        fallback: "/highlightedProject/landing.png",
+    },
+    {
+        id: 5,
+        label: "Listings",
+        src: "/highlightedProject/listings.png",
+        fallback: "/highlightedProject/landing.png",
+    },
+    {
+        id: 6,
+        label: "Trust",
+        src: "/highlightedProject/trust.png",
+        fallback: "/highlightedProject/landing.png",
     },
 ];
 
 const flowSteps = [
     {
         id: "landing",
-        label: "Website",
+        label: "Discover",
         sub: "Landing",
-        stat: "Public",
+        stat: "Browse",
     },
     {
-        id: "auth",
-        label: "Google Auth",
-        sub: "Identity",
-        stat: "Secure",
+        id: "compare",
+        label: "Compare",
+        sub: "Popular comparisons",
+        stat: "Trade-offs",
     },
     {
-        id: "private",
-        label: "Private Ideas",
-        sub: "Private",
-        stat: "Synced",
+        id: "best",
+        label: "Best guides",
+        sub: "Recommendations",
+        stat: "Use-cases",
     },
     {
-        id: "public",
-        label: "Public Listings",
-        sub: "Public",
-        stat: "Live",
+        id: "showcase",
+        label: "Showcase",
+        sub: "Feature highlights",
+        stat: "Specs",
     },
     {
-        id: "interactive",
-        label: "Tubs",
-        sub: "Interactive",
-        stat: "Orders",
+        id: "listings",
+        label: "Listings",
+        sub: "Catalog cards",
+        stat: "Browse",
     },
     {
-        id: "admin",
-        label: "Admin",
-        sub: "Moderation",
-        stat: "Audit",
+        id: "trust",
+        label: "Trust",
+        sub: "Community signals",
+        stat: "Evidence",
     },
 ];
 
 const descriptions = {
-    landing: "The visitor starts with a dashboard demo, with actual dashboard redirect button in navbar to reduce friction.",
-    auth: "Private capture by default with Google sign-in.",
-    private:
-        "Session state keeps permissions and ownership in sync so the experience survives privacy.",
-    public: "The core is listings page, where people review and comment on your code",
-    interactive: "You can create tasks, time stamps and manage tub full of ideas.",
-    admin: "The admin layer closes the loop with moderation, user controls and audit visibility",
+    landing: "The landing page presents the core promise clearly: research FPS gear without the rabbit hole through category-driven discovery and product clarity.",
+    compare: "Popular comparison pages help players stack mousepads side by side and evaluate speed, control, stopping power, and feel in context.",
+    best: "Best guides turn broad gear research into practical recommendations for control, speed, glasspads, and FPS-specific play styles.",
+    showcase: "The showcase section highlights the product experience in a more editorial format, emphasizing premium visuals and clear product positioning.",
+    listings: "Catalog cards surface product details quickly, helping users scan surfaces, specs, and matchups without getting lost in dense information.",
+    trust: "The trust-focused experience reinforces review credibility, community context, and practical buying logic for higher-confidence decisions.",
 };
 
-const techStack = ["React", "Tailwind", "ShadCN", "React Hook Form", "Tanstack Query", "Zustand"];
+const techStack = ["Next.js", "React", "TypeScript", "Tailwind CSS", "Custom CMS", "Drizzle ORM", "PostgreSQL"];
 
 // ─── Image Gallery ────────────────────────────────────────────────────────────
 
-const ImageGallery = () => {
-    const [active, setActive] = useState(0);
+const ImageGallery = ({ activeIndex }) => {
     const [errored, setErrored] = useState({});
-    const CAROUSEL_DELAY = 3000;
 
     const getSrc = (item) => (errored[item.id] ? item.fallback : item.src);
     const handleError = (id) => setErrored((prev) => ({ ...prev, [id]: true }));
 
-    useEffect(() => {
-        const timer = setInterval(() => {
-            setActive((current) => (current + 1) % galleryItems.length);
-        }, CAROUSEL_DELAY);
-
-        return () => clearInterval(timer);
-    }, []);
+    const activeItem = galleryItems[activeIndex] ?? galleryItems[0];
 
     return (
-        <div className="grid w-full gap-2 md:grid-cols-[minmax(0,1fr)_10rem]">
+        <div className="w-full gap-2">
             <div className="relative min-h-[16rem] overflow-hidden md:min-h-[24rem]">
                 <div className="absolute inset-0" />
                 <AnimatePresence mode="wait">
                     <motion.div
-                        key={active}
+                        key={activeItem.id}
                         initial={{ opacity: 0, scale: 1.02 }}
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0, scale: 0.985 }}
@@ -118,8 +123,8 @@ const ImageGallery = () => {
                         className="absolute inset-0"
                     >
                         <Image
-                            src={getSrc(galleryItems[active])}
-                            alt={galleryItems[active].label}
+                            src={getSrc(activeItem)}
+                            alt={activeItem.label}
                             fill
                             className="object-contain"
                             sizes="(max-width: 768px) 100vw, 50vw"
@@ -128,14 +133,14 @@ const ImageGallery = () => {
                 </AnimatePresence>
                 <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 bg-linear-to-t from-slate-950/80 via-slate-900/35 to-transparent p-3 text-white">
                     <p className="mt-1 text-sm font-semibold tracking-wide">
-                        {galleryItems[active].label}
+                        {activeItem.label}
                     </p>
                     <div className="flex items-center gap-2">
                         {galleryItems.map((item, index) => (
                             <span
                                 key={`progress-${item.id}`}
                                 className={`h-1 transition-all duration-300 ${
-                                    active === index
+                                    activeIndex === index
                                         ? "w-8 bg-white"
                                         : "w-3 bg-white/35"
                                 }`}
@@ -144,43 +149,13 @@ const ImageGallery = () => {
                     </div>
                 </div>
             </div>
-
-            <div className="hidden md:flex flex-col gap-2">
-                {galleryItems.map((item, i) => (
-                    <button
-                        key={item.id}
-                        onClick={() => setActive(i)}
-                        type="button"
-                        aria-pressed={active === i}
-                        className={`group relative flex min-h-[5.6rem] items-center gap-4 overflow-hidden transition-all duration-300 ${
-                            active === i
-                                ? "border-slate-900 bg-slate-900 text-white shadow-[6px_6px_0_rgba(15,23,42,0.12)] dark:border-white dark:bg-white dark:text-slate-950"
-                                : "border-dashed border-slate-300 bg-white/60 text-slate-600 hover:border-slate-500 dark:border-slate-700 dark:bg-slate-950/40 dark:text-slate-300"
-                        }`}
-                    >
-                        <div className="relative aspect-video w-40 shrink-0 overflow-hidden">
-                            <Image
-                                src={getSrc(item)}
-                                alt={item.label}
-                                fill
-                                className="object-cover transition-transform duration-500"
-                                sizes="(max-width: 768px) 35vw, 12vw"
-                                onError={() => handleError(item.id)}
-                            />
-                        </div>
-                    </button>
-                ))}
-            </div>
         </div>
     );
 };
 
-const FlowDiagram = () => {
-    const [activeStep, setActiveStep] = useState("landing");
+const FlowDiagram = ({ activeIndex, onSelectStep }) => {
     const containerRef = useRef(null);
-    const STEP_DURATION = 4;
 
-    // GSAP clean entrance animation for header items
     useGSAP(
         () => {
             gsap.from(".flow-step", {
@@ -194,29 +169,14 @@ const FlowDiagram = () => {
         { scope: containerRef },
     );
 
-    // Automatically loop through steps on a timer
-    useEffect(() => {
-        const timer = setInterval(() => {
-            setActiveStep((current) => {
-                const currentIndex = flowSteps.findIndex(
-                    (step) => step.id === current,
-                );
-                const nextIndex = (currentIndex + 1) % flowSteps.length;
-                return flowSteps[nextIndex].id;
-            });
-        }, STEP_DURATION * 1000);
-
-        return () => clearInterval(timer);
-    }, []);
-
-    const activeIndex = flowSteps.findIndex((step) => step.id === activeStep);
-    const activeStepData = flowSteps[activeIndex];
-    const currentDescription = descriptions[activeStep];
+    const activeStepData = flowSteps[activeIndex] ?? flowSteps[0];
+    const currentDescription = descriptions[activeStepData.id];
 
     const handleStepSelect = (stepId) => {
-        if (stepId === activeStep) return;
+        const nextIndex = flowSteps.findIndex((step) => step.id === stepId);
+        if (nextIndex === -1 || nextIndex === activeIndex) return;
 
-        setActiveStep(stepId);
+        onSelectStep(nextIndex);
     };
 
     return (
@@ -226,7 +186,7 @@ const FlowDiagram = () => {
         >
             <div className="mb-4 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-6">
                 {flowSteps.map((step, index) => {
-                    const isActive = activeStep === step.id;
+                    const isActive = activeIndex === index;
                     const isComplete = index < activeIndex;
 
                     return (
@@ -287,7 +247,7 @@ const FlowDiagram = () => {
             <div className="flex flex-col justify-between border border-dashed border-slate-300 bg-white/50 p-4 dark:border-slate-700 dark:bg-slate-950/30">
                 <AnimatePresence mode="wait">
                     <motion.div
-                        key={activeStep}
+                        key={activeStepData.id}
                         initial={{ opacity: 0, y: 8 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -8 }}
@@ -347,6 +307,16 @@ const FlowDiagram = () => {
 
 const HighlightedProject = () => {
     const containerRef = useRef(null);
+    const [activeIndex, setActiveIndex] = useState(0);
+    const AUTO_ADVANCE_MS = 4000;
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setActiveIndex((current) => (current + 1) % galleryItems.length);
+        }, AUTO_ADVANCE_MS);
+
+        return () => clearInterval(timer);
+    }, []);
 
     useGSAP(
         () => {
@@ -368,25 +338,23 @@ const HighlightedProject = () => {
             <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
                 {/* Card 1 — Image gallery (2 cols) */}
                 <div className="hp-card md:col-span-4 border-2 border-dashed border-slate-300 dark:border-slate-700 p-2 bg-background">
-                    <ImageGallery />
+                    <ImageGallery activeIndex={activeIndex} />
                 </div>
 
                 {/* Card 2 — Project info (1 col) */}
                 <div className="hp-card md:col-span-4 border-2 border-dashed border-slate-300 dark:border-slate-700 p-4 bg-background flex flex-col md:flex-row gap-4 md:gap-6 items-start">
-                    <Link href="https://tubmind.space" target="_blank" className="flex flex-col shrink-0 text-start">
+                    <Link href="https://fragbasic.fun" target="_blank" className="flex flex-col shrink-0 text-start">
                         <h3 className="text-lg font-bold text-gray-900 dark:text-white leading-tight mb-1 flex gap-1 items-center">
-                            Tubmind
+                            FragBasic
                             <FiArrowUpRight className="size-5" />
                         </h3>
                         <p className="pixeltext text-xs tracking-wide text-slate-500 dark:text-slate-400">
-                            tubmind.space
+                            fragbasic.fun
                         </p>
                     </Link>
 
                     <p className="text-xs text-start text-slate-600 dark:text-slate-300 leading-relaxed flex-1">
-                        Tubmind is a private idea workspace for capturing rough
-                        thoughts fast, shaping them into structured concepts,
-                        and publishing the strongest ideas for feedback.
+                        FragBasic is a searchable FPS gear database that helps players compare mousepads, glasspads, gaming IEMs, and mouse skates through structured feel profiles, buying notes, and curated recommendation guides.
                     </p>
 
                     <div className="flex flex-wrap gap-1.5 md:max-w-70 md:justify-end">
@@ -403,7 +371,7 @@ const HighlightedProject = () => {
 
                 {/* Card 4 — Flow diagram (full width) */}
                 <div className="hp-card md:col-span-4 border-2 border-dashed border-slate-300 dark:border-slate-700 p-4 bg-background">
-                    <FlowDiagram />
+                    <FlowDiagram activeIndex={activeIndex} onSelectStep={setActiveIndex} />
                 </div>
             </div>
         </div>
