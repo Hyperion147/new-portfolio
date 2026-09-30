@@ -60,7 +60,7 @@ const BlobCursor = () => {
                             <video
                                 className="aspect-video w-full object-cover"
                                 src="/blocks/cursor.webm"
-                                poster="/projects/landing-ui/dashboard.png"
+                                poster="/projects/landing-ui/dashboard.webp"
                                 autoPlay
                                 muted
                                 loop

@@ -8,9 +8,9 @@ export const templateInfo = [
             "Template build using react, shadcn, forms, GSAP and motion. This project is mainly to show a workaround example of dashboard I have built as a working person, this includes small parts of all dashboards I have worked on till now. I will keep updating this as my UI skills improve. Treat it as a UI template.",
         href: "https://dashboard-hcode.vercel.app/",
         code: "https://github.com/Hyperion147/dashboard-react",
-        image: "/projects/landing-ui/dashboard.png",
+        image: "/projects/landing-ui/dashboard.webp",
         video: "/projects/video/dashboard.webm",
-        preview: "/projects/landing-ui/dashboard.png",
+        preview: "/projects/landing-ui/dashboard.webp",
         tags: [
             {
                 id: 1,
@@ -43,9 +43,9 @@ export const templateInfo = [
             "Template build using react, shadcn, forms, GSAP and motion. This project is mainly to show a workaround example of dashboard I have built as a working person, this includes small parts of all dashboards I have worked on till now. I will keep updating this as my UI skills improve. Treat it as a UI template.",
         href: "https://travel-hcode.vercel.app/",
         code: "https://github.com/Hyperion147/travel-website",
-        image: "/projects/landing-ui/travel.png",
+        image: "/projects/landing-ui/travel.webp",
         video: "/projects/video/travel.webm",
-        preview: "/projects/landing-ui/travel.png",
+        preview: "/projects/landing-ui/travel.webp",
         tags: [
             {
                 id: 1,
