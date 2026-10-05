@@ -1,7 +1,60 @@
 export const projectInfo = [
-    // Convergence
+    // FragBasic
     {
         id: 1,
+        title: "fragbasic.fun",
+        heading: "FragBasic",
+        description:
+            "FragBasic is a searchable FPS gear research catalog. It covers cloth mousepads, glasspads, gaming IEMs, and mouse skates with category-specific profiles for feel, performance, specifications, strengths and weaknesses, availability, and buying notes. A separate PostgreSQL and Drizzle CMS/API manages catalog data, it is not currently connected to public catalog publishing. Ratings and buying notes are editorial summaries, not standardized laboratory measurements.",
+        href: "https://fragbasic.fun/",
+        code: "https://github.com/Hyperion147/fragbasic",
+        image: "/projects/fragbasic.webp",
+        preview: "/projects/fragbasic.webp",
+        tags: [
+            {
+                id: 1,
+                name: "#nextjs",
+            },
+            {
+                id: 2,
+                name: "#typescript",
+            },
+            {
+                id: 3,
+                name: "#tailwindcss",
+            },
+            {
+                id: 4,
+                name: "#drizzleorm",
+            },
+            {
+                id: 5,
+                name: "#postgresql",
+            },
+        ],
+    },
+    // Tubmind
+    {
+        id: 2,
+        title: "tubmind.space",
+        heading: "Tubmind",
+        description:
+            "Tubmind is a private idea workspace for capturing rough thoughts, shaping them into structured concepts, and publishing selected ideas for feedback. The historical feature flow includes Google sign-in, private idea capture with ownership-aware sessions, organizing ideas into tubs, tasks and timestamps, public listings with community feedback, and admin moderation with user controls and audit visibility. Built with React, Tailwind CSS, shadcn/ui, React Hook Form, TanStack Query, and Zustand.",
+        href: "https://tubmind.space",
+        image: "/projects/tubmind.webp",
+        preview: "/projects/tubmind.webp",
+        tags: [
+            { id: 1, name: "#react" },
+            { id: 2, name: "#tailwindcss" },
+            { id: 3, name: "#shadcn" },
+            { id: 4, name: "#react-hook-form" },
+            { id: 5, name: "#tanstack-query" },
+            { id: 6, name: "#zustand" },
+        ],
+    },
+    // Convergence
+    {
+        id: 3,
         title: "convergence.suryansu.in",
         heading: "Convergence-UI Package",
         description:
@@ -26,39 +79,9 @@ export const projectInfo = [
             },
         ],
     },
-    // FragBasic
-    {
-        id: 2,
-        title: "fragbasic.fun",
-        heading: "FragBasic",
-        description:
-            "FragBasic is a competitive gaming gear database built for FPS players researching mousepads faster. The platform brings together cloth mousepads, glasspads, brand pages, category browsing, side-by-side comparisons, a universal compare flow, and a finder that helps players choose gear based on playstyle for games like Valorant, CS2, and Apex. It combines personal and community data into a focused research tool with a responsive, data-heavy interface.",
-        href: "https://fragbasic.fun/",
-        code: "https://github.com/Hyperion147/fragbasic",
-        image: "/projects/fragbasic.webp",
-        preview: "/projects/fragbasic.webp",
-        tags: [
-            {
-                id: 1,
-                name: "#nextjs",
-            },
-            {
-                id: 2,
-                name: "#typescript",
-            },
-            {
-                id: 3,
-                name: "#tailwind",
-            },
-            {
-                id: 4,
-                name: "#shadcn",
-            },
-        ],
-    },
     // Panipat Connect
     {
-        id: 3,
+        id: 4,
         title: "panipatconnect.com",
         heading: "Green Panipat Mission",
         description:
@@ -89,7 +112,7 @@ export const projectInfo = [
     },
     // Flora
     {
-        id: 4,
+        id: 5,
         title: "flora-hcode",
         heading: "Flora",
         description:
@@ -123,7 +146,7 @@ export const projectInfo = [
     },
     // SSH-18
     {
-        id: 5,
+        id: 6,
         title: "ssh-18.vercel.app",
         heading: "ssh-18 hackathon project",
         description:
@@ -154,7 +177,7 @@ export const projectInfo = [
     },
     // Todo
     {
-        id: 6,
+        id: 7,
         title: "todo-hcode",
         heading: "Todo App",
         description:
@@ -185,7 +208,7 @@ export const projectInfo = [
     },
     // Blog
     {
-        id: 7,
+        id: 8,
         title: "blog.suryansu.in",
         heading: "Blog",
         description:

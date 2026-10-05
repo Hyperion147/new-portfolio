@@ -23,7 +23,7 @@ const ProjectDetails = ({
             onClick={() => closeModal()}
         >
             <motion.div
-                className="relative w-full bg-background max-w-2xl shadow-sm bg-linear-to-l dark:text-white border-2 border-slate-300 z-60 mx-4"
+                className="relative w-full max-h-[calc(100vh-2rem)] overflow-y-auto bg-background max-w-2xl shadow-sm bg-linear-to-l dark:text-white border-2 border-slate-300 z-60 mx-4"
                 initial={{ opacity: 0, filter: "blur(14px)" }}
                 animate={{
                     opacity: 1,
@@ -59,13 +59,15 @@ const ProjectDetails = ({
                             >
                                 <RxExternalLink className="w-6 h-6" />
                             </a>
-                            <a
-                                href={code}
-                                target="_blank"
-                                className=" hover:-translate-y-1 transition-all duration-500"
-                            >
-                                <FaCode className="w-6 h-6" />
-                            </a>
+                            {code && (
+                                <a
+                                    href={code}
+                                    target="_blank"
+                                    className=" hover:-translate-y-1 transition-all duration-500"
+                                >
+                                    <FaCode className="w-6 h-6" />
+                                </a>
+                            )}
                         </div>
                     </div>
                     <p className="mb-3 text-sm text-gray-700 dark:text-gray-300">
