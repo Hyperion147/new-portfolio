@@ -1,10 +1,11 @@
 "use client";
-import { useEffect, useState, useMemo, memo, useRef } from "react";
+import { useState, useMemo, memo, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import RectTipComp from "../ui/rect-tip";
 import { GithubIcon } from "../ui/github-icon";
+import useGithubContributions from "@/lib/useGithubContributions";
 
 const getLevelColor = (level) => {
   switch (level) {
@@ -38,8 +39,7 @@ const ContributionSquare = memo(({ day, onHover }) => {
 ContributionSquare.displayName = "ContributionSquare";
 
 const GithubSection = ({ className = "" }) => {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const { data, loading } = useGithubContributions();
   const [hoveredDay, setHoveredDay] = useState(null);
   const containerRef = useRef(null);
   const iconRef = useRef(null);
@@ -51,39 +51,6 @@ const GithubSection = ({ className = "" }) => {
   const handleMouseLeave = () => {
     iconRef.current?.stopAnimation();
   };
-
-  useEffect(() => {
-    const controller = new AbortController();
-
-    const fetchGithubData = async () => {
-      setLoading(true);
-
-      try {
-        const res = await fetch(
-          "https://github-contributions-api.jogruber.de/v4/Hyperion147?y=last",
-          {
-            cache: "no-store",
-            signal: controller.signal,
-          }
-        );
-        const githubData = await res.json();
-        setData(githubData);
-      } catch (err) {
-        if (err.name !== "AbortError") {
-          console.error("Error fetching github data:", err);
-          setData(null);
-        }
-      } finally {
-        if (!controller.signal.aborted) {
-          setLoading(false);
-        }
-      }
-    };
-
-    fetchGithubData();
-
-    return () => controller.abort();
-  }, []);
 
   // Performance: Stagger animation using GSAP instead of 365+ Framer Motion delay props
   useGSAP(

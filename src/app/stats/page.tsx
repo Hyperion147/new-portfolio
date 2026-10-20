@@ -6,6 +6,7 @@ import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
 import Navbar from "@/components/utils/Navbar";
 import MobilePageHeading from "@/components/utils/MobilePageHeading";
 import { useState, useEffect } from "react";
+import useGithubContributions from "@/lib/useGithubContributions";
 import {
     FaGithub,
     FaGamepad,
@@ -172,6 +173,7 @@ const PbBar = ({ entry }: { entry: PersonalBestEntry | null }) => {
 
 export default function StatsPage() {
     const [profile, setProfile] = useState<MonkeyProfile | null>(null);
+    const { data: github, loading: githubLoading } = useGithubContributions();
 
     useEffect(() => {
         const fetchProfile = async () => {
@@ -350,8 +352,14 @@ export default function StatsPage() {
                                 <StatCard
                                     icon={<FaGithub />}
                                     title="Github"
-                                    value="900+"
-                                    subtitle="Contribution"
+                                    value={
+                                        githubLoading
+                                            ? "—"
+                                            : github
+                                                  ? `${github.total.lastYear.toLocaleString()}+`
+                                                  : "—"
+                                    }
+                                    subtitle="Contribution (past year)"
                                     link="https://github.com/Hyperion147"
                                 />
                             }
@@ -466,9 +474,9 @@ export default function StatsPage() {
 
                     <div className="mt-8 text-center">
                         <p className="text-xs dark:text-slate-500 text-slate-600">
-                            Stats are updated manually •{" "}
+                            Typing and GitHub stats are live •{" "}
                             <span className="italic">
-                                Last updated: March 2026
+                                Other stats updated manually (March 2026)
                             </span>
                         </p>
                     </div>
