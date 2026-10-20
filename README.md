@@ -11,7 +11,6 @@ This repo powers a multi-page portfolio with:
 - a bento-style landing page
 - an expanded projects showcase with shipped apps and UI templates
 - a stats page with Monkeytype data and personal snapshots
-- a `/blocks` page for reusable interactive UI experiments
 
 The project is focused on frontend presentation, motion, and polish while still keeping SEO, responsiveness, and deployment details production-ready.
 
@@ -22,7 +21,6 @@ The project is focused on frontend presentation, motion, and polish while still 
 | `/` | Hero, About, Skills, Projects, Experience, Education, GitHub, Links, Contact |
 | `/projects` | Full project archive plus UI template work |
 | `/stats` | Monkeytype stats, setup, gaming, academics, misc. |
-| `/blocks` | Experimental interactive blocks and reusable UI ideas |
 
 ## Stack
 
@@ -46,7 +44,6 @@ The project is focused on frontend presentation, motion, and polish while still 
 - Monkeytype profile integration
 - Project cards with image and video previews
 - Dedicated templates showcase
-- Blocks playground for interactive UI pieces
 - JSON-LD, sitemap, robots, OG image, and manifest support
 - Vercel Analytics integration
 
@@ -66,12 +63,6 @@ The project is focused on frontend presentation, motion, and polish while still 
 - `Dashboard - React`
 - `Travel Website Template`
 - `Student Hub`
-
-### Blocks
-
-- `Blob Cursor`
-- `Theme Clipper`
-- `Rect Tip`
 
 ## Local Setup
 

@@ -7,10 +7,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
     FiBarChart2,
-    FiBookOpen,
     FiFileText,
     FiGithub,
-    FiGrid,
     FiHome,
     FiMoreHorizontal,
 } from "react-icons/fi";
@@ -37,8 +35,6 @@ const links = [
         Icon: MdOutlineWorkOutline,
     },
     { href: "/stats", label: "Stats", external: false, Icon: FiBarChart2 },
-    { href: "/blocks", label: "Blocks", external: false, Icon: FiGrid },
-    { href: "/wall", label: "Wall", external: false, Icon: FiBookOpen },
 ];
 
 const mobileLinks = links.filter((link) => !link.external);
@@ -178,7 +174,7 @@ const Navbar = () => {
                     </div>
                 )}
 
-                <div className="grid grid-cols-6 items-center gap-1 rounded-2xl border border-slate-300/70 bg-background/88 p-1.5 shadow-[0_14px_44px_rgba(15,23,42,0.16)] backdrop-blur-2xl dark:border-slate-700/70">
+                <div className="grid grid-cols-4 items-center gap-1 rounded-2xl border border-slate-300/70 bg-background/88 p-1.5 shadow-[0_14px_44px_rgba(15,23,42,0.16)] backdrop-blur-2xl dark:border-slate-700/70">
                     {mobileLinks.map((link) => {
                         const Icon = link.Icon;
                         const active =
