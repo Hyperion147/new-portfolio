@@ -113,24 +113,41 @@ const ImageGallery = ({ activeIndex }) => {
         <div className="w-full gap-2">
             <div className="relative min-h-[12rem] overflow-hidden md:min-h-[30rem]">
                 <div className="absolute inset-0" />
-                <AnimatePresence mode="wait">
-                    <motion.div
-                        key={activeItem.id}
-                        initial={{ opacity: 0, scale: 1.02 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.985 }}
-                        transition={{ duration: 0.35, ease: "easeOut" }}
-                        className="absolute inset-0"
-                    >
-                        <Image
-                            src={getSrc(activeItem)}
-                            alt={activeItem.label}
-                            fill
-                            className="object-contain"
-                            sizes="(max-width: 768px) 100vw, 50vw"
-                        />
-                    </motion.div>
-                </AnimatePresence>
+                {/*
+                    Render every image up front and crossfade between them.
+                    Only mounting the active image makes each slide start its
+                    download exactly when it becomes visible, which is why the
+                    gallery looked empty for a moment on every auto-advance.
+                */}
+                {galleryItems.map((item, index) => {
+                    const isActive = index === activeIndex;
+
+                    return (
+                        <motion.div
+                            key={item.id}
+                            initial={false}
+                            animate={{
+                                opacity: isActive ? 1 : 0,
+                                scale: isActive ? 1 : 1.02,
+                            }}
+                            transition={{ duration: 0.35, ease: "easeOut" }}
+                            className="absolute inset-0"
+                            style={{ pointerEvents: isActive ? "auto" : "none" }}
+                            aria-hidden={!isActive}
+                        >
+                            <Image
+                                src={getSrc(item)}
+                                alt={item.label}
+                                fill
+                                loading={index === 0 ? "eager" : "lazy"}
+                                fetchPriority={index === 0 ? "high" : "auto"}
+                                onError={() => handleError(item.id)}
+                                className="object-contain"
+                                sizes="(max-width: 768px) 100vw, 1024px"
+                            />
+                        </motion.div>
+                    );
+                })}
                 <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 bg-linear-to-t from-slate-950/80 via-slate-900/35 to-transparent p-3 text-white">
                     <p className="mt-1 text-sm font-semibold tracking-wide">
                         {activeItem.label}
