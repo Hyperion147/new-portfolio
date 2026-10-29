@@ -7,13 +7,13 @@ export default function JSONLD() {
     name: "Suryansu",
     url: "https://suryansu.in",
     image: "https://suryansu.in/og-image.png",
-    jobTitle: "Frontend Developer",
+    jobTitle: "Fullstack Developer",
     sameAs: [
       "https://github.com/Hyperion147",
       "https://linkedin.com/in/suryansu",
     ],
     description:
-      "Frontend Developer specializing in React, Next.js, TypeScript, and modern web technologies.",
+      "Fullstack Developer specializing in React, Next.js, TypeScript, Go, Node and modern web technologies.",
   };
 
   return (

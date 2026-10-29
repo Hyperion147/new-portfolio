@@ -2,7 +2,7 @@ export const experienceInfo = [
     {
         id: 1,
         company: "AdvikaInnovate",
-        role: "Frontend Developer",
+        role: "Web and Native Developer",
         duration: "Aug 2025 - June 2026",
         location: "Remote | New Delhi",
         description: [

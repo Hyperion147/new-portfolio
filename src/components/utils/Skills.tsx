@@ -97,7 +97,7 @@ const Skills = ({ className = "" }: { className?: string }) => {
       )}
       aria-label="Technologies and skills"
     >
-      <h2 className="sr-only">Frontend Development Skills</h2>
+      <h2 className="sr-only">Fullstack Development Skills</h2>
       <AnimatedTooltip items={languages} />
     </section>
   );

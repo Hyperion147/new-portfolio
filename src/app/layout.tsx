@@ -12,19 +12,23 @@ const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.suryansu.in"),
   title: {
-    default: "Suryansu | Frontend Developer",
+    default: "Suryansu Singh | Fullstack Developer",
     template: "%s | Suryansu",
   },
   description:
-    "Suryansu Singh, Frontend Developer specializing in building modern, responsive, and high-performance web applications using React, Next.js, and TypeScript.",
+    "Suryansu Singh, Fullstack Developer specializing in building modern, responsive, and high-performance web applications using React, Next.js, Node, Go and TypeScript.",
   applicationName: "Suryansu Portfolio",
   alternates: {
     canonical: "https://www.suryansu.in/",
   },
   keywords: [
     "Suryansu",
+    "Fullstack Developer",
+    "Frontend Designer",
     "Frontend Developer",
     "React Developer",
+    "GoLang Developer",
+    "Rust Developer",
     "Next.js Developer",
     "Portfolio",
     "Web Development",
@@ -38,10 +42,10 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://www.suryansu.in",
-    siteName: "Suryansu | Frontend Developer",
-    title: "Suryansu | Frontend Developer",
+    siteName: "Suryansu Singh | Fullstack Developer",
+    title: "Suryansu Singh | Fullstack Developer",
     description:
-      "Personal portfolio showcasing projects, experience, and skills in modern web development.",
+      "Personal portfolio showcasing projects, experience, and skills in modern development.",
     images: [
       {
         url: "https://www.suryansu.in/og-image.png",
@@ -54,9 +58,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Suryansu | Frontend Developer",
+    title: "Suryansu Singh | Fullstack Developer",
     description:
-      "Personal portfolio showcasing projects, experience, and skills in modern web development.",
+      "Personal portfolio showcasing projects, experience, and skills in modern development.",
     images: [
       {
         url: "https://www.suryansu.in/og-image.png",

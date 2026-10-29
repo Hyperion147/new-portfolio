@@ -217,7 +217,7 @@ const GithubSection = ({ className = "" }) => {
         <RectTipComp
           heading="@Hyperion147"
           photo="/profile.jpg"
-          description="frontend > fullstack"
+          description="fullstack > frontend"
           width="w-48"
           link="https://github.com/Hyperion147"
           className="text-xs font-medium text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-white transition-colors"

@@ -71,7 +71,7 @@ const MobileIntroCard = () => {
                             Suryansu Singh
                         </p>
                         <p className="mt-2 text-sm font-medium text-slate-500 dark:text-slate-400">
-                            {getSuryansuAge()} | Frontend &gt; Fullstack
+                            {getSuryansuAge()} | Fullstack &gt; Frontend
                         </p>
                         <span className="text-sm">
                             Part time college, full time dev

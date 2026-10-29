@@ -49,7 +49,7 @@ const Hero = () => {
                         Suryansu Singh
                     </p>
                     <p className="hero-copy text-lg font-medium text-slate-700 dark:text-slate-300">
-                        {getSuryansuAge()} | Frontend &gt; Fullstack
+                        {getSuryansuAge()} | Fullstack &gt; Frontend
                     </p>
                     <div className="hero-copy flex items-center gap-2 text-sm font-medium mt-2">
                         <span className="inline-block rounded-full w-2 h-2 text-xs font-medium bg-green-500 mt-0.5" />
