@@ -6,7 +6,7 @@ import { gsap } from "gsap";
 const MobilePageHeading = ({ eyebrow, title }) => {
 
     useGSAP(() => {
-            gsap.from(".mobile-header", {
+            gsap.from(".page-header", {
                 y: -50,
                 duration: 1,
                 filter: "blur(15px)",
@@ -15,7 +15,7 @@ const MobilePageHeading = ({ eyebrow, title }) => {
         });
 
     return (
-        <div className="mb-8 md:hidden mobile-header">
+        <div className="mb-8 page-header">
             <div className="relative flex flex-col pt-2 px-4">
                 <div className="corner-line bg-slate-800 dark:bg-white -top-[4px] -left-[2px] h-[2px] w-2 absolute" />
                 <div className="corner-line bg-slate-800 dark:bg-white -top-[2px] -left-[2px] h-2 w-[2px] absolute" />
@@ -30,9 +30,9 @@ const MobilePageHeading = ({ eyebrow, title }) => {
                     <p className="pixeltext text-xs uppercase text-slate-500 dark:text-slate-400">
                         {eyebrow}
                     </p>
-                    <p className="text-4xl font-semibold leading-none text-slate-950 dark:text-white">
+                    <h1 className="text-4xl md:text-5xl font-semibold leading-none text-slate-950 dark:text-white">
                         {title}
-                    </p>
+                    </h1>
                 </div>
             </div>
         </div>

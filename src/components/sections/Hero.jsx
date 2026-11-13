@@ -38,16 +38,17 @@ const Hero = () => {
                         fill
                         sizes="96px"
                         className="object-cover"
-                        priority
                     />
                 </div>
 
                 <div className="min-w-0">
-                    <p
-                        className="hero-copy text-3xl font-semibold leading-tight text-slate-950 dark:text-white"
-                    >
+                    <h1 className="hero-copy text-3xl font-semibold leading-tight text-slate-950 dark:text-white">
                         Suryansu Singh
-                    </p>
+                        <span className="sr-only">
+                            {" "}
+                            — Fullstack Developer
+                        </span>
+                    </h1>
                     <p className="hero-copy text-lg font-medium text-slate-700 dark:text-slate-300">
                         {getSuryansuAge()} | Fullstack &gt; Frontend
                     </p>

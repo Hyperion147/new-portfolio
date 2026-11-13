@@ -40,7 +40,6 @@ const MobileIntroCard = () => {
                     fill
                     sizes="(max-width: 768px) 100vw"
                     className="hidden object-cover dark:block"
-                    priority
                 />
                 <div
                     className="absolute inset-0 opacity-35 mix-blend-overlay"
@@ -61,15 +60,18 @@ const MobileIntroCard = () => {
                         fill
                         sizes="96px"
                         className="object-cover"
-                        priority
                     />
                 </div>
 
                 <div className="mobile-intro-animate mb-4 flex items-start justify-between gap-4">
                     <div>
-                        <p className="text-4xl font-semibold leading-none text-slate-950 dark:text-white">
+                        <h1 className="text-4xl font-semibold leading-none text-slate-950 dark:text-white">
                             Suryansu Singh
-                        </p>
+                            <span className="sr-only">
+                                {" "}
+                                — Fullstack Developer
+                            </span>
+                        </h1>
                         <p className="mt-2 text-sm font-medium text-slate-500 dark:text-slate-400">
                             {getSuryansuAge()} | Fullstack &gt; Frontend
                         </p>

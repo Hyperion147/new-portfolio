@@ -97,7 +97,9 @@ const Skills = ({ className = "" }: { className?: string }) => {
       )}
       aria-label="Technologies and skills"
     >
-      <h2 className="sr-only">Fullstack Development Skills</h2>
+      <h2 className="w-full text-center text-xs font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
+        Skills
+      </h2>
       <AnimatedTooltip items={languages} />
     </section>
   );

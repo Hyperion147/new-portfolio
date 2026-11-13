@@ -139,8 +139,7 @@ const ImageGallery = ({ activeIndex }) => {
                                 src={getSrc(item)}
                                 alt={item.label}
                                 fill
-                                loading={index === 0 ? "eager" : "lazy"}
-                                fetchPriority={index === 0 ? "high" : "auto"}
+                                loading="lazy"
                                 onError={() => handleError(item.id)}
                                 className="object-contain"
                                 sizes="(max-width: 768px) 100vw, 1024px"
@@ -284,9 +283,9 @@ const FlowDiagram = ({ activeIndex, onSelectStep }) => {
                                 step 0{activeIndex + 1}
                             </span>
                         </div>
-                        <h4 className="mt-2 text-2xl font-bold text-slate-900 dark:text-white">
+                        <h3 className="mt-2 text-2xl font-bold text-slate-900 dark:text-white">
                             {activeStepData.label}
-                        </h4>
+                        </h3>
                         <p className="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
                             {currentDescription}
                         </p>
@@ -360,7 +359,12 @@ const HighlightedProject = () => {
 
                 {/* Card 2 — Project info (1 col) */}
                 <div className="hp-card md:col-span-4 border-2 border-dashed border-slate-300 dark:border-slate-700 p-4 bg-background flex flex-col md:flex-row gap-4 md:gap-6 items-start">
-                    <Link href="https://fragbasic.fun" target="_blank" className="flex flex-col shrink-0 text-start">
+                    <Link
+                        href="https://fragbasic.fun"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex flex-col shrink-0 text-start"
+                    >
                         <h3 className="text-lg font-bold text-gray-900 dark:text-white leading-tight mb-1 flex gap-1 items-center">
                             FragBasic
                             <FiArrowUpRight className="size-5" />

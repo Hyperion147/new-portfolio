@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import { Toaster } from "react-hot-toast";
@@ -9,65 +9,74 @@ import { cn } from "@/lib/utils";
 
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
+const googleSiteVerification = process.env.GOOGLE_SITE_VERIFICATION;
+const bingSiteVerification = process.env.BING_SITE_VERIFICATION;
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.suryansu.in"),
   title: {
     default: "Suryansu Singh | Fullstack Developer",
-    template: "%s | Suryansu",
+    template: "%s | Suryansu Singh",
   },
   description:
-    "Suryansu Singh, Fullstack Developer specializing in building modern, responsive, and high-performance web applications using React, Next.js, Node, Go and TypeScript.",
-  applicationName: "Suryansu Portfolio",
+    "Suryansu Singh is a fullstack developer building fast, responsive web apps with React, Next.js, TypeScript, Node.js, and Go.",
+  applicationName: "Suryansu Singh Portfolio",
   alternates: {
-    canonical: "https://www.suryansu.in/",
+    canonical: "/",
   },
   keywords: [
-    "Suryansu",
+    "Suryansu Singh",
     "Fullstack Developer",
-    "Frontend Designer",
     "Frontend Developer",
     "React Developer",
-    "GoLang Developer",
-    "Rust Developer",
     "Next.js Developer",
+    "TypeScript Developer",
+    "Node.js Developer",
     "Portfolio",
     "Web Development",
     "JavaScript",
     "TypeScript",
   ],
-  authors: [{ name: "Suryansu" }],
-  creator: "Suryansu",
+  authors: [{ name: "Suryansu Singh", url: "https://www.suryansu.in" }],
+  creator: "Suryansu Singh",
   category: "technology",
+  manifest: "/manifest.json",
+  appleWebApp: {
+    capable: true,
+    title: "Suryansu Singh",
+    statusBarStyle: "default",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://www.suryansu.in",
-    siteName: "Suryansu Singh | Fullstack Developer",
+    url: "/",
+    siteName: "Suryansu Singh",
     title: "Suryansu Singh | Fullstack Developer",
     description:
-      "Personal portfolio showcasing projects, experience, and skills in modern development.",
+      "Portfolio of Suryansu Singh — fullstack developer building React and Next.js products, open-source packages, and UI experiments.",
     images: [
       {
-        url: "https://www.suryansu.in/og-image.png",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Suryansu Portfolio",
+        alt: "Suryansu Singh — Fullstack Developer",
         type: "image/png",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
+    site: "@suryansu87",
+    creator: "@suryansu87",
     title: "Suryansu Singh | Fullstack Developer",
     description:
-      "Personal portfolio showcasing projects, experience, and skills in modern development.",
+      "Portfolio of Suryansu Singh — fullstack developer building React and Next.js products, open-source packages, and UI experiments.",
     images: [
       {
-        url: "https://www.suryansu.in/og-image.png",
-        alt: "Suryansu Portfolio",
+        url: "/og-image.png",
+        alt: "Suryansu Singh — Fullstack Developer",
       },
     ],
-    creator: "@suryansu",
   },
   robots: {
     index: true,
@@ -80,15 +89,26 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  other: {
-    "og:image": "https://www.suryansu.in/og-image.png",
-    "og:image:url": "https://www.suryansu.in/og-image.png",
-    "og:image:secure_url": "https://www.suryansu.in/og-image.png",
-    "og:image:width": "1200",
-    "og:image:height": "630",
-    "og:image:alt": "Suryansu Portfolio",
-    "og:image:type": "image/png",
-  },
+  ...(googleSiteVerification || bingSiteVerification
+    ? {
+        verification: {
+          ...(googleSiteVerification
+            ? { google: googleSiteVerification }
+            : {}),
+          ...(bingSiteVerification
+            ? { other: { "msvalidate.01": bingSiteVerification } }
+            : {}),
+        },
+      }
+    : {}),
+};
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f8fafc" },
+    { media: "(prefers-color-scheme: dark)", color: "#1e293b" },
+  ],
+  colorScheme: "light dark",
 };
 
 export default function RootLayout({
@@ -120,14 +140,6 @@ export default function RootLayout({
             `,
           }}
         />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <meta name="theme-color" content="#1e293b" />
-        <link rel="manifest" href="/manifest.json" />
         <JSONLD />
       </head>
       <body className="overflow-x-hidden" suppressHydrationWarning>

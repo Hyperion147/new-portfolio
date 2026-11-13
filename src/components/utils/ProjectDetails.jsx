@@ -55,17 +55,23 @@ const ProjectDetails = ({
                             <a
                                 href={href}
                                 target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label={`Visit ${heading} live site`}
                                 className=" hover:-translate-y-1 transition-all duration-500"
                             >
                                 <RxExternalLink className="w-6 h-6" />
+                                <span className="sr-only">Live site</span>
                             </a>
                             {code && (
                                 <a
                                     href={code}
                                     target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label={`View ${heading} source code`}
                                     className=" hover:-translate-y-1 transition-all duration-500"
                                 >
                                     <FaCode className="w-6 h-6" />
+                                    <span className="sr-only">Source code</span>
                                 </a>
                             )}
                         </div>

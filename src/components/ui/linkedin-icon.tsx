@@ -68,7 +68,7 @@ const LinkedinIcon = forwardRef<LinkedinIconHandle, LinkedinIconProps>(
    (e?: React.MouseEvent<HTMLDivElement>) => {
     if (!isAnimated || reduced) return;
     if (!isControlled.current) controls.start("animate");
-    else onMouseEnter?.(e as any);
+    else if (e) onMouseEnter?.(e);
    },
    [controls, reduced, isAnimated, onMouseEnter],
   );
@@ -76,7 +76,7 @@ const LinkedinIcon = forwardRef<LinkedinIconHandle, LinkedinIconProps>(
   const handleLeave = useCallback(
    (e?: React.MouseEvent<HTMLDivElement>) => {
     if (!isControlled.current) controls.start("normal");
-    else onMouseLeave?.(e as any);
+    else if (e) onMouseLeave?.(e);
    },
    [controls, onMouseLeave],
   );

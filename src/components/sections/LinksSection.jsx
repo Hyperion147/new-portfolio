@@ -22,7 +22,7 @@ const LinkCard = ({ id, label, handle, href, Icon }) => {
             key={id}
             href={href}
             target={href.startsWith("mailto") ? "_self" : "_blank"}
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className="flex items-center gap-3 px-4 py-3 border border-slate-300 dark:border-slate-700 rounded-sm hover:border-slate-500 dark:hover:border-slate-400 hover:shadow-[4px_4px_0px_0px_rgba(203,213,225)] dark:hover:shadow-[4px_4px_0px_0px_rgba(51,65,85)] transition-all duration-200"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
@@ -62,7 +62,9 @@ const LinksSection = ({ className = "" }) => {
             )}
         >
             <div className="max-w-5xl mx-auto">
-                <h2 className="sr-only">Social Links</h2>
+                <h2 className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
+                    Social Links
+                </h2>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                     {linksInfo.map((link) => (
                         <LinkCard key={link.id} {...link} />

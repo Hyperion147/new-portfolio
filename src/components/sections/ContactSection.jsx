@@ -14,7 +14,7 @@ const noiseStyle = {
     backgroundSize: "140px 140px",
 };
 
-const LinkCard = ({ id, href, Icon }) => {
+const LinkCard = ({ id, label, href, Icon }) => {
     const iconRef = useRef(null);
 
     const handleMouseEnter = () => {
@@ -30,8 +30,8 @@ const LinkCard = ({ id, href, Icon }) => {
             key={id}
             href={href}
             target={href.startsWith("mailto") ? "_self" : "_blank"}
-            rel="noreferrer"
-            className="flex items-center gap-3 p-2"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-2 py-1 text-sm font-medium text-slate-700 transition-colors hover:text-slate-950 dark:text-slate-300 dark:hover:text-white"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
         >
@@ -40,6 +40,7 @@ const LinkCard = ({ id, href, Icon }) => {
                 size={20}
                 className="shrink-0 text-gray-600 dark:text-gray-300"
             />
+            <span>{label}</span>
         </a>
     );
 };
@@ -72,7 +73,7 @@ const ContactSection = ({ className = "" }) => {
     });
 
     return (
-        <footer
+        <section
             id="contact"
             className={cn(
                 "text-gray-500 w-full mx-auto h-full flex flex-col md:flex-row gap-8 items-center md:items-stretch",
@@ -82,19 +83,17 @@ const ContactSection = ({ className = "" }) => {
             <div className="relative w-1/2 shrink-0 overflow-hidden bg-background md:flex hidden">
                 <Image
                     src="/contact-light.jpg"
-                    alt="Light theme mobile portfolio preview"
+                    alt="Suryansu Singh portfolio contact section preview"
                     fill
-                    sizes="(max-width: 768px) 100vw"
+                    sizes="(min-width: 1280px) 512px, (min-width: 768px) 45vw, 100vw"
                     className="object-cover dark:hidden images"
-                    priority
                 />
                 <Image
                     src="/contact-dark.jpg"
-                    alt="Dark theme mobile portfolio preview"
+                    alt="Suryansu Singh portfolio contact section dark theme preview"
                     fill
-                    sizes="(max-width: 768px) 100vw"
+                    sizes="(min-width: 1280px) 512px, (min-width: 768px) 45vw, 100vw"
                     className="hidden object-cover dark:block images"
-                    priority
                 />
                 <div
                     className="absolute inset-0 opacity-100 mix-blend-overlay"
@@ -115,6 +114,9 @@ const ContactSection = ({ className = "" }) => {
             </div>
 
             <div className="flex flex-1 flex-col justify-center items-center md:items-start gap-2 contactCont">
+                <h2 className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
+                    Contact
+                </h2>
                 <button
                     className="no-underline group cursor-pointer relative font-semibold leading-6 dark:text-slate-200 text-slate-800 gap-2 overflow-hidden group dark:hover:text-slate-300 hover:text-slate-600"
                     data-cal-namespace="15min"
@@ -125,20 +127,22 @@ const ContactSection = ({ className = "" }) => {
                         Schedule a meet
                     </p>
                 </button>
-                <div className="md:flex hidden">
-                    <h2 className="sr-only">Social Links</h2>
-                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                <nav
+                    aria-label="Social links"
+                    className="md:flex hidden"
+                >
+                    <div className="grid grid-cols-2 gap-2">
                         {linksInfo.map((link) => (
                             <LinkCard key={link.id} {...link} />
                         ))}
                     </div>
-                </div>
+                </nav>
                 <p className="text-sm text-slate-500 dark:text-slate-400 pixeltext md:pl-1 w-70 md:w-full text-center md:text-left">
-                    let's talk about your project and how I can help you with
-                    it.
+                    let&apos;s talk about your project and how I can help you
+                    with it.
                 </p>
             </div>
-        </footer>
+        </section>
     );
 };
 

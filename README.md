@@ -2,7 +2,7 @@
 
 Personal portfolio built with Next.js 16, React 19, and Tailwind CSS 4.
 
-Live site: [suryansu.in](https://suryansu.in)
+Live site: [www.suryansu.in](https://www.suryansu.in)
 
 ## Overview
 
@@ -75,10 +75,19 @@ pnpm install
 Create `.env`:
 
 ```env
-NEXT_PUBLIC_MONKEY_API=
-NEXT_PUBLIC_MONKEY_USER=
-NEXT_PUBLIC_MONKEY_KEY=
+# Server-side Monkeytype profile (preferred)
+MONKEY_API=https://api.monkeytype.com/
+MONKEY_USER=
+MONKEY_KEY=
+
+# Optional search engine verification tokens
+GOOGLE_SITE_VERIFICATION=
+BING_SITE_VERIFICATION=
 ```
+
+The Monkeytype values fall back to the legacy `NEXT_PUBLIC_MONKEY_*` variables
+if the server-side ones are not set. Prefer the non-public names so the API key
+is never shipped to the browser.
 
 Start the dev server:
 
