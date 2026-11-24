@@ -44,18 +44,15 @@ const Hero = () => {
                 <div className="min-w-0">
                     <h1 className="hero-copy text-3xl font-semibold leading-tight text-slate-950 dark:text-white">
                         Suryansu Singh
-                        <span className="sr-only">
-                            {" "}
-                            — Fullstack Developer
-                        </span>
+                        <span className="sr-only"> — Fullstack Developer</span>
                     </h1>
                     <p className="hero-copy text-lg font-medium text-slate-700 dark:text-slate-300">
-                        {getSuryansuAge()} | Fullstack &gt; Frontend
+                        {getSuryansuAge()}{" "}
+                        <span className="text-sm">| Fullstack Developer</span>
                     </p>
                     <div className="hero-copy flex items-center gap-2 text-sm font-medium mt-2">
-                        <span className="inline-block rounded-full w-2 h-2 text-xs font-medium bg-green-500 mt-0.5" />
                         <span className="flex gap-1">
-                            open to
+                            available for
                             <TrueFocus
                                 sentence="work freelance"
                                 manualMode={false}
@@ -70,7 +67,7 @@ const Hero = () => {
 
             <div>
                 <p className="hero-copy pixeltext text-xl text-slate-800 dark:text-slate-100">
-                    Part time college, full time dev
+                    Part time student, full time builder
                 </p>
                 <p
                     className="hero-copy mt-2 max-w-2xl text-sm leading-6 text-slate-600 dark:text-slate-300"

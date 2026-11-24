@@ -2,29 +2,29 @@ export const experienceInfo = [
     {
         id: 1,
         company: "AdvikaInnovate",
-        role: "Web and Native Developer",
-        duration: "Aug 2025 - June 2026",
-        location: "Remote | New Delhi",
+        role: "Web and Mobile Developer Intern",
+        duration: "Aug 2025 – Jun 2026",
+        location: "Remote · New Delhi",
         description: [
-            "HRMS dashboard admin and employee, turborepo project (complete).",
-            "Worked on the NexAmaze Inventory Management tool.",
-            "React Native App that scans QR and perform calling functions through WebRTC and Socket.io with encryption on Cars."
+            "Built admin and employee dashboards for an HRMS platform within a Turborepo monorepo.",
+            "Developed features for NexAmaze, an inventory management platform, using React, Next.js, and TypeScript.",
+            "Built a React Native application that scans vehicle QR codes and enables encrypted real-time calling using WebRTC and Socket.IO."
         ],
-        technologies: ["React", "NextJs", "TypeScript", "React-Native", "Tanstack Query", "GSAP", "MUI", "Zod", "Socket.IO", "WebRTC"],
+        technologies: ["React", "Next.js", "TypeScript", "React Native", "TanStack Query", "GSAP", "MUI", "Zod", "Socket.IO", "WebRTC"],
         type: "internship",
     },
     {
         id: 2,
         company: "Fast2SMM",
         role: "Fullstack Developer Intern",
-        duration: "Mar 2025 - Aug 2025",
+        duration: "Mar 2025 – Aug 2025",
         location: "Panipat, Haryana",
         description: [
-            "Developed a comprehensive plantation website enabling users to add and geotag their plants, fostering community engagement throughout the city of Panipat.",
-            "Implemented an admin dashboard for seamless management and a competitive leaderboard system.",
-            "Created a dedicated plant section with downloadable certificates recognizing user contributions."
+            "Developed a community plantation platform that allows users to register and geotag plants across Panipat.",
+            "Built an administrative dashboard for managing users and plantation records, along with a leaderboard to encourage participation.",
+            "Implemented plant profiles and downloadable certificates recognizing users’ environmental contributions."
         ],
-        technologies: ["React", "Tailwind CSS", "Supabase", "JavaScript", "Leaflet", "ThreeJs"],
+        technologies: ["React", "Tailwind CSS", "Supabase", "JavaScript", "Leaflet", "Three.js"],
         type: "internship",
     },
 ];

@@ -31,7 +31,8 @@ const LinkCard = ({ id, label, href, Icon }) => {
             href={href}
             target={href.startsWith("mailto") ? "_self" : "_blank"}
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-2 py-1 text-sm font-medium text-slate-700 transition-colors hover:text-slate-950 dark:text-slate-300 dark:hover:text-white"
+            aria-label={label}
+            className="flex items-center gap-3 p-2"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
         >
@@ -40,7 +41,6 @@ const LinkCard = ({ id, label, href, Icon }) => {
                 size={20}
                 className="shrink-0 text-gray-600 dark:text-gray-300"
             />
-            <span>{label}</span>
         </a>
     );
 };
@@ -114,9 +114,7 @@ const ContactSection = ({ className = "" }) => {
             </div>
 
             <div className="flex flex-1 flex-col justify-center items-center md:items-start gap-2 contactCont">
-                <h2 className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
-                    Contact
-                </h2>
+                <h2 className="sr-only">Contact</h2>
                 <button
                     className="no-underline group cursor-pointer relative font-semibold leading-6 dark:text-slate-200 text-slate-800 gap-2 overflow-hidden group dark:hover:text-slate-300 hover:text-slate-600"
                     data-cal-namespace="15min"
@@ -131,7 +129,7 @@ const ContactSection = ({ className = "" }) => {
                     aria-label="Social links"
                     className="md:flex hidden"
                 >
-                    <div className="grid grid-cols-2 gap-2">
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                         {linksInfo.map((link) => (
                             <LinkCard key={link.id} {...link} />
                         ))}

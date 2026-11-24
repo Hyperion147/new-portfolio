@@ -62,9 +62,7 @@ const LinksSection = ({ className = "" }) => {
             )}
         >
             <div className="max-w-5xl mx-auto">
-                <h2 className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
-                    Social Links
-                </h2>
+                <h2 className="sr-only">Social Links</h2>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                     {linksInfo.map((link) => (
                         <LinkCard key={link.id} {...link} />

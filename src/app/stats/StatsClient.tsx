@@ -155,6 +155,7 @@ export default function StatsClient({
                 <Navbar />
 
                 <div className="pt-4 md:pt-28 px-4 pb-28 max-w-7xl mx-auto">
+                    <h1 className="sr-only">Suryansu Singh Personal Stats</h1>
                     <MobilePageHeading
                         eyebrow="numbers"
                         title="Stats"

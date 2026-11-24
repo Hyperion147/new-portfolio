@@ -161,6 +161,7 @@ export default function ProjectsPageClient() {
       <div className="overflow-x-hidden transition-colors duration-500">
         <div className="pt-4 md:pt-28 px-4 pb-28 max-w-7xl mx-auto">
           <Navbar />
+          <h1 className="sr-only">Projects by Suryansu Singh</h1>
           <MobilePageHeading
             eyebrow="selected work"
             title="Projects"
@@ -172,9 +173,7 @@ export default function ProjectsPageClient() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.15 }}
           >
-            <h2 className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
-              Selected Projects
-            </h2>
+            <h2 className="sr-only">Selected Projects</h2>
             <BentoGrid className="md:auto-rows-auto md:grid-cols-3 gap-4 mb-12">
               {projectInfo.map((project) => (
                 <ProjectCard key={project.id} project={project} />
@@ -188,9 +187,7 @@ export default function ProjectsPageClient() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <h2 className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
-              UI Templates
-            </h2>
+            <h2 className="sr-only">UI Templates</h2>
             <BentoGrid className="md:auto-rows-auto md:grid-cols-3 gap-4">
               {templateInfo.map((template) => (
                 <ProjectCard key={template.id} project={template} />

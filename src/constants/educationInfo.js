@@ -9,18 +9,10 @@ export const educationInfo = [
     },
     {
         id: 2,
-        institution: "Kurukshetra University (IB PG College)",
+        institution: "Kurukshetra University",
         degree: "Bachelors of Computer Applications",
         field: "Computer Science",
         duration: "2023 - 2026",
         location: "Panipat, Haryana"
-    },
-    {
-        id: 3,
-        institution: "St. Francis De Sales Junior College",
-        degree: "Senior Secondary (XII)",
-        field: "Science - PCM with Computer Science",
-        duration: "2021 - 2023",
-        location: "Nagpur, Maharashtra"
-    },
+    }
 ];
