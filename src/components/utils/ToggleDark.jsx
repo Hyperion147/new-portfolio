@@ -30,6 +30,7 @@ const ToggleDark = () => {
         if (isDark === null || !toggleRef.current) return;
         const newIsDark = !isDark;
         const root = document.documentElement;
+        if (root.classList.contains("theme-switching")) return;
 
         if (
             !document.startViewTransition ||
@@ -44,6 +45,7 @@ const ToggleDark = () => {
 
         const transition = document.startViewTransition(() => {
             flushSync(() => {
+                root.classList.add("theme-pixel-wave");
                 setIsDark(newIsDark);
                 updateTheme(newIsDark);
             });
@@ -57,16 +59,18 @@ const ToggleDark = () => {
             const x = left + width / 2;
             const y = top + height / 2;
 
-            const right = window.innerWidth - left;
-            const bottom = window.innerHeight - top;
+            const maxRadius = Math.ceil(Math.hypot(
+                Math.max(x, window.innerWidth - x),
+                Math.max(y, window.innerHeight - y)
+            )) + 32;
 
-            const maxRadius = Math.hypot(
-                Math.max(left, right),
-                Math.max(top, bottom)
-            );
-
-            const duration = 1050;
+            const duration = 1400;
             const easing = "cubic-bezier(0.35, 0, 0.2, 1)";
+
+            root.animate(
+                { filter: ["blur(0px)", "blur(30px)"] },
+                { duration, easing, pseudoElement: "::view-transition-old(root)" }
+            );
 
             root.animate(
                 {
@@ -82,22 +86,22 @@ const ToggleDark = () => {
                 }
             );
 
+            root.style.setProperty("--theme-wave-origin", `${x}px ${y}px`);
             root.animate(
-                {
-                    filter: ["blur(0px)", "blur(30px)"],
-                    opacity: [1, 0.72],
-                    transform: ["scale(1)", "scale(1.012)"],
-                },
+                { "--theme-wave-radius": ["0px", `${maxRadius}px`] },
                 {
                     duration,
                     easing,
-                    pseudoElement: "::view-transition-old(root)",
+                    pseudoElement: "::view-transition-new(theme-pixels)",
                 }
             );
 
             await transition.finished;
+        } catch (error) {
+            if (error.name !== "AbortError") throw error;
         } finally {
-            root.classList.remove("theme-switching");
+            root.style.removeProperty("--theme-wave-origin");
+            root.classList.remove("theme-switching", "theme-pixel-wave");
         }
     };
 

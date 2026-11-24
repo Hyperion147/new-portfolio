@@ -170,6 +170,40 @@ body {
     z-index: 1;
 }
 
+@property --theme-wave-radius {
+    syntax: "<length>";
+    inherits: false;
+    initial-value: 0px;
+}
+
+html.theme-pixel-wave body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    view-transition-name: theme-pixels;
+    background-color: #c7d2fe;
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='20' shape-rendering='crispEdges'%3E%3Cpath d='M4 1h3v3h3v3H7v3H4V7H1V4h3zM14 3h8v3h-8zM10 13h3v3h-3zM18 10h3v8h-3zM15 13h9v3h-9zM1 15h5v3H1z'/%3E%3C/svg%3E");
+}
+
+html.dark.theme-pixel-wave body::after {
+    background-color: #334155;
+}
+
+::view-transition-group(theme-pixels) {
+    z-index: 2;
+    pointer-events: none;
+}
+
+::view-transition-new(theme-pixels) {
+    animation: none;
+    mask-image: radial-gradient(circle at var(--theme-wave-origin, center),
+        transparent var(--theme-wave-radius),
+        black var(--theme-wave-radius),
+        black calc(var(--theme-wave-radius) + 8px),
+        transparent calc(var(--theme-wave-radius) + 8px));
+}
+
 html.theme-switching,
 html.theme-switching * {
     transition: none !important;

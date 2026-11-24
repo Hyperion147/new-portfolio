@@ -23,7 +23,7 @@ const links = [
         Icon: FiGithub,
     },
     {
-        href: "https://drive.google.com/file/d/1lSFGCpIrAzaUBQEPzoRuJp3kGLRXPcdO/view?usp=sharing",
+        href: "https://drive.google.com/file/d/1D0pdGum1zXr1Mfi8Pdjx6AUbiMGLsZRA/view?usp=sharing",
         label: "Resume",
         external: true,
         Icon: FiFileText,
